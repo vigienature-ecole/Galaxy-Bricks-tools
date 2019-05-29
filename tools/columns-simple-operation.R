@@ -15,23 +15,36 @@ inputData <- fread(args[1])
 inputFormula = args[2]
 inputName = args[3]
 
-if (inputName == "") inputName = inputFormula
 
-# change column names to column code to match formula syntax
-transformedData <- inputData
-colnames(transformedData) <- c(paste0("c",1:ncol(inputData)))
+#check the formula for security reasons
 
-# change the formula
-formulaIndexed <- gsub("c", "transformedData$c",inputFormula)
+evalFormula <- inputFormula
+functions <- c("log[(]","exp[(]","sqrt[(]","asin[(]","acos[(]","sin[(]","tan[(]","atan[(]","cos[(]")
+for (i in seq_along(functions)) evalFormula <- gsub(functions[2],"",evalFormula)
+resultEval <- grepl("^[0-9 c+^()]+$",evalFormula)
 
-# apply formula to the data
-resultData <- data.frame(eval(parse(text=formulaIndexed)))
+if (resultEval){
 
-# change the name of the result column
-colnames(resultData) <- inputName
+  if (inputName == "") inputName = inputFormula
 
-# add column to original file if asked
-if (args[4] == TRUE) resultData <- data.frame(inputData, resultData)
+  # change column names to column code to match formula syntax
+  transformedData <- inputData
+  colnames(transformedData) <- c(paste0("c",1:ncol(inputData)))
 
-# write output file
-write.table(resultData, file="result", row.names=FALSE, sep="\t")
+  # change the formula
+  formulaIndexed <- gsub("c", "transformedData$c",inputFormula)
+
+  # apply formula to the data
+  resultData <- data.frame(eval(parse(text=formulaIndexed)))
+
+  # change the name of the result column
+  colnames(resultData) <- inputName
+  
+  # add column to original file if asked
+  if (args[4] == TRUE) resultData <- data.frame(inputData, resultData)
+
+  # write output file
+  write.table(resultData, file="result", row.names=FALSE, sep="\t")
+} else {
+  print("Formula not valid")
+}
