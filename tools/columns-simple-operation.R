@@ -15,7 +15,6 @@ inputData <- fread(args[1])
 inputFormula = args[2]
 inputName = args[3]
 
-
 #check the formula for security reasons
 
 evalFormula <- inputFormula
@@ -39,7 +38,7 @@ if (resultEval){
 
   # change the name of the result column
   colnames(resultData) <- inputName
-  
+
   # add column to original file if asked
   if (args[4] == TRUE) resultData <- data.frame(inputData, resultData)
 
