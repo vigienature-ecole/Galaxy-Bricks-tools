@@ -71,7 +71,7 @@
         <param format="tabular,csv" name="input" type="data" label="Input file" />
         <param falsevalue="FALSE" label="Add column to original dataset" name="addToData" truevalue="TRUE" type="boolean" />
         <repeat name="series" title="Series">
-            <param name="column" type="integer" value="1" label="Number of the column to parse" />
+            <param name="column" type="integer" value="2" label="Number of the column to parse" />
             <param name="inputName" type="text" value="date" label="Name of the resulting column" />
             <param name="inputDateFormat" type="select" label="choose input date format" help="y for years, m for month and d for day">
                 <option value="dmy" selected="true">DMY</option>
@@ -105,43 +105,29 @@
 
 .. class:: infomark
 
-This tool performs operations on columns:
- * it is possible to combine multiple columns (e.g. c1 * c2)
- * it is possible to transform one column using constants (e.g. c1 / 2)
-
-you can use elementary operations
-
-"+" addition
-"-" subtraction
-"*" multiplication
-"/" division
-
-you can transform your data
-"log(c2)"
-"exp(c2)"
-
+This tool converts dates to standart format
+ * choose input format
+ * choose output format
 
 **Example**
 
 input dataset ::
 
- "a"  "b"
-  1    0
-  2    5
-  5    6
- 10    2
-
-Formula :
-
-c1 + c2
+ ID   dateIn
+ 1   12/10/2019
+ 2   12.10.2019
+ 3   12-10-2019
+ 4 12//10//2019
+ 5   12/10*2019
 
 Result ::
 
- "result"
-    1
-    7
-   11
-   12
+    date     Day of the year
+ 2019-10-12       285
+ 2019-10-12       285
+ 2019-10-12       285
+ 2019-10-12       285
+ 2019-10-12       285
 
     ]]></help>
 </tool>
