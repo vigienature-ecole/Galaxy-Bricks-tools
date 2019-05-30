@@ -1,0 +1,147 @@
+<tool id="lubridate_convert" name="Convert dates">
+    <requirements>
+        <requirement type="package" version="1.7.4">r-lubridate</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        cat '$script' &&
+        Rscript '$script'
+    ]]></command>
+    <configfiles>
+        <configfile name="script"><![CDATA[
+            ## Setup R error handling to go to stderr
+            options(show.error.messages=F, error=function(){cat(geterrmessage(), file=stderr()); q("no",1,F)})
+
+            ## Unify locale settings
+            loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
+
+            ## Import library
+            library(lubridate)
+
+            ## Import file
+            input1 <- read.table('$input', sep='\t', header=TRUE, dec=",")
+
+            ## Add new column
+            #for $i, $s in enumerate($series)
+            rank_of_series=$i
+
+            ## Parse time
+            result <- parse_date_time(input1[ , $s.column], '$s.inputDateFormat')
+
+            #if $s.outputDateFormat == "second"
+                result <- second(result)
+            #elif $s.outputDateFormat == "minute"
+                result <- minute(result)
+            #elif $s.outputDateFormat == "hour"
+                result <- hour(result)
+            #elif $s.outputDateFormat == "day"
+                result <- day(result)
+            #elif $s.outputDateFormat == "yday"
+                result <- yday(result)
+            #elif $s.outputDateFormat == "mday"
+                result <- mday(result)
+            #elif $s.outputDateFormat == "wday"
+                result <- wday(result)
+            #elif $s.outputDateFormat == "week"
+                result <- week(result)
+            #elif $s.outputDateFormat == "month"
+                result <- month(result)
+            #elif $s.outputDateFormat == "year"
+                result <- year(result)
+            #elif $s.outputDateFormat == "timeZone"
+                result <- tz(result)
+            #elif $s.outputDateFormat == "dst"
+                result <- dst(result)
+            #end if
+
+            #if $addToData == "TRUE"
+                input1 <- data.frame(input1, res = result)
+
+
+
+                colnames(input1)[ncol(input1)] <- '$s.inputName'
+            #end if
+            #end for
+
+            write.table(input1, file="result", row.names=FALSE, sep="\t")
+
+        ]]></configfile>
+    </configfiles>
+
+    <inputs>
+        <param format="tabular,csv" name="input" type="data" label="Input file" />
+        <param falsevalue="FALSE" label="Add column to original dataset" name="addToData" truevalue="TRUE" type="boolean" />
+        <repeat name="series" title="Series">
+            <param name="column" type="integer" value="1" label="Number of the column to parse" />
+            <param name="inputName" type="text" value="date" label="Name of the resulting column" />
+            <param name="inputDateFormat" type="select" label="choose input date format" help="y for years, m for month and d for day">
+                <option value="dmy" selected="true">DMY</option>
+                <option value="mdy">MDY</option>
+                <option value="ymd">YMD</option>
+            </param>
+            <param name="outputDateFormat" type="select" label="choose output date format">
+                <option value="full" selected="true">Full</option>
+                <option value="year">Year</option>
+                <option value="month">Month</option>
+                <option value="day">Day</option>
+                <option value="week">Week</option>
+                <option value="yday">Day of the year</option>
+                <option value="mday">Day of the month</option>
+                <option value="timeZone">Time zone</option>
+            </param>
+        </repeat>
+    </inputs>
+    <outputs>
+        <data format="tabular" name="output" from_work_dir="result"/>
+    </outputs>
+    <tests>
+        <test> <!--FAILED-->
+            <param name="input1" value="testData"/>
+            <param name="inputFormula" value="c1 + c2"/>
+            <param name="inputName" value="test"/>
+            <output name="output" value="result"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+
+.. class:: infomark
+
+This tool performs operations on columns:
+ * it is possible to combine multiple columns (e.g. c1 * c2)
+ * it is possible to transform one column using constants (e.g. c1 / 2)
+
+you can use elementary operations
+
+"+" addition
+"-" subtraction
+"*" multiplication
+"/" division
+
+you can transform your data
+"log(c2)"
+"exp(c2)"
+
+
+**Example**
+
+input dataset ::
+
+ "a"  "b"
+  1    0
+  2    5
+  5    6
+ 10    2
+
+Formula :
+
+c1 + c2
+
+Result ::
+
+ "result"
+    1
+    7
+   11
+   12
+
+    ]]></help>
+</tool>
