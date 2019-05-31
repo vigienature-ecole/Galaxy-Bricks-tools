@@ -55,9 +55,7 @@
 
             #if $addToData == "TRUE"
                 input1 <- data.frame(input1, res = result)
-
-
-
+y
                 colnames(input1)[ncol(input1)] <- '$s.inputName'
             #end if
             #end for
@@ -119,6 +117,20 @@ input dataset ::
  3   12-10-2019
  4 12//10//2019
  5   12/10*2019
+
+ Parameters :
+
+ Add column : No
+ insert serie
+ Number of the column to parse: 2
+ Name of the resulting column: date
+ choose input date format: dmy
+ choose output date format: full
+ insert serie
+ Number of the column to parse: 2
+ Name of the resulting column: Day of the year
+ choose input date format: dmy
+ choose output date format: Day of the year
 
 Result ::
 
