@@ -55,7 +55,6 @@
 
             #if $addToData == "TRUE"
                 input1 <- data.frame(input1, res = result)
-y
                 colnames(input1)[ncol(input1)] <- '$s.inputName'
             #end if
             #end for
