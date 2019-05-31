@@ -82,7 +82,8 @@
                 <option value="day">Day</option>
                 <option value="week">Week</option>
                 <option value="yday">Day of the year</option>
-                <option value="mday">Day of the month</option>
+		<option value="mday">Day of the month</option>
+                <option value="wday">Day of the week</option>
                 <option value="timeZone">Time zone</option>
             </param>
         </repeat>
