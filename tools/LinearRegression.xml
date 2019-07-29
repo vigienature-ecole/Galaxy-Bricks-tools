@@ -1,0 +1,63 @@
+<tool id="simple-linear-regression" name="Simple linear regression">
+    <requirements>
+        <requirement type="package" version="1.11.4">r-data.table</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/linear-regression.R' '$input' '$dependantVar' '$explanatoryVar'
+        '$output1' '$output2' ]]>
+    </command>
+    <inputs>
+        <param format="tabular,csv" name="input" type="data" label="Input file" />
+        <param name="dependantVar" label="Response column (Y)" type="data_column" numerical="True"/>
+        <param name="explanatoryVar" label="Predictor columns (X)" type="data_column" numerical="True" multiple="true" >
+            <validator type="no_options" message="Please select at least one column."/>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="png" name="output1" from_work_dir="output-plot-trend.png" />
+        <data format="txt" name="output2" from_work_dir="output-plot.png" />
+    </outputs>
+    <help><![CDATA[
+
+.. class:: infomark
+
+This tool performs operations on columns:
+ * it is possible to combine multiple columns (e.g. c1 * c2)
+ * it is possible to transform one column using constants (e.g. c1 / 2)
+
+you can use elementary operations
+
+"+" addition
+"-" subtraction
+"*" multiplication
+"/" division
+
+you can transform your data
+"log(c2)"
+"exp(c2)"
+
+
+**Example**
+
+input dataset ::
+
+ "a"  "b"
+  1    0
+  2    5
+  5    6
+ 10    2
+
+Formula :
+
+c1 + c2
+
+Result ::
+
+ "result"
+    1
+    7
+   11
+   12
+
+    ]]></help>
+</tool>
