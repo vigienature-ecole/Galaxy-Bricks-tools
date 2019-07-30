@@ -31,6 +31,7 @@ capture.output(results, file="mod-summary.txt")
 # Output 3 Graph
 # plot data and add trend line
 png('output-plot.png')
-plot(input[ ,as.numeric(args[3])], input[ ,as.numeric(args[2])])
+plot(input[ ,as.numeric(args[3])], input[ ,as.numeric(args[2])]
+, xlab = colnames(input)[as.numeric(args[3])], ylab = colnames(input)[as.numeric(args[2])])
 abline(res)
 invisible(dev.off())
