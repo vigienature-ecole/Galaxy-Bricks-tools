@@ -33,5 +33,5 @@ capture.output(results, file="mod-summary.txt")
 png('output-plot.png')
 plot(input[ ,as.numeric(args[3])], input[ ,as.numeric(args[2])]
 , xlab = colnames(input)[as.numeric(args[3])], ylab = colnames(input)[as.numeric(args[2])])
-abline(res)
+abline(res, lwd = 2)
 invisible(dev.off())
