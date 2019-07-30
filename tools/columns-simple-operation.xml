@@ -30,6 +30,7 @@
 This tool performs operations on columns:
  * it is possible to combine multiple columns (e.g. c1 * c2)
  * it is possible to transform one column using constants (e.g. c1 / 2)
+ * it is possible to combine the operations described above within a formula
 
 you can use elementary operations
 
@@ -53,7 +54,7 @@ input dataset ::
   5    6
  10    2
 
-Formula :
+Formula ::
 
 c1 + c2
 
