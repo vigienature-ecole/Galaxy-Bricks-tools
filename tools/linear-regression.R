@@ -21,7 +21,10 @@ library(data.table) # for data import
 input = data.frame(fread(args[1]))
 
 # run linear model
-res <- lm(input[ ,as.numeric(args[2])] ~ input[ ,as.numeric(args[3])])
+
+formulaMod <- as.formula(paste(colnames(input)[as.numeric(args[2])]," ~ " ,colnames(input)[as.numeric(args[3])]))
+res <- lm(formulaMod, data = input)
+
 # get output from linear model
 results <- summary(res)
 
@@ -31,7 +34,6 @@ capture.output(results, file="mod-summary.txt")
 # Output 3 Graph
 # plot data and add trend line
 png('output-plot.png')
-plot(input[ ,as.numeric(args[3])], input[ ,as.numeric(args[2])]
-, xlab = colnames(input)[as.numeric(args[3])], ylab = colnames(input)[as.numeric(args[2])])
+plot(formulaMod, data = input)
 abline(res, lwd = 2)
 invisible(dev.off())
