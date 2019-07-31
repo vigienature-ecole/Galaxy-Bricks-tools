@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-# tool for simple linear regression
+# tool for linear regression
 #
 #  Input :
 #     1. dataset
@@ -31,7 +31,7 @@ if (multiple) {
     " ~ " ,
     paste(colnames(input)[varExpl], collapse = ' + '))
   )
-  
+
 } else {
   formulaMod <- as.formula(paste(colnames(input)[as.numeric(args[2])]," ~ " , colnames(input)[as.numeric(args[3])]))
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-# tool for simple linear regression
+# tool for anova analysis
 #
 #  Input :
 #     1. dataset
