@@ -17,10 +17,11 @@
     </outputs>
     <tests>
         <test> <!--FAILED-->
-            <param name="input" value="testData"/>
-            <param name="inputFormula" value="c1 + c2"/>
-            <param name="inputName" value="test"/>
-            <output name="output" value="result"/>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="inputFormula" value="c1 / c2"/>
+            <param name="inputName" value="Sepal.Ratio"/>
+            <param name="add" value="TRUE"/>
+            <output name="output" value="out-simple-operation.tabular"/>
         </test>
     </tests>
     <help><![CDATA[

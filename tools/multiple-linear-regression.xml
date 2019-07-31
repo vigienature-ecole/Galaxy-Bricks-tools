@@ -17,9 +17,9 @@
     <tests>
         <test>
             <param name="input" value="irisPlus.tabular"/>
-            <param name="dependantVar" value="2"/>
-            <param name="explanatoryVar" value="1"/>
-            <output name="output" file="out-simple-linear-regression.txt"/>
+            <param name="dependantVar" value="1"/>
+            <param name="explanatoryVar" value="2,3,4"/>
+            <output name="output" file="out-multiple-linear-regression.txt"/>
         </test>
     </tests>
     <help><![CDATA[
