@@ -45,10 +45,9 @@ results <- summary(res)
 # Output 1 and 2
 capture.output(results, file="mod-summary.txt")
 
-if (!multiple) {
-  # Output 3 Graph
-  # plot data and add trend line
-  png('output-plot.png')
-  boxplot(formulaMod, data = input)
-  invisible(dev.off())
-}
+
+# Output 3 Graph
+# plot data and add trend line
+png('output-plot.png')
+boxplot(formulaMod, data = input)
+invisible(dev.off())
