@@ -4,3 +4,11 @@ The Galaxy-Bricks project is part of is part of the european project GAPARS (Hor
 To increase the accessibility to data and extend collaborations between research teams and participants, we are developing Galaxy-Bricks, a data analysis tool based on Galaxy for ecology. This platform should include user-friendly tools together with specific training material, designed for a non-professional contributors. We are using the possibilities that Galaxy provides to reach this goal and we are investigating ergonomic improvement of the graphical user interface using notably external softwares.
 On his educational side, this project will provide a concrete tool to develop data literacy, favor open data and collaboration in our communities.
 
+## Tool development
+
+- we are developing intuitive tools to analyze data.
+  - anova (analysis of variance)
+    - TODO: find possibility to change order (impossible with the data_column parameter)
+    - TODO: be more picky with the interactions (only all or none for now)
+  - linear regression
+  -
