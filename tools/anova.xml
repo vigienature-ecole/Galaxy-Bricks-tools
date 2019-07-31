@@ -18,11 +18,11 @@
     </outputs>
     <tests>
         <test>
-            <param name="input" value="iris.tabular"/>
+            <param name="input" value="irisPlus.tabular"/>
             <param name="dependantVar" value="2"/>
             <param name="explanatoryVar" value="5"/>
-            <output name="output1" file="out-simple-anova.png"/>
-            <output name="output2" file="out-simple-anova.txt"/>
+            <output name="output1" file="out-multiple-anova.png"/>
+            <output name="output2" file="out-multiple-anova.txt"/>
         </test>
     </tests>
     <help><![CDATA[
