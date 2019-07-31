@@ -18,9 +18,9 @@ inputName = args[3]
 #check the formula for security reasons
 
 evalFormula <- inputFormula
-functions <- c("log[(]" ,"exp[(]" ,"sqrt[(]" ,"asin[(]" ,"acos[(]" ,"sin[(]" ,"tan[(]" ,"atan[(]" ,"cos[(]")
-for (i in seq_along(functions)) evalFormula <- gsub(functions[2],"",evalFormula)
-resultEval <- grepl("^[0-9 c+^/*%()]+$",evalFormula)
+functions <- c("log[(]" ,"exp[(]" ,"sqrt[(]" ,"asin[(]" ,"acos[(]" ,"sin[(]" ,"tan[(]" ,"atan[(]" ,"cos[(]", "sum[()]")
+for (i in seq_along(functions)) evalFormula <- gsub(functions[i],"",evalFormula)
+resultEval <- grepl("^[0-9 c+^/*%() -- -]+$",evalFormula)
 
 if (resultEval){
 
@@ -43,7 +43,7 @@ if (resultEval){
   if (args[4] == TRUE) resultData <- data.frame(inputData, resultData)
 
   # write output file
-  write.table(resultData, file="result", row.names=FALSE, sep="\t")
+  write.table(resultData, file="result", row.names=FALSE, sep="\t", quote=FALSE)
 } else {
   print("Formula not valid")
 }
