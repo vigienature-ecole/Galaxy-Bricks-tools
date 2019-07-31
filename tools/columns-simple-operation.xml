@@ -10,7 +10,7 @@
         <param format="tabular,csv" name="input" type="data" label="Input file" />
         <param name="inputFormula" type="text" value="c1 + c2" label="Formula" help="Identify columns with a c and the number of the column (e.g. c2 for the second column)" />
         <param name="inputName" type="text" value="" label="Name of the resulting column" />
-        <param falsevalue="FALSE" label="Add column to original dataset" name="add" truevalue="TRUE" type="boolean" />
+        <param truevalue="TRUE" falsevalue="FALSE" label="Add column to original dataset" name="add" type="boolean" />
     </inputs>
     <outputs>
         <data format="tabular" name="output" from_work_dir="result"/>
@@ -31,7 +31,7 @@
 This tool performs operations on columns:
  * it is possible to combine multiple columns (e.g. c1 * c2)
  * it is possible to transform one column using constants (e.g. c1 / 2)
- * it is possible to combine the operations described above within a formula
+ * it is possible to combine the operations described above within a formula (e.g. log(c1) + c2)
 
 you can use elementary operations
 
