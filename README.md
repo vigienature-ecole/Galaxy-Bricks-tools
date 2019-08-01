@@ -11,4 +11,8 @@ On his educational side, this project will provide a concrete tool to develop da
     - TODO: find possibility to change order (impossible with the data_column parameter)
     - TODO: be more picky with the interactions (only all or none for now)
   - linear regression
-  -
+  - datamash
+    - TODO: keep original names
+  - join datasets
+    - TODO keep header
+    - TODO select column to keep for datasets
