@@ -77,6 +77,24 @@
           ggsave(filename = output2, plot = plot_out, width = gg_width, height = gg_height, units = gg_unit, dpi = gg_dpi, device = gg_add_device)
         }
     ]]></token>
+    <token name="@layerOptions@"><![CDATA[
+        ## layer options for primary and secondary axis
+        #if layerTypeR == "points"
+        plot_inter = geom_point(mappingCoord)
+        #elif layerTypeR == "lines"
+        plot_inter = geom_line(mappingCoord)
+        #elif layerTypeR == "boxplot"
+        plot_inter = geom_boxplot(mappingCoord)
+        #elif layerTypeR == "violin"
+        plot_inter = geom_violin(mappingCoord)
+        #elif layerTypeR == "jitter"
+        plot_inter = geom_jitter(mappingCoord)
+        #elif layerTypeR == "smooth"
+        plot_inter = geom_smooth(mappingCoord,
+                                 method = methodR)
+        #end if
+    ]]></token>
+
     <xml name="read_complex_input">
         <param name="input1" type="data" format="tabular" label="Select table"/>
         <conditional name="inputdata">
@@ -288,4 +306,57 @@
             <filter>out['additional_output_format'] != "none"</filter>
         </data>
     </xml>
+    <xml name="layer_options">
+            <param name="layerType" type="select" label="Type of layer to plot" >
+                <option value="points">Points (default)</option>
+                <option value="lines">Lines</option>
+                <option value="boxplot">Boxplot</option>
+                <option value="violin">Violin plot</option>
+                <option value="jitter">Jitter points</option>
+                <option value="smooth">Smooth</option>
+            </param>
+            <when value="smooth">
+                <param name="method" label="Method" type="select">
+                    <option value="auto">Auto (default)</option>
+                    <option value="lm">LM</option>
+                    <option value="glm">GLM</option>
+                    <option value="gam">GAM</option>
+                    <option value="loess">Loess</option>
+                </param>
+            </when>
+            <when value="points">
+            </when>
+            <when value="lines">
+            </when>
+            <when value="boxplot">
+            </when>
+            <when value="violin">
+            </when>
+            <when value="jitter">
+            </when>
+          </xml>
+          <xml name="layer_advanced_options">
+      <section name="advanced" title="Advanced options" expanded="false">
+      <param name="size" type="float" value="1" label="relative size of points" />
+      <param name="pointcolor" type="select" label="Color of data points" >
+          <option value="black">Black (default)</option>
+          <option value="red">Red</option>
+          <option value="white">White</option>
+          <option value="blue">Blue</option>
+          <option value="orange">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="purple">Purple</option>
+          <option value="magenta">Magenta</option>
+          <option value="cyan">Cyan</option>
+          <option value="grey">Grey</option>
+          <option value="gold">Gold</option>
+      </param>
+      </section>
+
+    </xml>
+
+
+
+
 </macros>

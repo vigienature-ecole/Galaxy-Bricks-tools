@@ -230,6 +230,15 @@ Multiple groups can be plotted on the same or multiple plots by providing a colu
 Feel free to explore the (many) advanced options to customize your plot. Galaxy makes this type optimization easy for the user!
 
 The ouput is a pdf file with your scatterplot. The dimensions of this file can be modified under "Advanced - output dimensions"
+
+.. image:: https://zupimages.net/up/19/34/qn9m.gif
+
+.. image:: helpScatterplot.gif
+
+<p align="center"><img src="http://zupimages.net/viewer.php?id=19/34/qn9m.gif" align="center"></p>
+
+<img src="http://zupimages.net/viewer.php?id=19/34/qn9m.gif"align="right">
+
     ]]></help>
     <expand macro="citations"/>
 </tool>
