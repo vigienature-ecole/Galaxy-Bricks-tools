@@ -1,7 +1,7 @@
 <tool id="columns-simple-operation" name="Simple operations">
 <description>on columns</description>
     <requirements>
-        <requirement type="package" version="1.11.4">r-data.table</requirement>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/columns-simple-operation.R' '$input' '$inputFormula' '$inputName' '$add' '$output' ]]>
