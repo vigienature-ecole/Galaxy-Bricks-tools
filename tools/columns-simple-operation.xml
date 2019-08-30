@@ -13,7 +13,7 @@
         <param truevalue="TRUE" falsevalue="FALSE" label="Add column to original dataset" name="add" type="boolean" />
     </inputs>
     <outputs>
-        <data format="tabular" name="output" from_work_dir="result"/>
+        <data format="tabular" name="output" from_work_dir="result.tabular"/>
     </outputs>
     <tests>
         <test> <!--FAILED-->

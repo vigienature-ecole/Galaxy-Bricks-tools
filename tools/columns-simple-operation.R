@@ -43,7 +43,7 @@ if (resultEval){
   if (args[4] == TRUE) resultData <- data.frame(inputData, resultData)
 
   # write output file
-  write.table(resultData, file="result", row.names=FALSE, sep="\t", quote=FALSE)
+  fwrite(resultData, file = "result.tabular", sep = "\t")
 } else {
   print("Formula not valid")
 }
