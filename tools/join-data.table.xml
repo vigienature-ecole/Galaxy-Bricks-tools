@@ -1,4 +1,4 @@
-<tool id="join-data-table" name="Join two datasets version cool">
+<tool id="join-data.table" name="Join two datasets">
     <description>on a specified field</description>
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
