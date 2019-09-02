@@ -1,0 +1,120 @@
+<tool id="regex_replace" name="Regex Replace" version="1.0.0">
+	<description>Regular Expression replacement using the Python re module</description>
+	<command interpreter="python">$script_file</command>
+	<inputs>
+		<param name="infile" type="data" label="Input File"/>
+	  	<param name="search_str" type="text" size="70" label="Search String">
+			<sanitizer>
+				<valid initial="string.printable">
+					<remove value="&quot;"/>
+					<remove value="\"/>
+				</valid>
+				<mapping initial="none">
+					<add source="&quot;" target="\&quot;"/>
+					<add source="\" target="\\"/>
+				</mapping>
+			</sanitizer>
+		</param>
+	  	<param name="replace_str" type="text" size="70" label="Replace String">
+		  	<sanitizer>
+				<valid initial="string.printable">
+					<remove value="&quot;"/>
+					<remove value="\"/>
+				</valid>
+				<mapping initial="none">
+					<add source="&quot;" target="\&quot;"/>
+					<add source="\" target="\\"/>
+				</mapping>
+			</sanitizer>
+	  	</param>
+	  	<param name="multiline" type="boolean" label="Multi-line" checked="False"/>
+	  	<param name="ignore_case" type="boolean" label="Ignore Case" checked="False"/>
+	  	<param name="dot_all" type="boolean" label="Dot All" checked="False"/>
+	  	<param name="replace_count" type="integer" label="Replace Count(0=all)" value="0"/>
+	</inputs>
+	<outputs>
+		<data name="outfile" format="txt"/>
+	</outputs>
+	<configfiles>
+		<configfile name="script_file"><![CDATA[#!/usr/bin/env python
+
+import re
+
+search_str = """${search_str}"""
+replace_str = """${replace_str}"""
+
+opts = 0
+#if $ignore_case:
+opts |= re.IGNORECASE
+#end if
+#if $multiline:
+opts |= re.MULTILINE
+#end if 
+#if $dot_all:
+opts |= re.DOTALL
+#end if
+cmd = re.compile(search_str, opts)
+
+ihandle = open("""${infile}""")
+ohandle = open("""${outfile}""", "w")
+
+#if $multiline:
+itext = ihandle.read()
+otext = cmd.sub(replace_str, itext, count=$replace_count )
+ohandle.write(otext)
+#else
+for line in ihandle:
+	oline = cmd.sub(replace_str, line, count=$replace_count )
+	ohandle.write(oline)
+#end if
+
+ihandle.close()
+ohandle.close()
+
+]]></configfile>
+	</configfiles>
+
+  <help>
+Perform regular expression replacement using the Python re engine.
+
+Example:
+========
+    Search String::
+
+        [^\s]+_(\w+).*
+
+    Replace String::
+        
+        \1
+
+    On the input file::
+
+        LJP001_BT20_24H:DMSO
+        LJP001_BT20_24H:H20
+        LJP001_BT20_6H:DMSO
+
+    Outputs::
+
+        24H
+        24H
+        6H
+
+Additional Options
+==================
+
+Replace Count:
+    Will define the number of occurrences that can be replaced by the substitution. A count of 0 is equivalent 
+    to 'replace all'
+
+
+Ignore Case:
+    Make searches case insensitive
+
+Multi-line:
+    Do the search across the entire contents of the file. If not checked, then replacements occur line by line
+
+Dot-All:
+    With this checked, the '.' in a matching pattern will also match new-line characters. Generally used with 'multi-line' search
+
+  </help>
+</tool>
