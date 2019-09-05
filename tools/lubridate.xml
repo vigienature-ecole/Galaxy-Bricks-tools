@@ -82,7 +82,7 @@
                 <option value="day">Day</option>
                 <option value="week">Week</option>
                 <option value="yday">Day of the year</option>
-		<option value="mday">Day of the month</option>
+	             	<option value="mday">Day of the month</option>
                 <option value="wday">Day of the week</option>
                 <option value="timeZone">Time zone</option>
             </param>
@@ -93,10 +93,13 @@
     </outputs>
     <tests>
         <test> <!--FAILED-->
-            <param name="input1" value="testData"/>
-            <param name="inputFormula" value="c1 + c2"/>
-            <param name="inputName" value="test"/>
-            <output name="output" value="result"/>
+            <param name="input" value="input-lubridate.tabular"/>
+            <param name="addToData" value="TRUE"/>
+            <param name="column" value="3"/>
+            <param name="inputName" value="date"/>
+            <param name="inputDateFormat" value="DMY"/>
+            <param name="outputDateFormat" value="full"/>
+            <output name="output" file="out-lubridate.tabular"/>
         </test>
     </tests>
     <help><![CDATA[
