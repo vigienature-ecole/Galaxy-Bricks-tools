@@ -51,7 +51,7 @@ plot_out = plot_out + mappingCoord
 #if $groupLayerNb.grouplayerType == "color"
 mappingGroup = aes_string(colour = names(input)[$groupLayerNb.groupColID])
 #elif $groupLayerNb.grouplayerType == "facetting"
-mappingGroup = facet_wrap(names(input)[$groupLayerNb.groupColID])
+mappingGroup = facet_wrap(names(input)[$groupLayerNb.groupColID], scales = '$groupLayerNb.scaletype')
 #end if
 plot_out = plot_out + mappingGroup
 #end for
@@ -105,12 +105,13 @@ plot_out = plot_out + plot_inter
         <param name="yplot" label="Column to plot on y-axis" type="data_column" data_ref="input1" numerical="false"/>
         <section name="groupOpt" title="Group options" expanded="false">
             <repeat name="groupLayer" title="Group layer">
-                <param name="grouplayerType" type="select" label="Type of group layer to plot", help="Each type can only be selected once" >
+                <param name="grouplayerType" type="select" label="Type of group layer to plot" >
                     <option value="color">color (default)</option>
                     <option value="shape">shape</option>
                     <option value="facetting">facetting</option>
                 </param>
                 <param name="groupColID" label="Column to plot as color groups" type="data_column" data_ref="input1" numerical="false"/>
+                <param name="scaletype" type="boolean" truevalue="free" falsevalue="fixed" label="Allow different scales for each graph" />
             </repeat>
         </section>
         <repeat name="primaryLayer" title="Primary layer">
