@@ -1,5 +1,4 @@
-<tool id="columns-simple-operation" name="Simple operations">
-<description>on columns</description>
+<tool id="columns-simple-operation" name="column operations">
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
