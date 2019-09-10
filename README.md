@@ -16,3 +16,15 @@ On his educational side, this project will provide a concrete tool to develop da
   - join datasets
     - TODO keep header
     - TODO select column to keep for datasets
+
+### Tool list
+
+Tool name | Functional tool | tests | help
+---------------------------------------------
+- Import data | WIP | no | WIP
+- Column simple operation  | YES | no | no
+- Row simple operation | YES | no | no
+- Select lines | YES | no | no
+- Select columns | YES | no | no
+- Plot | YES | no | no
+- anova | YES | no | no
