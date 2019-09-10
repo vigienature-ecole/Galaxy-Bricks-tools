@@ -1,0 +1,149 @@
+<tool id="row-simple-operation" name="Row operations">
+    <requirements>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        cat '$script' &&
+        Rscript '$script'
+    ]]></command>
+    <configfiles>
+        <configfile name="script"><![CDATA[
+            ## Setup R error handling to go to stderr
+            options(show.error.messages=F, error=function(){cat(geterrmessage(), file=stderr()); q("no",1,F)})
+
+            ## Unify locale settings
+            loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
+
+            ## Import library
+            library(data.table)
+
+            ## Import file
+            input1 <- fread('$input')
+
+            ## Add new column
+            #for $i, $s in enumerate($series)
+            rank_of_series=$i
+
+            ## Parse time
+            result <- parse_date_time(input1[ , $s.column], '$s.inputDateFormat')
+
+            #if $s.outputOperation == "mean"
+                DT_df[,sums:= rowMeans(.SD,na.rm=T)]
+                data.frame(ID=DF[,1], Means=rowMeans(DF[,-1]))
+                result <- mean(result)
+            #elif $s.outputOperation == "sum"
+                result <- sumo(result)
+            #elif $s.outputOperation == "hour"
+                result <- hour(result)
+            #elif $s.outputOperation == "day"
+                result <- day(result)
+            #elif $s.outputOperation == "yday"
+                result <- yday(result)
+            #elif $s.outputOperation == "mday"
+                result <- mday(result)
+            #elif $s.outputOperation == "wday"
+                result <- wday(result)
+            #elif $s.outputOperation == "week"
+                result <- week(result)
+            #elif $s.outputOperation == "month"
+                result <- month(result)
+            #elif $s.outputOperation == "year"
+                result <- year(result)
+            #elif $s.outputOperation == "timeZone"
+                result <- tz(result)
+            #elif $s.outputOperation == "dst"
+                result <- dst(result)
+            #end if
+
+            #if $addToData == "TRUE"
+                input1 <- data.frame(input1, res = result)
+                colnames(input1)[ncol(input1)] <- '$s.outputName'
+            #end if
+            #end for
+
+            write.table(input1, file="result", row.names=FALSE, sep="\t")
+
+        ]]></configfile>
+    </configfiles>
+
+    <inputs>
+        <param format="tabular,csv" name="input" type="data" label="Input file" />
+        <param falsevalue="FALSE" label="Add column to original dataset" name="addToData" truevalue="TRUE" type="boolean" />
+        <repeat name="series" title="Series">
+            <param name="inputOperation" type="select" label="choose input date format" help="y for years, m for month and d for day">
+                <option value="dmy" selected="true">DMY</option>
+                <option value="mdy">MDY</option>
+                <option value="ymd">YMD</option>
+            </param>
+            <param name="outputName" type="text" value="date" label="Name of the resulting column" />
+            <param name="outputOperation" type="select" label="choose the operation to perform">
+                <option value="full" selected="true">Full</option>
+                <option value="year">Year</option>
+                <option value="month">Month</option>
+                <option value="day">Day</option>
+                <option value="week">Week</option>
+                <option value="yday">Day of the year</option>
+	             	<option value="mday">Day of the month</option>
+                <option value="wday">Day of the week</option>
+                <option value="timeZone">Time zone</option>
+            </param>
+        </repeat>
+    </inputs>
+    <outputs>
+        <data format="tabular" name="output" from_work_dir="result"/>
+    </outputs>
+    <tests>
+        <test> <!--FAILED-->
+            <param name="input" value="input-lubridate.tabular"/>
+            <param name="addToData" value="TRUE"/>
+            <param name="column" value="3"/>
+            <param name="outputName" value="date"/>
+            <param name="inputDateFormat" value="DMY"/>
+            <param name="outputDateFormat" value="full"/>
+            <output name="output" file="out-lubridate.tabular"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+
+.. class:: infomark
+
+This tool converts dates to standart format
+ * choose input format
+ * choose output format
+
+**Example**
+
+input dataset ::
+
+ ID   dateIn
+ 1   12/10/2019
+ 2   12.10.2019
+ 3   12-10-2019
+ 4 12//10//2019
+ 5   12/10*2019
+
+ Parameters :
+
+ Add column : No
+ insert serie
+ Number of the column to parse: 2
+ Name of the resulting column: date
+ choose input date format: dmy
+ choose output date format: full
+ insert serie
+ Number of the column to parse: 2
+ Name of the resulting column: Day of the year
+ choose input date format: dmy
+ choose output date format: Day of the year
+
+Result ::
+
+    date     Day of the year
+ 2019-10-12       285
+ 2019-10-12       285
+ 2019-10-12       285
+ 2019-10-12       285
+ 2019-10-12       285
+
+    ]]></help>
+</tool>
