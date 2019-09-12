@@ -87,6 +87,8 @@
         plot_inter = geom_boxplot(mappingCoordCat)
         #elif layerTypeR == "violin"
         plot_inter = geom_violin(mappingCoordCat)
+        #elif layerTypeR == "col"
+        plot_inter = geom_col(mappingCoordCat)
         #elif layerTypeR == "jitter"
         plot_inter = geom_jitter(mappingCoord)
         #elif layerTypeR == "smooth"
@@ -314,6 +316,7 @@
                 <option value="violin">Violin plot</option>
                 <option value="jitter">Jitter points</option>
                 <option value="smooth">Smooth</option>
+                <option value="col">Column</option>
             </param>
             <when value="smooth">
                 <param name="method" label="Method (broken)" type="select">
