@@ -18,50 +18,40 @@
             library(data.table)
 
             ## Import file
-            input1 <- fread('$input')
+            input <- fread('$input')
+
+            ## prepare output file
+            output <- input[ , c($advanced.keep)]
+
+            ##Keep the selected columns
+            inputSelect <- input[ , c($advanced.include)]
 
             ## Add new column
             #for $i, $s in enumerate($series)
             rank_of_series=$i
 
-            ## Parse time
-            result <- parse_date_time(input1[ , $s.column], '$s.inputDateFormat')
-
             #if $s.outputOperation == "mean"
-                DT_df[,sums:= rowMeans(.SD,na.rm=T)]
-                data.frame(ID=DF[,1], Means=rowMeans(DF[,-1]))
-                result <- mean(result)
+                result <- rowMeans(inputSelect, na.rm = TRUE)
             #elif $s.outputOperation == "sum"
-                result <- sumo(result)
-            #elif $s.outputOperation == "hour"
-                result <- hour(result)
-            #elif $s.outputOperation == "day"
-                result <- day(result)
-            #elif $s.outputOperation == "yday"
-                result <- yday(result)
-            #elif $s.outputOperation == "mday"
-                result <- mday(result)
-            #elif $s.outputOperation == "wday"
-                result <- wday(result)
-            #elif $s.outputOperation == "week"
-                result <- week(result)
-            #elif $s.outputOperation == "month"
-                result <- month(result)
-            #elif $s.outputOperation == "year"
-                result <- year(result)
-            #elif $s.outputOperation == "timeZone"
-                result <- tz(result)
-            #elif $s.outputOperation == "dst"
-                result <- dst(result)
+                result <- rowSums(inputSelect, na.rm = TRUE)
+            #elif $s.outputOperation == "sd"
+                result <- rowSds(inputSelect, na.rm = TRUE)
+            #elif $s.outputOperation == "countAbove0"
+                inputSelectZero <- inputSelect
+                inputSelectZero[inputSelectZero > 0] <- 1
+                result <- rowSums(inputSelectZero, na.rm = TRUE)
             #end if
 
             #if $addToData == "TRUE"
-                input1 <- data.frame(input1, res = result)
-                colnames(input1)[ncol(input1)] <- '$s.outputName'
+                output <- data.frame(output, res = result)
+                colnames(output)[ncol(output)] <- '$s.outputName'
+            #else
+                output <- data.frame(res = result)
+                colnames(output) <- '$s.outputName'
             #end if
             #end for
 
-            write.table(input1, file="result", row.names=FALSE, sep="\t")
+            write.table(output, file="result", row.names=FALSE, sep="\t")
 
         ]]></configfile>
     </configfiles>
@@ -69,23 +59,17 @@
     <inputs>
         <param format="tabular,csv" name="input" type="data" label="Input file" />
         <param falsevalue="FALSE" label="Add column to original dataset" name="addToData" truevalue="TRUE" type="boolean" />
+        <section name="advanced" title="Advanced options" expanded="false">
+        <param name="include" label="Columns included" type="data_column" data_ref="input" numerical="false" multiple = "true" />
+        <param name="keep" label="Columns to keep in the dataset" type="data_column" data_ref="input" numerical="false" multiple = "true" />
+        </section>
         <repeat name="series" title="Series">
-            <param name="inputOperation" type="select" label="choose input date format" help="y for years, m for month and d for day">
-                <option value="dmy" selected="true">DMY</option>
-                <option value="mdy">MDY</option>
-                <option value="ymd">YMD</option>
-            </param>
-            <param name="outputName" type="text" value="date" label="Name of the resulting column" />
+            <param name="outputName" type="text" value="Result" label="Name of the resulting column" />
             <param name="outputOperation" type="select" label="choose the operation to perform">
-                <option value="full" selected="true">Full</option>
-                <option value="year">Year</option>
-                <option value="month">Month</option>
-                <option value="day">Day</option>
-                <option value="week">Week</option>
-                <option value="yday">Day of the year</option>
-	             	<option value="mday">Day of the month</option>
-                <option value="wday">Day of the week</option>
-                <option value="timeZone">Time zone</option>
+                <option value="sum" selected="true">Sum</option>
+                <option value="mean">Mean</option>
+                <option value="sd">Standart deviation</option>
+                <option value="countAbove0">Count of values above 0</option>
             </param>
         </repeat>
     </inputs>
@@ -93,7 +77,7 @@
         <data format="tabular" name="output" from_work_dir="result"/>
     </outputs>
     <tests>
-        <test> <!--FAILED-->
+        <test>
             <param name="input" value="input-lubridate.tabular"/>
             <param name="addToData" value="TRUE"/>
             <param name="column" value="3"/>
