@@ -13,18 +13,17 @@ On his educational side, this project will provide a concrete tool to develop da
   - linear regression
   - datamash
     - TODO: keep original names
-  - join datasets
-    - TODO keep header
-    - TODO select column to keep for datasets
+
 
 ### Tool list
 
-|Tool name                 | Functional tool | tests | help |
-|--------------------------|-----------------|-------|------|
-| Import data              | WIP             | no    | WIP  |
-| Column simple operation  | YES             | no    | no   |
-| Row simple operation     | YES             | no    | no   |
-| Select lines             | YES             | no    | no   |
-| Select columns           | YES             | no    | no   |
-| Plot                     | YES             | no    | no   |
-| anova                    | YES             | no    | no   |
+|Tool name                 | Category             | Functional tool | tests | help |
+|--------------------------|----------------------|-----------------|-------|------|
+| Import data              | 2. Import data       | WIP             | no    | WIP  |
+| Column simple operation  | 3. Manipulate data   | YES             | no    | no   |
+| Row simple operation     | 3. Manipulate data   | YES             | no    | no   |
+| Select lines             | 3. Manipulate data   | YES             | no    | no   |
+| Select columns           | 3. Manipulate data   | YES             | no    | no   |
+| Convert dates            | 3. Manipulate data   | YES             | YES   | no   |
+| Plot                     | 4. Visualization     |                 | no    | no   |
+| Anova                    | 5. Statistical tests | YES             | no    | no   |
