@@ -42,7 +42,14 @@ plot_out = ggplot(data = input)
 
 mappingCoord = aes_string(x = names(input)[$mainOps.xplot],
                           y = names(input)[$mainOps.yplot])
+
+## coordinate for categories (boxplot, violin plot)
+mappingCoordCat = aes_string(x = names(input)[$mainOps.xplot],
+                           y = names(input)[$mainOps.yplot],
+                           group = names(input)[$mainOps.xplot])
+
 plot_out = plot_out + mappingCoord
+
 ## Group layers
 ## -------------
 
@@ -50,6 +57,8 @@ plot_out = plot_out + mappingCoord
 
 #if $groupLayerNb.grouplayerType == "color"
 mappingGroup = aes_string(colour = names(input)[$groupLayerNb.groupColID])
+#elif $groupLayerNb.grouplayerType == "fill"
+mappingGroup = aes_string(fill = names(input)[$groupLayerNb.groupColID])
 #elif $groupLayerNb.grouplayerType == "facetting"
 mappingGroup = facet_wrap(names(input)[$groupLayerNb.groupColID], scales = '$groupLayerNb.scaletype')
 #end if
@@ -64,9 +73,11 @@ plot_out = plot_out + mappingGroup
 ## Store variables
 
 #set $layerTypeR = $primaryLayerNb.primaryLayer.layerType
+##set $methodR    = $primaryLayerNb.primaryLayer.layerType.method
 layerSizeR = as.numeric('$primaryLayerNb.advanced.size')
 colourR = as.numeric('$primaryLayerNb.advanced.pointcolor')
-#set $methodR = '$primaryLayerNb.primaryLayer.method'
+alphaR = as.numeric('$primaryLayerNb.advanced.alpha')
+methodR = "loess"
 
 @layerOptions@
 
@@ -107,6 +118,7 @@ plot_out = plot_out + plot_inter
             <repeat name="groupLayer" title="Group layer">
                 <param name="grouplayerType" type="select" label="Type of group layer to plot" >
                     <option value="color">color (default)</option>
+                    <option value="fill">fill</option>
                     <option value="shape">shape</option>
                     <option value="facetting">facetting</option>
                 </param>
