@@ -80,13 +80,13 @@
     <token name="@layerOptions@"><![CDATA[
         ## layer options for primary and secondary axis
         #if layerTypeR == "points"
-        plot_inter = geom_point(mappingCoord)
+        plot_inter = geom_point(mappingCoord, alpha = alphaR)
         #elif layerTypeR == "lines"
         plot_inter = geom_line(mappingCoord)
         #elif layerTypeR == "boxplot"
-        plot_inter = geom_boxplot(mappingCoord)
+        plot_inter = geom_boxplot(mappingCoordCat)
         #elif layerTypeR == "violin"
-        plot_inter = geom_violin(mappingCoord)
+        plot_inter = geom_violin(mappingCoordCat)
         #elif layerTypeR == "jitter"
         plot_inter = geom_jitter(mappingCoord)
         #elif layerTypeR == "smooth"
@@ -316,8 +316,8 @@
                 <option value="smooth">Smooth</option>
             </param>
             <when value="smooth">
-                <param name="method" label="Method" type="select">
-                    <option value="auto">Auto (default)</option>
+                <param name="method" label="Method (broken)" type="select">
+                    <option value="auto">Auto</option>
                     <option value="lm">LM</option>
                     <option value="glm">GLM</option>
                     <option value="gam">GAM</option>
@@ -352,6 +352,7 @@
           <option value="grey">Grey</option>
           <option value="gold">Gold</option>
       </param>
+      <param name="alpha" type="float" value="1" label="transparency of points" />
       </section>
 
     </xml>
