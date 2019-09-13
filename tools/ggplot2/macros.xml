@@ -82,22 +82,23 @@
         #if layerTypeR == "points"
         plot_inter = geom_point(mappingCoord, alpha = alphaR)
         #elif layerTypeR == "lines"
-        plot_inter = geom_line(mappingCoord)
+        plot_inter = geom_line(mappingCoord, alpha = alphaR)
         #elif layerTypeR == "boxplot"
-        plot_inter = geom_boxplot(mappingCoordCat)
+        plot_inter = geom_boxplot(mappingCoordCat, alpha = alphaR)
         #elif layerTypeR == "violin"
-        plot_inter = geom_violin(mappingCoordCat)
+        plot_inter = geom_violin(mappingCoordCat, alpha = alphaR)
         #elif layerTypeR == "col"
-        plot_inter = geom_col(mappingCoordCat)
+        plot_inter = geom_col(mappingCoordCat, alpha = alphaR)
         #elif layerTypeR == "jitter"
-        plot_inter = geom_jitter(mappingCoord)
+        plot_inter = geom_jitter(mappingCoord, alpha = alphaR)
         #elif layerTypeR == "hex"
-        plot_inter = geom_hex(mappingCoord)
+        plot_inter = geom_hex(mappingCoord, alpha = alphaR)
         #elif layerTypeR == "density2d"
-        plot_inter = geom_density2d(mappingCoord)
+        plot_inter = geom_density2d(mappingCoord, alpha = alphaR)
         #elif layerTypeR == "smooth"
         plot_inter = geom_smooth(mappingCoord,
-                                 method = methodR)
+                                 method = methodR,
+                                 , alpha = alphaR)
         #end if
     ]]></token>
 

@@ -59,6 +59,8 @@ plot_out = plot_out + mappingCoord
 mappingGroup = aes_string(colour = names(input)[$groupLayerNb.groupColID])
 #elif $groupLayerNb.grouplayerType == "fill"
 mappingGroup = aes_string(fill = names(input)[$groupLayerNb.groupColID])
+#elif $groupLayerNb.grouplayerType == "shape"
+mappingGroup = aes_string(shape = names(input)[$groupLayerNb.groupColID])
 #elif $groupLayerNb.grouplayerType == "facetting"
 mappingGroup = facet_wrap(names(input)[$groupLayerNb.groupColID], scales = '$groupLayerNb.scaletype')
 #end if
@@ -77,7 +79,7 @@ plot_out = plot_out + mappingGroup
 layerSizeR = as.numeric('$primaryLayerNb.advanced.size')
 colourR = as.numeric('$primaryLayerNb.advanced.pointcolor')
 alphaR = as.numeric('$primaryLayerNb.advanced.alpha')
-methodR = "loess"
+methodR = "auto"
 
 @layerOptions@
 
