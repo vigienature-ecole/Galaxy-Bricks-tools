@@ -5,6 +5,8 @@
   <expand macro="requirements">
       <requirement type="package" version="1.2.1">r-svglite</requirement>
       <requirement type="package" version="1.12.2">r-data.table</requirement>
+      <requirement type="package" version="1.27.2">r-hexbin</requirement>
+      <requirement type="package" version="1.8_28">r-mgcv</requirement>
   </expand>
   <command detect_errors="exit_code"><![CDATA[
 cat '$script' &&
