@@ -27,7 +27,7 @@
             inputSelect <- input[ , c($advanced.include)]
 
             ## Add new column
-            #for $i, $s in enumerate($series)
+            #for $i, $s in enumerate($operation)
             rank_of_series=$i
 
             #if $s.outputOperation == "mean"
@@ -63,7 +63,7 @@
         <param name="include" label="Columns included" type="data_column" data_ref="input" numerical="false" multiple = "true" />
         <param name="keep" label="Columns to keep in the dataset" type="data_column" data_ref="input" numerical="false" multiple = "true" />
         </section>
-        <repeat name="series" title="Series">
+        <repeat name="operation" title="Operation">
             <param name="outputName" type="text" value="Result" label="Name of the resulting column" />
             <param name="outputOperation" type="select" label="choose the operation to perform">
                 <option value="sum" selected="true">Sum</option>
