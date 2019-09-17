@@ -326,7 +326,7 @@
                 <option value="density2d">Density2d</option>
             </param>
             <when value="smooth">
-                <param name="method" label="Method (broken)" type="select">
+                <param name="method" label="Method (Broken)" type="select">
                     <option value="auto">Auto</option>
                     <option value="lm">LM</option>
                     <option value="glm">GLM</option>
