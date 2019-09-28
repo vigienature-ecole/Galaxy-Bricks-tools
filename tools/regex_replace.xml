@@ -33,7 +33,7 @@
 	  	<param name="replace_count" type="integer" label="Replace Count(0=all)" value="0"/>
 	</inputs>
 	<outputs>
-		<data name="outfile" format="txt"/>
+		<data name="outfile" format="tabular"/>
 	</outputs>
 	<configfiles>
 		<configfile name="script_file"><![CDATA[#!/usr/bin/env python
@@ -49,7 +49,7 @@ opts |= re.IGNORECASE
 #end if
 #if $multiline:
 opts |= re.MULTILINE
-#end if 
+#end if
 #if $dot_all:
 opts |= re.DOTALL
 #end if
@@ -84,7 +84,7 @@ Example:
         [^\s]+_(\w+).*
 
     Replace String::
-        
+
         \1
 
     On the input file::
@@ -103,7 +103,7 @@ Additional Options
 ==================
 
 Replace Count:
-    Will define the number of occurrences that can be replaced by the substitution. A count of 0 is equivalent 
+    Will define the number of occurrences that can be replaced by the substitution. A count of 0 is equivalent
     to 'replace all'
 
 
