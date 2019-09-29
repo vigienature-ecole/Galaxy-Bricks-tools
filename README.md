@@ -17,22 +17,23 @@ On his educational side, this project will provide a concrete tool to develop da
 
 ### Tool list
 
-|Tool name                   | Category             | Functional tool | tests | help |
-|----------------------------|----------------------|-----------------|-------|------|
-| Import data                | 2. Import data       | WIP             | no    | WIP  |
-| Datamash                   | 3. Manipulate data   | FTS             | FTS   | FTS  |
-| Column simple operation    | 3. Manipulate data   | YES             | no    | no   |
-| Row simple operation       | 3. Manipulate data   | YES             | no    | no   |
-| Select lines               | 3. Manipulate data   | YES             | no    | no   |
-| Select columns             | 3. Manipulate data   | YES             | no    | no   |
-| Convert dates              | 3. Manipulate data   | YES             | YES   | no   |
-| Grep                       | 3. Manipulate data   | FTS             | FTS   | FTS  |
-| Regex                      | 3. Manipulate data   | Custom FTS      | FTS   | FTS  |
-| Join data table            | 3. Manipulate data   | YES             |       |      |
-| Lubridate                  | 3. Manipulate data   | YES             |       |      |
-| Plot                       | 4. Visualization     | YES             | no    | no   |
-| Anova                      | 5. Statistical tests | YES             | no    | no   |
-| Simple linear regression   | 5. Statistical tests | YES             | no    | no   |
-| Multiple linear regression | 5. Statistical tests | YES             | no    | no   |
+|Tool name                   | Category             | Functional tool | tests | help |TO DO              |
+|----------------------------|----------------------|-----------------|-------|------|-------------------|
+| Import data                | 2. Import data       | WIP             | no    | WIP  |                   |
+| Datamash                   | 3. Manipulate data   | FTS             | FTS   | FTS  |                   |
+| Column simple operation    | 3. Manipulate data   | YES             | no    | no   |                   |
+| Row simple operation       | 3. Manipulate data   | YES             | no    | no   |                   |
+| Select lines               | 3. Manipulate data   | YES             | no    | no   |                   |
+| Select columns             | 3. Manipulate data   | YES             | no    | no   |                   | 
+| Convert dates              | 3. Manipulate data   | YES             | YES   | no   |                   |
+| Grep                       | 3. Manipulate data   | FTS             | FTS   | FTS  |                   |
+| Join data table            | 3. Manipulate data   | YES             |       |      |                   |
+| Regex                      | 3. Manipulate data   | Custom FTS      | FTS   | FTS  |                   |
+| Sort                       | 3. Manipulate data   | Custom FTS      | FTS   | FTS  | add header option |
+| Lubridate                  | 3. Manipulate data   | YES             |       |      |                   |
+| Plot                       | 4. Visualization     | YES             | no    | no   |                   |
+| Anova                      | 5. Statistical tests | YES             | no    | no   |                   |
+| Simple linear regression   | 5. Statistical tests | YES             | no    | no   |                   |
+| Multiple linear regression | 5. Statistical tests | YES             | no    | no   |                   |
 
 FTS : From toolshed
