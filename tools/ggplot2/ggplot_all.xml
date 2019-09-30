@@ -55,6 +55,7 @@ plot_out = plot_out + mappingCoord
 ## Group layers
 ## -------------
 
+
 #for $i, $groupLayerNb in enumerate($mainOps.groupOpt.groupLayer)
 
 #if $groupLayerNb.grouplayerType == "color"
@@ -72,15 +73,21 @@ plot_out = plot_out + mappingGroup
 ## Loop for primary Layer
 ## ------------------------
 
-#for $i, $primaryLayerNb in enumerate($mainOps.primaryLayer)
+#for $primaryLayerNb in $mainOps.primaryLayer:
+    #if $primaryLayerNb.primaryLayerType.layerType == 'errorbars'
+         #set $yminErr = $primaryLayerNb.primaryLayerType.yminErr
+         #set $ymaxErr = $primaryLayerNb.primaryLayerType.ymaxErr
+    #end if
+
 
 ## Store variables
 
+
+
 #set $layerTypeR = $primaryLayerNb.primaryLayerType.layerType
 
-#set $yminErr = $primaryLayerNb.primaryLayerType.yminErr
-#set $ymaxErr = $primaryLayerNb.primaryLayerType.ymaxErr
-#set $methodR = $primaryLayerNb.primaryLayerType.method
+##set $ymaxErr = $primaryLayerNb.primaryLayerType.ymaxErr
+##set $methodR = $primaryLayerNb.primaryLayerType.method
 
 layerSizeR = as.numeric('$primaryLayerNb.advanced.size')
 colourR = as.numeric('$primaryLayerNb.advanced.pointcolor')
