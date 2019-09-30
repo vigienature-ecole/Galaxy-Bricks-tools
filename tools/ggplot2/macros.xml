@@ -99,6 +99,9 @@
         plot_inter = geom_smooth(mappingCoord,
                                  method = methodR,
                                  , alpha = alphaR)
+                                 #elif layer == "errorbars"
+        plot_inter = geom_errorbar(mappingCoord,
+                                   ymax = ymaxErr, ymin = yminErr)
         #end if
     ]]></token>
 
@@ -324,7 +327,12 @@
                 <option value="col">Column</option>
                 <option value="hex">Hex</option>
                 <option value="density2d">Density2d</option>
+                <option value="errorbars">Error bars (not working)</option>
             </param>
+            <when value="errorbars">
+                <param name="yminErr" label="Mininum value for error" type="data_column" data_ref="input1"/>
+                <param name="ymaxErr" label="Maximum value for error" type="data_column" data_ref="input1"/>
+            </when>
             <when value="smooth">
                 <param name="method" label="Method (Broken)" type="select">
                     <option value="auto">Auto</option>
