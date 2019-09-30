@@ -76,12 +76,12 @@ plot_out = plot_out + mappingGroup
 
 ## Store variables
 
-#set $layerTypeR = $primaryLayerNb.layerType
-#if layerTypeR == "errorbars"
-    set $yminErr = $primaryLayerNb.primaryLayerType.yminErr
-    set $ymaxErr = $primaryLayerNb.ymaxErr
-#end if
-##set $methodR    = $primaryLayerNb.primaryLayer.layerType.method
+#set $layerTypeR = $primaryLayerNb.primaryLayerType.layerType
+
+#set $yminErr = $primaryLayerNb.primaryLayerType.yminErr
+#set $ymaxErr = $primaryLayerNb.primaryLayerType.ymaxErr
+#set $methodR = $primaryLayerNb.primaryLayerType.method
+
 layerSizeR = as.numeric('$primaryLayerNb.advanced.size')
 colourR = as.numeric('$primaryLayerNb.advanced.pointcolor')
 alphaR = as.numeric('$primaryLayerNb.advanced.alpha')

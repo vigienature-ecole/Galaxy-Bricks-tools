@@ -99,9 +99,9 @@
         plot_inter = geom_smooth(mappingCoord,
                                  method = methodR,
                                  , alpha = alphaR)
-                                 #elif layer == "errorbars"
+        #elif layerTypeR == "errorbars"
         plot_inter = geom_errorbar(mappingCoord,
-                                   ymax = ymaxErr, ymin = yminErr)
+                                 ymax = ymaxErr, ymin = yminErr)
         #end if
     ]]></token>
 
