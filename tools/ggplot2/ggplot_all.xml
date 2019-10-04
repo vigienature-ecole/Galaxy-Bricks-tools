@@ -73,21 +73,16 @@ plot_out = plot_out + mappingGroup
 ## Loop for primary Layer
 ## ------------------------
 
-#for $primaryLayerNb in $mainOps.primaryLayer:
-    #if $primaryLayerNb.primaryLayerType.layerType == 'errorbars'
-         #set $yminErr = $primaryLayerNb.primaryLayerType.yminErr
-         #set $ymaxErr = $primaryLayerNb.primaryLayerType.ymaxErr
+#for $primaryLayerNb in $mainOps.Layer:
+    #if $primaryLayerNb.LayerType.layerType == 'errorbars'
+         #set $yminErr = $primaryLayerNb.LayerType.yminErr
+         #set $ymaxErr = $primaryLayerNb.LayerType.ymaxErr
     #end if
 
 
 ## Store variables
 
-
-
-#set $layerTypeR = $primaryLayerNb.primaryLayerType.layerType
-
-##set $ymaxErr = $primaryLayerNb.primaryLayerType.ymaxErr
-##set $methodR = $primaryLayerNb.primaryLayerType.method
+#set $layerTypeR = $primaryLayerNb.LayerType.layerType
 
 layerSizeR = as.numeric('$primaryLayerNb.advanced.size')
 colourR = as.numeric('$primaryLayerNb.advanced.pointcolor')
@@ -141,8 +136,8 @@ plot_out = plot_out + plot_inter
                 <param name="scaletype" type="boolean" truevalue="free" falsevalue="fixed" label="Allow different scales for each graph" />
             </repeat>
         </section>
-        <repeat name="primaryLayer" title="Primary layer">
-            <conditional name="primaryLayerType">
+        <repeat name="Layer" title="Primary layer">
+            <conditional name="LayerType">
                 <expand macro="layer_options" />
             </conditional>
             <expand macro="layer_advanced_options" />
