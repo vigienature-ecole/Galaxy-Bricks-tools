@@ -72,19 +72,19 @@ plot_out = plot_out + mappingGroup
 ## Loop for primary Layer
 ## ------------------------
 
-#for $i, $primaryLayerNb in enumerate($mainOps.primaryLayer)
+#for $i, $Layer in enumerate($mainOps.primaryLayer)
 
 ## Store variables
 
-#set $layerTypeR = $primaryLayerNb.primaryLayerType.layerType
+#set $layerTypeR = $Layer.primaryLayerType.layerType
 
-#set $yminErr = $primaryLayerNb.primaryLayerType.yminErr
-#set $ymaxErr = $primaryLayerNb.primaryLayerType.ymaxErr
-#set $methodR = $primaryLayerNb.primaryLayerType.method
+##set $yminErr = $Layer.primaryLayerType.yminErr
+##set $ymaxErr = $Layer.primaryLayerType.ymaxErr
+##set $methodR = $Layer.primaryLayerType.method
 
-layerSizeR = as.numeric('$primaryLayerNb.advanced.size')
-colourR = as.numeric('$primaryLayerNb.advanced.pointcolor')
-alphaR = as.numeric('$primaryLayerNb.advanced.alpha')
+layerSizeR = as.numeric('$Layer.advanced.size')
+colourR = as.numeric('$Layer.advanced.pointcolor')
+alphaR = as.numeric('$Layer.advanced.alpha')
 methodR = "auto"
 
 @layerOptions@
@@ -103,10 +103,10 @@ plot_out = plot_out + plot_inter
 
 mapping = aes_string(x = names(input)[$mainOps.xplot], y = names(input)[$secondary.yplot])
 
-#for $i, $secondaryLayerNb in enumerate($secondary.secondaryLayer)
+#for $i, $Layer in enumerate($secondary.secondaryLayer)
 
 ## TO TEST
-#set $layerTypeR = $secondaryLayerNb.secondaryLayer.layerType
+#set $layerTypeR = $Layer.secondaryLayer.layerType
 
 @layerOptions@
 

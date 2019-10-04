@@ -100,8 +100,11 @@
                                  method = methodR,
                                  , alpha = alphaR)
         #elif layerTypeR == "errorbars"
-        plot_inter = geom_errorbar(mappingCoord,
-                                 ymax = ymaxErr, ymin = yminErr)
+        plot_inter = geom_errorbar(aes_string(x = names(input)[$mainOps.xplot],
+                                              y = names(input)[$mainOps.yplot],
+                                              group = names(input)[$mainOps.xplot],
+                                              ymax = names(input)[$Layer.primaryLayerType.ymaxErr],
+                                              ymin = names(input)[$Layer.primaryLayerType.yminErr]))
         #end if
     ]]></token>
 
