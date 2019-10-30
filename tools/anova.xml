@@ -1,4 +1,4 @@
-<tool id="anova" name="anova">
+<tool id="anova" name="ANOVA">
     <description>analysis of variance</description>
     <requirements>
         <requirement type="package" version="1.11.4">r-data.table</requirement>
