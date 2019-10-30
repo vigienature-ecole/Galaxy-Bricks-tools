@@ -105,10 +105,10 @@ plot_out = plot_out + plot_inter
 
 mapping = aes_string(x = names(input)[$mainOps.xplot], y = names(input)[$secondary.yplot])
 
-#for $i, $secondaryLayerNb in enumerate($secondary.secondaryLayer)
+#for $i, $secondaryLayerNb in enumerate($secondary.Layer)
 
 ## TO TEST
-#set $layerTypeR = $secondaryLayerNb.secondaryLayer.layerType
+#set $layerTypeR = $secondaryLayerNb.LayerType.layerType
 
 @layerOptions@
 
@@ -136,22 +136,12 @@ plot_out = plot_out + plot_inter
                 <param name="scaletype" type="boolean" truevalue="free" falsevalue="fixed" label="Allow different scales for each graph" />
             </repeat>
         </section>
-        <repeat name="Layer" title="Primary layer">
-            <conditional name="LayerType">
-                <expand macro="layer_options" />
-            </conditional>
-            <expand macro="layer_advanced_options" />
-        </repeat>
+        <expand macro="layer_options" />
         </section>
         <section name="secondary" title="Secondary Y axis options" expanded="false">
         <param name="yplot" label="Column to plot on secondary y-axis" type="data_column" data_ref="input1" numerical="false"/>
         <param name="normalize" type="boolean" truevalue="TRUE" falsevalue="FALSE" label="Normalize the data" />
-        <repeat name="secondaryLayer" title="Secondary layer">
-            <conditional name="secondaryLayer">
-                <expand macro="layer_options" />
-            </conditional>
-            <expand macro="layer_advanced_options" />
-        </repeat>
+        <expand macro="layer_options" />
         </section>
         <section name="out" title="Output Options" expanded="false">
             <expand macro="dimensions" />

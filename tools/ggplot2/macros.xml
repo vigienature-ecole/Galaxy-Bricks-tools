@@ -320,18 +320,20 @@
         </data>
     </xml>
     <xml name="layer_options">
-            <param name="layerType" type="select" label="Type of layer to plot" >
-                <option value="points">Points (default)</option>
-                <option value="lines">Lines</option>
-                <option value="boxplot">Boxplot</option>
-                <option value="violin">Violin plot</option>
-                <option value="jitter">Jitter points</option>
-                <option value="smooth">Smooth</option>
-                <option value="col">Column</option>
-                <option value="hex">Hex</option>
-                <option value="density2d">Density2d</option>
-                <option value="errorbars">Error bars (not working)</option>
-            </param>
+        <repeat name="Layer" title="Layer">
+            <conditional name="LayerType">
+                <param name="layerType" type="select" label="Type of layer to plot" >
+                    <option value="points">Points (default)</option>
+                    <option value="lines">Lines</option>
+                    <option value="boxplot">Boxplot</option>
+                    <option value="violin">Violin plot</option>
+                    <option value="jitter">Jitter points</option>
+                    <option value="smooth">Smooth</option>
+                    <option value="col">Column</option>
+                    <option value="hex">Hex</option>
+                    <option value="density2d">Density2d</option>
+                    <option value="errorbars">Error bars (not working)</option>
+                </param>
             <when value="errorbars">
                 <param name="yminErr" label="Mininum value for error" type="data_column" data_ref="input1"/>
                 <param name="ymaxErr" label="Maximum value for error" type="data_column" data_ref="input1"/>
@@ -355,6 +357,9 @@
             </when>
             <when value="jitter">
             </when>
+        </conditional>
+        <expand macro="layer_advanced_options" />
+    </repeat>
           </xml>
           <xml name="layer_advanced_options">
       <section name="advanced" title="Advanced options" expanded="false">
