@@ -1,6 +1,7 @@
 <tool id="lubridate_convert" name="Convert dates">
     <requirements>
         <requirement type="package" version="1.7.4">r-lubridate</requirement>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         cat '$script' &&
@@ -16,9 +17,10 @@
 
             ## Import library
             library(lubridate)
+            library(data.table)
 
             ## Import file
-            input1 <- read.table('$input', sep='\t', header=TRUE, dec=",")
+            input1 <- data.frame(fread('$input'))
 
             ## Add new column
             #for $i, $s in enumerate($series)
