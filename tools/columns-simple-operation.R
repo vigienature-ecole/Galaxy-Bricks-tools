@@ -18,7 +18,7 @@ inputName = args[3]
 #check the formula for security reasons
 
 evalFormula <- inputFormula
-functions <- c("log[(]", "log10[(]" ,"exp[(]" ,"sqrt[(]" ,"asin[(]" ,"acos[(]" ,"sin[(]" ,"tan[(]" ,"atan[(]" ,"cos[(]", "sum[()]")
+functions <- c("log[(]", "log10[(]" ,"exp[(]" ,"sqrt[(]" ,"asin[(]" ,"acos[(]" ,"sin[(]" ,"tan[(]" ,"atan[(]" ,"cos[(]", "sum[()]", "mean[(]", "var[(]", "sd[(]")
 for (i in seq_along(functions)) evalFormula <- gsub(functions[i],"",evalFormula)
 resultEval <- grepl("^[0-9 c+^/*%(). -- -]+$",evalFormula)
 
