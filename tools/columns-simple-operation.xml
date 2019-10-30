@@ -32,7 +32,7 @@ This tool performs operations on columns:
  * it is possible to transform one column using constants (e.g. c1 / 2)
  * it is possible to combine the operations described above within a formula (e.g. log(c1) + c2)
 
-1. You can use elementary operations
+1. you can use elementary operations
 
 "+" addition
 "-" subtraction
@@ -61,25 +61,24 @@ Result ::
    11
    12
 
-2. You can transform your data
+   2. You can transform your data
 
-"log(c2)", "exp(c2)", "log10(c2)", "exp(c2)", "sqrt(c2)", "sin(c2)", "cos(c2)", "tan(c2)", "asin(c2)", "acos(c2)"
+   "log(c2)", "exp(c2)", "log10(c2)", "exp(c2)", "sqrt(c2)", "sin(c2)", "cos(c2)", "tan(c2)", "asin(c2)", "acos(c2)"
 
-**Example**
+   **Example**
 
-input dataset ::
+   input dataset ::
 
- "a"  "b"
-  1    0
-  2    5
-  5    6
- 10    2
+    "a"  "b"
+    1    0
+    2    5
+    5    6
+   10    2
 
-Formula :
+  Formula :
 
-"exp(c2)"
-
-Result ::
+  "exp(c2)"
+  Result ::
 
  "result"
     1
@@ -115,6 +114,9 @@ Result ::
  2    5  3.25
  5    6  3.25
 10    2  3.25
+
+
+
 
     ]]></help>
 </tool>
