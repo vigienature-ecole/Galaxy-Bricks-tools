@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<toolbox monitor="true">
+  <section id="1getext" name="2. Importer des donnees">
+    <tool file="data_source/upload.xml" />
+  </section>
+  <section id="2manip" name="3. Manipuler les donnees">
+    <tool file="columns-simple-operation.xml" />
+    <tool file="lubridate.xml" />
+    <tool file="join-data.table.xml" />
+    <tool file="grep.xml" />
+    <tool file="lubridate.xml" />
+    <tool file="regex_replace.xml" />
+    <tool file="sorter.xml" />
+    <tool file="merge_cols/mergeCols.xml" />
+    <tool file="datamash/datamash-ops.xml" />
+    <tool file="cut/cut.xml" />
+  </section>
+  <section id="3vis" name="4. Visualisation">
+    <tool file="ggplot2/ggplot_all.xml" />
+  </section>
+  <section id="4Tests" name="5. Tests statistiques">
+    <label id="5quali/quali" text="Quali/Quanti" />
+    <tool file="anova.xml" />
+    <label id="6quanti/quanti" text="Quanti/Quanti" />
+    <tool file="simple-linear-regression.xml" />
+    <tool file="multiple-linear-regression.xml" />
+  </section>
+</toolbox>
