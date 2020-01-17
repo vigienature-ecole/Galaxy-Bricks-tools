@@ -8,7 +8,6 @@
     <tool file="lubridate.xml" />
     <tool file="join-data.table.xml" />
     <tool file="grep.xml" />
-    <tool file="lubridate.xml" />
     <tool file="regex_replace.xml" />
     <tool file="sorter.xml" />
     <tool file="merge_cols/mergeCols.xml" />

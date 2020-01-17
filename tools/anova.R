@@ -5,7 +5,7 @@
 #  Input :
 #     1. dataset
 #     2. dependant variable
-#     3. explanatory variable
+#     3. explanatory variable (can be more than one)
 #  Output :
 #     1. significance
 #     2. coeficients
@@ -20,6 +20,7 @@ library(data.table) # for data import
 # import input file (tabular or csv)
 input = data.frame(fread(args[1]))
 
+# find if there is more than one explanatory variable (separator = , )
 multiple = grepl(",", args[3])
 
 # Build formula
@@ -35,7 +36,7 @@ if (multiple) {
   formulaMod <- as.formula(paste(colnames(input)[as.numeric(args[2])]," ~ " , colnames(input)[as.numeric(args[3])]))
 }
 
-# run linear model
+# run anova
 
 res <- aov(formulaMod, data = input)
 
