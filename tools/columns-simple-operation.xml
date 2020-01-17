@@ -6,7 +6,7 @@
         Rscript '$__tool_directory__/columns-simple-operation.R' '$input' '$inputFormula' '$inputName' '$add' '$output' ]]>
     </command>
     <inputs>
-        <param format="tabular,csv" name="input" type="data" label="Input file" />
+        <param format="tabular,csv,txt" name="input" type="data" label="Input file" />
         <param name="inputFormula" type="text" value="c1 + c2" label="Formula" help="Identify columns with a c and the number of the column (e.g. c2 for the second column)" />
         <param name="inputName" type="text" value="" label="Name of the resulting column" />
         <param truevalue="TRUE" falsevalue="FALSE" label="Add column to original dataset" name="add" type="boolean" />

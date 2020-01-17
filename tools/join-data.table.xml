@@ -9,10 +9,10 @@
         ]]>
     </command>
     <inputs>
-        <param format="tabular,csv" name="input1" type="data" label="Join dataset 1" help="csv or tabular" />
+        <param format="tabular,csv,txt" name="input1" type="data" label="Join dataset 1" help="csv or tabular" />
         <param name="key1" label="using column" type="data_column" data_ref="input1" />
         <param name="keepCol1" label="Column to keep from dataset 1" type="data_column" data_ref="input1" multiple="True"/>
-        <param format="tabular,csv" name="input2" type="data" label="and dataset 2" help="csv or tabular" />
+        <param format="tabular,csv,txt" name="input2" type="data" label="and dataset 2" help="csv or tabular" />
         <param name="key2" label="using column" type="data_column" data_ref="input2" />
         <param name="keepCol2" label="Column to keep from dataset 2" type="data_column" data_ref="input2" multiple="True"/>
         <param name="joinType" type="select" label="How to join the documents" >

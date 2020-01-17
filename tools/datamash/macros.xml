@@ -3,7 +3,7 @@
     <token name="@WRAPPER_VERSION@">1.1.0</token>
     <xml name="inputs_outputs">
         <inputs>
-            <param format="tabular" help="" label="Input tabular dataset" name="in_file" type="data" />
+            <param format="tabular,csv,txt" help="" label="Input tabular dataset" name="in_file" type="data" />
             <yield />
         </inputs>
         <outputs>

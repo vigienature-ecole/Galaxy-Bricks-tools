@@ -7,7 +7,7 @@
         '$output1' '$output2' ]]>
     </command>
     <inputs>
-        <param format="tabular,csv" name="input" type="data" label="Input file" help="csv or tabular" />
+        <param format="tabular,csv,txt" name="input" type="data" label="Input file" help="csv or tabular" />
         <param name="dependantVar" label="Dependant variable (Y)" type="data_column" data_ref="input" numerical="True"/>
         <param name="explanatoryVar" label="Explanatory variable (X)" type="data_column" data_ref="input" numerical="True"/>
     </inputs>

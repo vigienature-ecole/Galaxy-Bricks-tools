@@ -14,7 +14,7 @@
               #end if
   </command>
   <inputs>
-    <param format="txt" name="input" type="data" label="Select lines from"/>
+    <param format="tabular,csv,txt" name="input" type="data" label="Select lines from"/>
     <param name="invert" type="select" label="that">
       <option value="false">Matching</option>
       <option value="true">NOT Matching</option>
@@ -37,7 +37,7 @@
             </param>
         </when>
         <when value="file">
-            <param format="txt" name="pattern_file" type="data" label="Select a file with your regex"/>
+            <param format="tabular,csv,txt" name="pattern_file" type="data" label="Select a file with your regex"/>
         </when>
     </conditional>
   </inputs>

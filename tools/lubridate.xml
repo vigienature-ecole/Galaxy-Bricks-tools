@@ -67,7 +67,7 @@
     </configfiles>
 
     <inputs>
-        <param format="tabular,csv" name="input" type="data" label="Input file" />
+        <param format="tabular,csv,txt" name="input" type="data" label="Input file" />
         <param falsevalue="FALSE" label="Add column to original dataset" name="addToData" truevalue="TRUE" type="boolean" />
         <repeat name="series" title="Series">
             <param name="column" type="integer" value="2" label="Number of the column to parse" />

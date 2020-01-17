@@ -120,7 +120,7 @@ plot_out = plot_out + plot_inter
         ]]></configfile>
     </configfiles>
     <inputs>
-        <param name="input1" type="data" format="tabular" label="Input in tabular format" />
+        <param name="input1" type="data" format="tabular,csv,txt" label="Input in tabular format" />
         <section name="mainOps" title="Main graph options" expanded="true">
         <param name="xplot" label="Column to plot on x-axis" type="data_column" data_ref="input1" numerical="false"/>
         <param name="yplot" label="Column to plot on y-axis" type="data_column" data_ref="input1" numerical="false"/>
