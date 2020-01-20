@@ -57,7 +57,7 @@
     </configfiles>
 
     <inputs>
-        <param format="tabular,csv" name="input" type="data" label="Input file" />
+        <param format="tabular,csv,txt" name="input" type="data" label="Input file" />
         <param falsevalue="FALSE" label="Add column to original dataset" name="addToData" truevalue="TRUE" type="boolean" />
         <section name="advanced" title="Advanced options" expanded="false">
         <param name="include" label="Columns included" type="data_column" data_ref="input" numerical="false" multiple = "true" />

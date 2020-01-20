@@ -19,7 +19,7 @@
 ]]>
     </command>
     <inputs>
-        <param name="input" format="txt" type="data" label="File to cut" />
+        <param name="input" format="tabular,csv,txt" type="data" label="File to cut" />
         <param name="complement" type="select" label="Operation">
             <option value="">Keep</option>
             <option value="--complement">Discard</option>
