@@ -2,7 +2,7 @@
 	<description>Regular Expression replacement using the Python re module</description>
 	<command interpreter="python">$script_file</command>
 	<inputs>
-		<param format="tabular,csv,txt" name="infile" type="data" label="Input File"/>
+		<param format="tabular,csv,txt" name="infile" type="data" label="Données d'entrée"/>
 	  	<param name="search_str" type="text" size="70" label="Search String">
 			<sanitizer>
 				<valid initial="string.printable">
