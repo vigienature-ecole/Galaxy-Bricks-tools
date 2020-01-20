@@ -1,4 +1,4 @@
-<tool id="multiple-linear-regression" name="Multiple linear regression">
+<tool id="multiple-linear-regression" name="Régression linéaire multiple">
     <requirements>
         <requirement type="package" version="1.11.4">r-data.table</requirement>
     </requirements>

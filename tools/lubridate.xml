@@ -1,4 +1,4 @@
-<tool id="lubridate_convert" name="Convert dates">
+<tool id="lubridate_convert" name="Convertir des dates">
     <requirements>
         <requirement type="package" version="1.7.4">r-lubridate</requirement>
         <requirement type="package" version="1.12.2">r-data.table</requirement>

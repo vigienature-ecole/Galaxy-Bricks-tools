@@ -1,4 +1,4 @@
-<tool id="join-data.table" name="Join two datasets">
+<tool id="join-data.table" name="Joindre deux jeux de données">
     <description>on a specified field</description>
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
@@ -12,7 +12,7 @@
         <param format="tabular,csv,txt" name="input1" type="data" label="Joindre le jeux de données 1" help="csv ou tabular" />
         <param name="key1" label="en utilisant la colonne :" type="data_column" data_ref="input1" />
         <param name="keepCol1" label="et en gardant les colonnes suivantes" type="data_column" data_ref="input1" multiple="True"/>
-        <param format="tabular,csv,txt" name="input2" type="data" label="and le jeu de données 2" help="csv ou tabular" />
+        <param format="tabular,csv,txt" name="input2" type="data" label="et le jeu de données 2" help="csv ou tabular" />
         <param name="key2" label="en utilisant la colonne :" type="data_column" data_ref="input2" />
         <param name="keepCol2" label="et en gardant les colonnes suivantes" type="data_column" data_ref="input2" multiple="True"/>
         <param name="joinType" type="select" label="Comment voulez vous joindre les deux jeux de données" >

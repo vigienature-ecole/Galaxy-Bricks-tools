@@ -1,4 +1,4 @@
-<tool id="simple-linear-regression" name="Simple linear regression">
+<tool id="simple-linear-regression" name="Regression linéaire simple">
     <requirements>
         <requirement type="package" version="1.11.4">r-data.table</requirement>
     </requirements>
