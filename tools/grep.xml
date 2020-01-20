@@ -14,8 +14,7 @@
               #end if
   </command>
   <inputs>
-    <param format="txt" name="input" type="data" label="Sélectionner les lignes depuis ce fichier"/>
-    <param format="tabular,csv,txt" name="input" type="data" label="Select lines from"/>
+    <param format="tabular,csv,txt" name="input" type="data" label="Sélectionner les lignes depuis ce fichier"/>
     <param name="invert" type="select" label="that">
       <option value="false">Matching</option>
       <option value="true">NOT Matching</option>
