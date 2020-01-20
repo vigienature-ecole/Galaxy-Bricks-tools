@@ -1,0 +1,37 @@
+<tool id="dataplyr" name="Résumer des données">
+    <description>en les aggrégeant</description>
+    <requirements>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
+        <requirement type="package" version="0.8.0.1">r-dplyr</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/dataplyr.R' '$input' '$groupBy' '$colOperation' '$function' '$output'
+        ]]>
+    </command>
+    <inputs>
+        <param format="tabular,csv" name="input" type="data" label="Données d'entrée" help="csv or tabular" />
+        <param name="groupBy" label="Colonne pour agrégation" type="data_column" data_ref="input" multiple="true"/>
+        <param name="colOperation" label="colonne pour opération" type="data_column" data_ref="input" multiple="false"/>
+        <param name="function" type="select" label="Opération à effectuer" multiple="true" display="checkboxes">
+          <option value="mean">Moyenne</option>
+          <option value="median">Médiane</option>
+          <option value="sum">Somme</option>
+          <option value="length">Compte</option>
+          <option value="sd">Ecart-type</option>
+          <option value="min">Minimum</option>
+          <option value="max">Maximum</option>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="tabular" name="output" from_work_dir="output-dataplyr.tabular" />
+    </outputs>
+    <help><![CDATA[
+
+.. class:: infomark
+
+This tool
+
+
+
+    ]]></help>
+</tool>
