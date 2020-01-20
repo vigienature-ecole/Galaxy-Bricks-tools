@@ -13,7 +13,7 @@
             #end if
             ${complement}
             ${cut_type_options.cut_element}
-            '${cut_type_options.listfields}'
+            '${cut_type_options.listfieldsa}'
             '${input}'
         > '${output}'
 ]]>
