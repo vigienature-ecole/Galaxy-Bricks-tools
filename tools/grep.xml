@@ -2,19 +2,19 @@
   <description>lines that match an expression2</description>
   <command interpreter="python">
       ##\$(cat '$condi_source_regex.pattern_file');
-      grep.py 
-          -i $input 
+      grep.py
+          -i $input
           -o $out_file1
-          -v $invert 
+          -v $invert
           -pattern
               #if $condi_source_regex.source_regex=="stdin"
-                  '$condi_source_regex.pattern' 
+                  '$condi_source_regex.pattern'
               #else
                   "\$(cat '$condi_source_regex.pattern_file')"
               #end if
   </command>
   <inputs>
-    <param format="txt" name="input" type="data" label="Select lines from"/>
+    <param format="txt" name="input" type="data" label="Sélectionner les lignes depuis ce fichier"/>
     <param name="invert" type="select" label="that">
       <option value="false">Matching</option>
       <option value="true">NOT Matching</option>
@@ -62,7 +62,7 @@
 
 **Syntax**
 
-The select tool searches the data for lines containing or not containing a match to the given pattern. Regular Expression is introduced in this tool. A Regular Expression is a pattern describing a certain amount of text. 
+The select tool searches the data for lines containing or not containing a match to the given pattern. Regular Expression is introduced in this tool. A Regular Expression is a pattern describing a certain amount of text.
 
 - **( ) { } [ ] . * ? + \ ^ $** are all special characters. **\\** can be used to "escape" a special character, allowing that special character to be searched for.
 - **\\A** matches the beginning of a string(but not an internal line).
@@ -78,8 +78,8 @@ The select tool searches the data for lines containing or not containing a match
 - **{** n or n, or n,m **}** specifies an expected number of repetitions of the preceding pattern.
 
   - **{n}** The preceding item is matched exactly n times.
-  - **{n,}** The preceding item is matched n or more times. 
-  - **{n,m}** The preceding item is matched at least n times but not more than m times. 
+  - **{n,}** The preceding item is matched n or more times.
+  - **{n,m}** The preceding item is matched at least n times but not more than m times.
 
 - **[** ... **]** creates a character class. Within the brackets, single characters can be placed. A dash (-) may be used to indicate a range such as **a-z**.
 - **.** Matches any single character except a newline.
@@ -87,10 +87,10 @@ The select tool searches the data for lines containing or not containing a match
 - **?** The preceding item is optional and matched at most once.
 - **+** The preceding item will be matched one or more times.
 - **^** has two meaning:
-  - matches the beginning of a line or string. 
+  - matches the beginning of a line or string.
   - indicates negation in a character class. For example, [^...] matches every character except the ones inside brackets.
 - **$** matches the end of a line or string.
-- **\|** Separates alternate possibilities. 
+- **\|** Separates alternate possibilities.
 
 -----
 

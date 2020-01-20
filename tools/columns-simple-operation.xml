@@ -1,4 +1,4 @@
-<tool id="columns-simple-operation" name="Column operations">
+<tool id="columns-simple-operation" name="Opération sur des colonnes">
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
@@ -6,10 +6,10 @@
         Rscript '$__tool_directory__/columns-simple-operation.R' '$input' '$inputFormula' '$inputName' '$add' '$output' ]]>
     </command>
     <inputs>
-        <param format="tabular,csv" name="input" type="data" label="Input file" />
-        <param name="inputFormula" type="text" value="c1 + c2" label="Formula" help="Identify columns with a c and the number of the column (e.g. c2 for the second column)" />
-        <param name="inputName" type="text" value="" label="Name of the resulting column" />
-        <param truevalue="TRUE" falsevalue="FALSE" label="Add column to original dataset" name="add" type="boolean" />
+        <param format="tabular,csv" name="input" type="data" label="Données d'entrée" />
+        <param name="inputFormula" type="text" value="c1 + c2" label="Formule" help="Pour selectionner une colonne taper c et le numéro de la colonne (e.g. c2 pour la deuxième colonne)" />
+        <param name="inputName" type="text" value="" label="Nom de la colonne de résultat" />
+        <param truevalue="TRUE" falsevalue="FALSE" label="Ajouter la colonne au jeu de données initial" help="Si vous selectionnez non, vous obtiendrez seulement la colonne calculer lors de cette étape en résultat" name="add" type="boolean" />
     </inputs>
     <outputs>
         <data format="tabular" name="output" from_work_dir="result.tabular"/>
