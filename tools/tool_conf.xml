@@ -11,7 +11,7 @@
     <tool file="regex_replace.xml" />
     <tool file="sorter.xml" />
     <tool file="merge_cols/mergeCols.xml" />
-    <tool file="datamash/datamash-ops.xml" />
+    <tool file="dataplyr.xml" />
     <tool file="cut/cut.xml" />
   </section>
   <section id="3vis" name="4. Visualisation">
