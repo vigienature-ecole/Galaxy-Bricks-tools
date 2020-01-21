@@ -1,4 +1,4 @@
-<tool id="join-data.table" name="Join two datasets">
+<tool id="join-data.table" name="Joindre deux jeux de données">
     <description>on a specified field</description>
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
@@ -9,19 +9,19 @@
         ]]>
     </command>
     <inputs>
-        <param format="tabular,csv,txt" name="input1" type="data" label="Join dataset 1" help="csv or tabular" />
-        <param name="key1" label="using column" type="data_column" data_ref="input1" />
-        <param name="keepCol1" label="Column to keep from dataset 1" type="data_column" data_ref="input1" multiple="True"/>
-        <param format="tabular,csv,txt" name="input2" type="data" label="and dataset 2" help="csv or tabular" />
-        <param name="key2" label="using column" type="data_column" data_ref="input2" />
-        <param name="keepCol2" label="Column to keep from dataset 2" type="data_column" data_ref="input2" multiple="True"/>
-        <param name="joinType" type="select" label="How to join the documents" >
-            <option value="INNER">Include only the lines matching in both files (default)</option>
-            <option value="LEFT">Include all the lines from dataset 1 and only the matching lines in dataset 2</option>
-            <option value="RIGHT">Include only the matching lines in dataset 1 and all the lines from dataset 2</option>
-            <option value="FULL">Include all lines from both files (can result in very big files)</option>
+        <param format="tabular,csv,txt" name="input1" type="data" label="Joindre le jeux de données 1" help="csv ou tabular" />
+        <param name="key1" label="en utilisant la colonne :" type="data_column" data_ref="input1" />
+        <param name="keepCol1" label="et en gardant les colonnes suivantes" type="data_column" data_ref="input1" multiple="True"/>
+        <param format="tabular,csv,txt" name="input2" type="data" label="et le jeu de données 2" help="csv ou tabular" />
+        <param name="key2" label="en utilisant la colonne :" type="data_column" data_ref="input2" />
+        <param name="keepCol2" label="et en gardant les colonnes suivantes" type="data_column" data_ref="input2" multiple="True"/>
+        <param name="joinType" type="select" label="Comment voulez vous joindre les deux jeux de données" >
+            <option value="INNER">Inclure seulement les lignes se correspondant dans les deux jeux de données (défaut)</option>
+            <option value="LEFT">Inclure toutes les lignes du jeu de données 1 et seulement celles qui correspondent dans le jeu de données 2</option>
+            <option value="RIGHT">Inclure seulement les lignes qui correspondent du jeu de données 1 et toutes les lignes du jeu de données 2</option>
+            <option value="FULL">Inclure toutes les lignes des deux jeux de données (un très grand jeu de données peut en résulter)</option>
         </param>
-        <param name="keepHeaders" truevalue="TRUE" falsevalue="FALSE" label="Keep header in the output" help="if the input file has no header, variable names will be created with the following format 'V1' " type="boolean" />
+        <param name="keepHeaders" truevalue="TRUE" falsevalue="FALSE" label="Garder les entêtes de colonne dans le fichier final" help="Si le fichier n'a pas d'entêtes, des entêtes seront automatiquement créées avec le format suivant : 'V1' " type="boolean" />
     </inputs>
     <outputs>
         <data format="tabular" name="output" from_work_dir="output-join.tabular" />

@@ -1,4 +1,4 @@
-<tool id="lubridate_convert" name="Convert dates">
+<tool id="lubridate_convert" name="Convertir des dates">
     <requirements>
         <requirement type="package" version="1.7.4">r-lubridate</requirement>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
@@ -68,25 +68,25 @@
 
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Input file" />
-        <param falsevalue="FALSE" label="Add column to original dataset" name="addToData" truevalue="TRUE" type="boolean" />
+        <param falsevalue="FALSE" label="Ajouter le résultat au jeu de données initial" name="addToData" truevalue="TRUE" type="boolean" />
         <repeat name="series" title="Series">
-            <param name="column" type="integer" value="2" label="Number of the column to parse" />
-            <param name="inputName" type="text" value="date" label="Name of the resulting column" />
-            <param name="inputDateFormat" type="select" label="choose input date format" help="y for years, m for month and d for day">
-                <option value="dmy" selected="true">DMY</option>
-                <option value="mdy">MDY</option>
-                <option value="ymd">YMD</option>
+            <param name="column" type="integer" value="2" label="Numéro de la colonne d'entrée" />
+            <param name="inputName" type="text" value="date" label="Nom de la colonne résultante" />
+            <param name="inputDateFormat" type="select" label="Choisir le format des données d'entrée" help="A pour année, M pour mois et J pour jour">
+                <option value="dmy" selected="true">JMA</option>
+                <option value="mdy">MJA</option>
+                <option value="ymd">AMJ</option>
             </param>
-            <param name="outputDateFormat" type="select" label="choose output date format">
-                <option value="full" selected="true">Full</option>
-                <option value="year">Year</option>
-                <option value="month">Month</option>
-                <option value="day">Day</option>
-                <option value="week">Week</option>
-                <option value="yday">Day of the year</option>
-	             	<option value="mday">Day of the month</option>
-                <option value="wday">Day of the week</option>
-                <option value="timeZone">Time zone</option>
+            <param name="outputDateFormat" type="select" label="Choisir le format de sortie">
+                <option value="full" selected="true">Complet</option>
+                <option value="year">Année</option>
+                <option value="month">Mois</option>
+                <option value="day">Jour</option>
+                <option value="week">Semaine</option>
+                <option value="yday">Jour de l'année (~1-365)</option>
+	             	<option value="mday">Jour du mois (~1-30)</option>
+                <option value="wday">Jour de la semaine (1-7)</option>
+                <option value="timeZone">Fuseau horaire</option>
             </param>
         </repeat>
     </inputs>

@@ -1,5 +1,5 @@
-<tool id="Grep1" name="Select" version="1.1.1">
-  <description>lines that match an expression2</description>
+<tool id="Grep1" name="Sélectionner" version="1.1.1">
+  <description>des lignes</description>
   <command interpreter="python">
       ##\$(cat '$condi_source_regex.pattern_file');
       grep.py
@@ -14,7 +14,7 @@
               #end if
   </command>
   <inputs>
-    <param format="tabular,csv,txt" name="input" type="data" label="Select lines from"/>
+    <param format="tabular,csv,txt" name="input" type="data" label="Sélectionner les lignes depuis ce fichier"/>
     <param name="invert" type="select" label="that">
       <option value="false">Matching</option>
       <option value="true">NOT Matching</option>
