@@ -1,0 +1,27 @@
+<tool id="ImportVNE" name="Importer des données">
+    <description>depuis la base de données VNE</description>
+    <requirements>
+        <requirement type="package" version="0.6_2">r-rpostgresql</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/importAndWriteFromQueryVNE2.R' '$__tool_directory__/RequeteVDTComplete.sql' '$output'
+        ]]>
+    </command>
+    <inputs>
+        <param name="observatoire" type="select" label="Choissez votre observatoire" multiple="false">
+          <option value="Vdt">Vers de terre</option>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="csv" name="output" from_work_dir="output-importVNE.csv" />
+    </outputs>
+    <help><![CDATA[
+
+.. class:: infomark
+
+This tool
+
+
+
+    ]]></help>
+</tool>
