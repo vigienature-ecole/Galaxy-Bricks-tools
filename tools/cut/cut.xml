@@ -65,7 +65,7 @@
     <outputs>
         <!--<data format="tabular" name="output" />-->
         <!-- WIP, not sure that will work with the complement option -->
-        <data format="tabular" name="output">
+        <data format="csv" name="output">
             <actions>
                 <conditional name="cut_type_options.cut_element">
                     <!-- fields -->
