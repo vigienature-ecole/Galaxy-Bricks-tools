@@ -1,5 +1,5 @@
-<tool id="ImportVNE" name="Importer des données">
-    <description>depuis la base de données VNE</description>
+<tool id="ImportVNE" name="Données VNE">
+    <description>Importer des données depuis la base de données VNE</description>
     <requirements>
         <requirement type="package" version="0.6_2">r-rpostgresql</requirement>
     </requirements>
