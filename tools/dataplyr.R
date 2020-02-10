@@ -30,7 +30,7 @@ Result <- input %>%
   group_by_at(colnames(input)[columnsGroup]) %>%
   summarise_at(.vars = colnames(input)[columnOperation], .funs = functions)
 
-# change colnames to make them more comprehensive
+# change colnames to make them more comprehensible (operation_variable name)
 if (length(functions) == 1){
   toRename <- colnames(Result) %in% colnames(input)[columnOperation]
   colnames(Result)[toRename] <- paste0(functions, "_", colnames(input)[columnOperation])
@@ -38,5 +38,6 @@ if (length(functions) == 1){
   toRename <- colnames(Result) %in% functions
   colnames(Result)[toRename] <- paste0(colnames(Result)[toRename], "_", colnames(input)[columnOperation])
 }
+
 # write result
 fwrite(Result, file = "output-dataplyr.tabular", sep = "\t")
