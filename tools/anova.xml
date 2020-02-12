@@ -29,15 +29,14 @@
 
 .. class:: infomark
 
-This tool performs an analysis of variance on the data:
- 1. you choose your dataset
- 2. you choose the variables
-     1. the dependant variable (Y)
-     2. the explanatory variable(s) (X)
+Cet outil permet de réaliser une analyse de variance (comparer des moyennes).
 
-This tool gives two outputs
-    1. A boxplot of the variables
-    2. The outputs from the model
+Il faut choisir le jeu de données (données brutes).
+Puis choisir les variables à analyser.
+    1. La variable à expliquer (Y)
+    2. La variable explicative (X)
+
+Cet outil donne ensuite un résultat. Indiquant si la différence entre les moyennes est significative.
 
     ]]></help>
 </tool>

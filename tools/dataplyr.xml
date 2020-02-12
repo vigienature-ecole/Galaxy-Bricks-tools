@@ -29,8 +29,9 @@
 
 .. class:: infomark
 
-This tool
+Cet outil permet de regrouper des lignes par catégorie (par type d'environnement par exemple) en faisant un calcul (une moyenne par exemple) sur les données d'une autre colonne.
 
+Choisissez le jeu de données d'entrée, les colonnes sur lesquelles faire une agrégation, la colonne sur laquelle faire l'opération  
 
 
     ]]></help>
