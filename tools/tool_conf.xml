@@ -16,7 +16,7 @@
     <tool file="cut/cut.xml" />
   </section>
   <section id="3vis" name="4. Visualisation">
-    <tool file="ggplot2/ggplot_all.xml" />
+    <tool file="ggplotLite.xml" />
   </section>
   <section id="4Tests" name="5. Tests statistiques">
     <label id="5quali/quali" text="Quali/Quanti" />
