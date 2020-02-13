@@ -33,8 +33,9 @@ Cet outil permet de réaliser une analyse de variance (comparer des moyennes).
 
 Il faut choisir le jeu de données (données brutes).
 Puis choisir les variables à analyser.
-    1. La variable à expliquer (Y)
-    2. La variable explicative (X)
+
+ 1. La variable à expliquer (Y)
+ 2. La variable explicative (X)
 
 Cet outil donne ensuite un résultat. Indiquant si la différence entre les moyennes est significative.
 
