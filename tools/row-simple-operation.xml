@@ -51,7 +51,7 @@
             #end if
             #end for
 
-            write.table(output, file="result", row.names=FALSE, sep="\t")
+            write.table(output, file="result", row.names=FALSE, sep=",")
 
         ]]></configfile>
     </configfiles>

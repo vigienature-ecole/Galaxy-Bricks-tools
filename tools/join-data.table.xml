@@ -24,7 +24,7 @@
         <param name="keepHeaders" truevalue="TRUE" falsevalue="FALSE" label="Garder les entêtes de colonne dans le fichier final" help="Si le fichier n'a pas d'entêtes, des entêtes seront automatiquement créées avec le format suivant : 'V1' " type="boolean" />
     </inputs>
     <outputs>
-        <data format="tabular" name="output" from_work_dir="output-join.tabular" />
+        <data format="csv" name="output" from_work_dir="output-join.tabular" />
     </outputs>
     <tests>
         <test>

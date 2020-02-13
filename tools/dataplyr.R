@@ -40,4 +40,4 @@ if (length(functions) == 1){
 }
 
 # write result
-fwrite(Result, file = "output-dataplyr.tabular", sep = "\t")
+fwrite(Result, file = "output-dataplyr.tabular", sep = ",")

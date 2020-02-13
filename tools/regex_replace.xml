@@ -33,7 +33,7 @@
 	  	<param name="replace_count" type="integer" label="Replace Count(0=all)" value="0"/>
 	</inputs>
 	<outputs>
-		<data name="outfile" format="tabular"/>
+		<data name="outfile" format="csv"/>
 	</outputs>
 	<configfiles>
 		<configfile name="script_file"><![CDATA[#!/usr/bin/env python
