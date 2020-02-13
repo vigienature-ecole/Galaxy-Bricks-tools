@@ -1,0 +1,40 @@
+<tool id="plotLite" name="Représenter">
+    <description>les données</description>
+    <requirements>
+        <requirement type="package" version="1.11.4">r-data.table</requirement>
+        <requirement type="package" version="2.2.1">r-ggplot2</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/ggplotLite.R' '$input' '$xcol' '$ycol' '$graphType'
+        '$output1' ]]>
+    </command>
+    <inputs>
+        <param format="tabular,csv,txt" name="input" type="data" label="Fichier d'entrée" help="csv ou tabular" />
+        <param name="xcol" label="Axe horizontal (X)" type="data_column" data_ref="input" numerical="False"/>
+        <param name="ycol" label="Axe vertical (Y)" type="data_column" data_ref="input" numerical="False"/>
+        <param name="graphType" type="select" label="Opération à effectuer" multiple="False">
+          <option value="bar">Diagramme en barre</option>
+          <option value="boxplot">Boites de dispertion</option>
+          <option value="point">Nuage de points</option>
+        </param>
+
+    </inputs>
+    <outputs>
+        <data format="png" name="output1" from_work_dir="output1.png" />
+    </outputs>
+    <help><![CDATA[
+
+.. class:: infomark
+
+Cet outil permet de réaliser une analyse de variance (comparer des moyennes).
+
+Il faut choisir le jeu de données (données brutes).
+Puis choisir les variables à analyser.
+
+ 1. La variable à expliquer (Y)
+ 2. La variable explicative (X)
+
+Cet outil donne ensuite un résultat. Indiquant si la différence entre les moyennes est significative.
+
+    ]]></help>
+</tool>
