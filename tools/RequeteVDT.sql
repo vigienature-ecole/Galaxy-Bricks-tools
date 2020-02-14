@@ -1,25 +1,25 @@
 SELECT DISTINCT
    observations.observationpk AS Numero_observation,
    observations.date AS Date_obs,
-   users.nom AS Nom_enseignant,
-   users.prenom AS Prenom_enseignant,
+   --users.nom AS Nom_enseignant,
+   --users.prenom AS Prenom_enseignant,
    classes.anneescol AS Annee_scol,
-   classes.name AS Nom_classe,
-   classes.niveau AS Niveau_classe,
-   classes_groupes.name AS Nom_groupe,
-   classes_groupes.effectif AS Nombre_eleves,
-   dico_etablissements.name AS Nom_etablissement,
+   --classes.name AS Nom_classe,
+   --classes.niveau AS Niveau_classe,
+   --classes_groupes.name AS Nom_groupe,
+   --classes_groupes.effectif AS Nombre_eleves,
+   --dico_etablissements.name AS Nom_etablissement,
    dico_etablissements.zipcode AS Code_postal_etablissement,
    dico_etablissements.city AS Ville_etablissement,
-   zones.latitude AS Latitude, 
+   zones.latitude AS Latitude,
    zones.longitude AS Longitude,
    (SELECT nom_espece
     FROM dico_species
-    WHERE dico_species.speciepk=observations_inventaire.speciefk) AS Sp,
-   observations_inventaire.population AS Nb_ind,
+    WHERE dico_species.speciepk=observations_inventaire.speciefk) AS Espece,
+   observations_inventaire.population AS Nombre_individus,
    zones_planches.name AS Ref_quadrat,
-   table_photos.url AS Photo_espece,
- 
+   --table_photos.url AS Photo_espece,
+
 
    /* Conditions d'observations */
    (SELECT label
@@ -90,7 +90,7 @@ observations_specifiques_vdt.ph_sol AS pH_sol,
     AND champ='usage_zone') AS Usage_zone,
     CASE WHEN zones_description_vdt.fauche_tonte= TRUE THEN 'Oui'
         WHEN zones_description_vdt.fauche_tonte= FALSE THEN 'Non'
-        ELSE '' END AS Tonte,  
+        ELSE '' END AS Tonte,
     zones_description_vdt.frequence_fauche AS Frequence_tonte,
     (SELECT label
     FROM dico_labels
@@ -104,7 +104,7 @@ observations_specifiques_vdt.ph_sol AS pH_sol,
     AND champ='residus') AS Residus_tonte,
     CASE WHEN zones_description_vdt.paturage= TRUE THEN 'Oui'
         WHEN zones_description_vdt.paturage= FALSE THEN 'Non'
-        ELSE '' END AS Paturage,  
+        ELSE '' END AS Paturage,
     zones_description_vdt.type_animaux AS Type_animaux,
 (SELECT label
     FROM dico_labels
@@ -139,29 +139,29 @@ zones_description_vdt.date_mep_prairie AS Date_mise_prairie,
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.prelevement_rang
     AND t='zones_description_vdt'
-    AND champ='prelevement_rang') AS Prelevement_rang,
-  CASE 
-      WHEN (SELECT photos.url
-            FROM photos
-            WHERE observations_specifiques_vdt.photo_zone_environnement=photos.photopk)!='' THEN CONCAT('http://vigienature-ecole.fr/',(SELECT photos.url
-            FROM photos
-            WHERE observations_specifiques_vdt.photo_zone_environnement=photos.photopk))
-      ELSE '' END AS URL_photo_environnement, 
-  CASE 
-      WHEN (SELECT photos.url
-            FROM photos
-            WHERE observations_specifiques_vdt.photo_sol_avant_tonte=photos.photopk)!='' THEN CONCAT('http://vigienature-ecole.fr/',(SELECT photos.url
-            FROM photos
-            WHERE observations_specifiques_vdt.photo_sol_avant_tonte=photos.photopk))
-      ELSE '' END AS URL_photo_sol_avant_tonte,
-  CASE 
-      WHEN (SELECT photos.url
-            FROM photos
-            WHERE observations_specifiques_vdt.photo_sol_apres_tonte=photos.photopk)!='' THEN CONCAT('http://vigienature-ecole.fr/',(SELECT photos.url
-            FROM photos
-            WHERE observations_specifiques_vdt.photo_sol_apres_tonte=photos.photopk))
-      ELSE '' END AS URL_photo_sol_apres_tonte,      
-  observations.notes AS Notes
+    AND champ='prelevement_rang') AS Prelevement_rang
+  --CASE
+  --    WHEN (SELECT photos.url
+  --          FROM photos
+  --          WHERE observations_specifiques_vdt.photo_zone_environnement=photos.photopk)!='' THEN CONCAT('http://vigienature-ecole.fr/',(SELECT photos.url
+  --          FROM photos
+  --          WHERE observations_specifiques_vdt.photo_zone_environnement=photos.photopk))
+  --    ELSE '' END AS URL_photo_environnement,
+  --CASE
+  --    WHEN (SELECT photos.url
+  --          FROM photos
+  --          WHERE observations_specifiques_vdt.photo_sol_avant_tonte=photos.photopk)!='' THEN CONCAT('http://vigienature-ecole.fr/',(SELECT photos.url
+  --          FROM photos
+  --          WHERE observations_specifiques_vdt.photo_sol_avant_tonte=photos.photopk))
+  --    ELSE '' END AS URL_photo_sol_avant_tonte,
+  --CASE
+  --    WHEN (SELECT photos.url
+  --          FROM photos
+  --          WHERE observations_specifiques_vdt.photo_sol_apres_tonte=photos.photopk)!='' THEN CONCAT('http://vigienature-ecole.fr/',(SELECT photos.url
+  --          FROM photos
+  --          WHERE observations_specifiques_vdt.photo_sol_apres_tonte=photos.photopk))
+  --    ELSE '' END AS URL_photo_sol_apres_tonte,
+  --observations.notes AS Notes
 
 FROM observations
 LEFT JOIN observations_inventaire on observations_inventaire.observationfk=observations.observationpk
@@ -179,7 +179,7 @@ LEFT JOIN users ON users.userpk=observations.userfk
 LEFT JOIN dico_etablissements ON classes.etablissementfk=dico_etablissements.etablissementpk
 LEFT JOIN dico_villes ON dico_villes.villepk=zones.villefk
 LEFT JOIN (SELECT CONCAT('http://vigienature-ecole.fr/',photos.url) AS url, observations.observationpk, observations_inventaire.observationinventairepk
-   from observations, observations_inventaire, observations_photos, photos 
+   from observations, observations_inventaire, observations_photos, photos
    where  observations_inventaire.observationfk = observations.observationpk
    and observations_photos.entitefk = observations_inventaire.observationinventairepk
    and observations_photos.entitetype = 'inventaire'
