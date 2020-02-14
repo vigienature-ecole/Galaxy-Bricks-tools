@@ -11,7 +11,7 @@
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" help="csv or tabular" />
         <param name="groupBy" label="Colonne pour agrégation" type="data_column" data_ref="input" multiple="true"/>
-        <param name="colOperation" label="colonne pour opération" type="data_column" data_ref="input" multiple="false"/>
+        <param name="colOperation" label="Colonne pour opération" type="data_column" data_ref="input" multiple="false"/>
         <param name="function" type="select" label="Opération à effectuer" multiple="true" display="checkboxes">
           <option value="mean">Moyenne</option>
           <option value="median">Médiane</option>
@@ -31,7 +31,28 @@
 
 Cet outil permet de regrouper des lignes par catégorie (par type d'environnement par exemple) en faisant un calcul (une moyenne par exemple) sur les données d'une autre colonne.
 
-Choisissez le jeu de données d'entrée, les colonnes sur lesquelles faire une agrégation, la colonne sur laquelle faire l'opération
+Choisissez le jeu de données d'entrée, les colonnes sur lesquelles faire une agrégation, la colonne sur laquelle faire l'opération.
+
+**Exemple**
+
+Données d'entrée ::
+
+  "Groupe"  "Nombre d'individus"
+  escargot    0
+  escargot    5
+  limace      6
+  limace      2
+
+Paramètres :
+Colonne pour agrégation = 1
+Colonne pour opération = 2
+Opération à effectuer = Moyenne et Maximum
+
+Résultat ::
+
+ "Groupe"  "Nombre d'individus" "Mean_Nombre d'individus" "Max_Nombre d'individus"
+ escargot            0                    2.5                          5
+ limace              6                      4                          6
 
 
     ]]></help>

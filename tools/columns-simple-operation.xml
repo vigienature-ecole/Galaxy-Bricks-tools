@@ -27,21 +27,22 @@
 
 .. class:: infomark
 
-This tool performs operations on columns:
- * it is possible to combine multiple columns (e.g. c1 * c2)
- * it is possible to transform one column using constants (e.g. c1 / 2)
- * it is possible to combine the operations described above within a formula (e.g. log(c1) + c2)
+Cet outil permet de faire des opérations sur des colonnes en utilisant la syntaxe de programmation.
 
-1. you can use elementary operations
+ * Il est possible de combiner plusieurs colonnes (par exemple c1 * c2 permet de multiplier les colonnes 1 et 2)
+ * Il est possible de transformer une colonne en utilisant une constante (par exemple c1 / 2 permet de diviser par deux toutes les valeurs de la colonnes)
+ * Il est possible de combiner ces deux opération (par exemple log(c1) + c2 permet d'additionner le résultat du logarithme népérien de la colonne 1 avec la colonne 2)
+
+1. Vous pouvez utiliser les opérations classiques
 
 "+" addition
-"-" subtraction
+"-" soustraction
 "*" multiplication
 "/" division
 
-**Example**
+**Exemple**
 
-input dataset ::
+Données d'entrée ::
 
  "a"  "b"
   1    0
@@ -49,25 +50,25 @@ input dataset ::
   5    6
  10    2
 
-Formula :
+Formule :
 
 c1 + c2
 
-Result ::
+Résultat ::
 
- "result"
+ "résultat"
     1
     7
    11
    12
 
-   2. You can transform your data
+   2. You can transformer vos données
 
-   "log(c2)", "exp(c2)", "log10(c2)", "exp(c2)", "sqrt(c2)", "sin(c2)", "cos(c2)", "tan(c2)", "asin(c2)", "acos(c2)"
+   "log(c2)" (logarithme népérien), "exp(c2)" (exponentielle), "log10(c2)" (logarithme décimal), "sqrt(c2)" (racine carrée), "sin(c2)" (sinus), "cos(c2)" (cosinus), "tan(c2)" (tangente), "asin(c2)" (arc sinus), "acos(c2)" (arcsin)
 
-   **Example**
+   **Exemple**
 
-   input dataset ::
+   Données d'entrée ::
 
     "a"  "b"
     1    0
@@ -75,26 +76,22 @@ Result ::
     5    6
    10    2
 
-  Formula :
+  Formule :
 
   "exp(c2)"
-  Result ::
+  Résultat ::
 
- "result"
+ "résultat"
     1
     148.41
     403.42
     7.38
 
-3. You can summarise your data
-"sum(c2)"
-"mean(c2)"
-"sd(c2)"
-"var(c2)"
+Vous pouvez choisir d'ajouter la colonne calculée au jeu de donnée ou non.
 
-**Example**
+**Exemple**
 
-input dataset ::
+Données d'entrée ::
 
  "a"  "b"
   1    0
@@ -102,14 +99,14 @@ input dataset ::
   5    6
  10    2
 
-Formula :
+Formule :
 
 c1 + c2
 Add column to original dataset = Yes
 
-Result ::
+Résultat ::
 
-"a"  "b" "result"
+"a"  "b" "résultat"
  1    0  3.25
  2    5  3.25
  5    6  3.25
