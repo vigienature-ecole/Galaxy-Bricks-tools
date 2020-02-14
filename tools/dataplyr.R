@@ -22,6 +22,17 @@ columnOperation <- as.numeric(unlist(strsplit(args[3], ",")))
 # separate functions
 functions <- unlist(strsplit(args[4], ","))
 
+#change functions to deal with NA
+functions <- paste0(functions,"2")
+
+sum2 <- function (x) sum(x, na.rm = TRUE)
+mean2 <- function (x) mean(x, na.rm = TRUE)
+median2 <- function (x) median(x, na.rm = TRUE)
+sd2 <- function (x) sd(x, na.rm = TRUE)
+min2 <- function (x) min(x, na.rm = TRUE)
+max2 <- function (x) max(x, na.rm = TRUE)
+length2 <- function (x) length(x)
+
 # import input file (tabular or csv)
 input = data.frame(fread(args[1]))
 
