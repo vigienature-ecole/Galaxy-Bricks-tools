@@ -7,6 +7,7 @@
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/importAndWriteFromQueryVNE2.R' '$observatoire' '$__tool_directory__/RequeteVDT.sql' '$__tool_directory__/RequeteOiseaux.sql' '$__tool_directory__/RequeteEscargots.sql'
+        '$__tool_directory__/RequeteSAUVAGES.sql'
         '$output'
         ]]>
     </command>
@@ -15,9 +16,9 @@
           <option value="Vdt">Placettes à vers de terre</option>
           <option value="Ois">Oiseaux des jardins</option>
           <option value="Esc">Opération escargots</option>
-          <option value="Spi">SPIPoll</option>
           <option value="Sau">Sauvages de ma rue</option>
-          <option value="Bio">Algues brunes et bigorneaux</option>
+          <option value="Spi">SPIPoll (Non disponible)</option>
+          <option value="Bio">Algues brunes et bigorneaux (Non disponible)</option>
         </param>
     </inputs>
     <outputs>
