@@ -26,15 +26,16 @@
 
 .. class:: infomark
 
-Cet outil permet de réaliser une analyse de variance (comparer des moyennes).
+Cet outil permet de réaliser une représentation des données (graphiques).
 
 Il faut choisir le jeu de données (données brutes).
-Puis choisir les variables à analyser.
+Puis choisir les variables à représenter
 
- 1. La variable à expliquer (Y)
- 2. La variable explicative (X)
+ 1. La variable en ordonnée (X)
+ 2. La variable en abscisse (Y)
 
-Cet outil donne ensuite un résultat. Indiquant si la différence entre les moyennes est significative.
+Puis choisir le type de représentation entre des points (Nuage de points), des boites de dispertion ou boite à moustaches ou des diagramme en barre.
+Vous obtiendrez alors un graphique.
 
     ]]></help>
 </tool>
