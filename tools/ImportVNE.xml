@@ -17,8 +17,6 @@
           <option value="Ois">Oiseaux des jardins</option>
           <option value="Esc">Opération escargots</option>
           <option value="Sau">Sauvages de ma rue</option>
-          <option value="Spi">SPIPoll (Non disponible)</option>
-          <option value="Bio">Algues brunes et bigorneaux (Non disponible)</option>
         </param>
     </inputs>
     <outputs>

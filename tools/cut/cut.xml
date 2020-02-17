@@ -253,7 +253,7 @@ Output Example ( **Keeping 3 characters** )::
     ora
     ban
 
-.. image:: ${static_path}/images/tools/bricks/selectionner.gif
+.. image:: http://localhost:8888${static_path}/images/tools/bricks/selectionner.gif
 
 @REFERENCES@
 ]]>
