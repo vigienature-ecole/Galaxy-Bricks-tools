@@ -22,7 +22,7 @@
         </param>
     </inputs>
     <outputs>
-        <data format="csv" name="output" from_work_dir="output-importVNE.csv" />
+        <data format="csv" name="output" from_work_dir="output-importVNE.csv" label="données_VNE_${observatoire}.csv"/>
     </outputs>
     <help><![CDATA[
 
@@ -31,7 +31,7 @@
 Vous pouvez importer des données depuis les bases VNE grâce à cet outils.
 
 
-.. image:: ${static_path}/images/tools/bricks/logoVNE.png
+.. image:: http://localhost:8888${static_path}/images/tools/bricks/logoVNE.png
 
 
     ]]></help>
