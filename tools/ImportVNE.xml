@@ -6,8 +6,8 @@
         <requirement type="package" version="0.8.0.1">r-dplyr</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/importAndWriteFromQueryVNE2.R' '$observatoire' '$__tool_directory__/RequeteVDT.sql' '$__tool_directory__/RequeteOiseaux.sql' '$__tool_directory__/RequeteEscargots.sql'
-        '$__tool_directory__/RequeteSAUVAGES.sql'
+        Rscript '$__tool_directory__/importAndWriteFromQueryVNE2.R' '$observatoire' '$__tool_directory__/query/RequeteVDT.sql' '$__tool_directory__/query/RequeteOiseaux.sql' '$__tool_directory__/query/RequeteEscargots.sql'
+        '$__tool_directory__/query/RequeteSAUVAGES.sql'
         '$output'
         ]]>
     </command>
@@ -31,7 +31,7 @@
 Vous pouvez importer des données depuis les bases VNE grâce à cet outils.
 
 
-.. image:: ${static_path}/images/tools/bricks/logoVNE.png
+.. image:: /images/logoVNE.png
 
 
     ]]></help>
