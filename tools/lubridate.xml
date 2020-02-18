@@ -108,36 +108,40 @@
 
 .. class:: infomark
 
-This tool converts dates to standart format
- * choose input format
- * choose output format
+Cet outil permet de convertir des données dans un format de date souhaité.
 
-**Example**
+Vous devez choisir le format d'entrée et le format de sortie de vos données.
 
-input dataset ::
+**Exemple**
 
- ID   dateIn
+Données d'entrée ::
+
+ ID   Date_Observation
  1   12/10/2019
  2   12.10.2019
  3   12-10-2019
  4 12//10//2019
  5   12/10*2019
 
- Parameters :
+ Paramètres :
 
- Add column : No
+ Ajouter le résultat au jeu de données initial : Non
  insert serie
- Number of the column to parse: 2
- Name of the resulting column: date
- choose input date format: dmy
- choose output date format: full
+ Numéro de la colonne d'entrée : 2
+ Nom de la colonne résultante: Date
+ Choisir le format des données d'entrée: JMA
+ Choisir le format de sortie: Complet
  insert serie
- Number of the column to parse: 2
+ Numéro de la colonne d'entrée : 2
+ Nom de la colonne résultante: Date
+ Choisir le format des données d'entrée: JMA
+ Choisir le format de sortie: Jour de l'année
+
  Name of the resulting column: Day of the year
  choose input date format: dmy
  choose output date format: Day of the year
 
-Result ::
+Résultat ::
 
     date     Day of the year
  2019-10-12       285

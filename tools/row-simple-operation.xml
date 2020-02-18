@@ -91,43 +91,6 @@
 
 .. class:: infomark
 
-This tool converts dates to standart format
- * choose input format
- * choose output format
-
-**Example**
-
-input dataset ::
-
- ID   dateIn
- 1   12/10/2019
- 2   12.10.2019
- 3   12-10-2019
- 4 12//10//2019
- 5   12/10*2019
-
- Parameters :
-
- Add column : No
- insert serie
- Number of the column to parse: 2
- Name of the resulting column: date
- choose input date format: dmy
- choose output date format: full
- insert serie
- Number of the column to parse: 2
- Name of the resulting column: Day of the year
- choose input date format: dmy
- choose output date format: Day of the year
-
-Result ::
-
-    date     Day of the year
- 2019-10-12       285
- 2019-10-12       285
- 2019-10-12       285
- 2019-10-12       285
- 2019-10-12       285
 
     ]]></help>
 </tool>

@@ -32,9 +32,7 @@ Cet outil permet de réaliser une régression linéaire sur vos données.
     1. La variable à expliquer (Y)
     2. La variable explicative (X)
 
-Vous obtiendrez alors deux sorties.
-    1. Un graphique des variables et la droite de régression
-    2. Les sorties du modèle
+Vous obtiendrez alors les sorties du modèle
 
     ]]></help>
 </tool>
