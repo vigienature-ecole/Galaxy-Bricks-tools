@@ -26,7 +26,7 @@ mappingCoord = aes_string(x = names(input)[as.numeric(args[2])],
 if (type == "point"){
   repType = geom_point()
 } else if (type == "bar"){
-  repType = geom_bar()
+  repType = geom_col()
 } else if (type == "boxplot"){
   repType = geom_boxplot()
 }
