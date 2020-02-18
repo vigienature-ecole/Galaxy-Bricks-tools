@@ -42,7 +42,7 @@
     </conditional>
   </inputs>
   <outputs>
-    <data format="input" name="out_file1" metadata_source="input"/>
+    <data format="input" name="out_file1" metadata_source="input" label="${tool.name}_sur_${input.name}_with_${condi_source_regex.pattern}"/>
   </outputs>
   <tests>
     <test>
