@@ -26,15 +26,15 @@
 
 .. class:: infomark
 
-This tool performs a linear regression on the data:
- 1. you choose your dataset
- 2. you choose the variables
-     1. the dependant variable (Y)
-     2. the explanatory variable (X)
+Cet outil permet de réaliser une régression linéaire sur vos données.
+1. Choisir le jeu de données à utiliser
+2. Choisir les variables (colonnes)
+    1. La variable à expliquer (Y)
+    2. La variable explicative (X)
 
-This tool gives two outputs
-    1. A scatterplot of the variables and the regression line
-    2. The outputs from the model
+Vous obtiendrez alors deux sorties.
+    1. Un graphique des variables et la droite de régression
+    2. Les sorties du modèle
 
     ]]></help>
 </tool>

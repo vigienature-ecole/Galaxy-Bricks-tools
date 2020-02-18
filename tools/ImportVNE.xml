@@ -1,4 +1,4 @@
-<tool id="ImportVNE" name="Données VNE">
+<tool id="ImportVNE" name="Données Vigie-Nature Ecole">
     <description>Importer des données depuis la base de données VNE</description>
     <requirements>
         <requirement type="package" version="0.6_2">r-rpostgresql</requirement>
@@ -27,6 +27,8 @@
 .. class:: infomark
 
 Vous pouvez importer des données depuis les bases VNE grâce à cet outils.
+
+Il vous suffit de choisir votre observatoire.
 
 
 .. image:: http://localhost:8888${static_path}/images/tools/bricks/logoVNE.png
