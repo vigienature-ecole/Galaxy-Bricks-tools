@@ -1,5 +1,5 @@
-<tool id="sort1" name="Sort" version="1.0.3">
-    <description>data in ascending or descending order</description>
+<tool id="sort1" name="Trier" version="1.0.3">
+    <description>des données</description>
     <command interpreter="python">
         sorter.py
 
@@ -35,27 +35,27 @@
         #end for
     </command>
     <inputs>
-        <param format="tabular,csv,txt" name="input" type="data" label="Sort Dataset" />
-        <param name="column" label="on column" type="data_column" data_ref="input" accept_default="true"/>
-        <param name="style" type="select" label="with flavor">
-            <option value="num">Numerical sort</option>
+        <param format="tabular,csv,txt" name="input" type="data" label="Trier le jeu de données" />
+        <param name="column" label="selon la colonne" type="data_column" data_ref="input" accept_default="true"/>
+        <param name="style" type="select" label="avec des données">
+            <option value="num">numérique</option>
             <option value="gennum">General numeric sort</option>
-            <option value="alpha">Alphabetical sort</option>
+            <option value="alpha">texte</option>
         </param>
-        <param name="order" type="select" label="everything in">
-            <option value="DESC">Descending order</option>
-            <option value="ASC">Ascending order</option>
+        <param name="order" type="select" label="selon un">
+            <option value="DESC">ordre décroissant</option>
+            <option value="ASC">ordre ascendant</option>
         </param>
-        <repeat name="column_set" title="Column selection">
-            <param name="other_column" label="on column" type="data_column" data_ref="input" accept_default="true" />
-            <param name="other_style" type="select" label="with flavor">
-                <option value="num">Numerical sort</option>
+        <repeat name="column_set" title="Sélectionner une autre colonne">
+            <param name="other_column" label="selon la colonne" type="data_column" data_ref="input" accept_default="true" />
+            <param name="other_style" type="select" label="avec des données">
+                <option value="num">numérique</option>
                 <option value="gennum">General numeric sort</option>
-                <option value="alpha">Alphabetical sort</option>
+                <option value="alpha">texte</option>
             </param>
-            <param name="other_order" type="select" label="everything in">
-                <option value="DESC">Descending order</option>
-                <option value="ASC">Ascending order</option>
+            <param name="other_order" type="select" label="selon un">
+                <option value="DESC">ordre décroissant</option>
+                <option value="ASC">ordre ascendant</option>
             </param>
         </repeat>
     </inputs>
