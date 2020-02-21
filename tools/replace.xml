@@ -1,0 +1,61 @@
+<tool id="replace" name="Rechercher/Remplacer">
+    <requirements>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/replace.R' '$input' '$searchString' '$replaceString' '$condi_column.allColumns'
+        #if $condi_column.allColumns == "FALSE"
+            '$condi_column.columnNumber'
+        #end if
+        '$output'
+        ]]>
+    </command>
+    <inputs>
+        <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" help="csv or tabular" />
+        <param name="searchString" label="Elément à rechercher" type="text" />
+        <param name="replaceString" label="texte pour remplacer" type="text" />
+        <conditional name="condi_column">
+            <param name="allColumns" type="select" label="Remplacer dans">
+                <option value="FALSE">une colonne</option>
+                <option value="TRUE">tout le jeu de données</option>
+            </param>
+            <when value="FALSE">
+                <param name="columnNumber" label="Colonne sélectionnée" type="data_column" data_ref="input" multiple="false"/>
+            </when>
+        </conditional>
+    </inputs>
+    <outputs>
+        <data format="csv" name="output" from_work_dir="output-replace.tabular" />
+    </outputs>
+    <help><![CDATA[
+
+.. class:: infomark
+
+Cet outil permet de regrouper des lignes par catégorie (par type d'environnement par exemple) en faisant un calcul (une moyenne par exemple) sur les données d'une autre colonne.
+
+Choisissez le jeu de données d'entrée, les colonnes sur lesquelles faire une agrégation, la colonne sur laquelle faire l'opération.
+
+**Exemple**
+
+Données d'entrée ::
+
+  "Groupe"  "Nombre d'individus"
+  escargot    0
+  escargot    5
+  limace      6
+  limace      2
+
+Paramètres :
+Colonne pour agrégation = 1
+Colonne pour opération = 2
+Opération à effectuer = Moyenne et Maximum
+
+Résultat ::
+
+ "Groupe"  "Nombre d'individus" "Mean_Nombre d'individus" "Max_Nombre d'individus"
+ escargot            0                    2.5                          5
+ limace              6                      4                          6
+
+
+    ]]></help>
+</tool>
