@@ -6,9 +6,9 @@
 args = commandArgs(trailingOnly=TRUE)
 
 # import package
-library(data.table) # for data import
-library(stringr) # to work with string
-library(dplyr)
+library(data.table, quietly = TRUE) # for data import
+library(stringr, quietly = TRUE) # to work with string
+library(dplyr, quietly = TRUE, warn.conflicts = FALSE)
 
 
 # parameters translated
@@ -19,18 +19,17 @@ filterParameter = args[3]
 wholeLine = args[4]
 columnsNumber = as.numeric(args[5])
 
-print(filterParameter)
-
+#filterParameter = "é"
+#print(filterParameter)
 
 # import input file (tabular or csv)
-input = data.frame(fread(args[1]))
+input = data.frame(fread(args[1], encoding = "UTF-8"))
 
 
 #select lines
 if (wholeLine == FALSE){
   if (negateMatching == FALSE){
   result <- dplyr::filter(input, str_detect(input[ ,columnsNumber], filterParameter))
-  print("you")
   } else {
     result <- dplyr::filter(input, !str_detect(input[ ,columnsNumber], filterParameter))
   }
