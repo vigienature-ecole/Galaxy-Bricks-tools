@@ -12,12 +12,14 @@ library(dplyr)
 
 
 # parameters translated
-#type = 
+#type =
 # add numeric / not numeric
 negateMatching = args[2]
 filterParameter = args[3]
 wholeLine = args[4]
 columnsNumber = as.numeric(args[5])
+
+print(filterParameter)
 
 
 # import input file (tabular or csv)
@@ -41,4 +43,3 @@ if (wholeLine == FALSE){
 }
 #write file
 fwrite(result, "output-filter.tabular", sep =",")
-
