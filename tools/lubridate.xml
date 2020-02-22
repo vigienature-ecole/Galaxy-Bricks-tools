@@ -22,6 +22,40 @@
             ## Import file
             input1 <- data.frame(fread('$input'))
 
+            ## Parse time
+            result <- parse_date_time(input1[ , $column], '$inputDateFormat')
+
+            #if $outputDateFormat == "second"
+                result <- second(result)
+            #elif $outputDateFormat == "minute"
+                result <- minute(result)
+            #elif $outputDateFormat == "hour"
+                result <- hour(result)
+            #elif $outputDateFormat == "day"
+                result <- day(result)
+            #elif $outputDateFormat == "yday"
+                result <- yday(result)
+            #elif $outputDateFormat == "mday"
+                result <- mday(result)
+            #elif $outputDateFormat == "wday"
+                result <- wday(result)
+            #elif $outputDateFormat == "week"
+                result <- week(result)
+            #elif $outputDateFormat == "month"
+                result <- month(result)
+            #elif $outputDateFormat == "year"
+                result <- year(result)
+            #elif $outputDateFormat == "timeZone"
+                result <- tz(result)
+            #elif $outputDateFormat == "dst"
+                result <- dst(result)
+            #end if
+
+            #if $addToData == "TRUE"
+                input1 <- data.frame(input1, res = result)
+                colnames(input1)[ncol(input1)] <- '$inputName'
+            #end if
+
             ## Add new column
             #for $i, $s in enumerate($series)
             rank_of_series=$i
@@ -68,7 +102,24 @@
 
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Input file" />
-        <param falsevalue="FALSE" label="Ajouter le résultat au jeu de données initial" name="addToData" truevalue="TRUE" type="boolean" />
+        <param name="column" type="integer" value="2" label="Numéro de la colonne d'entrée" />
+        <param name="inputName" type="text" value="date" label="Nom de la colonne résultante" />
+        <param name="inputDateFormat" type="select" label="Choisir le format des données d'entrée" help="A pour année, M pour mois et J pour jour">
+            <option value="dmy" selected="true">JMA</option>
+            <option value="mdy">MJA</option>
+            <option value="ymd">AMJ</option>
+        </param>
+        <param name="outputDateFormat" type="select" label="Choisir le format de sortie">
+            <option value="full" selected="true">Complet</option>
+            <option value="year">Année</option>
+            <option value="month">Mois</option>
+            <option value="day">Jour</option>
+            <option value="week">Semaine</option>
+            <option value="yday">Jour de l'année (~1-365)</option>
+            <option value="mday">Jour du mois (~1-30)</option>
+            <option value="wday">Jour de la semaine (1-7)</option>
+            <option value="timeZone">Fuseau horaire</option>
+        </param>
         <repeat name="series" title="Series">
             <param name="column" type="integer" value="2" label="Numéro de la colonne d'entrée" />
             <param name="inputName" type="text" value="date" label="Nom de la colonne résultante" />
