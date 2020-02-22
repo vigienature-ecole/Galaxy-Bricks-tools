@@ -12,8 +12,48 @@
     </command>
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" help="csv or tabular" />
-        <param name="searchString" label="Elément à rechercher" type="text" />
-        <param name="replaceString" label="texte pour remplacer" type="text" />
+        <param name="searchString" label="Elément à rechercher" type="text" >
+            <sanitizer invalid_char="_">
+                <valid initial="default">
+                    <add value="à" />
+                    <add value="â" />
+                    <add value="é" />
+                    <add value="è" />
+                    <add value="ê" />
+                    <add value="ë" />
+                    <add value="î" />
+                    <add value="ô" />
+                    <add value="ï" />
+                    <add value="ù" />
+                    <add value="û" />
+                    <add value="ÿ" />
+                    <add value="ç" />
+                    <add value="œ" />
+                    <add value="€" />
+                </valid>
+            </sanitizer>
+        </param>
+        <param name="replaceString" label="texte pour remplacer" type="text" >
+            <sanitizer invalid_char="_">
+                <valid initial="default">
+                    <add value="à" />
+                    <add value="â" />
+                    <add value="è" />
+                    <add value="é" />
+                    <add value="ê" />
+                    <add value="ë" />
+                    <add value="î" />
+                    <add value="ï" />
+                    <add value="ô" />
+                    <add value="ù" />
+                    <add value="û" />
+                    <add value="ÿ" />
+                    <add value="ç" />
+                    <add value="œ" />
+                    <add value="€" />
+                </valid>
+            </sanitizer>
+        </param>
         <conditional name="condi_column">
             <param name="allColumns" type="select" label="Remplacer dans">
                 <option value="FALSE">une colonne</option>

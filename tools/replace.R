@@ -16,7 +16,6 @@ searchString = args[2]
 replaceString = args[3]
 allColumns = args[4]
 columnNumber = as.numeric(args[5])
-print(replaceString)
 
 if (allColumns == FALSE){
   input[ ,columnNumber] <- gsub(searchString, replaceString, input[ ,columnNumber])
