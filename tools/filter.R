@@ -12,7 +12,6 @@ library(dplyr, quietly = TRUE, warn.conflicts = FALSE)
 
 
 # parameters translated
-#type =
 # add numeric / not numeric
 negateMatching = args[2]
 filterParameter = args[3]
