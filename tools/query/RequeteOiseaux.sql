@@ -1,32 +1,32 @@
 SELECT DISTINCT
    observations.observationpk AS Numero_observation,
    observations.date AS Date_obs,
+   observations_inventaire.nom_espece AS Espece,
+   observations_inventaire.population AS Nombre_individus,
    --users.nom AS Nom_enseignant,
    --users.prenom AS Prenom_enseignant,
-   classes.anneescol AS Annee_scol,
+   --classes.anneescol AS Annee_scol,
    --classes.name AS Nom_classe,
    --classes.niveau AS Niveau_classe,
    --classes_groupes.name AS Nom_groupe,
    --classes_groupes.effectif AS Nombre_eleves,
    --dico_etablissements.name AS Nom_etablissement,
-   dico_etablissements.zipcode AS Code_postal_etablissement,
-   dico_etablissements.city AS Ville_etablissement,
-   zones.latitude AS Latitude,
-   zones.longitude AS Longitude,
-   observations_inventaire.nom_espece AS Espece,
-   observations_inventaire.population AS Nombre_individus,
-   observations_specifiques_oiseaux.heure_debut AS Heure_debut,
-   observations_specifiques_oiseaux.heure_fin AS Heure_fin,
    (SELECT label
    FROM dico_labels
    WHERE dico_labels.valeur=zones.environnement
    AND t='zones'
    AND champ='environnement') AS Environnement,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones.type
-   AND t='zones'
-   AND champ='type') AS Type_zone,
+   dico_etablissements.zipcode AS Code_postal_etablissement,
+   dico_etablissements.city AS Ville_etablissement,
+   zones.latitude AS Latitude,
+   zones.longitude AS Longitude,
+   observations_specifiques_oiseaux.heure_debut AS Heure_debut,
+   observations_specifiques_oiseaux.heure_fin AS Heure_fin,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones.type
+   --AND t='zones'
+   --AND champ='type') AS Type_zone,
    (SELECT label
    FROM dico_labels
    WHERE dico_labels.valeur=zones.surface
@@ -47,66 +47,66 @@ SELECT DISTINCT
    WHERE dico_labels.valeur=zones_description_oiseaux.distance_champ_cultive
    AND t='zones_description_escargots_planche'
    AND champ='distance_champ_cultive') AS Distance_champ,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.engrais
-   AND t='zones_description_escargots_planche'
-   AND champ='engrais') AS Utilisation_engrais,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.engrais_type
-   AND t='zones_description_escargots_planche'
-   AND champ='engrais_type') AS Type_engrais,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.insecticides
-   AND t='zones_description_escargots_planche'
-   AND champ='insecticides') AS Utilisation_insecticides,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.insecticides_type
-   AND t='zones_description_escargots_planche'
-   AND champ='insecticides_type') AS Type_insecticides,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.herbicides
-   AND t='zones_description_escargots_planche'
-   AND champ='herbicides') AS Utilisation_herbicides,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.herbicides_type
-   AND t='zones_description_escargots_planche'
-   AND champ='herbicides_type') AS Type_herbicides,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.fongicides
-   AND t='zones_description_escargots_planche'
-   AND champ='fongicides') AS Utilisation_fongicides,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.fongicides_type
-   AND t='zones_description_escargots_planche'
-   AND champ='fongicides_type') AS Type_fongicides,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.antilimaces
-   AND t='zones_description_escargots_planche'
-   AND champ='antilimaces') AS Utilisation_antilimaces,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.antilimaces_type
-   AND t='zones_description_escargots_planche'
-   AND champ='antilimaces_type') AS Type_antilimaces,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.bouilliebordelaise
-   AND t='zones_description_escargots_planche'
-   AND champ='bouilliebordelaise') AS Utilisation_boulliebordelaise,
-   (SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.bouilliebordelaise_type
-   AND t='zones_description_escargots_planche'
-   AND champ='bouilliebordelaise_type') AS Type_bouilliebordelaise,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.engrais
+   --AND t='zones_description_escargots_planche'
+   --AND champ='engrais') AS Utilisation_engrais,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.engrais_type
+   --AND t='zones_description_escargots_planche'
+   --AND champ='engrais_type') AS Type_engrais,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.insecticides
+   --AND t='zones_description_escargots_planche'
+   --AND champ='insecticides') AS Utilisation_insecticides,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.insecticides_type
+   --AND t='zones_description_escargots_planche'
+   --AND champ='insecticides_type') AS Type_insecticides,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.herbicides
+   --AND t='zones_description_escargots_planche'
+   --AND champ='herbicides') AS Utilisation_herbicides,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.herbicides_type
+   --AND t='zones_description_escargots_planche'
+   --AND champ='herbicides_type') AS Type_herbicides,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.fongicides
+   --AND t='zones_description_escargots_planche'
+   --AND champ='fongicides') AS Utilisation_fongicides,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.fongicides_type
+   --AND t='zones_description_escargots_planche'
+   --AND champ='fongicides_type') AS Type_fongicides,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.antilimaces
+   --AND t='zones_description_escargots_planche'
+   --AND champ='antilimaces') AS Utilisation_antilimaces,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.antilimaces_type
+   --AND t='zones_description_escargots_planche'
+   --AND champ='antilimaces_type') AS Type_antilimaces,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.bouilliebordelaise
+   --AND t='zones_description_escargots_planche'
+   --AND champ='bouilliebordelaise') AS Utilisation_boulliebordelaise,
+   --(SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_description_oiseaux.bouilliebordelaise_type
+   --AND t='zones_description_escargots_planche'
+   --AND champ='bouilliebordelaise_type') AS Type_bouilliebordelaise,
    STRING_AGG((SELECT label
    FROM dico_labels
    WHERE dico_labels.valeur=zones_composition.option

@@ -3,9 +3,9 @@
 args = commandArgs(trailingOnly=TRUE)
 
 # import package
-require("RPostgreSQL")
-library(stringr)
-library(dplyr)
+require(RPostgreSQL, quietly = TRUE)
+library(stringr, quietly = TRUE)
+library(dplyr, quietly = TRUE, warn.conflicts = FALSE)
 
 # fonction for restitution
 
@@ -42,14 +42,15 @@ drv <- dbDriver("PostgreSQL")
 con <- dbConnect(drv, dbname = "VNE2",
                  host = "harmonica.semi-k.net", port = 5432,
                  user = "vne2_ls", password = "_v1g1eN4tuR3_")
+  on.exit(dbDisconnect(con))
 if (args[1] == "Vers_de_terre"){
-query <- getSQL(args[2])
+  query <- getSQL(args[2])
 } else if (args[1] == "Oiseaux_des_jardins"){
-query <- getSQL(args[3])
+  query <- getSQL(args[3])
 } else if(args[1] == "Operation_escargot"){
-query <- getSQL(args[4])
+  query <- getSQL(args[4])
 } else if(args[1] == "Sauvage_de_ma_rue"){
-query <- getSQL(args[5])
+  query <- getSQL(args[5])
 }
 
 #get result from query
@@ -58,8 +59,8 @@ if ("composition_zone" %in% colnames(df_VNE))
   df_VNE$composition_zone <- str_replace_all(df_VNE$composition_zone, ",", "-")
 
 # close the connection
-dbDisconnect(con)
-dbUnloadDriver(drv)
+#dbDisconnect(con)
+#dbUnloadDriver(drv)
 
 # write file
 write.csv(df_VNE, "output-importVNE.csv", row.names = FALSE)
