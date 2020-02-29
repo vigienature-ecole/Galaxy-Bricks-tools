@@ -2,3 +2,5 @@
 tools/.venv/
 .venv/
 .idea
+.Rproj.user
+.Rproj
