@@ -26,14 +26,14 @@ input = data.frame(fread(args[1], encoding = "UTF-8"))
 
 
 #select lines
-if (wholeLine == FALSE){
-  if (negateMatching == FALSE){
+if (wholeLine == "laColonne"){
+  if (negateMatching == "garder"){
   result <- dplyr::filter(input, str_detect(input[ ,columnsNumber], filterParameter))
   } else {
     result <- dplyr::filter(input, !str_detect(input[ ,columnsNumber], filterParameter))
   }
 } else {
-  if (negateMatching == FALSE){
+  if (negateMatching == "garder"){
   result <- dplyr::filter_all(input, any_vars(str_detect(., filterParameter)))
   } else {
     result <- input[apply(input, 1, function (x) !any(str_detect(x, filterParameter))), ]

@@ -17,8 +17,8 @@
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" help="csv or tabular" />
         <param name="negateMatching" type="select" label="Choisir de" >
-          <option value="FALSE">garder</option>
-          <option value="TRUE">supprimer</option>
+          <option value="garder">garder</option>
+          <option value="supprimer">supprimer</option>
         </param>
         <param name="filterParameter" label="les lignes contenant" type="text" >
             <sanitizer invalid_char="_">
@@ -43,10 +43,10 @@
         </param>
         <conditional name="condi_column">
         <param name="wholeLine" type="select" label="dans" >
-            <option value="FALSE">la colonne</option>
-            <option value="TRUE">tout le fichier</option>
+            <option value="laColonne">la colonne</option>
+            <option value="toutLeFichier">tout le fichier</option>
         </param>
-        <when value="FALSE">
+        <when value="laColonne">
             <param name="columnNumber" label="Colonne à sélectionner" type="data_column" data_ref="input" multiple="false" value="1"/>
         </when>
         </conditional>
