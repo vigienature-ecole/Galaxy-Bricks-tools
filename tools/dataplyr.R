@@ -14,7 +14,7 @@ args = commandArgs(trailingOnly=TRUE)
 
 # import package
 library(data.table) # for data import
-library(dplyr)
+library(dplyr, warn.conflicts = FALSE)
 
 # separate variables
 columnsGroup <- as.numeric(unlist(strsplit(args[2], ",")))
