@@ -58,5 +58,8 @@
 
 .. class:: infomark
 
+Cet outil permet de sélectionner ou de supprimer les lignes qui contiennent certains caractères (lettres ou nombres).
+
+
     ]]></help>
 </tool>

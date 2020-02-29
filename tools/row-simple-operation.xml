@@ -91,6 +91,7 @@
 
 .. class:: infomark
 
+Cet outil créé une nouvelle colonne qui est le résultat d'un calcul portant sur la ligne.
 
     ]]></help>
 </tool>

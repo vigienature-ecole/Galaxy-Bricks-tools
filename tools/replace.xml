@@ -71,31 +71,7 @@
 
 .. class:: infomark
 
-Cet outil permet de regrouper des lignes par catégorie (par type d'environnement par exemple) en faisant un calcul (une moyenne par exemple) sur les données d'une autre colonne.
-
-Choisissez le jeu de données d'entrée, les colonnes sur lesquelles faire une agrégation, la colonne sur laquelle faire l'opération.
-
-**Exemple**
-
-Données d'entrée ::
-
-  "Groupe"  "Nombre d'individus"
-  escargot    0
-  escargot    5
-  limace      6
-  limace      2
-
-Paramètres :
-Colonne pour agrégation = 1
-Colonne pour opération = 2
-Opération à effectuer = Moyenne et Maximum
-
-Résultat ::
-
- "Groupe"  "Nombre d'individus" "Mean_Nombre d'individus" "Max_Nombre d'individus"
- escargot            0                    2.5                          5
- limace              6                      4                          6
-
+Cet outil permet de remplacer des caractères dans le jeu données.
 
     ]]></help>
 </tool>

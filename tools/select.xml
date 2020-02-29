@@ -23,6 +23,8 @@
     <help><![CDATA[
     .. class:: infomark
     ]]>
-    Petit test rapide quand même
+
+    Cet outil permet de sélection ou de supprimer des colonnes d'un jeu données.
+
     </help>
 </tool>
