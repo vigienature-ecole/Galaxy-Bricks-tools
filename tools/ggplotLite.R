@@ -20,18 +20,23 @@ input = data.frame(fread(args[1]))
 
 type = args[4]
 
-mappingCoord = aes_string(x = names(input)[as.numeric(args[2])],
+mappingCoord = ggplot2::aes_string(x = names(input)[as.numeric(args[2])],
                           y = names(input)[as.numeric(args[3])])
 
 if (type == "point"){
-  repType = geom_point()
+  repType = ggplot2::geom_point()
 } else if (type == "bar"){
-  repType = geom_col()
+  repType = ggplot2::geom_col()
 } else if (type == "boxplot"){
-  repType = geom_boxplot()
+  repType = ggplot2::geom_boxplot()
 }
 
-plot_out <- ggplot(input, mappingCoord) +
-  repType
+plot_out <- ggplot2::ggplot(input, mappingCoord) +
+  repType +
+  ggplot2::theme_minimal() +
+  ggplot2::theme(axis.text=element_text(size=12),
+                   axis.title=element_text(size=16),
+                   strip.text.x = element_text(size = 14))
 
-ggsave("output1.png", plot = plot_out, device = "png")
+
+ggplot2::ggsave("output1.png", plot = plot_out, device = "png")
