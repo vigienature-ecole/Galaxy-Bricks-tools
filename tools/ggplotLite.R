@@ -23,12 +23,14 @@ type = args[4]
 mappingCoord = ggplot2::aes_string(x = names(input)[as.numeric(args[2])],
                           y = names(input)[as.numeric(args[3])])
 
-if (type == "point"){
+if (type == "NuageDePoints"){
   repType = ggplot2::geom_point()
-} else if (type == "bar"){
+} else if (type == "DiagrammeEnBarre"){
   repType = ggplot2::geom_col()
-} else if (type == "boxplot"){
+} else if (type == "BoitesDeDispersion"){
   repType = ggplot2::geom_boxplot()
+} else if (type == "Densite"){
+  repType = ggplot2::geom_hex()
 }
 
 plot_out <- ggplot2::ggplot(input, mappingCoord) +
@@ -39,4 +41,4 @@ plot_out <- ggplot2::ggplot(input, mappingCoord) +
                    strip.text.x = element_text(size = 14))
 
 
-ggplot2::ggsave("output1.png", plot = plot_out, device = "png")
+suppressMessages(ggplot2::ggsave("output1.png", plot = plot_out, device = "png"))

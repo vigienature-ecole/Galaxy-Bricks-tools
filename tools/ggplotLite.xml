@@ -3,6 +3,8 @@
     <requirements>
         <requirement type="package" version="1.11.4">r-data.table</requirement>
         <requirement type="package" version="2.2.1">r-ggplot2</requirement>
+        <requirement type="package" version="1.27.2">r-hexbin</requirement>
+
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/ggplotLite.R' '$input' '$xcol' '$ycol' '$graphType'
@@ -13,9 +15,10 @@
         <param name="xcol" label="Axe horizontal (X)" type="data_column" data_ref="input" numerical="False"/>
         <param name="ycol" label="Axe vertical (Y)" type="data_column" data_ref="input" numerical="False"/>
         <param name="graphType" type="select" label="Opération à effectuer" multiple="False">
-          <option value="bar">Diagramme en barre</option>
-          <option value="boxplot">Boites de dispertion</option>
-          <option value="point">Nuage de points</option>
+          <option value="DiagrammeEnBarre">Diagramme en barre</option>
+          <option value="BoitesDeDispersion">Boites de dispertion</option>
+          <option value="NuageDePoints">Nuage de points</option>
+          <option value="Densite">Densité</option>
         </param>
 
     </inputs>
