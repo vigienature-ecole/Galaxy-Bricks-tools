@@ -43,6 +43,10 @@ res <- lm(formulaMod, data = input)
 # get output from linear model
 results <- summary(res)
 
+# predict to add values to plot
+trend <- predict(res, interval = "confidence")
+datlm = cbind(input, trend)
+
 test <- function (x){
   effet = "false"
   if (x >= .05) {
@@ -76,8 +80,10 @@ if (multiple == FALSE){
                                      y = names(input)[as.numeric(args[2])])
   # Output 3 Graph
   # plot data
-  plot_out <- ggplot2::ggplot(input, mappingCoord) +
+  plot_out <- ggplot2::ggplot(datlm, mappingCoord) +
     ggplot2::geom_point() +
+    ggplot2::geom_ribbon(ggplot2::aes(ymin = lwr, ymax = upr, color = NULL), alpha = .15) +
+    ggplot2::geom_line(ggplot2::aes(y = fit), size = 1) +
     ggplot2::theme_minimal() +
     ggplot2::theme(axis.text = ggplot2::element_text(size=12),
                    axis.title = ggplot2::element_text(size=16),
