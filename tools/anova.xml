@@ -2,6 +2,7 @@
     <description>Analyse de variance</description>
     <requirements>
         <requirement type="package" version="1.11.4">r-data.table</requirement>
+        <requirement type="package" version="2.2.1">r-ggplot2</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/anova.R' '$input' '$dependantVar' '$explanatoryVar'
