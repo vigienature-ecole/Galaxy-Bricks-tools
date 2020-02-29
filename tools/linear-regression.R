@@ -15,11 +15,8 @@
 args = commandArgs(trailingOnly=TRUE)
 #args = c("tools/test-data/irisPlus.tabular", "1","2")
 
-# import package
-library(data.table) # for data import
-
 # import input file (tabular or csv)
-input = data.frame(fread(args[1]))
+input = data.frame(data.table::fread(args[1]))
 
 
 multiple = grepl(",", args[3])
