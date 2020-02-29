@@ -16,6 +16,7 @@
     <tool file="cut/cut.xml" />
     <tool file="filter.xml" />
     <tool file="replace.xml" />
+    <tool file="select.xml" />
   </section>
   <section id="3vis" name="4. Visualisation">
     <tool file="ggplotLite.xml" />
