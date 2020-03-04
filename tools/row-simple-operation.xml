@@ -76,17 +76,6 @@
     <outputs>
         <data format="csv" name="output" from_work_dir="result"/>
     </outputs>
-    <tests>
-        <test>
-            <param name="input" value="input-lubridate.tabular"/>
-            <param name="addToData" value="TRUE"/>
-            <param name="column" value="3"/>
-            <param name="outputName" value="date"/>
-            <param name="inputDateFormat" value="DMY"/>
-            <param name="outputDateFormat" value="full"/>
-            <output name="output" file="out-lubridate.tabular"/>
-        </test>
-    </tests>
     <help><![CDATA[
 
 .. class:: infomark

@@ -1,5 +1,5 @@
 <tool id="join_data-table" name="Joindre deux jeux de données">
-    <description>on a specified field</description>
+    <description>en utilisant une colonne commune</description>
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
