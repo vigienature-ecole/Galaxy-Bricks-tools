@@ -3,4 +3,5 @@ tools/.venv/
 .venv/
 .idea
 .Rproj.user
-.Rproj
+*.Rproj
+.Rhistory
