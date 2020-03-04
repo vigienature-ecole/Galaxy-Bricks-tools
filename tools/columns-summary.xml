@@ -1,0 +1,70 @@
+<tool id="columns-summary" name="Opérations sur des colonnes entières">
+    <requirements>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        cat '$script' &&
+        Rscript '$script'
+    ]]></command>
+    <configfiles>
+        <configfile name="script"><![CDATA[
+            ## Setup R error handling to go to stderr
+            options(show.error.messages=F, error=function(){cat(geterrmessage(), file=stderr()); q("no",1,F)})
+
+            ## Unify locale settings
+            loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
+
+            ## Import file
+            input <- data.table::fread('$input')
+
+            ## Create final size dataframe
+            result <- data.frame((matrix(NA, ncol = 0, nrow = 1)))
+
+            print(result)
+            ## Add new column
+            #for $i, $s in enumerate($operation)
+            rank_of_series=$i
+
+            #if $s.outputOperation == "mean"
+                result[1, '$s.outputName'] <- colMeans(input[ ,$s.columnSelected], na.rm = TRUE)
+            #elif $s.outputOperation == "sum"
+                result[1, '$s.outputName'] <- colSums(input[ ,$s.columnSelected], na.rm = TRUE)
+            #elif $s.outputOperation == "sd"
+                result[1, '$s.outputName'] <- colSds(input[ ,$s.columnSelected], na.rm = TRUE)
+            #elif $s.outputOperation == "countAbove0"
+                inputSelectZero <- input[ ,$s.columnSelected]
+                inputSelectZero[inputSelectZero > 0] <- 1
+                result[1, '$s.outputName'] <- sum(inputSelectZero, na.rm = TRUE)
+            #end if
+
+            #end for
+
+            write.table(result, file="result", row.names=FALSE, sep=",")
+
+        ]]></configfile>
+    </configfiles>
+
+    <inputs>
+        <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
+        <repeat name="operation" title="Opération">
+            <param name="columnSelected" label="Colonnes à utiliser pour le calcul" type="data_column" data_ref="input" numerical="false" multiple = "true" />
+            <param name="outputName" type="text" value="Result" label="Nom de la colonne de résultat" help="Facultatif" />
+            <param name="outputOperation" type="select" label="Opération à réaliser">
+                <option value="sum" selected="true">Somme</option>
+                <option value="mean">Moyenne</option>
+                <option value="sd">Ecart-type</option>
+                <option value="countAbove0">Compter les valeurs supérieures à zéro</option>
+            </param>
+        </repeat>
+    </inputs>
+    <outputs>
+        <data format="csv" name="output" from_work_dir="result"/>
+    </outputs>
+    <help><![CDATA[
+
+.. class:: infomark
+
+Cet outil permet de faire un calcul simple sur des colonnes.
+
+    ]]></help>
+</tool>
