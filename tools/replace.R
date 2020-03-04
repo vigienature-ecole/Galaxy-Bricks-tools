@@ -17,7 +17,7 @@ replaceString = args[3]
 allColumns = args[4]
 columnNumber = as.numeric(args[5])
 
-if (allColumns == FALSE){
+if (allColumns == "uneColonne"){
   input[ ,columnNumber] <- gsub(searchString, replaceString, input[ ,columnNumber])
 } else {
   input <- data.frame(lapply(input,function(x) {gsub(searchString, replaceString, x)}))

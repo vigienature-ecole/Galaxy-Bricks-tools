@@ -51,10 +51,9 @@
                 result <- dst(result)
             #end if
 
-            #if $addToData == "TRUE"
+
                 input1 <- data.frame(input1, res = result)
                 colnames(input1)[ncol(input1)] <- '$inputName'
-            #end if
 
             ## Add new column
             #for $i, $s in enumerate($series)
@@ -89,10 +88,9 @@
                 result <- dst(result)
             #end if
 
-            #if $addToData == "TRUE"
+
                 input1 <- data.frame(input1, res = result)
                 colnames(input1)[ncol(input1)] <- '$s.inputName'
-            #end if
             #end for
 
             write.table(input1, file="result", row.names=FALSE, sep=",")
@@ -187,7 +185,7 @@
     <tests>
         <test>
             <param name="input" value="input-lubridate.tabular"/>
-            <param name="addToData" value="TRUE"/>
+            <param name="addToData" value="true"/>
             <param name="column" value="3"/>
             <param name="inputName" value="date"/>
             <param name="inputDateFormat" value="DMY"/>

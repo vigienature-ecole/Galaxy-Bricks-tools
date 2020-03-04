@@ -29,7 +29,7 @@
             </valid>
         </sanitizer>
     </param>
-        <param truevalue="TRUE" falsevalue="FALSE" label="Ajouter la colonne au jeu de données initial" help="Si vous selectionnez non, vous obtiendrez seulement la colonne calculer lors de cette étape en résultat" name="add" type="boolean" />
+        <param truevalue="true" falsevalue="false" label="Ajouter la colonne au jeu de données initial" help="Si vous selectionnez non, vous obtiendrez seulement la colonne calculée lors de cette étape en résultat" name="add" type="boolean" value="true" />
     </inputs>
     <outputs>
         <data format="csv" name="output" from_work_dir="result.tabular"/>
@@ -39,7 +39,7 @@
             <param name="input" value="irisPlus.tabular"/>
             <param name="inputFormula" value="c1 / c2"/>
             <param name="inputName" value="Sepal.Ratio"/>
-            <param name="add" value="TRUE"/>
+            <param name="add" value="true"/>
             <output name="output" value="out-simple-operation.tabular"/>
         </test>
     </tests>

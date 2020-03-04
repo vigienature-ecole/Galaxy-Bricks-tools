@@ -40,7 +40,7 @@ if (resultEval){
   colnames(resultData) <- inputName
 
   # add column to original file if asked
-  if (args[4] == TRUE) resultData <- data.frame(inputData, resultData)
+  if (args[4] == 'true') resultData <- data.frame(inputData, resultData)
 
   # write output file
   fwrite(resultData, file = "result.tabular", sep = ",")

@@ -21,7 +21,7 @@
             <option value="RIGHT">Inclure seulement les lignes qui correspondent du jeu de données 1 et toutes les lignes du jeu de données 2</option>
             <option value="FULL">Inclure toutes les lignes des deux jeux de données (un très grand jeu de données peut en résulter)</option>
         </param>
-        <param name="keepHeaders" truevalue="TRUE" falsevalue="FALSE" label="Garder les entêtes de colonne dans le fichier final" help="Si le fichier n'a pas d'entêtes, des entêtes seront automatiquement créées avec le format suivant : 'V1' " type="boolean" />
+        <param name="keepHeaders" truevalue="true" falsevalue="false" label="Garder les entêtes de colonne dans le fichier final" help="Si le fichier n'a pas d'entêtes, des entêtes seront automatiquement créées avec le format suivant : 'V1' " type="boolean" />
     </inputs>
     <outputs>
         <data format="csv" name="output" from_work_dir="output-join.tabular" />
@@ -35,7 +35,7 @@
             <param name="keepCol1" value="1,2,3"/>
             <param name="keepCol2" value="1,2"/>
             <param name="joinType" value="INNER"/>
-            <param name="keepHeaders" value="TRUE"/>
+            <param name="keepHeaders" value="true"/>
             <output name="output" file="output-join.tabular"/>
         </test>
     </tests>

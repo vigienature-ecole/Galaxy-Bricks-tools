@@ -7,7 +7,7 @@
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/filter.R' '$input' '$negateMatching' '$filterParameter' '$condi_column.wholeLine'
-        #if $condi_column.wholeLine == "FALSE"
+        #if $condi_column.wholeLine == "laColonne"
             '$condi_column.columnNumber'
         #end if
 

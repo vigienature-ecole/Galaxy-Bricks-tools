@@ -56,10 +56,10 @@
         </param>
         <conditional name="condi_column">
             <param name="allColumns" type="select" label="Remplacer dans">
-                <option value="FALSE">une colonne</option>
-                <option value="TRUE">tout le jeu de données</option>
+                <option value="uneColonne">une colonne</option>
+                <option value="toutLeJeuDeDonnes">tout le jeu de données</option>
             </param>
-            <when value="FALSE">
+            <when value="uneColonne">
                 <param name="columnNumber" label="Colonne sélectionnée" type="data_column" data_ref="input" multiple="false"/>
             </when>
         </conditional>

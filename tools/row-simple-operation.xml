@@ -42,7 +42,7 @@
                 result <- rowSums(inputSelectZero, na.rm = TRUE)
             #end if
 
-            #if $addToData == "TRUE"
+            #if $addToData == "true"
                 output <- data.frame(output, res = result)
                 colnames(output)[ncol(output)] <- '$s.outputName'
             #else
@@ -58,7 +58,7 @@
 
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
-        <param falsevalue="FALSE" label="Ajouter une colonne au jeu de données initial" name="addToData" truevalue="TRUE" type="boolean" />
+        <param falsevalue="false" label="Ajouter une colonne au jeu de données initial" name="addToData" truevalue="true" type="boolean" />
         <section name="advanced" title="Options avancées" expanded="false">
         <param name="include" label="Colonnes à utiliser pour le calcul" type="data_column" data_ref="input" numerical="false" multiple = "true" />
         <param name="keep" label="Colonnes à garder dans le jeu de donnée final" type="data_column" data_ref="input" numerical="false" multiple = "true" help="Sélectionner ajouter une colonne au jeu de donnée pour pouvoir utiliser ce paramètre" />
