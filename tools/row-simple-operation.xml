@@ -64,7 +64,27 @@
         <param name="keep" label="Colonnes à garder dans le jeu de donnée final" type="data_column" data_ref="input" numerical="false" multiple = "true" help="Sélectionner ajouter une colonne au jeu de donnée pour pouvoir utiliser ce paramètre" />
         </section>
         <repeat name="operation" title="Opération">
-            <param name="outputName" type="text" value="Result" label="Nom de la colonne de résultat" />
+            <param name="outputName" type="text" value="Result" label="Nom de la colonne de résultat" >
+            <sanitizer invalid_char="_">
+                <valid initial="default">
+                    <add value="à" />
+                    <add value="â" />
+                    <add value="é" />
+                    <add value="è" />
+                    <add value="ê" />
+                    <add value="ë" />
+                    <add value="î" />
+                    <add value="ï" />
+                    <add value="ô" />
+                    <add value="ù" />
+                    <add value="û" />
+                    <add value="ÿ" />
+                    <add value="ç" />
+                    <add value="œ" />
+                    <add value="€" />
+                </valid>
+            </sanitizer>
+        </param>
             <param name="outputOperation" type="select" label="Opération à réaliser">
                 <option value="sum" selected="true">Somme</option>
                 <option value="mean">Moyenne</option>
