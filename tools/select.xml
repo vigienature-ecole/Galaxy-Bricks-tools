@@ -22,7 +22,8 @@
     </outputs>
     <help><![CDATA[
     .. class:: infomark
-    Cet outil permet de sélection ou de supprimer des colonnes d'un jeu données.
+
+    Cet outil permet de sélectionner ou de supprimer des colonnes d'un jeu données.
 
     ]]>
     </help>

@@ -13,13 +13,10 @@
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
-
-# import package
-library(data.table) # for data import
+#args = c("tools/test-data/irisPlus.tabular", "1", "5")
 
 # import input file (tabular or csv)
-input = data.frame(fread(args[1]))
-#input = fread("tools/test-data/irisPlus.tabular")
+input = data.frame(data.table::fread(args[1]))
 
 # find if there is more than one explanatory variable (separator = , )
 multiple = grepl(",", args[3])
