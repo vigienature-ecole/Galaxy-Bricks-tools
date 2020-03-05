@@ -13,6 +13,7 @@
     <tool file="replace.xml" />
     <tool file="select.xml" />
     <tool file="row-simple-operation.xml" />
+    <tool file="concatenate-columns.xml" />
   </section>
   <section id="3vis" name="4. Visualisation">
     <tool file="ggplotLite.xml" />
