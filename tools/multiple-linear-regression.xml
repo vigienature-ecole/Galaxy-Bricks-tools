@@ -8,7 +8,7 @@
         '$output' ]]>
     </command>
     <inputs>
-        <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" help="csv ou tabular" />
+        <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
         <param name="explanatoryVar" label="Variable explicative (X)" type="data_column" data_ref="input" numerical="True" multiple="True"/>
         <param name="dependantVar" label="Variable à expliquer (Y)" type="data_column" data_ref="input" numerical="True"/>
     </inputs>

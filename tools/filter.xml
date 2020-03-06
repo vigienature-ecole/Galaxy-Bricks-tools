@@ -10,12 +10,11 @@
         #if $condi_column.wholeLine == "laColonne"
             '$condi_column.columnNumber'
         #end if
-
         '$output'
         ]]>
     </command>
     <inputs>
-        <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" help="csv or tabular" />
+        <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
         <param name="negateMatching" type="select" label="Choisir de" >
           <option value="garder">garder</option>
           <option value="supprimer">supprimer</option>
