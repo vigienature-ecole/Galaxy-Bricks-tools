@@ -5,22 +5,68 @@
         <requirement type="package" version="0.8.0.1">r-dplyr</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/dataplyr.R' '$input' '$groupBy' '$colOperation' '$function' '$output'
+        Rscript '$__tool_directory__/dataplyr.R' '$input' '$groupBy' '$colOperation' '$condi_names.function'
+        #if $condi_names.function == "mean"
+            '$condi_names.nameMean'
+        #end if
+        #if $condi_names.function == "median"
+            '$condi_names.nameMedian'
+        #end if
+        #if $condi_names.function == "sum"
+            '$condi_names.nameSum'
+        #end if
+        #if $condi_names.function == "length"
+            '$condi_names.nameLength'
+        #end if
+        #if $condi_names.function == "sd"
+            '$condi_names.nameSd'
+        #end if
+        #if $condi_names.function == "min"
+            '$condi_names.nameMin'
+        #end if
+        #if $condi_names.function == "max"
+            '$condi_names.nameMax'
+        #end if
+        '$output'
         ]]>
     </command>
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
-        <param name="groupBy" label="Colonne pour agrégation" type="data_column" data_ref="input" multiple="true"/>
-        <param name="colOperation" label="Colonne pour opération" type="data_column" data_ref="input" multiple="false"/>
-        <param name="function" type="select" label="Opération à effectuer" multiple="true" display="checkboxes">
-          <option value="mean">Moyenne</option>
-          <option value="median">Médiane</option>
-          <option value="sum">Somme</option>
-          <option value="length">Compte</option>
-          <option value="sd">Ecart-type</option>
-          <option value="min">Minimum</option>
-          <option value="max">Maximum</option>
-        </param>
+        <param name="groupBy" label="Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes" type="data_column" data_ref="input" multiple="true" help="Attention seules les colonnes choisies seront présentes dans le fichier de sortie (le numéro d'oservation est souvent utile pour le premier regroupement)"/>
+        <conditional name="condi_names">
+            <!-- put back multiple and checkbox when possible -->
+            <param name="function" type="select" label="en faisant l'opération suivante">
+                <option value="mean" selected="True">Moyenne</option>
+                <option value="median">Médiane</option>
+                <option value="sum">Somme</option>
+                <option value="length">Compte</option>
+                <option value="sd">Ecart-type</option>
+                <option value="min">Minimum</option>
+                <option value="max">Maximum</option>
+            </param>
+            <when value="mean">
+                <param name="nameMean" label="et en nommant la colonne moyenne" type="text" />
+            </when>
+            <when value="median">
+                <param name="nameMedian" label="et en nommant la colonne médiane" type="text" />
+            </when>
+            <when value="sum">
+                <param name="nameSum" label="et en nommant la colonne somme" type="text" />
+            </when>
+            <when value="length">
+                <param name="nameLength" label="et en nommant la colonne compte" type="text" />
+            </when>
+            <when value="sd">
+                <param name="nameSd" label="et en nommant la colonne écart-type" type="text" />
+            </when>
+            <when value="min">
+                <param name="nameMin" label="et en nommant la colonne minimum" type="text" />
+            </when>
+            <when value="max">
+                <param name="nameMax" label="et en nommant la colonne maximum" type="text" />
+            </when>
+        </conditional>
+        <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="false"/>
     </inputs>
     <outputs>
         <data format="csv" name="output" from_work_dir="output-dataplyr.tabular" />
