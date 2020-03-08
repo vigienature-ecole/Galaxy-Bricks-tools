@@ -58,7 +58,7 @@ if (nrow(results[[1]]) > 1) {
                                          " sur la variable ", colnames(input)[as.numeric(args[2])],
                                          ". La probabilité critique est égale à ", round(results[[1]]$`Pr(>F)`[i], 5),"."))
   explanation <- c(explanation, "Attention, ce résultat doit être vérifié.",
-                   "Il peut, par exemple, être la conséquence d'un trop petit échantillon ou d'une confusion d'effet.")
+                   "Il peut, par exemple, être la conséquence d'un échantillon trop petit ou biaisé ou d'une confusion d'effet.")
   fileConn<-file("mod-summary.txt")
   writeLines(explanation, fileConn)
   close(fileConn)
