@@ -1,4 +1,4 @@
-<tool id="anova" name="ANOVA" force_history_refresh="True">
+<tool id="anova" name="Comparaison de moyennes">
     <description>Analyse de variance</description>
     <requirements>
         <requirement type="package" version="1.11.4">r-data.table</requirement>

@@ -1,4 +1,4 @@
-<tool id="select-characters" name="Extraire des characters dans une colonne">
+<tool id="select-characters" name="Extraire des caractères d'une une colonne">
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
@@ -9,7 +9,7 @@
     </command>
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
-        <param name="charNumber" label="Nombre de caractères à extraire :" type="numerical" />
+        <param name="charNumber" label="Nombre de caractères à extraire" type="text" />
         <param name="colNumber" label="de la colonne" type="data_column" data_ref="input" multiple="false" value="1"/>
         <param name="side" type="select" label="en partant de la" >
             <option value="gauche">gauche</option>

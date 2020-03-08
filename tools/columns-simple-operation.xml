@@ -3,12 +3,12 @@
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/columns-simple-operation.R' '$input' '$inputFormula' '$inputName' '$add' '$output' ]]>
+        Rscript '$__tool_directory__/columns-simple-operation.R' '$input' '$inputFormula' '$inputName' '$output' ]]>
     </command>
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
-        <param name="inputFormula" type="text" value="c1 + c2" label="Formule" help="Pour selectionner une colonne taper c et le numéro de la colonne (e.g. c2 pour la deuxième colonne)" />
-        <param name="inputName" type="text" value="" label="Nom de la colonne de résultat" >
+        <param name="inputFormula" type="text" value="c1 + c2" label="Appliquer la formule suivante" help="Pour selectionner une colonne taper c et le numéro de la colonne (e.g. c2 pour la deuxième colonne). Vous pouvez utiliser les opérations suivantes : + addition - soustraction * multiplication / division ^ puissance" />
+        <param name="inputName" type="text" value="" label="et stocker le résultat dans une nouvelle colonne nommée" >
         <sanitizer invalid_char="_">
             <valid initial="default">
                 <add value="à" />
@@ -28,9 +28,6 @@
                 <add value="€" />
             </valid>
         </sanitizer>
-    </param>
-        <param truevalue="true" falsevalue="false" label="Ajouter la colonne au jeu de données initial" help="Si vous selectionnez non, vous obtiendrez seulement la colonne calculée lors de cette étape en résultat" name="add" type="boolean" value="true" />
-    </inputs>
     <outputs>
         <data format="csv" name="output" from_work_dir="result.tabular"/>
     </outputs>

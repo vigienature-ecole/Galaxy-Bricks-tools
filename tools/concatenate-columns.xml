@@ -9,9 +9,9 @@
     </command>
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
-        <param name="col1" label="Colonne à sélectionner" type="data_column" data_ref="input" multiple="false" value="1"/>
-        <param name="col2" label="Colonne à sélectionner" type="data_column" data_ref="input" multiple="false" value="2"/>
-        <param name="name" label="nom de la colonne créée" type="text" >
+        <param name="col1" label="Fusionner la colonne" type="data_column" data_ref="input" multiple="false" value="1"/>
+        <param name="col2" label="avec la colonne" type="data_column" data_ref="input" multiple="false" value="2"/>
+        <param name="name" label="et stocker le résultat dans une nouvelle colonne nommée" type="text" >
             <sanitizer invalid_char="_">
                 <valid initial="default">
                     <add value="à" />

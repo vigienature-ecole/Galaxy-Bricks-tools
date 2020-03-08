@@ -99,48 +99,14 @@
     </configfiles>
 
     <inputs>
-        <param format="tabular,csv,txt" name="input" type="data" label="Input file" />
-        <param name="column" type="integer" value="2" label="Numéro de la colonne d'entrée" />
-        <param name="inputName" type="text" value="date" label="Nom de la colonne résultante" >
-        <sanitizer invalid_char="_">
-            <valid initial="default">
-                <add value="à" />
-                <add value="â" />
-                <add value="é" />
-                <add value="è" />
-                <add value="ê" />
-                <add value="ë" />
-                <add value="î" />
-                <add value="ï" />
-                <add value="ô" />
-                <add value="ù" />
-                <add value="û" />
-                <add value="ÿ" />
-                <add value="ç" />
-                <add value="œ" />
-                <add value="€" />
-            </valid>
-        </sanitizer>
-    </param>
-        <param name="inputDateFormat" type="select" label="Choisir le format des données d'entrée" help="A pour année, M pour mois et J pour jour">
-            <option value="dmy" selected="true">JMA</option>
+        <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
+        <param name="column" type="data_column" data_ref="input" multiple="false" value="2" label="Convertir la colonne" />
+        <param name="inputDateFormat" type="select" label="dont le format de données est" help="A pour année, M pour mois et J pour jour">
+            <option value="dmy">JMA</option>
             <option value="mdy">MJA</option>
-            <option value="ymd">AMJ</option>
+            <option value="ymd" selected="true">AMJ</option>
         </param>
-        <param name="outputDateFormat" type="select" label="Choisir le format de sortie">
-            <option value="full" selected="true">Complet</option>
-            <option value="year">Année</option>
-            <option value="month">Mois</option>
-            <option value="day">Jour</option>
-            <option value="week">Semaine</option>
-            <option value="yday">Jour de l'année (~1-365)</option>
-            <option value="mday">Jour du mois (~1-30)</option>
-            <option value="wday">Jour de la semaine (1-7)</option>
-            <option value="timeZone">Fuseau horaire</option>
-        </param>
-        <repeat name="series" title="Series">
-            <param name="column" type="integer" value="2" label="Numéro de la colonne d'entrée" />
-            <param name="inputName" type="text" value="date" label="Nom de la colonne résultante" >
+        <param name="inputName" type="text" value="date" label="dans une nouvelle colonne nommée" >
             <sanitizer invalid_char="_">
                 <valid initial="default">
                     <add value="à" />
@@ -161,6 +127,40 @@
                 </valid>
             </sanitizer>
         </param>
+        <param name="outputDateFormat" type="select" label="où la date sera convertie en">
+            <option value="full" selected="true">Date complète</option>
+            <option value="year">Année</option>
+            <option value="month">Mois</option>
+            <option value="day">Jour</option>
+            <option value="week">Semaine</option>
+            <option value="yday">Jour de l'année (~1-365)</option>
+            <option value="mday">Jour du mois (~1-30)</option>
+            <option value="wday">Jour de la semaine (1-7)</option>
+            <option value="timeZone">Fuseau horaire</option>
+        </param>
+        <repeat name="series" title="Series">
+            <param name="column" type="integer" value="2" label="Numéro de la colonne d'entrée" />
+            <param name="inputName" type="text" value="date" label="Nom de la colonne résultante" >
+                <sanitizer invalid_char="_">
+                    <valid initial="default">
+                        <add value="à" />
+                        <add value="â" />
+                        <add value="é" />
+                        <add value="è" />
+                        <add value="ê" />
+                        <add value="ë" />
+                        <add value="î" />
+                        <add value="ï" />
+                        <add value="ô" />
+                        <add value="ù" />
+                        <add value="û" />
+                        <add value="ÿ" />
+                        <add value="ç" />
+                        <add value="œ" />
+                        <add value="€" />
+                    </valid>
+                </sanitizer>
+            </param>
             <param name="inputDateFormat" type="select" label="Choisir le format des données d'entrée" help="A pour année, M pour mois et J pour jour">
                 <option value="dmy" selected="true">JMA</option>
                 <option value="mdy">MJA</option>

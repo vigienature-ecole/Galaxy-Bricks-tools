@@ -15,8 +15,10 @@ inputData <- fread(args[1])
 inputFormula = args[2]
 inputName = args[3]
 
-#check the formula for security reasons
+#deal with NA (A bit uncool !)
+inputData[is.NA(inputData)] <- 0
 
+#check the formula for security reasons
 evalFormula <- inputFormula
 functions <- c("log[(]", "log10[(]" ,"exp[(]" ,"sqrt[(]" ,"asin[(]" ,"acos[(]" ,"sin[(]" ,"tan[(]" ,"atan[(]" ,"cos[(]", "sum[()]", "mean[(]", "var[(]", "sd[(]")
 for (i in seq_along(functions)) evalFormula <- gsub(functions[i],"",evalFormula)
@@ -39,8 +41,8 @@ if (resultEval){
   # change the name of the result column
   colnames(resultData) <- inputName
 
-  # add column to original file if asked
-  if (args[4] == 'true') resultData <- data.frame(inputData, resultData)
+  # add column to original file
+  resultData <- data.frame(inputData, resultData)
 
   # write output file
   fwrite(resultData, file = "result.tabular", sep = ",")
