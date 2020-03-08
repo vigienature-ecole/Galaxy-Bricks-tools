@@ -7,7 +7,7 @@
 
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/ggplotLite.R' '$input' '$xcol' '$ycol' '$graphType'
+        Rscript '$__tool_directory__/ggplotLite.R' '$input' '$xcol' '$ycol' '$graphType' '$titre' '$xlab' '$ylab' '$colGroup' '$facetGroup'
         '$output1' ]]>
     </command>
     <inputs>
@@ -20,7 +20,11 @@
           <option value="NuageDePoints">Nuage de points</option>
           <option value="Densite">Densité</option>
         </param>
-
+        <param name="facetGroup" label="Créer des graphiques différents selon les catégories de la variable : (optionnel)" type="data_column" data_ref="input" numerical="False"/>
+        <param name="colGroup" label="Changer les couleurs du graphique selon les catégories de la variable : (optionnel)" type="data_column" data_ref="input" numerical="False"/>
+        <param name="titre" label="Titre du graphique" type="text" />
+        <param name="xlab" label="Titre de l'axe des X" type="text" help="si laissé vide alors le nom de l'axe sera celui de la variable" />
+        <param name="ylab" label="Titre de l'axe des Y" type="text" help="si laissé vide alors le nom de l'axe sera celui de la variable" />
     </inputs>
     <outputs>
         <data format="png" name="output1" from_work_dir="output1.png" />
