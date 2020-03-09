@@ -4,7 +4,7 @@
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/replace.R' '$input' '$searchString' '$replaceString' '$condi_column.allColumns'
-        #if $condi_column.allColumns == "FALSE"
+        #if $condi_column.allColumns == "uneColonne"
             '$condi_column.columnNumber'
         #end if
         '$output'

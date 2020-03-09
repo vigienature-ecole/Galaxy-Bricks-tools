@@ -14,7 +14,7 @@
         <param format="tabular,csv,txt" name="input" type="data" label="Fichier d'entrée" />
         <param name="xcol" label="Axe horizontal (X)" type="data_column" data_ref="input" numerical="False"/>
         <param name="ycol" label="Axe vertical (Y)" type="data_column" data_ref="input" numerical="False"/>
-        <param name="graphType" type="select" label="Opération à effectuer" multiple="False">
+        <param name="graphType" type="select" label="Type de représentation graphique" multiple="False">
           <option value="DiagrammeEnBarre">Diagramme en barre</option>
           <option value="BoitesDeDispersion">Boites de dispertion</option>
           <option value="NuageDePoints">Nuage de points</option>

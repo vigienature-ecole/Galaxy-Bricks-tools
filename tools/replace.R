@@ -4,6 +4,7 @@
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
+#args <- c("tools/test-data/irisPlus.tabular", "set", "tot", "uneColonne", "5")
 
 # import package
 library(data.table) # for data import

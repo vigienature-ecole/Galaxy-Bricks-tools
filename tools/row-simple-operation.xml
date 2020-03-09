@@ -1,4 +1,4 @@
-<tool id="row-simple-operation" name="Operations sur des lignes">
+<tool id="row-simple-operation" name="Operations sur des lignes (WIP-repeat)">
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
@@ -42,13 +42,9 @@
                 result <- rowSums(inputSelectZero, na.rm = TRUE)
             #end if
 
-            #if $addToData == "true"
-                output <- data.frame(output, res = result)
-                colnames(output)[ncol(output)] <- '$s.outputName'
-            #else
-                output <- data.frame(res = result)
-                colnames(output) <- '$s.outputName'
-            #end if
+            output <- data.frame(output, res = result)
+            colnames(output)[ncol(output)] <- '$s.outputName'
+
             #end for
 
             write.table(output, file="result", row.names=FALSE, sep=",")
@@ -57,14 +53,15 @@
     </configfiles>
 
     <inputs>
-        <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
-        <param falsevalue="false" label="Ajouter une colonne au jeu de données initial" name="addToData" truevalue="true" type="boolean" />
-        <section name="advanced" title="Options avancées" expanded="false">
-        <param name="include" label="Colonnes à utiliser pour le calcul" type="data_column" data_ref="input" numerical="false" multiple = "true" />
-        <param name="keep" label="Colonnes à garder dans le jeu de donnée final" type="data_column" data_ref="input" numerical="false" multiple = "true" help="Sélectionner ajouter une colonne au jeu de donnée pour pouvoir utiliser ce paramètre" />
-        </section>
-        <repeat name="operation" title="Opération">
-            <param name="outputName" type="text" value="Result" label="Nom de la colonne de résultat" >
+        <param format="tabular,csv,txt" name="input" type="data" label="À partir des données d'entrée" />
+        <repeat name="operation" title="Ajouter des opérations">
+            <param name="outputOperation" type="select" label="faire l'opération suivante">
+                <option value="sum" selected="true">Somme</option>
+                <option value="mean">Moyenne</option>
+                <option value="sd">Ecart-type</option>
+                <option value="countAbove0">Compter les valeurs supérieures à zéro</option>
+            </param>
+            <param name="outputName" type="text" value="Result" label="et stocker l'information dans une nouvelle colonne nommée" >
             <sanitizer invalid_char="_">
                 <valid initial="default">
                     <add value="à" />
@@ -85,13 +82,10 @@
                 </valid>
             </sanitizer>
         </param>
-            <param name="outputOperation" type="select" label="Opération à réaliser">
-                <option value="sum" selected="true">Somme</option>
-                <option value="mean">Moyenne</option>
-                <option value="sd">Ecart-type</option>
-                <option value="countAbove0">Compter les valeurs supérieures à zéro</option>
-            </param>
         </repeat>
+        <param name="include" label="à partir des colonnes suivantes" type="data_column" data_ref="input" numerical="false" multiple = "true" />
+        <param name="keep" label="Maintenir ces colonnes dans le jeu de données final" type="data_column" data_ref="input" numerical="false" multiple = "true" help="Sélectionner ajouter une colonne au jeu de donnée pour pouvoir utiliser ce paramètre" />
+
     </inputs>
     <outputs>
         <data format="csv" name="output" from_work_dir="result"/>

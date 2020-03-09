@@ -26,12 +26,12 @@
 
 .. class:: infomark
 
-Vous pouvez importer des données depuis les bases VNE grâce à cet outils.
+Vous pouvez importer des données depuis les bases Vigie-Nature École grâce à cet outils.
 
 Il vous suffit de choisir votre observatoire.
 
 
-.. image:: http://localhost:8888${static_path}/images/tools/bricks/logoVNE.png
+.. image:: https://galaxy4bricks-pre.65mo.fr/${static_path}/images/tools/bricks/logoVNE.png
 
 
     ]]></help>
