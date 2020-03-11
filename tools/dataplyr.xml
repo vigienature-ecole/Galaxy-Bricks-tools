@@ -45,25 +45,165 @@
                 <option value="max">Maximum</option>
             </param>
             <when value="mean">
-                <param name="nameMean" label="et en nommant la colonne moyenne" type="text" />
+                <param name="nameMean" label="et en nommant la colonne moyenne" type="text" >
+                    <sanitizer invalid_char="_">
+                        <valid initial="default">
+                            <add value="à" />
+                            <add value="â" />
+                            <add value="é" />
+                            <add value="è" />
+                            <add value="ê" />
+                            <add value="ë" />
+                            <add value="î" />
+                            <add value="ô" />
+                            <add value="ï" />
+                            <add value="ù" />
+                            <add value="û" />
+                            <add value="ÿ" />
+                            <add value="ç" />
+                            <add value="œ" />
+                            <add value="€" />
+                        </valid>
+                    </sanitizer>
+                </param>
             </when>
             <when value="median">
-                <param name="nameMedian" label="et en nommant la colonne médiane" type="text" />
+                <param name="nameMedian" label="et en nommant la colonne médiane" type="text" >
+                <sanitizer invalid_char="_">
+                    <valid initial="default">
+                        <add value="à" />
+                        <add value="â" />
+                        <add value="é" />
+                        <add value="è" />
+                        <add value="ê" />
+                        <add value="ë" />
+                        <add value="î" />
+                        <add value="ô" />
+                        <add value="ï" />
+                        <add value="ù" />
+                        <add value="û" />
+                        <add value="ÿ" />
+                        <add value="ç" />
+                        <add value="œ" />
+                        <add value="€" />
+                    </valid>
+                </sanitizer>
+            </param>
             </when>
             <when value="sum">
-                <param name="nameSum" label="et en nommant la colonne somme" type="text" />
+                <param name="nameSum" label="et en nommant la colonne somme" type="text" >
+                <sanitizer invalid_char="_">
+                    <valid initial="default">
+                        <add value="à" />
+                        <add value="â" />
+                        <add value="é" />
+                        <add value="è" />
+                        <add value="ê" />
+                        <add value="ë" />
+                        <add value="î" />
+                        <add value="ô" />
+                        <add value="ï" />
+                        <add value="ù" />
+                        <add value="û" />
+                        <add value="ÿ" />
+                        <add value="ç" />
+                        <add value="œ" />
+                        <add value="€" />
+                    </valid>
+                </sanitizer>
+            </param>
             </when>
             <when value="length">
-                <param name="nameLength" label="et en nommant la colonne compte" type="text" />
+                <param name="nameLength" label="et en nommant la colonne compte" type="text" >
+                <sanitizer invalid_char="_">
+                    <valid initial="default">
+                        <add value="à" />
+                        <add value="â" />
+                        <add value="é" />
+                        <add value="è" />
+                        <add value="ê" />
+                        <add value="ë" />
+                        <add value="î" />
+                        <add value="ô" />
+                        <add value="ï" />
+                        <add value="ù" />
+                        <add value="û" />
+                        <add value="ÿ" />
+                        <add value="ç" />
+                        <add value="œ" />
+                        <add value="€" />
+                    </valid>
+                </sanitizer>
+            </param>
             </when>
             <when value="sd">
-                <param name="nameSd" label="et en nommant la colonne écart-type" type="text" />
+                <param name="nameSd" label="et en nommant la colonne écart-type" type="text" >
+                <sanitizer invalid_char="_">
+                    <valid initial="default">
+                        <add value="à" />
+                        <add value="â" />
+                        <add value="é" />
+                        <add value="è" />
+                        <add value="ê" />
+                        <add value="ë" />
+                        <add value="î" />
+                        <add value="ô" />
+                        <add value="ï" />
+                        <add value="ù" />
+                        <add value="û" />
+                        <add value="ÿ" />
+                        <add value="ç" />
+                        <add value="œ" />
+                        <add value="€" />
+                    </valid>
+                </sanitizer>
+            </param>
             </when>
             <when value="min">
-                <param name="nameMin" label="et en nommant la colonne minimum" type="text" />
+                <param name="nameMin" label="et en nommant la colonne minimum" type="text" >
+                <sanitizer invalid_char="_">
+                    <valid initial="default">
+                        <add value="à" />
+                        <add value="â" />
+                        <add value="é" />
+                        <add value="è" />
+                        <add value="ê" />
+                        <add value="ë" />
+                        <add value="î" />
+                        <add value="ô" />
+                        <add value="ï" />
+                        <add value="ù" />
+                        <add value="û" />
+                        <add value="ÿ" />
+                        <add value="ç" />
+                        <add value="œ" />
+                        <add value="€" />
+                    </valid>
+                </sanitizer>
+            </param>
             </when>
             <when value="max">
-                <param name="nameMax" label="et en nommant la colonne maximum" type="text" />
+                <param name="nameMax" label="et en nommant la colonne maximum" type="text" >
+                    <sanitizer invalid_char="_">
+                        <valid initial="default">
+                            <add value="à" />
+                            <add value="â" />
+                            <add value="é" />
+                            <add value="è" />
+                            <add value="ê" />
+                            <add value="ë" />
+                            <add value="î" />
+                            <add value="ô" />
+                            <add value="ï" />
+                            <add value="ù" />
+                            <add value="û" />
+                            <add value="ÿ" />
+                            <add value="ç" />
+                            <add value="œ" />
+                            <add value="€" />
+                        </valid>
+                   </sanitizer>
+                </param>
             </when>
         </conditional>
         <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="false"/>
