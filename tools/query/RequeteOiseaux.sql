@@ -46,7 +46,7 @@ SELECT DISTINCT
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_oiseaux.distance_champ_cultive
    AND t='zones_description_escargots_planche'
-   AND champ='distance_champ_cultive') AS Distance_champ,
+   AND champ='distance_champ_cultive') AS Distance_champ
    --(SELECT label
    --FROM dico_labels
    --WHERE dico_labels.valeur=zones_description_oiseaux.engrais
@@ -107,12 +107,12 @@ SELECT DISTINCT
    --WHERE dico_labels.valeur=zones_description_oiseaux.bouilliebordelaise_type
    --AND t='zones_description_escargots_planche'
    --AND champ='bouilliebordelaise_type') AS Type_bouilliebordelaise,
-   STRING_AGG((SELECT label
-   FROM dico_labels
-   WHERE dico_labels.valeur=zones_composition.option
-   AND t='zones_composition'
-   AND zones_composition.value='TRUE'
-   AND champ='value'), ' | ') AS Composition_zone
+   --STRING_AGG((SELECT label
+   --FROM dico_labels
+   --WHERE dico_labels.valeur=zones_composition.option
+   --AND t='zones_composition'
+   --AND zones_composition.value='TRUE'
+   --AND champ='value'), ' | ') AS Composition_zone
    --urlphoto.url AS Photos,
    --observations.notes AS Notes
 
