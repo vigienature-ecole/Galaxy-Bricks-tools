@@ -11,6 +11,7 @@
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
 #args <- c("tools/test-data/irisPlus.tabular", "5", "1", "NuageDePoints", "pchou", "", "tesd", "6", "5")
+#args <- c("tools/test-data/irisPlus.tabular",'1', '2', 'DiagrammeEnBarre', 'DiversitX en fonction de l__sq__environnement', 'Environnement', 'DiversitX moyenne', 'None', 'None')
 
 # import package
 library(data.table) # for data import
@@ -22,21 +23,37 @@ input = data.frame(fread(args[1]))
 type = args[4]
 
 
-if (args[9] != "") facetVar = names(input)[as.numeric(args[9])] else facetVar = NULL
-if (args[8] != "") colVar = names(input)[as.numeric(args[8])] else colVar = NULL
+
+if (args[8] != "None") colVar = names(input)[as.numeric(args[8])] else colVar = NULL
 
 mappingCoord = ggplot2::aes_string(x = names(input)[as.numeric(args[2])],
-                          y = names(input)[as.numeric(args[3])])
+                                   y = names(input)[as.numeric(args[3])])
+
+plot_out <- ggplot2::ggplot(input, mappingCoord)
 
 if (type == "NuageDePoints"){
-  repType = ggplot2::geom_point(aes_string(color =  colVar))
+  if (args[8] == "None"){
+    repType = ggplot2::geom_point()
+  } else {
+    repType = ggplot2::geom_point(aes_string(color =  colVar))
+  }
 } else if (type == "DiagrammeEnBarre"){
-  repType = ggplot2::geom_col(aes_string(fill =  colVar))
+  if (args[8] == "None"){
+    repType = ggplot2::geom_col()
+  } else {
+    repType = ggplot2::geom_col(aes_string(fill =  colVar))
+  }
 } else if (type == "BoitesDeDispersion"){
-  repType = ggplot2::geom_boxplot(aes_string(color =  colVar))
+  if (args[8] == "None"){
+    repType = ggplot2::geom_boxplot()
+  } else {
+    repType = ggplot2::geom_boxplot(aes_string(color =  colVar))
+  }
 } else if (type == "Densite"){
   repType = ggplot2::geom_hex()
 }
+
+plot_out <- plot_out + repType
 
 if (args[6] != ""){
   xlabContent = args[6]
@@ -50,17 +67,19 @@ if (args[7] != ""){
   ylabContent = colnames(input)[as.numeric(args[3])]
 }
 
+if (args[9] != "None") {
+  facetVar = names(input)[as.numeric(args[9])]
+  plot_out <- plot_out + facet_wrap(facetVar)
+}
 
-plot_out <- ggplot2::ggplot(input, mappingCoord) +
-  repType +
+plot_out <- plot_out +
   ggtitle(args[5]) +
   xlab(xlabContent) +
   ylab(ylabContent) +
-  facet_wrap(facetVar)
   ggplot2::theme_minimal() +
   ggplot2::theme(axis.text=element_text(size=12),
-                   axis.title=element_text(size=16),
-                   strip.text.x = element_text(size = 14))
+                 axis.title=element_text(size=16),
+                 strip.text.x = element_text(size = 14))
 
 
 suppressMessages(ggplot2::ggsave("output1.png", plot = plot_out, device = "png"))
