@@ -23,4 +23,4 @@ if (negate == "supprimer") columns <- (1:ncol(input))[!1:ncol(input) %in% column
 result <- input[ ,columns]
 
 #write file
-fwrite(result, "output-filter.tabular", sep =",")
+fwrite(result, "output-select.csv", sep =",")

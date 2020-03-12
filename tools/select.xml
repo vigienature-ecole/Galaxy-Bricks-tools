@@ -18,8 +18,22 @@
         <param name="columnNumber" label="les colonnes" type="data_column" data_ref="input" multiple="true"/>
     </inputs>
     <outputs>
-        <data format="csv" name="output" from_work_dir="output-select.tabular" />
+        <data format="csv" name="output" from_work_dir="output-select.csv" />
     </outputs>
+    <tests>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="negateMatching" value="garder"/>
+            <param name="columnNumber" value="5,6"/>
+            <output name="output" file="output-select1.csv"/>
+        </test>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="negateMatching" value="supprimer"/>
+            <param name="columnNumber" value="1,2,5,6"/>
+            <output name="output" file="output-select2.csv"/>
+        </test>
+    </tests>
     <help><![CDATA[
     .. class:: infomark
 

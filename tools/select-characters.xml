@@ -10,7 +10,7 @@
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
         <param name="charNumber" label="Nombre de caractères à extraire" type="text" />
-        <param name="colNumber" label="de la colonne" type="data_column" data_ref="input" multiple="false" value="1"/>
+        <param name="colNumber" label="de la colonne" type="data_column" data_ref="input" multiple="false" />
         <param name="side" type="select" label="en partant de la" >
             <option value="gauche">gauche</option>
             <option value="droite">droite</option>
@@ -38,8 +38,27 @@
         </param>
     </inputs>
     <outputs>
-        <data format="csv" name="output" from_work_dir="output-select-characters.tabular" />
+        <data format="csv" name="output" from_work_dir="output-select-characters.csv" />
     </outputs>
+    <tests>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="charNumber" value="3"/>
+            <param name="colNumber" value="5"/>
+            <param name="side" value="gauche"/>
+            <param name="colName" value="test"/>
+            <output name="output" file="output-select-characters1.csv"/>
+        </test>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="charNumber" value="3"/>
+            <param name="colNumber" value="5"/>
+            <param name="side" value="droite"/>
+            <param name="colName" value="test"/>
+            <output name="output" file="output-select-characters2.csv"/>
+        </test>
+    </tests>
+
     <help><![CDATA[
 
 .. class:: infomark

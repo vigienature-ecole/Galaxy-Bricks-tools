@@ -2,7 +2,7 @@
 
 # get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
-args <- c("tools/test-data/irisPlus.tabular", "5", "gauche", "3", "TipTop")
+#args <- c("tools/test-data/irisPlus.tabular", "5", "gauche", "3", "TipTop")
 
 # import input file (tabular or csv)
 input = data.frame(data.table::fread(args[1]))
@@ -15,7 +15,7 @@ charNumber = as.numeric(args[4])
 colName <- args[5]
 
 # select the characters
-if (side = "droite"){
+if (side == "droite"){
   colRes <- substr(input[ , colNumber], nchar(input[ , colNumber])-charNumber+1, nchar(input[ , colNumber]))
 } else {
   colRes <- substr(input[ , colNumber], 0, charNumber)
@@ -28,4 +28,4 @@ output <- data.frame(input,colRes)
 colnames(output)[ncol(output)] <- colName
 
 #write file
-fwrite(output, "output-select-characters.tabular", sep =",")
+data.table::fwrite(output, "output-select-characters.csv", sep =",")
