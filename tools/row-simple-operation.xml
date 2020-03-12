@@ -21,31 +21,31 @@
             input <- fread('$input')
 
             ## prepare output file
-            output <- input[ , c($advanced.keep)]
+            #if $keep != "None"
+            output <- input[ , c($keep)]
+            #else
+            output <- input
+            #end if
 
             ##Keep the selected columns
-            inputSelect <- input[ , c($advanced.include)]
+            inputSelect <- input[ , c($include)]
 
             ## Add new column
-            #for $i, $s in enumerate($operation)
-            rank_of_series=$i
 
-            #if $s.outputOperation == "mean"
+            #if $outputOperation == "mean"
                 result <- rowMeans(inputSelect, na.rm = TRUE)
-            #elif $s.outputOperation == "sum"
+            #elif $outputOperation == "sum"
                 result <- rowSums(inputSelect, na.rm = TRUE)
-            #elif $s.outputOperation == "sd"
+            #elif $outputOperation == "sd"
                 result <- rowSds(inputSelect, na.rm = TRUE)
-            #elif $s.outputOperation == "countAbove0"
+            #elif $outputOperation == "countAbove0"
                 inputSelectZero <- inputSelect
                 inputSelectZero[inputSelectZero > 0] <- 1
                 result <- rowSums(inputSelectZero, na.rm = TRUE)
             #end if
 
             output <- data.frame(output, res = result)
-            colnames(output)[ncol(output)] <- '$s.outputName'
-
-            #end for
+            colnames(output)[ncol(output)] <- '$outputName'
 
             write.table(output, file="result", row.names=FALSE, sep=",")
 
@@ -54,14 +54,13 @@
 
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="À partir des données d'entrée" />
-        <repeat name="operation" title="Ajouter des opérations">
-            <param name="outputOperation" type="select" label="faire l'opération suivante">
-                <option value="sum" selected="true">Somme</option>
-                <option value="mean">Moyenne</option>
-                <option value="sd">Ecart-type</option>
-                <option value="countAbove0">Compter les valeurs supérieures à zéro</option>
-            </param>
-            <param name="outputName" type="text" value="Result" label="et stocker l'information dans une nouvelle colonne nommée" >
+        <param name="outputOperation" type="select" label="faire l'opération suivante">
+            <option value="sum" selected="true">Somme</option>
+            <option value="mean">Moyenne</option>
+            <option value="sd">Ecart-type</option>
+            <option value="countAbove0">Compter les valeurs supérieures à zéro</option>
+        </param>
+        <param name="outputName" type="text" value="Result" label="et stocker l'information dans une nouvelle colonne nommée" >
             <sanitizer invalid_char="_">
                 <valid initial="default">
                     <add value="à" />
@@ -82,7 +81,6 @@
                 </valid>
             </sanitizer>
         </param>
-        </repeat>
         <param name="include" label="à partir des colonnes suivantes" type="data_column" data_ref="input" numerical="false" multiple = "true" />
         <param name="keep" label="Maintenir ces colonnes dans le jeu de données final" type="data_column" data_ref="input" numerical="false" multiple = "true" help="Sélectionner ajouter une colonne au jeu de donnée pour pouvoir utiliser ce paramètre" />
 
