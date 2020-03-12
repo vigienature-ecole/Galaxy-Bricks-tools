@@ -1,4 +1,4 @@
-<tool id="row-simple-operation" name="Operations sur des lignes (WIP-repeat)">
+<tool id="row-simple-operation" name="Operations sur des lignes">
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
