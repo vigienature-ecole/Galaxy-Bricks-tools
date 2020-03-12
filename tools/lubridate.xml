@@ -54,7 +54,7 @@
     </outputs>
     <tests>
         <test>
-            <param name="input" value="input-lubridate.tabular"/>
+            <param name="input" value="input-lubridate.csv"/>
             <param name="addToData" value="true"/>
             <param name="column" value="3"/>
             <param name="inputName" value="date"/>

@@ -46,8 +46,18 @@
             </param>
     </inputs>
     <outputs>
-        <data format="csv" name="output" from_work_dir="output-dataplyr.tabular" />
+        <data format="csv" name="output" from_work_dir="output-dataplyr.csv" />
     </outputs>
+    <tests>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="groupBy" value="5,6"/>
+            <param name="function" value="mean"/>
+            <param name="colOperation" value="1"/>
+            <param name="nameCol" value="test"/>
+            <output name="output" file="output-dataplyr.csv"/>
+        </test>
+    </tests>
     <help><![CDATA[
 
 .. class:: infomark

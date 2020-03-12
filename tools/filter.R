@@ -40,4 +40,4 @@ if (wholeLine == "laColonne"){
   }
 }
 #write file
-fwrite(result, "output-filter.tabular", sep =",")
+fwrite(result, "output-filter.csv", sep =",")

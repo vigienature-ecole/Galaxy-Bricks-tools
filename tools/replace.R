@@ -25,4 +25,4 @@ if (allColumns == "uneColonne"){
 }
 
 #write file
-fwrite(input, "output-replace.tabular", sep =",")
+fwrite(input, "output-replace.csv", sep =",")

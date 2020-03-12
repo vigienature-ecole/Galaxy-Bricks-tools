@@ -4,16 +4,16 @@
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/join-data.table.R' '$input1' '$input2' '$joinType' '$key1' '$key2' '$keepCol1' '$keepCol2' '$keepHeaders'
+        Rscript '$__tool_directory__/join-data.table.R' '$input1' '$input2' '$joinType' '$key1' '$key2' '$keepCol1' '$keepCol2'
         '$output'
         ]]>
     </command>
     <inputs>
         <param format="tabular,csv,txt" name="input1" type="data" label="Joindre le jeux de données 1" />
-        <param name="key1" label="en utilisant la colonne :" type="data_column" data_ref="input1" />
+        <param name="key1" label="en utilisant la colonne" type="data_column" data_ref="input1" />
         <param name="keepCol1" label="et en gardant les colonnes suivantes" type="data_column" data_ref="input1" multiple="True"/>
         <param format="tabular,csv,txt" name="input2" type="data" label="et le jeu de données 2" />
-        <param name="key2" label="en utilisant la colonne :" type="data_column" data_ref="input2" />
+        <param name="key2" label="en utilisant la colonne" type="data_column" data_ref="input2" />
         <param name="keepCol2" label="et en gardant les colonnes suivantes" type="data_column" data_ref="input2" multiple="True"/>
         <param name="joinType" type="select" label="Comment voulez vous joindre les deux jeux de données" >
             <option value="INNER">Inclure seulement les lignes se correspondant dans les deux jeux de données (défaut)</option>
@@ -21,10 +21,9 @@
             <option value="RIGHT">Inclure seulement les lignes qui correspondent du jeu de données 1 et toutes les lignes du jeu de données 2</option>
             <option value="FULL">Inclure toutes les lignes des deux jeux de données (un très grand jeu de données peut en résulter)</option>
         </param>
-        <param name="keepHeaders" truevalue="true" falsevalue="false" label="Garder les entêtes de colonne dans le fichier final" help="Si le fichier n'a pas d'entêtes, des entêtes seront automatiquement créées avec le format suivant : 'V1' " type="boolean" />
     </inputs>
     <outputs>
-        <data format="csv" name="output" from_work_dir="output-join.tabular" />
+        <data format="csv" name="output" from_work_dir="output-join.csv" />
     </outputs>
     <tests>
         <test>
@@ -33,10 +32,9 @@
             <param name="key1" value="1"/>
             <param name="key2" value="2"/>
             <param name="keepCol1" value="1,2,3"/>
-            <param name="keepCol2" value="1,2"/>
+            <param name="keepCol2" value="2"/>
             <param name="joinType" value="INNER"/>
-            <param name="keepHeaders" value="true"/>
-            <output name="output" file="output-join.tabular"/>
+            <output name="output" file="output-join.csv"/>
         </test>
     </tests>
     <help><![CDATA[

@@ -45,7 +45,7 @@ if (resultEval){
   resultData <- data.frame(inputData, resultData)
 
   # write output file
-  fwrite(resultData, file = "result.tabular", sep = ",")
+  fwrite(resultData, file = "result.csv", sep = ",")
 } else {
   print("Formula not valid")
 }

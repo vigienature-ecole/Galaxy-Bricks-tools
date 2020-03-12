@@ -67,4 +67,4 @@ if (joinType == "INNER") {
 }
 
 # write result
-fwrite(Result, file = "output-join.tabular", sep = ",", col.names = c("true" == args[8]))
+fwrite(Result, file = "output-join.csv", sep = ",", col.names = TRUE)

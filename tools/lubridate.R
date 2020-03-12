@@ -52,4 +52,4 @@ input1 <- data.frame(input1, res = as.character(result))
 colnames(input1)[ncol(input1)] <- inputName
 head(input1[ncol(input1)])
 #write file
-data.table::fwrite(input1, "result", sep =",")
+data.table::fwrite(input1, "result.csv", sep =",")

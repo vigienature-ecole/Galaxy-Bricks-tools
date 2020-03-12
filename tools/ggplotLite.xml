@@ -1,5 +1,4 @@
-<tool id="plotLite" name="Représenter">
-    <description>les données</description>
+<tool id="plotLite" name="Représenter les données">
     <requirements>
         <requirement type="package" version="1.11.4">r-data.table</requirement>
         <requirement type="package" version="2.2.1">r-ggplot2</requirement>

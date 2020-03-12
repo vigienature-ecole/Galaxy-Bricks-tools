@@ -16,4 +16,4 @@ output <- data.frame(input, concatenatedColumns)
 #rename output column
 colnames(output)[ncol(output)] <- args[4]
 
-data.table::fwrite(output, file = "output-concatenate.tabular", sep = ",")
+data.table::fwrite(output, file = "output-concatenate.csv", sep = ",")

@@ -39,7 +39,7 @@
 
             #end for
 
-            write.table(result, file="result", row.names=FALSE, sep=",")
+            write.table(result, file="result.csv", row.names=FALSE, sep=",")
 
         ]]></configfile>
     </configfiles>
@@ -78,7 +78,7 @@
         </repeat>
     </inputs>
     <outputs>
-        <data format="csv" name="output" from_work_dir="result"/>
+        <data format="csv" name="output" from_work_dir="result.csv"/>
     </outputs>
     <help><![CDATA[
 

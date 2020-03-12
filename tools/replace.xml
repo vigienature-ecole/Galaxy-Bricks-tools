@@ -67,7 +67,7 @@
         </conditional>
     </inputs>
     <outputs>
-        <data format="csv" name="output" from_work_dir="output-replace.tabular" />
+        <data format="csv" name="output" from_work_dir="output-replace.csv" />
     </outputs>
     <help><![CDATA[
 
