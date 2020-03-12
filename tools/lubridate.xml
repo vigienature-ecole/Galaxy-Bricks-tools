@@ -50,7 +50,7 @@
         </param>
     </inputs>
     <outputs>
-        <data format="csv" name="output" from_work_dir="result"/>
+        <data format="csv" name="output" from_work_dir="result.csv"/>
     </outputs>
     <tests>
         <test>
