@@ -19,8 +19,8 @@
           <option value="NuageDePoints">Nuage de points</option>
           <option value="Densite">Densité</option>
         </param>
-        <param name="facetGroup" label="Créer des graphiques différents selon les catégories de la variable : (optionnel)" type="data_column" data_ref="input" numerical="False"/>
-        <param name="colGroup" label="Changer les couleurs du graphique selon les catégories de la variable : (optionnel)" type="data_column" data_ref="input" numerical="False"/>
+        <param name="facetGroup" optional="true" label="Créer des graphiques différents selon les catégories de la variable : (optionnel)" type="data_column" data_ref="input" numerical="False"/>
+        <param name="colGroup" optional="true" label="Changer les couleurs du graphique selon les catégories de la variable : (optionnel)" type="data_column" data_ref="input" numerical="False"/>
         <param name="titre" label="Titre du graphique" type="text" >
             <sanitizer invalid_char="_">
                 <valid initial="default">
