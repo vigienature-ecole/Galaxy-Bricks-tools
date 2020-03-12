@@ -11,10 +11,10 @@
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
         <param name="column" type="data_column" data_ref="input" multiple="false" value="2" label="Convertir la colonne" />
-        <param name="inputDateFormat" type="select" label="dont le format de données est" help="A pour année, M pour mois et J pour jour">
-            <option value="dmy">JMA</option>
-            <option value="mdy">MJA</option>
-            <option value="ymd" selected="true">AMJ</option>
+        <param name="inputDateFormat" type="select" label="dont le format de données est" >
+            <option value="dmy">JourMoisAnnée</option>
+            <option value="mdy">MoisJourAnnée</option>
+            <option value="ymd" selected="true">AnnéeMoisJour</option>
         </param>
         <param name="inputName" type="text" value="date" label="dans une nouvelle colonne nommée" >
             <sanitizer invalid_char="_">
