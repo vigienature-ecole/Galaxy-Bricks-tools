@@ -1,0 +1,4 @@
+La variable Species     a un effet significatif sur la variable Sepal.Width. La probabilité critique est égale à 0.
+La variable Class.Size  a un effet significatif sur la variable Sepal.Width. La probabilité critique est égale à 0.
+Attention, ce résultat doit être vérifié.
+Il peut, par exemple, être la conséquence d'un échantillon trop petit ou biaisé ou d'une confusion d'effet.

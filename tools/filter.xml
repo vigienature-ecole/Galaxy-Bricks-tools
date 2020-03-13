@@ -53,6 +53,23 @@
     <outputs>
         <data format="csv" name="output" from_work_dir="output-filter.csv" />
     </outputs>
+    <tests>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="negateMatching" value="garder"/>
+            <param name="filterParameter" value="set"/>
+            <param name="wholeLine" value="laColonne"/>
+            <param name="laColonne" value="5"/>
+            <output name="output" file="output-filter1.csv"/>
+        </test>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="negateMatching" value="supprimer"/>
+            <param name="filterParameter" value="set"/>
+            <param name="wholeLine" value="toutLeFichier"/>
+            <output name="output" file="output-filter2.csv"/>
+        </test>
+    </tests>
     <help><![CDATA[
 
 .. class:: infomark
