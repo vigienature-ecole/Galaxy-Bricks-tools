@@ -30,7 +30,7 @@
             <param name="input1" value="input1-join.tabular"/>
             <param name="input2" value="input2-join.tabular"/>
             <param name="key1" value="1"/>
-            <param name="key2" value="2"/>
+            <param name="key2" value="1"/>
             <param name="keepCol1" value="1,2,3"/>
             <param name="keepCol2" value="2"/>
             <param name="joinType" value="INNER"/>

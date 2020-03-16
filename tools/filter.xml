@@ -59,7 +59,7 @@
             <param name="negateMatching" value="garder"/>
             <param name="filterParameter" value="set"/>
             <param name="wholeLine" value="laColonne"/>
-            <param name="laColonne" value="5"/>
+            <param name="columnNumber" value="5"/>
             <output name="output" file="output-filter1.csv"/>
         </test>
         <test>
