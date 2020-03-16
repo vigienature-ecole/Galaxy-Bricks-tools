@@ -72,18 +72,18 @@ if (nrow(results[[4]]) > 1) {
   capture.output(results, file="mod-summary.txt")
 }
 
-if (multiple == FALSE){
-  mappingCoord = ggplot2::aes_string(x = names(input)[as.numeric(args[3])],
-                                     y = names(input)[as.numeric(args[2])])
-  # Output 3 Graph
-  # plot data
-  plot_out <- ggplot2::ggplot(datlm, mappingCoord) +
-    ggplot2::geom_point() +
-    ggplot2::geom_ribbon(ggplot2::aes(ymin = lwr, ymax = upr, color = NULL), alpha = .15) +
-    ggplot2::geom_line(ggplot2::aes(y = fit), size = 1) +
-    ggplot2::theme_minimal() +
-    ggplot2::theme(axis.text = ggplot2::element_text(size=12),
-                   axis.title = ggplot2::element_text(size=16),
-                   strip.text.x = ggplot2::element_text(size = 14))
-  suppressMessages(ggplot2::ggsave("output-plot.png", plot = plot_out, device = "png"))
-}
+# if (multiple == FALSE){
+#   mappingCoord = ggplot2::aes_string(x = names(input)[as.numeric(args[3])],
+#                                      y = names(input)[as.numeric(args[2])])
+#   # Output 3 Graph
+#   # plot data
+#   plot_out <- ggplot2::ggplot(datlm, mappingCoord) +
+#     ggplot2::geom_point() +
+#     ggplot2::geom_ribbon(ggplot2::aes(ymin = lwr, ymax = upr, color = NULL), alpha = .15) +
+#     ggplot2::geom_line(ggplot2::aes(y = fit), size = 1) +
+#     ggplot2::theme_minimal() +
+#     ggplot2::theme(axis.text = ggplot2::element_text(size=12),
+#                    axis.title = ggplot2::element_text(size=16),
+#                    strip.text.x = ggplot2::element_text(size = 14))
+#   suppressMessages(ggplot2::ggsave("output-plot.png", plot = plot_out, device = "png"))
+# }

@@ -22,7 +22,6 @@
     <label id="5quali/quali" text="Quali/Quanti" />
     <tool file="anova.xml" />
     <label id="6quanti/quanti" text="Quanti/Quanti" />
-    <tool file="simple-linear-regression.xml" />
-    <tool file="multiple-linear-regression.xml" />
+    <tool file="linear-regression.xml" />
   </section>
 </toolbox>
