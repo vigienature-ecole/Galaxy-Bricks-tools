@@ -11,7 +11,7 @@
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
 #args <- c("tools/test-data/irisPlus.tabular", "5", "1", "NuageDePoints", "pchou", "", "tesd", "6", "5")
-#args <- c("tools/test-data/irisPlus.tabular",'1', '2', 'DiagrammeEnBarre', 'DiversitX en fonction de l__sq__environnement', 'Environnement', 'DiversitX moyenne', 'None', 'None')
+#args <- c("tools/test-data/irisPlus.tabular",'1', '2', 'LigneEtPoints', 'DiversitX en fonction de l__sq__environnement', 'Environnement', 'DiversitX moyenne', 'None', 'None')
 
 # import package
 library(data.table) # for data import
@@ -51,7 +51,22 @@ if (type == "NuageDePoints"){
   }
 } else if (type == "Densite"){
   repType = ggplot2::geom_hex()
+} else if (type == "Lignes"){
+  if (args[8] == "None"){
+    repType = ggplot2::geom_line()
+  } else {
+    repType = ggplot2::geom_line(aes_string(color =  colVar))
+  }
+} else if (type == "LigneEtPoints"){
+  if (args[8] == "None"){
+    plot_out = plot_out + ggplot2::geom_line()
+    repType = ggplot2::geom_point()
+  } else {
+    plot_out = plot_out + ggplot2::geom_line(aes_string(color =  colVar))
+    repType = ggplot2::geom_point(aes_string(color =  colVar))
+  }
 }
+
 
 plot_out <- plot_out + repType
 

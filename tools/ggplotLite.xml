@@ -18,6 +18,8 @@
           <option value="BoitesDeDispersion">Boites de dispersion</option>
           <option value="NuageDePoints">Nuage de points</option>
           <option value="Densite">Densité</option>
+          <option value="Lignes">Lignes</option>
+          <option value="LigneEtPoints">Lignes et points</option>
         </param>
         <param name="facetGroup" optional="true" label="Créer des graphiques différents selon les catégories de la variable : (optionnel)" type="data_column" data_ref="input" numerical="False"/>
         <param name="colGroup" optional="true" label="Changer les couleurs du graphique selon les catégories de la variable : (optionnel)" type="data_column" data_ref="input" numerical="False"/>
