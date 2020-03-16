@@ -1,0 +1,6 @@
+La variable Sepal.Width a un effet significatif sur la variable Sepal.Length. La probabilité critique est égale à 0.
+La variable Petal.Length a un effet significatif sur la variable Sepal.Length. La probabilité critique est égale à 0.
+La variable Petal.Width a un effet significatif sur la variable Sepal.Length. La probabilité critique est égale à 0.
+Le coefficient de détermination (R2) est égal à : 0.855706481437543
+Attention, ce résultat doit être vérifié.
+Il peut, par exemple, être la conséquence d'un trop petit échantillon ou d'une confusion d'effet.
