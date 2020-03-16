@@ -1,11 +1,10 @@
-<tool id="select" name="Sélectionner ou supprimer">
-    <description>des colonnes</description>
+<tool id="select-columns" name="Sélectionner ou supprimer des colonnes">
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
         <requirement type="package" version="0.8.0.1">r-dplyr</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/select.R' '$input' '$columnNumber' '$negateMatching'
+        Rscript '$__tool_directory__/select-columns.R' '$input' '$columnNumber' '$negateMatching'
         '$output'
         ]]>
     </command>
