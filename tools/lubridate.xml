@@ -54,13 +54,12 @@
     </outputs>
     <tests>
         <test>
-            <param name="input" value="input-lubridate.csv"/>
-            <param name="addToData" value="true"/>
+            <param name="input" value="input-lubridate.tabular"/>
             <param name="column" value="3"/>
-            <param name="inputName" value="date"/>
-            <param name="inputDateFormat" value="DMY"/>
-            <param name="outputDateFormat" value="full"/>
-            <output name="output" file="out-lubridate.tabular"/>
+            <param name="inputName" value="Test"/>
+            <param name="inputDateFormat" value="dmy"/>
+            <param name="outputDateFormat" value="month"/>
+            <output name="output" file="output-lubridate.csv"/>
         </test>
     </tests>
     <help><![CDATA[
