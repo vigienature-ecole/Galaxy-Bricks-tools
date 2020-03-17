@@ -38,8 +38,7 @@
             <param name="input" value="irisPlus.tabular"/>
             <param name="inputFormula" value="c1 / c2"/>
             <param name="inputName" value="Sepal.Ratio"/>
-            <param name="add" value="true"/>
-            <output name="output" value="out-simple-operation.tabular"/>
+            <output name="output" value="output-row-formula-operation.csv"/>
         </test>
     </tests>
     <help><![CDATA[

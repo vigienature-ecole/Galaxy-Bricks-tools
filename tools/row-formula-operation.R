@@ -16,7 +16,7 @@ inputFormula = args[2]
 inputName = args[3]
 
 #deal with NA (A bit uncool !)
-inputData[is.NA(inputData)] <- 0
+inputData[is.na(inputData)] <- 0
 
 #check the formula for security reasons
 evalFormula <- inputFormula
