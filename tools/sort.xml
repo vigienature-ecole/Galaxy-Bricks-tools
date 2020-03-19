@@ -1,0 +1,49 @@
+<tool id="sort" name="Trier les données">
+    <requirements>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
+        <requirement type="package" version="0.8.0.1">r-dplyr</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/sort.R' '$input' '$columnNumber' '$side'
+        '$output'
+        ]]>
+    </command>
+    <inputs>
+        <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
+        <param name="columnNumber" label="Trier le jeu de données selon la colonne suivante" type="data_column" data_ref="input" multiple="false"/>
+        <param name="side" type="select" label="dans l'ordre" >
+            <option value="croissant">croissant</option>
+            <option value="decroissant">décroissant</option>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="csv" name="output" from_work_dir="result.csv"/>
+    </outputs>
+    <tests>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="columnNumber" value="3"/>
+            <param name="side" value="croissant"/>
+            <output name="output" file="output-sort1.csv"/>
+        </test>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="columnNumber" value="3"/>
+            <param name="side" value="decroissant"/>
+            <output name="output" file="output-sort2.csv"/>
+        </test>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="columnNumber" value="5"/>
+            <param name="side" value="decroissant"/>
+            <output name="output" file="output-sort3.csv"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+
+      .. class:: infomark
+
+      Cet outil permet de trier un jeu de données en fonction des valeurs d'une colonne.
+
+    ]]></help>
+</tool>
