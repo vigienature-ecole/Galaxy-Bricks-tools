@@ -120,9 +120,98 @@
     </outputs>
     <help><![CDATA[
 
-.. class:: infomark
+.. class:: Titre1-aide Opérations sur des lignes
 
-Cet outil créé une nouvelle colonne qui est le résultat d'un calcul portant sur la ligne.
+Cet outil permet de faire des opérations sur des colonnes en utilisant la syntaxe de programmation.
+
+ * Il est possible de combiner plusieurs colonnes (par exemple c1 * c2 permet de multiplier les colonnes 1 et 2)
+ * Il est possible de transformer une colonne en utilisant une constante (par exemple c1 / 2 permet de diviser par deux toutes les valeurs de la colonnes)
+ * Il est possible de combiner ces deux opération (par exemple log(c1) + c2 permet d'additionner le résultat du logarithme népérien de la colonne 1 avec la colonne 2)
+
+.. class:: Titre2-aide 1. Vous pouvez utiliser les opérations classiques
+
+"+" addition
+
+"-" soustraction
+
+"*" multiplication
+
+"/" division
+
+**Exemple**
+
+Données d'entrée ::
+
+ "a"  "b"
+  1    0
+  2    5
+  5    6
+ 10    2
+
+.. class:: texte-aide Formule :
+
+.. class:: parametre-aide c1 + c2
+
+Résultat ::
+
+ "résultat"
+    1
+    7
+   11
+   12
+
+   2. You can transformer vos données
+
+   "log(c2)" (logarithme népérien), "exp(c2)" (exponentielle), "log10(c2)" (logarithme décimal), "sqrt(c2)" (racine carrée), "sin(c2)" (sinus), "cos(c2)" (cosinus), "tan(c2)" (tangente), "asin(c2)" (arc sinus), "acos(c2)" (arcsin)
+
+   **Exemple**
+
+   Données d'entrée ::
+
+    "a"  "b"
+    1    0
+    2    5
+    5    6
+   10    2
+
+  Formule :
+
+  "exp(c2)"
+  Résultat ::
+
+ "résultat"
+    1
+    148.41
+    403.42
+    7.38
+
+Vous pouvez choisir d'ajouter la colonne calculée au jeu de donnée ou non.
+
+**Exemple**
+
+Données d'entrée ::
+
+ "a"  "b"
+  1    0
+  2    5
+  5    6
+ 10    2
+
+Formule :
+
+c1 + c2
+Add column to original dataset = Yes
+
+Résultat ::
+
+"a"  "b" "résultat"
+ 1    0  3.25
+ 2    5  3.25
+ 5    6  3.25
+10    2  3.25
+
+
+
 
     ]]></help>
 </tool>
