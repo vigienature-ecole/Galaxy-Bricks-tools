@@ -5,13 +5,12 @@
     <tool file="ImportVNE.xml" />
   </section>
   <section id="2manip" name="3. Manipuler les donnees">
-    <tool file="row-formula-operation.xml" />
+    <tool file="row-operation.xml" />
     <tool file="lubridate.xml" />
     <tool file="join-data.table.xml" />
     <tool file="dataplyr.xml" />
     <tool file="filter.xml" />
     <tool file="select.xml" />
-    <tool file="row-simple-operation.xml" />
     <tool file="columns-summary.xml" />
     <tool file="select-characters.xml" />
     <tool file="sort.xml" />
