@@ -5,7 +5,7 @@
     <tool file="ImportVNE.xml" />
   </section>
   <section id="2manip" name="3. Manipuler les donnees">
-    <tool file="columns-simple-operation.xml" />
+    <tool file="row-formula-operation.xml" />
     <tool file="lubridate.xml" />
     <tool file="join-data.table.xml" />
     <tool file="dataplyr.xml" />

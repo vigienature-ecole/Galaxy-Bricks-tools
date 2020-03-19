@@ -1,4 +1,4 @@
-<tool id="columns-summary" name="Opérations sur des colonnes entières">
+<tool id="columns-summary" name="Opérations sur des colonnes">
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>

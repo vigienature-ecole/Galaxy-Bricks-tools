@@ -3,8 +3,8 @@
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        cat '$script' &&
-        Rscript '$script'
+            cat '$script' &&
+            Rscript '$script'
     ]]></command>
     <configfiles>
         <configfile name="script"><![CDATA[
@@ -20,33 +20,83 @@
             ## Import file
             input <- fread('$input')
 
+            #if $formuleOrNot.TypeOperation == 'formule'
+            inputData <- input
+            inputFormula <-$formuleOrNot.inputFormula
+            inputName <- $formuleOrNot.inputName
+
+            #deal with NA (A bit uncool !)
+            inputData[is.na(inputData)] <- 0
+
+            #check the formula for security reasons
+            evalFormula <- inputFormula
+            functions <- c("log[(]", "log10[(]" ,"exp[(]" ,"sqrt[(]" ,"asin[(]" ,"acos[(]" ,"sin[(]" ,"tan[(]" ,"atan[(]" ,"cos[(]", "sum[()]", "mean[(]", "var[(]", "sd[(]")
+            for (i in seq_along(functions)) evalFormula <- gsub(functions[i],"",evalFormula)
+            resultEval <- grepl("^[0-9 c+^/*%(). -- -]+$",evalFormula)
+
+            if (resultEval){
+
+              if (inputName == "") inputName = inputFormula
+
+              # change column names to column code to match formula syntax
+              transformedData <- inputData
+              colnames(transformedData) <- c(paste0("c",1:ncol(inputData)))
+
+              # change the formula
+              whereToAdd <- str_locate_all(inputFormula, "c[0-9][0-9][0-9]|c[0-9][0-9]|c[0-9]")
+                formulaIndexed <- inputFormula
+                for (i in 1:nrow(whereToAdd[[1]])){
+
+                  frontReplacementInFormula <- gsub(paste0('^(.{',whereToAdd[[1]][i,1]-1 + (i-1) * 21,'})(.*)$'), '\\1transformedData[ ,"\\2', formulaIndexed)
+                  totalReplacementInFormula <- gsub(paste0('^(.{',whereToAdd[[1]][i,2] + 19 + (i-1) * 21,'})(.*)$'), '\\1"]\\2', frontReplacementInFormula)
+                  formulaIndexed <- gsub(pattern = '"', replacement = "'", totalReplacementInFormula, fixed = TRUE)
+                }
+
+              # apply formula to the data
+              resultData <- data.frame(eval(parse(text=formulaIndexed)))
+
+              # change the name of the result column
+              colnames(resultData) <- inputName
+
+              # add column to original file
+              resultData <- data.frame(inputData, resultData)
+
+              # write output file
+              fwrite(resultData, file = "result.csv", sep = ",")
+            } else {
+              print("Formula not valid")
+            }
+
+
+
+            #elif $formuleOrNot.TypeOperation == 'OperationSimple'
             ## prepare output file
-            #if $keep != "None"
-            output <- input[ , c($keep)]
+            #if $formuleOrNot.keep != "None"
+            output <- input[ , c($formuleOrNot.keep)]
             #else
             output <- input
             #end if
 
             ##Keep the selected columns
-            inputSelect <- input[ , c($include)]
+            inputSelect <- input[ , c($formuleOrNot.include)]
 
             ## Add new column
 
-            #if $outputOperation == "mean"
+            #if $formuleOrNot.outputOperation == "mean"
                 result <- rowMeans(inputSelect, na.rm = TRUE)
-            #elif $outputOperation == "sum"
+            #elif $formuleOrNot.outputOperation == "sum"
                 result <- rowSums(inputSelect, na.rm = TRUE)
-            #elif $outputOperation == "sd"
+            #elif $formuleOrNot.outputOperation == "sd"
                 result <- rowSds(inputSelect, na.rm = TRUE)
-            #elif $outputOperation == "countAbove0"
+            #elif $formuleOrNot.outputOperation == "countAbove0"
                 inputSelectZero <- inputSelect
                 inputSelectZero[inputSelectZero > 0] <- 1
                 result <- rowSums(inputSelectZero, na.rm = TRUE)
             #end if
 
             output <- data.frame(output, res = result)
-            colnames(output)[ncol(output)] <- '$outputName'
-
+            colnames(output)[ncol(output)] <- '$formuleOrNot.outputName'
+            #end if
             write.table(output, file="result.csv", row.names=FALSE, sep=",")
 
         ]]></configfile>
@@ -54,36 +104,67 @@
 
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="À partir des données d'entrée" />
-        <param name="outputOperation" type="select" label="faire l'opération suivante">
-            <option value="sum" selected="true">Somme</option>
-            <option value="mean">Moyenne</option>
-            <option value="sd">Ecart-type</option>
-            <option value="countAbove0">Compter les valeurs supérieures à zéro</option>
-        </param>
-        <param name="outputName" type="text" value="Result" label="et stocker l'information dans une nouvelle colonne nommée" >
-            <sanitizer invalid_char="_">
-                <valid initial="default">
-                    <add value="à" />
-                    <add value="â" />
-                    <add value="é" />
-                    <add value="è" />
-                    <add value="ê" />
-                    <add value="ë" />
-                    <add value="î" />
-                    <add value="ï" />
-                    <add value="ô" />
-                    <add value="ù" />
-                    <add value="û" />
-                    <add value="ÿ" />
-                    <add value="ç" />
-                    <add value="œ" />
-                    <add value="€" />
-                </valid>
-            </sanitizer>
-        </param>
-        <param name="include" label="à partir des colonnes suivantes" type="data_column" data_ref="input" numerical="false" multiple = "true" />
-        <param name="keep" label="Maintenir ces colonnes dans le jeu de données final" type="data_column" data_ref="input" numerical="false" multiple = "true" help="Sélectionner ajouter une colonne au jeu de donnée pour pouvoir utiliser ce paramètre" />
-
+        <conditional name="formuleOrNot">
+            <param name="TypeOperation" type="select" label="Voulez-vous ?" >
+                <option value="OperationSimple">utiliser des opérations simples</option>
+                <option value="formule">écrire votre propre formule</option>
+            </param>
+            <when value="OperationSimple">
+                <param name="outputOperation" type="select" label="faire l'opération suivante">
+                    <option value="sum" selected="true">Somme</option>
+                    <option value="mean">Moyenne</option>
+                    <option value="sd">Ecart-type</option>
+                    <option value="countAbove0">Compter les valeurs supérieures à zéro</option>
+                </param>
+                <param name="outputName" type="text" value="Result" label="et stocker l'information dans une nouvelle colonne nommée" >
+                    <sanitizer invalid_char="_">
+                        <valid initial="default">
+                          <add value="à" />
+                          <add value="â" />
+                          <add value="é" />
+                          <add value="è" />
+                          <add value="ê" />
+                          <add value="ë" />
+                          <add value="î" />
+                          <add value="ï" />
+                          <add value="ô" />
+                          <add value="ù" />
+                          <add value="û" />
+                          <add value="ÿ" />
+                          <add value="ç" />
+                          <add value="œ" />
+                          <add value="€" />
+                      </valid>
+                  </sanitizer>
+              </param>
+              <param name="include" label="à partir des colonnes suivantes" type="data_column" data_ref="input" numerical="false" multiple = "true" />
+              <param name="keep" label="Maintenir ces colonnes dans le jeu de données final" type="data_column" data_ref="input" numerical="false" multiple = "true" help="Sélectionner ajouter une colonne au jeu de donnée pour pouvoir utiliser ce paramètre" />
+            </when>
+            <when value="formule">
+            <param name="inputFormula" type="text" value="c1 + c2" label="Appliquer la formule suivante" help="Pour selectionner une colonne taper c et le numéro de la colonne (e.g. c2 pour la deuxième colonne). Vous pouvez utiliser les opérations suivantes : + addition - soustraction * multiplication / division ^ puissance" />
+            <param name="inputName" type="text" value="" label="et stocker le résultat dans une nouvelle colonne nommée" >
+                <sanitizer invalid_char="_">
+                    <valid initial="default">
+                        <add value="à" />
+                        <add value="â" />
+                        <add value="é" />
+                        <add value="è" />
+                        <add value="ê" />
+                        <add value="ë" />
+                        <add value="î" />
+                        <add value="ï" />
+                        <add value="ô" />
+                        <add value="ù" />
+                        <add value="û" />
+                        <add value="ÿ" />
+                        <add value="ç" />
+                        <add value="œ" />
+                        <add value="€" />
+                    </valid>
+                </sanitizer>
+            </param>
+            </when>
+        </conditional>
     </inputs>
     <outputs>
         <data format="csv" name="output" from_work_dir="result.csv"/>

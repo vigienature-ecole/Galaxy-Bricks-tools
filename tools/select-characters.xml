@@ -1,4 +1,4 @@
-<tool id="select-characters" name="Extraire des caractères d'une une colonne">
+<tool id="select-characters" name="Extraire des caractères">
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>

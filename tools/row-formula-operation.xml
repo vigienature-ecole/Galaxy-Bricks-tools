@@ -34,7 +34,7 @@
         <data format="csv" name="output" from_work_dir="result.csv"/>
     </outputs>
     <tests>
-        <test> <!--FAILED-->
+        <test>
             <param name="input" value="irisPlus.tabular"/>
             <param name="inputFormula" value="c1 / c2"/>
             <param name="inputName" value="Sepal.Ratio"/>
@@ -44,6 +44,14 @@
     <help><![CDATA[
 
 .. class:: infomark
+
+..class:: test
+
+**du text en gras avec des étoiles**
+*du texte en italique avec une étoile*
+
+<hr />
+<br />
 
 Cet outil permet de faire des opérations sur des colonnes en utilisant la syntaxe de programmation.
 
