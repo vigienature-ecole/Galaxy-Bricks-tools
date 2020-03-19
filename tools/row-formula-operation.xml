@@ -45,9 +45,20 @@
 
 .. class:: infomark
 
-..class:: test
+tada
 
-**du text en gras avec des étoiles**
+.. class:: test
+
+tada
+
+.. class:: UneClasseExotique
+
+tada
+tada ?
+
+tada !
+
+**du texte en gras avec des étoiles**
 *du texte en italique avec une étoile*
 
 <hr />
@@ -62,8 +73,11 @@ Cet outil permet de faire des opérations sur des colonnes en utilisant la synta
 1. Vous pouvez utiliser les opérations classiques
 
 "+" addition
+
 "-" soustraction
+
 "*" multiplication
+
 "/" division
 
 **Exemple**
