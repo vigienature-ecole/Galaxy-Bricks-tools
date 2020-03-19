@@ -23,10 +23,10 @@
             </param>
             <when value="OperationSimple">
                 <param name="outputOperation1" type="select" label="Faire l'opération suivante">
-                    <option value="sum" selected="true">Somme</option>
-                    <option value="mean">Moyenne</option>
-                    <option value="sd">Ecart-type</option>
-                    <option value="countAbove0">Compter les valeurs supérieures à zéro</option>
+                    <option value="somme" selected="true">Somme</option>
+                    <option value="moyenne">Moyenne</option>
+                    <option value="ecart-type">Ecart-type</option>
+                    <option value="valeurs-superieures-a-zero">Compter les valeurs supérieures à zéro</option>
                 </param>
                 <param name="include" label="sur des colonnes suivantes" type="data_column" data_ref="input" numerical="false" multiple = "true" />
                 <param name="outputName1" type="text" value="Result" label="et stocker l'information dans une nouvelle colonne nommée" >
@@ -57,10 +57,10 @@
                     </param>
                 <when value="oui">
                     <param name="outputOperation2" type="select" label="Faire l'opération supplémentaire suivante">
-                        <option value="sum" selected="true">Somme</option>
-                        <option value="mean">Moyenne</option>
-                        <option value="sd">Ecart-type</option>
-                        <option value="countAbove0">Compter les valeurs supérieures à zéro</option>
+                        <option value="somme" selected="true">Somme</option>
+                        <option value="moyenne">Moyenne</option>
+                        <option value="ecart-type">Ecart-type</option>
+                        <option value="valeurs-superieures-a-zero">Compter les valeurs supérieures à zéro</option>
                     </param>
                     <param name="outputName2" type="text" value="Result" label="et stocker l'information dans une nouvelle colonne nommée" >
                         <sanitizer invalid_char="_">

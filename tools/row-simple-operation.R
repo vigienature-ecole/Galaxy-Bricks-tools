@@ -23,9 +23,12 @@ input = data.frame(data.table::fread(args[1]))
 columnOperationNbr = as.numeric(unlist(strsplit(args[2] , split = ",")))
 columnOperation = input[ , columnOperationNbr]
 #select final dataset
-columnSelectNbr = as.numeric(unlist(strsplit(args[3] , split = ",")))
-finalDataset = input[ , columnSelectNbr]
-
+if (args[3] != "None"){
+  columnSelectNbr = as.numeric(unlist(strsplit(args[3] , split = ",")))
+  finalDataset = input[ , columnSelectNbr]
+} else {
+  finalDataset = input
+}
 
 for (i in 1:totalLoop){
   result = NA
@@ -39,7 +42,7 @@ for (i in 1:totalLoop){
     result <- rowSums(columnOperation, na.rm = TRUE)
   } else if (operation == "ecart-type"){
     result <- rowSds(columnOperation, na.rm = TRUE)
-  } else if (operation == "valeurs-superieures-a-zero"){
+  } else if (operation == ""){
     columnOperationZero <- columnOperation
     columnOperationZero[columnOperationZero > 0] <- 1
     result <- rowSums(columnOperationZero, na.rm = TRUE)
