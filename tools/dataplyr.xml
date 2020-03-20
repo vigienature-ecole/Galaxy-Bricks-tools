@@ -84,7 +84,7 @@
                   </sanitizer>
               </param>
             </when>
-            <when value="oui">
+            <when value="non">
             </when>
             </conditional>
     </inputs>
@@ -106,7 +106,7 @@
         <test>
             <param name="input" value="irisPlus.tabular"/>
             <param name="groupBy" value="5,6"/>
-            <param name="function" value="somme"/>
+            <param name="function" value="moyenne"/>
             <param name="colOperation" value="1"/>
             <param name="nameCol" value="truc"/>
             <conditional name="addNewOperation">

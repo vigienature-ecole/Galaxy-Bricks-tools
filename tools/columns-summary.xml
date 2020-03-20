@@ -3,52 +3,16 @@
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        cat '$script' &&
-        Rscript '$script'
+      Rscript '$__tool_directory__/columns-summary.R' '$input' '$columnSelected' '$outputName' '$outputOperation'
+      #if $addNewOperation.addOperation == "oui"
+          '$addNewOperation.columnSelected' '$addNewOperation.outputName' '$addNewOperation.outputOperation'
+      #end if
+      '$output'
     ]]></command>
-    <configfiles>
-        <configfile name="script"><![CDATA[
-            ## Setup R error handling to go to stderr
-            options(show.error.messages=F, error=function(){cat(geterrmessage(), file=stderr()); q("no",1,F)})
-
-            ## Unify locale settings
-            loc <- Sys.setlocale("LC_MESSAGES", "en_US.UTF-8")
-
-            ## Import file
-            input <- data.table::fread('$input')
-
-            ## Create final size dataframe
-            result <- data.frame((matrix(NA, ncol = 0, nrow = 1)))
-
-            print(result)
-            ## Add new column
-            #for $i, $s in enumerate($operation)
-            rank_of_series=$i
-
-            #if $s.outputOperation == "mean"
-                result[1, '$s.outputName'] <- colMeans(input[ ,$s.columnSelected], na.rm = TRUE)
-            #elif $s.outputOperation == "sum"
-                result[1, '$s.outputName'] <- colSums(input[ ,$s.columnSelected], na.rm = TRUE)
-            #elif $s.outputOperation == "sd"
-                result[1, '$s.outputName'] <- colSds(input[ ,$s.columnSelected], na.rm = TRUE)
-            #elif $s.outputOperation == "countAbove0"
-                inputSelectZero <- input[ ,$s.columnSelected]
-                inputSelectZero[inputSelectZero > 0] <- 1
-                result[1, '$s.outputName'] <- sum(inputSelectZero, na.rm = TRUE)
-            #end if
-
-            #end for
-
-            write.table(result, file="result.csv", row.names=FALSE, sep=",")
-
-        ]]></configfile>
-    </configfiles>
-
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
-        <repeat name="operation" title="Opération">
             <param name="columnSelected" label="Colonnes à utiliser pour le calcul" type="data_column" data_ref="input" numerical="false" multiple = "true" />
-            <param name="outputName" type="text" value="Result" label="Nom de la colonne de résultat">
+            <param name="outputName" type="text" value="Resultat1" label="Nom de la colonne de résultat">
             <sanitizer invalid_char="_">
                 <valid initial="default">
                     <add value="à" />
@@ -70,16 +34,79 @@
             </sanitizer>
         </param>
             <param name="outputOperation" type="select" label="Opération à réaliser">
-                <option value="sum" selected="true">Somme</option>
-                <option value="mean">Moyenne</option>
-                <option value="sd">Ecart-type</option>
-                <option value="countAbove0">Compter les valeurs supérieures à zéro</option>
+                <option value="somme" selected="true">Somme</option>
+                <option value="moyenne">Moyenne</option>
+                <option value="ecarType">Ecart-type</option>
+                <option value="ValeursSuperieuresAZero">Compter les valeurs supérieures à zéro</option>
             </param>
-        </repeat>
+            <conditional name="addNewOperation">
+              <param name="addOperation" type="select" label="Voulez-vous faire une autre opération ?">
+                  <option value="non" selected="true">non</option>
+                  <option value="oui">oui</option>
+              </param>
+          <when value="oui">
+                <param name="columnSelected" label="Colonnes à utiliser pour le calcul" type="data_column" data_ref="input" numerical="false" multiple = "true" />
+                <param name="outputName" type="text" value="Resultat2" label="Nom de la colonne de résultat">
+                    <sanitizer invalid_char="_">
+                        <valid initial="default">
+                        <add value="à" />
+                        <add value="â" />
+                        <add value="é" />
+                        <add value="è" />
+                        <add value="ê" />
+                        <add value="ë" />
+                        <add value="î" />
+                        <add value="ï" />
+                        <add value="ô" />
+                        <add value="ù" />
+                        <add value="û" />
+                        <add value="ÿ" />
+                        <add value="ç" />
+                        <add value="œ" />
+                        <add value="€" />
+                    </valid>
+                </sanitizer>
+            </param>
+            <param name="outputOperation" type="select" label="Opération à réaliser">
+                <option value="somme" selected="true">Somme</option>
+                <option value="moyenne">Moyenne</option>
+                <option value="ecartType">Ecart-type</option>
+                <option value="ValeursSuperieuresAZero">Compter les valeurs supérieures à zéro</option>
+            </param>
+          </when>
+          <when value="non">
+          </when>
+          </conditional>
     </inputs>
     <outputs>
         <data format="csv" name="output" from_work_dir="result.csv"/>
     </outputs>
+    <tests>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="columnSelected" value="1"/>
+            <param name="outputName" value="tada"/>
+            <param name="outputOperation" value="somme"/>
+            <conditional name="addNewOperation">
+                <param name="addOperation" value="non"/>
+            </conditional>
+            <output name="output" file="output-columns-summary.csv"/>
+        </test>
+        <test>
+            <param name="input" value="irisPlus.tabular"/>
+            <param name="groupBy" value="5,6"/>
+            <param name="function" value="moyenne"/>
+            <param name="colOperation" value="1"/>
+            <param name="nameCol" value="truc"/>
+            <conditional name="addNewOperation">
+                <param name="addOperation" value="oui"/>
+                <param name="function" value="ecarType"/>
+                <param name="colOperation" value="1"/>
+                <param name="nameCol" value="tada"/>
+            </conditional>
+            <output name="output" file="output-dataplyr2.csv"/>
+        </test>
+    </tests>
     <help><![CDATA[
 
 .. class:: infomark
