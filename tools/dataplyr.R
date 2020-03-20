@@ -11,57 +11,62 @@
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
-#args= c("tools/test-data/irisPlus.tabular", "5,6","1","sum","toto")
+#args= c("tools/test-data/irisPlus.tabular", "5,6","1","somme","toto", "output")
+#args= c("tools/test-data/irisPlus.tabular", "5,6","1","moyenne","toto", "1","ecartType","toto2", "output")
+
+#determine the number of loop count
+totalLoop = (length(args) - 3) / 3
+
+
+# for the functions in french and to deal with NA
+
+somme <- function (x) sum(x, na.rm = TRUE)
+moyenne <- function (x) mean(x, na.rm = TRUE)
+mediane <- function (x) median(x, na.rm = TRUE)
+ecartType <- function (x) sd(x, na.rm = TRUE)
+minimum <- function (x) min(x, na.rm = TRUE)
+maximum <- function (x) max(x, na.rm = TRUE)
+compte <- function (x) length(x)
+
 
 # import package
 library(data.table) # for data import
 library(dplyr, warn.conflicts = FALSE)
 
-# separate variables
-columnsGroup <- as.numeric(unlist(strsplit(args[2], ",")))
-columnOperation <- as.numeric(unlist(strsplit(args[3], ",")))
-# separate functions
-functions <- unlist(strsplit(args[4], ","))
-
-#gets names from arguments
-newNames <- args[5]
-fun <- c("mean2_","median2_", "sum2_", "length2_", "sd2_", "min2_", "max2_")
-
-#change functions to deal with NA
-functions <- paste0(functions,"2")
-
-sum2 <- function (x) sum(x, na.rm = TRUE)
-mean2 <- function (x) mean(x, na.rm = TRUE)
-median2 <- function (x) median(x, na.rm = TRUE)
-sd2 <- function (x) sd(x, na.rm = TRUE)
-min2 <- function (x) min(x, na.rm = TRUE)
-max2 <- function (x) max(x, na.rm = TRUE)
-length2 <- function (x) length(x)
 
 # import input file (tabular or csv)
 input = data.frame(fread(args[1]))
 
-# Agregation function
-Result <- input %>%
-  group_by_at(colnames(input)[columnsGroup]) %>%
-  summarise_at(.vars = colnames(input)[columnOperation], .funs = functions)
+Result <- list()
 
-# change colnames to make them more comprehensible (operation_variable name)
-if (length(functions) == 1){
-  toRename <- colnames(Result) %in% colnames(input)[columnOperation]
-  colnames(Result)[toRename] <- paste0(functions, "_", colnames(input)[columnOperation])
-} else {
-  toRename <- colnames(Result) %in% functions
-  colnames(Result)[toRename] <- paste0(colnames(Result)[toRename], "_", colnames(input)[columnOperation])
+# separate variables
+columnsGroup <- as.numeric(unlist(strsplit(args[2], ",")))
+
+for (i in 1:totalLoop){
+  columnOperation <- as.numeric(unlist(strsplit(args[3 + (i-1) * 3], ",")))
+  # separate functions
+  functions <- unlist(strsplit(args[4 + (i-1) * 3], ","))
+  
+  #gets names from arguments
+  newNames <- args[5 + (i-1) * 3]
+  
+  # Agregation function
+  Result[[i]] <- input %>%
+    group_by_at(colnames(input)[columnsGroup]) %>%
+    summarise_at(.vars = colnames(input)[columnOperation], .funs = functions)
+  
+  # change colnames to make them more comprehensible (operation_variable name)
+    toRename <- colnames(Result[[i]]) %in% colnames(input)[columnOperation]
+    colnames(Result[[i]])[toRename] <- newNames
 }
 
-# rename with custom names
-
-for (i in 1:7){
-test <- grep(fun[i] ,colnames(Result))
-if (length(test) > 0)
-  colnames(Result)[test] <- newNames
+finalResult <- Result[[1]]
+if (totalLoop > 1){
+  for (i in 2:totalLoop){
+    finalResult <- data.frame(finalResult,Result[[i]][ ,ncol(Result[[i]])])
+  }
 }
+
 
 # write result
-fwrite(Result, file = "output-dataplyr.csv", sep = ",")
+fwrite(finalResult, file = "output-dataplyr.csv", sep = ",")
