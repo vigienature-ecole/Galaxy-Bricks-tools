@@ -1,10 +1,11 @@
 <tool id="linear-regression" name="Régression linéaire">
     <requirements>
         <requirement type="package" version="1.11.4">r-data.table</requirement>
+        <requirement type="package" version="2.2.1">r-ggplot2</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/linear-regression.R' '$input' '$dependantVar' '$explanatoryVar'
-        '$output' ]]>
+        '$output' '$output2' ]]>
     </command>
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
@@ -13,6 +14,7 @@
     </inputs>
     <outputs>
         <data format="txt" name="output" from_work_dir="mod-summary.txt" />
+        <data format="png" name="output2" from_work_dir="output-plot.png" />
     </outputs>
     <tests>
         <test>
