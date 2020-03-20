@@ -120,98 +120,69 @@
     </outputs>
     <help><![CDATA[
 
-.. class:: Titre1-aide Opérations sur des lignes
+      .. class:: titre1-aide
 
-Cet outil permet de faire des opérations sur des colonnes en utilisant la syntaxe de programmation.
+      A quoi sert cet outil ?
 
- * Il est possible de combiner plusieurs colonnes (par exemple c1 * c2 permet de multiplier les colonnes 1 et 2)
- * Il est possible de transformer une colonne en utilisant une constante (par exemple c1 / 2 permet de diviser par deux toutes les valeurs de la colonnes)
- * Il est possible de combiner ces deux opération (par exemple log(c1) + c2 permet d'additionner le résultat du logarithme népérien de la colonne 1 avec la colonne 2)
+      Cet outil permet de faire des opérations sur des colonnes en utilisant la syntaxe de programmation.
 
-.. class:: Titre2-aide 1. Vous pouvez utiliser les opérations classiques
+       * Il est possible de combiner plusieurs colonnes en utilisant les opérations classiques : «+» addition «-» soustraction «*» multiplication «/» division (par exemple c1 * c2 permet de multiplier les colonnes 1 et 2)
 
-"+" addition
+       * Il est possible de transformer une colonne en utilisant une constante (par exemple c1 / 2 permet de diviser toutes les valeurs de la colonne 1 par deux)
 
-"-" soustraction
+       * Il est possible de combiner ces deux opérations (par exemple log(c1) + c2 permet d’additionner le résultat du logarithme népérien de la colonne 1 avec la colonne 2)
 
-"*" multiplication
+      .. class:: titre1-aide
 
-"/" division
+      Exemple avec des opérations classiques
 
-**Exemple**
+      .. class:: titre2-aide
 
-Données d'entrée ::
+      1. Données d’entrée
 
- "a"  "b"
-  1    0
-  2    5
-  5    6
- 10    2
+      .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation1.jpg
 
-.. class:: texte-aide Formule :
+      .. class:: titre2-aide
 
-.. class:: parametre-aide c1 + c2
+      2. Formule
 
-Résultat ::
+      .. class:: parametre-aide
 
- "résultat"
-    1
-    7
-   11
-   12
+        c1 + c2
 
-   2. You can transformer vos données
+      .. class:: titre2-aide
 
-   "log(c2)" (logarithme népérien), "exp(c2)" (exponentielle), "log10(c2)" (logarithme décimal), "sqrt(c2)" (racine carrée), "sin(c2)" (sinus), "cos(c2)" (cosinus), "tan(c2)" (tangente), "asin(c2)" (arc sinus), "acos(c2)" (arcsin)
+      3. Résultat
 
-   **Exemple**
+      .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation2.jpg
 
-   Données d'entrée ::
+      .. class:: titre1-aide
 
-    "a"  "b"
-    1    0
-    2    5
-    5    6
-   10    2
+      Exemple avec des opérations plus complexes
 
-  Formule :
+      Vous pouvez écrire votre propre formule en utilisant par exemple :
 
-  "exp(c2)"
-  Résultat ::
+      «log(c2)» (logarithme népérien), «exp(c2)» (exponentielle), «log10(c2)» (logarithme décimal), «sqrt(c2)» (racine carrée), «sin(c2)» (sinus), «cos(c2)» (cosinus), «tan(c2)» (tangente), «asin(c2)» (arc sinus), «acos(c2)» (arcsin)
 
- "résultat"
-    1
-    148.41
-    403.42
-    7.38
+      .. class:: titre2-aide
 
-Vous pouvez choisir d'ajouter la colonne calculée au jeu de donnée ou non.
+      1. Données d’entrée
 
-**Exemple**
+      .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation1.jpg
 
-Données d'entrée ::
+      .. class:: titre2-aide
 
- "a"  "b"
-  1    0
-  2    5
-  5    6
- 10    2
+      2. Formule
 
-Formule :
+      .. class:: parametre-aide
 
-c1 + c2
-Add column to original dataset = Yes
+        log(c2)+c1
 
-Résultat ::
+      .. class:: titre2-aide
 
-"a"  "b" "résultat"
- 1    0  3.25
- 2    5  3.25
- 5    6  3.25
-10    2  3.25
+      3. Résultat
 
-
-
+      .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation3.jpg
 
     ]]></help>
 </tool>
