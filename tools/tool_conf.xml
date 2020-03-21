@@ -9,6 +9,9 @@
     <tool file="lubridate.xml" />
     <tool file="join-data.table.xml" />
     <tool file="dataplyr.xml" />
+    <tool file="filter.xml" />
+    <tool file="select.xml" />
+    <tool file="columns-summary.xml" />
     <tool file="select-characters.xml" />
     <tool file="sort.xml" />
   </section>
