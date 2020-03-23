@@ -11,7 +11,7 @@ library(data.table)
 args = commandArgs(trailingOnly=TRUE)
 #args <- c("tools/test-data/irisPlus.tabular", "1,2,3,4", "5,6", "moyenne", "test", "output")
 #args <- c("tools/test-data/irisPlus.tabular", "1,2,3,4", "5,6", "somme", "test", "valeurs-superieures-a-zero", "test2", "output")
-
+args <- c("../../Downloads/Données_VNE_Operation_escargot.csv.csv", paste(58:88, collapse = ","), "None", "valeurs-superieures-a-zero", "test", "output")
 
 #determine the number of loop count
 totalLoop = (length(args) - 4) / 2
@@ -42,7 +42,7 @@ for (i in 1:totalLoop){
     result <- rowSums(columnOperation, na.rm = TRUE)
   } else if (operation == "ecart-type"){
     result <- rowSds(columnOperation, na.rm = TRUE)
-  } else if (operation == ""){
+  } else if (operation == "valeurs-superieures-a-zero"){
     columnOperationZero <- columnOperation
     columnOperationZero[columnOperationZero > 0] <- 1
     result <- rowSums(columnOperationZero, na.rm = TRUE)

@@ -13,6 +13,7 @@
 args = commandArgs(trailingOnly=TRUE)
 #args= c("tools/test-data/irisPlus.tabular", "5,6","1","somme","toto", "output")
 #args= c("tools/test-data/irisPlus.tabular", "5,6","1","moyenne","toto", "1","ecartType","toto2", "output")
+#args= c("tools/test-data/irisPlus.tabular", "5,6","5","somme","toto", "output")
 
 #determine the number of loop count
 totalLoop = (length(args) - 3) / 3
@@ -46,6 +47,8 @@ for (i in 1:totalLoop){
   columnOperation <- as.numeric(unlist(strsplit(args[3 + (i-1) * 3], ",")))
   # separate functions
   functions <- unlist(strsplit(args[4 + (i-1) * 3], ","))
+  
+  if(columnOperation %in% columnsGroup) stop("Il est impossible de sélectionner une variable pour faire une opération si elle est déjà sélectionnée pour le regroupement")
   
   #gets names from arguments
   newNames <- args[5 + (i-1) * 3]
