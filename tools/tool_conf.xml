@@ -13,6 +13,7 @@
     <tool file="select.xml" />
     <tool file="columns-summary.xml" />
     <tool file="select-characters.xml" />
+    <tool file="select-columns.xml" />
     <tool file="sort.xml" />
   </section>
   <section id="3vis" name="4. Visualisation">
