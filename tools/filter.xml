@@ -20,12 +20,12 @@
           <option value="supprimer">supprimer</option>
         </param>
         <param name="filterType" type="select" label="les lignes dont les valeurs sont" >
-          <option value="egaleA">égale à (caractères)</option>
-          <option value="exactementEgaleA">exactement égale à (numérique)</option>
-          <option value="superieuresOuEgalesA">supérieures ou égale à  (numérique)</option>
-          <option value="inferieuresOuEgalesA">inférieures ou égales à  (numérique)</option>
+          <option value="egaleA">égale (caractères)</option>
+          <option value="exactementEgaleA">exactement égale (numérique)</option>
+          <option value="superieuresOuEgalesA">supérieures ou égale  (numérique)</option>
+          <option value="inferieuresOuEgalesA">inférieures ou égales  (numérique)</option>
         </param>
-        <param name="filterParameter" label="les lignes contenant" type="text" >
+        <param name="filterParameter" label="au paramètre de filtre suivant" type="text" >
             <sanitizer invalid_char="_">
                 <valid initial="default">
                     <add value="à" />
