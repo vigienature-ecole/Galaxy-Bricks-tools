@@ -121,33 +121,54 @@
     <help><![CDATA[
 
       .. class:: titre1-aide
-
-      A quoi sert cet outil ?
+     A quoi sert cet outil ?
 
 Cet outil permet de regrouper des lignes par catégorie (par type d'environnement par exemple) en faisant un calcul (une moyenne par exemple) sur les données d'une autre colonne.
 
 Choisissez le jeu de données d'entrée, les colonnes sur lesquelles faire une agrégation, la colonne sur laquelle faire l'opération.
 
-**Exemple**
 
-Données d'entrée ::
+.. class:: titre1-aide
 
-  "Groupe"  "Nombre d'individus"
-  escargot    0
-  escargot    5
-  limace      6
-  limace      2
+Exemple
 
-Paramètres :
-Colonne pour agrégation = 1
-Colonne pour opération = 2
-Opération à effectuer = Moyenne et Maximum
+  .. class:: titre2-aide
 
-Résultat ::
+Données d'entrée :
 
- "Groupe"  "Nombre d'individus" "Mean_Nombre d'individus" "Max_Nombre d'individus"
- escargot            0                    2.5                          5
- limace              6                      4                          6
+Groupe  Nombre d'individus
+escargot    0
+escargot    5
+limace      6
+limace      2
+
+  .. class:: titre2-aide
+Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes
+.. class:: parametre-aide
+Groupe
+
+  .. class:: titre2-aide
+en faisant l'opération suivante
+.. class:: parametre-aide
+moyenne
+  .. class:: titre2-aide
+sur la colonne
+.. class:: parametre-aide
+Nombre d'individus
+  .. class:: titre2-aide
+et stocker l'information dans une nouvelle colonne nommée
+.. class:: parametre-aide
+Abondance moyenne
+  .. class:: titre2-aide
+Voulez-vous faire une autre opération ?
+.. class:: parametre-aide
+non
+  .. class:: titre2-aide
+Résultat
+
+Groupe        Abondance moyenne
+escargot            2.5
+limace                  4
 
 
     ]]></help>
