@@ -1,4 +1,4 @@
-<tool id="select-columns" name="Sélectionner ou supprimer des colonnes">
+<tool id="select-columns" name="Sélectionner des colonnes">
     <requirements>
         <requirement type="package" version="1.12.2">r-data.table</requirement>
         <requirement type="package" version="0.8.0.1">r-dplyr</requirement>
