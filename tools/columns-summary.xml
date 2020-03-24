@@ -109,11 +109,68 @@
     </tests>
     <help><![CDATA[
 
-        .. class:: titre1-aide
+      .. class:: titre1-aide
 
-        A quoi sert cet outil ?
+      A quoi sert cet outil ?
 
-        Cet outil permet de faire un calcul simple sur des colonnes.
+Cet outil permet de faire un calcul simple sur toutes les valeurs d’une colonne.
+
+
+  .. class:: titre1-aide
+
+Exemple :
+
+  .. class:: titre2-aide
+
+Données d'entrée
+
+Espèce Nombre d’individus Environnement
+Mésange charbonnière 5 Rural
+Mésange bleue 4 Rural
+Pigeon ramier 1 Urbain
+Pie bavarde 2 Urbain
+
+  .. class:: titre2-aide
+
+Colonne à utiliser pour le calcul
+
+.. class:: parametre-aide
+
+Nombre d’individus
+
+  .. class:: titre2-aide
+
+Nom de la colonne de résultat
+
+.. class:: parametre-aide
+
+Somme des individus
+
+  .. class:: titre2-aide
+
+Opération à réaliser
+
+.. class:: parametre-aide
+
+somme
+
+  .. class:: titre2-aide
+
+Voulez-vous faire une autre opération ?
+
+.. class:: parametre-aide
+
+non
+
+
+  .. class:: titre2-aide
+
+Résultat :
+
+Somme des individus
+
+12
+
 
 
 
