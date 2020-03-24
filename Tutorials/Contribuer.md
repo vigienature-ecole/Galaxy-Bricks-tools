@@ -26,10 +26,25 @@ Utiliser votre éditeur de texte pour faire les modifications dans le dépôt.
 
 Une fois que vous avez terminé des changements, vous pouvez faire un "commit" en ajoutant les fichiers que vous avez modifié puis en écrivant un message.
 
+Après avoir enregistré votre ou vos fichier(s), ils s'affichent dans le cdre à droite.  
+Double cliquez sur les fichiers que vous voulez envoyer.
+
+![commit1](images/commit1.png)
+
+Ensuite ajoutez le message et appuyez sur le bouton commit.
+
+![commit2](images/commit2.png)
+
+Voici l'opération en ligne de commande si vous préférez.
+
 `git add contribuer.md`  
 `git commit -m modifications du tutoriel pour contribuer`
 
 ## Pousser les modifications sur GitHub
+
+Ensuite appuyez sur les flèches pour envoyer les fichiers sur GitHub.
+
+![commit3](images/commit3.png)
 
 `git push`
 
