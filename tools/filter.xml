@@ -109,9 +109,72 @@
 
       .. class:: titre1-aide
 
-      A quoi sert cet outil ?
+        A quoi sert cet outil ?
 
 Cet outil permet de sélectionner ou de supprimer les lignes qui contiennent certains caractères (lettres ou nombres).
+Pour les nombres, il est aussi possible de garder toutes les lignes contenants des valeurs supérieures ou inférieures à un seuil dans une colonne.
+
+.. class:: titre1-aide
+
+Exemple
+
+    .. class:: titre2-aide
+
+Données d'entrée :
+
+Espèce Date d’observation
+Mésange charbonnière 2018-04-24
+Mésange bleue 2018-04-24
+Pigeon ramier 2019-10-31
+Pie bavarde 2019-10-31
+
+    .. class:: titre2-aide
+
+Choisir de
+
+  .. class:: parametre-aide
+
+garder
+
+    .. class:: titre2-aide
+
+les lignes dont les valeurs sont
+
+  .. class:: parametre-aide
+
+égale (caractères)
+
+    .. class:: titre2-aide
+
+au paramètre de filtre suivant
+
+  .. class:: parametre-aide
+
+Mésange
+
+    .. class:: titre2-aide
+
+dans
+
+  .. class:: parametre-aide
+
+
+
+    .. class:: titre2-aide
+
+Colonne à sélectionner
+
+  .. class:: parametre-aide
+
+Espèce
+
+    .. class:: titre2-aide
+
+Résultat :
+
+Espèce Date d’observation
+Mésange charbonnière 2018-04-24
+Mésange bleue 2018-04-24
 
 
     ]]></help>
