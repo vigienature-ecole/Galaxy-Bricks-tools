@@ -6,11 +6,11 @@ Pour contribuer, il vous faut un compte GitHub.
 
 Aller sur l'adresse du dépôt ![ICI](https://github.com/65MO/Galaxy-Bricks)
 
-Clicker sur Fork (dans le coin supérieur droit).
+Cliquer sur Fork (dans le coin supérieur droit).
 
 ![Fork](images/Fork.png)
 
-Puis clicker sur votre nom d'utilisateur.
+Puis cliquer sur votre nom d'utilisateur.
 
 Maintenant le dépôt est sur votre compte personnel.
 
@@ -54,3 +54,5 @@ Ensuite appuyez sur les flèches pour envoyer les fichiers sur GitHub. Le petit 
 ## Ouvrir une "pull request"
 
 Rendez-vous ensuite sur **votre** compte utilisateur. Pour ouvrir une pull request.
+
+Nous validerons alors les modifications.
