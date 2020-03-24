@@ -121,6 +121,7 @@
     <help><![CDATA[
 
       .. class:: titre1-aide
+
      A quoi sert cet outil ?
 
 Cet outil permet de regrouper des lignes par catégorie (par type d'environnement par exemple) en faisant un calcul (une moyenne par exemple) sur les données d'une autre colonne.
@@ -143,36 +144,46 @@ limace      6
 limace      2
 
   .. class:: titre2-aide
+
 Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes
 
 .. class:: parametre-aide
+
 Groupe
 
   .. class:: titre2-aide
+
 en faisant l'opération suivante
 
 .. class:: parametre-aide
+
 moyenne
 
   .. class:: titre2-aide
 sur la colonne
 
 .. class:: parametre-aide
+
 Nombre d'individus
 
   .. class:: titre2-aide
+
 et stocker l'information dans une nouvelle colonne nommée
 
 .. class:: parametre-aide
+
 Abondance moyenne
 
   .. class:: titre2-aide
+
 Voulez-vous faire une autre opération ?
 
 .. class:: parametre-aide
+
 non
 
   .. class:: titre2-aide
+
 Résultat
 
 Groupe        Abondance moyenne
