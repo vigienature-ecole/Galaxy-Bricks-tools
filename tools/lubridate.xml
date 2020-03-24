@@ -68,47 +68,65 @@
 
       A quoi sert cet outil ?
 
-Cet outil permet de convertir des données dans un format de date souhaité.
+     Cet outil permet de convertir des données dans un format de date souhaité (par exemple pour ensuite regrouper les données par années ou par mois). Vous devez choisir le format d'entrée et le format de sortie de vos données.
 
-Vous devez choisir le format d'entrée et le format de sortie de vos données.
+     .. class:: titre1-aide
 
-**Exemple**
+     Exemple
 
-Données d'entrée ::
+         .. class:: titre2-aide
 
- ID   Date_Observation
- 1   12/10/2019
- 2   12.10.2019
- 3   12-10-2019
- 4 12//10//2019
- 5   12/10*2019
+     Données d'entrée :
 
- Paramètres :
+     Espèce     Date d’observation
+     Mésange charbonnière     2018-04-24
+     Mésange bleue     2018-04-24
+     Pigeon ramier     2019-10-31
+     Pie bavarde     2019-10-31
 
- Ajouter le résultat au jeu de données initial : Non
- insert serie
- Numéro de la colonne d'entrée : 2
- Nom de la colonne résultante: Date
- Choisir le format des données d'entrée: JMA
- Choisir le format de sortie: Complet
- insert serie
- Numéro de la colonne d'entrée : 2
- Nom de la colonne résultante: Date
- Choisir le format des données d'entrée: JMA
- Choisir le format de sortie: Jour de l'année
+         .. class:: titre2-aide
 
- Name of the resulting column: Day of the year
- choose input date format: dmy
- choose output date format: Day of the year
+     Convertir la colonne
 
-Résultat ::
+       .. class:: parametre-aide
 
-    date     Day of the year
- 2019-10-12       285
- 2019-10-12       285
- 2019-10-12       285
- 2019-10-12       285
- 2019-10-12       285
+     Date d’observation
+
+         .. class:: titre2-aide
+
+     dont le format de données est
+
+       .. class:: parametre-aide
+
+     AnnéeMoisJour
+
+         .. class:: titre2-aide
+
+     dans une nouvelle colonne nommée
+
+       .. class:: parametre-aide
+
+     Mois
+
+         .. class:: titre2-aide
+
+     où la date sera convertie en
+
+       .. class:: parametre-aide
+
+     Mois
+
+         .. class:: titre2-aide
+
+     Résultat :
+
+     Espèce     Date d’observation     Mois
+     Mésange charbonnière     2018-04-24     04
+     Mésange bleue     2018-04-24     04
+     Pigeon ramier     2019-10-31     10
+     Pie bavarde     2019-10-31     10
+
+
 
     ]]></help>
 </tool>
