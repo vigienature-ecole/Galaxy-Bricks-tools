@@ -67,6 +67,62 @@
 
 Cet outil permet de sélectionner certains caractères (lettres ou nombres) d'une colonne.
 
+ .. class:: titre1-aide
+
+Exemple
+
+.. class:: titre2-aide
+
+Données d'entrée
+
+Espèce Code postal
+Mésange charbonnière 56000
+Mésange bleue 44400
+Pigeon ramier 12300
+Pie bavarde 22600
+
+.. class:: titre2-aide
+
+Nombre de caractères à extraire
+
+.. class:: parametre-aide
+
+2
+
+.. class:: titre2-aide
+
+de la colonne
+
+.. class:: parametre-aide
+
+Code postal
+
+.. class:: titre2-aide
+
+
+en partant de la
+
+.. class:: parametre-aide
+
+gauche
+
+.. class:: titre2-aide
+
+et stocker le résultat dans une nouvelle colonne nommée
+
+.. class:: parametre-aide
+
+Département
+
+.. class:: titre2-aide
+
+Résultat :
+
+Espèce Code postal Département
+Mésange charbonnière 56000 56
+Mésange bleue 44400 44
+Pigeon ramier 12300 12
+Pie bavarde 22600 22
 
     ]]></help>
 </tool>
