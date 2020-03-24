@@ -24,7 +24,9 @@
     </outputs>
     <help><![CDATA[
 
-.. class:: infomark
+      .. class:: titre1-aide
+
+      A quoi sert cet outil ?
 
 Vous pouvez importer des données depuis les bases Vigie-Nature École grâce à cet outils.
 

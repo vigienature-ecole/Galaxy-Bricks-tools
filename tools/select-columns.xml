@@ -34,7 +34,9 @@
         </test>
     </tests>
     <help><![CDATA[
-    .. class:: infomark
+      .. class:: titre1-aide
+
+      A quoi sert cet outil ?
 
     Cet outil permet de sélectionner ou de supprimer des colonnes d'un jeu données.
 

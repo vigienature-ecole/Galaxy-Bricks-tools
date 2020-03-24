@@ -30,7 +30,9 @@
     </tests>
     <help><![CDATA[
 
-.. class:: infomark
+        .. class:: titre1-aide
+
+        A quoi sert cet outil ?
 
 Cet outil permet de réaliser une analyse de variance (comparer des moyennes).
 
