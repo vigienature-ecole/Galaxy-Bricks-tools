@@ -25,7 +25,7 @@
                 <option value="maximum">Maximum</option>
             </param>
             <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="false"/>
-            <param name="nameCol" label="et stoquer l'information dans une nouvelle colonne nommée" type="text" >
+            <param name="nameCol" label="et stocker l'information dans une nouvelle colonne nommée" type="text" >
                 <sanitizer invalid_char="_">
                     <valid initial="default">
                         <add value="à" />
@@ -62,7 +62,7 @@
                   <option value="maximum">Maximum</option>
               </param>
               <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="false"/>
-              <param name="nameCol" label="et stoquer l'information dans une nouvelle colonne nommée" type="text" >
+              <param name="nameCol" label="et stocker l'information dans une nouvelle colonne nommée" type="text" >
                   <sanitizer invalid_char="_">
                       <valid initial="default">
                           <add value="à" />
