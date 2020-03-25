@@ -91,20 +91,34 @@
     </outputs>
     <help><![CDATA[
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
-      A quoi sert cet outil ?
+        A quoi sert cet outil ?
 
-Cet outil permet de réaliser une représentation des données (graphiques).
+        Cet outil permet de réaliser une représentation graphique des données .
 
-Il faut choisir le jeu de données (données brutes).
-Puis choisir les variables à représenter
+        .. class:: titre1-aide
 
- 1. La variable en ordonnée (X)
- 2. La variable en abscisse (Y)
+        Utiliser cet outil
 
-Puis choisir le type de représentation entre des points (Nuage de points), des boites de dispertion ou boite à moustaches ou des diagramme en barre.
-Vous obtiendrez alors un graphique.
+        .. class:: titre2-aide
+
+        1. Procédure
+
+        Il faut choisir le jeu de données (données brutes).
+        Puis choisir les variables à représenter
+
+        1. La variable en ordonnée (X)
+        2. La variable en abscisse (Y)
+
+        Puis choisir le type de représentation entre un diagramme en barres, un nuage de points, des lignes, des boîtes de dispersion...
+
+        .. class:: titre2-aide
+
+        2. Résultat
+
+        Vous obtiendrez alors un graphique.
+
 
     ]]></help>
 </tool>
