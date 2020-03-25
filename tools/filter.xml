@@ -16,14 +16,14 @@
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
         <param name="negateMatching" type="select" label="Choisir de" >
-          <option value="garder">garder</option>
-          <option value="supprimer">supprimer</option>
+            <option value="garder">garder</option>
+            <option value="supprimer">supprimer</option>
         </param>
         <param name="filterType" type="select" label="les lignes dont les valeurs sont" >
-          <option value="egaleA">égale (caractères)</option>
-          <option value="exactementEgaleA">exactement égale (numérique)</option>
-          <option value="superieuresOuEgalesA">supérieures ou égale  (numérique)</option>
-          <option value="inferieuresOuEgalesA">inférieures ou égales  (numérique)</option>
+            <option value="egaleA">égale (caractères)</option>
+            <option value="exactementEgaleA">exactement égale (numérique)</option>
+            <option value="superieuresOuEgalesA">supérieures ou égale  (numérique)</option>
+            <option value="inferieuresOuEgalesA">inférieures ou égales  (numérique)</option>
         </param>
         <param name="filterParameter" label="au paramètre de filtre suivant" type="text" >
             <sanitizer invalid_char="_">
@@ -47,13 +47,13 @@
             </sanitizer>
         </param>
         <conditional name="condi_column">
-        <param name="wholeLine" type="select" label="dans" >
-            <option value="laColonne">la colonne</option>
-            <option value="toutLeFichier">tout le fichier</option>
-        </param>
-        <when value="laColonne">
-            <param name="columnNumber" label="indiquer la colonne dans laquelle faire la recherche" type="data_column" data_ref="input" multiple="false" value="1"/>
-        </when>
+            <param name="wholeLine" type="select" label="dans" >
+                <option value="laColonne">la colonne</option>
+                <option value="toutLeFichier">tout le fichier</option>
+            </param>
+            <when value="laColonne">
+                <param name="columnNumber" label="indiquer la colonne dans laquelle faire la recherche" type="data_column" data_ref="input" multiple="false" value="1"/>
+            </when>
         </conditional>
     </inputs>
     <outputs>

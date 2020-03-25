@@ -55,37 +55,37 @@
                         <option value="non" selected="true">non</option>
                         <option value="oui">oui</option>
                     </param>
-                <when value="oui">
-                    <param name="outputOperation2" type="select" label="Faire l'opération supplémentaire suivante">
-                        <option value="somme" selected="true">Somme</option>
-                        <option value="moyenne">Moyenne</option>
-                        <option value="ecart-type">Ecart-type</option>
-                        <option value="valeurs-superieures-a-zero">Compter les valeurs supérieures à zéro</option>
-                    </param>
-                    <param name="outputName2" type="text" value="Result" label="et stocker l'information dans une nouvelle colonne nommée" >
-                        <sanitizer invalid_char="_">
-                            <valid initial="default">
-                                <add value="à" />
-                                <add value="â" />
-                                <add value="é" />
-                                <add value="è" />
-                                <add value="ê" />
-                                <add value="ë" />
-                                <add value="î" />
-                                <add value="ï" />
-                                <add value="ô" />
-                                <add value="ù" />
-                                <add value="û" />
-                                <add value="ÿ" />
-                                <add value="ç" />
-                                <add value="œ" />
-                                <add value="€" />
-                          </valid>
-                      </sanitizer>
-                  </param>
-                </when>
-                <when value="non">
-                </when>
+                    <when value="oui">
+                        <param name="outputOperation2" type="select" label="Faire l'opération supplémentaire suivante">
+                            <option value="somme" selected="true">Somme</option>
+                            <option value="moyenne">Moyenne</option>
+                            <option value="ecart-type">Ecart-type</option>
+                            <option value="valeurs-superieures-a-zero">Compter les valeurs supérieures à zéro</option>
+                        </param>
+                        <param name="outputName2" type="text" value="Result" label="et stocker l'information dans une nouvelle colonne nommée" >
+                            <sanitizer invalid_char="_">
+                                <valid initial="default">
+                                    <add value="à" />
+                                    <add value="â" />
+                                    <add value="é" />
+                                    <add value="è" />
+                                    <add value="ê" />
+                                    <add value="ë" />
+                                    <add value="î" />
+                                    <add value="ï" />
+                                    <add value="ô" />
+                                    <add value="ù" />
+                                    <add value="û" />
+                                    <add value="ÿ" />
+                                    <add value="ç" />
+                                    <add value="œ" />
+                                    <add value="€" />
+                                </valid>
+                            </sanitizer>
+                        </param>
+                    </when>
+                    <when value="non">
+                    </when>
                 </conditional>
                 <param name="keep" label="et sélectionner les colonnes à garder dans le jeu de données final (optionnel)" type="data_column" data_ref="input" numerical="false" multiple = "true" help="Laisser ce champ vide pour garder toutes les colonnes"/>
             </when>
@@ -120,69 +120,69 @@
     </outputs>
     <help><![CDATA[
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
-      A quoi sert cet outil ?
+        A quoi sert cet outil ?
 
-      Cet outil permet de faire des opérations sur des colonnes en utilisant la syntaxe de programmation.
+        Cet outil permet de faire des opérations sur des colonnes en utilisant la syntaxe de programmation.
 
-       * Il est possible de combiner plusieurs colonnes en utilisant les opérations classiques : «+» addition «-» soustraction «*» multiplication «/» division (par exemple c1 * c2 permet de multiplier les colonnes 1 et 2)
+        * Il est possible de combiner plusieurs colonnes en utilisant les opérations classiques : «+» addition «-» soustraction «*» multiplication «/» division (par exemple c1 * c2 permet de multiplier les colonnes 1 et 2)
 
-       * Il est possible de transformer une colonne en utilisant une constante (par exemple c1 / 2 permet de diviser toutes les valeurs de la colonne 1 par deux)
+        * Il est possible de transformer une colonne en utilisant une constante (par exemple c1 / 2 permet de diviser toutes les valeurs de la colonne 1 par deux)
 
-       * Il est possible de combiner ces deux opérations (par exemple log(c1) + c2 permet d’additionner le résultat du logarithme népérien de la colonne 1 avec la colonne 2)
+        * Il est possible de combiner ces deux opérations (par exemple log(c1) + c2 permet d’additionner le résultat du logarithme népérien de la colonne 1 avec la colonne 2)
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
-      Exemple avec des opérations classiques
+        Exemple avec des opérations classiques
 
-      .. class:: titre2-aide
+        .. class:: titre2-aide
 
-      1. Données d’entrée
+        1. Données d’entrée
 
-      .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation1.jpg
+        .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation1.jpg
 
-      .. class:: titre2-aide
+        .. class:: titre2-aide
 
-      2. Formule
+        2. Formule
 
-      .. class:: parametre-aide
+        .. class:: parametre-aide
 
         c1 + c2
 
-      .. class:: titre2-aide
+        .. class:: titre2-aide
 
-      3. Résultat
+        3. Résultat
 
-      .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation2.jpg
+        .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation2.jpg
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
-      Exemple avec des opérations plus complexes
+        Exemple avec des opérations plus complexes
 
-      Vous pouvez écrire votre propre formule en utilisant par exemple :
+        Vous pouvez écrire votre propre formule en utilisant par exemple :
 
-      «log(c2)» (logarithme népérien), «exp(c2)» (exponentielle), «log10(c2)» (logarithme décimal), «sqrt(c2)» (racine carrée), «sin(c2)» (sinus), «cos(c2)» (cosinus), «tan(c2)» (tangente), «asin(c2)» (arc sinus), «acos(c2)» (arcsin)
+        «log(c2)» (logarithme népérien), «exp(c2)» (exponentielle), «log10(c2)» (logarithme décimal), «sqrt(c2)» (racine carrée), «sin(c2)» (sinus), «cos(c2)» (cosinus), «tan(c2)» (tangente), «asin(c2)» (arc sinus), «acos(c2)» (arcsin)
 
-      .. class:: titre2-aide
+        .. class:: titre2-aide
 
-      1. Données d’entrée
+        1. Données d’entrée
 
-      .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation1.jpg
+        .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation1.jpg
 
-      .. class:: titre2-aide
+        .. class:: titre2-aide
 
-      2. Formule
+        2. Formule
 
-      .. class:: parametre-aide
+        .. class:: parametre-aide
 
         log(c2)+c1
 
-      .. class:: titre2-aide
+        .. class:: titre2-aide
 
-      3. Résultat
+        3. Résultat
 
-      .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation3.jpg
+        .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation3.jpg
 
     ]]></help>
 </tool>
