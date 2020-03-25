@@ -121,6 +121,7 @@
     <help><![CDATA[
 
         .. class:: titre1-aide
+
         A quoi sert cet outil ?
 
         Cet outil permet de regrouper des lignes par catégorie (par type d'environnement par exemple) en faisant un calcul (une moyenne par exemple) sur les données d'une autre colonne.
@@ -146,7 +147,7 @@
         escargot    0
         escargot    5
         limace      6
-        limace      2
+        limace      2  
 
         .. class:: titre2-aide
 
