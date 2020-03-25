@@ -24,17 +24,20 @@
     </outputs>
     <help><![CDATA[
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
-      A quoi sert cet outil ?
+        A quoi sert cet outil ?
 
-Vous pouvez importer des données depuis les bases Vigie-Nature École grâce à cet outils.
+        Vous pouvez importer des données depuis les bases Vigie-Nature École grâce à cet outil.
 
-Il vous suffit de choisir votre observatoire.
+        .. class:: titre1-aide
+
+        Utiliser cet outil
+
+        Il vous suffit de choisir l’observatoire qui vous intéresse.
 
 
-.. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/logoVNE.png
-
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/logoVNE.png
 
     ]]></help>
 </tool>

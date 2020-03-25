@@ -64,69 +64,74 @@
     </tests>
     <help><![CDATA[
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
-      A quoi sert cet outil ?
+        A quoi sert cet outil ?
 
-     Cet outil permet de convertir des données dans un format de date souhaité (par exemple pour ensuite regrouper les données par années ou par mois). Vous devez choisir le format d'entrée et le format de sortie de vos données.
+        Cet outil permet de créer une nouvelle colonne contenant une information issue d’une date (permet, par exemple, de ne conserver que le mois ou d’afficher le numéro du jour).
 
-     .. class:: titre1-aide
+        .. class:: titre1-aide
 
-     Exemple
+        Procédure
 
-         .. class:: titre2-aide
+        Vous devez choisir le format d'entrée et le format de sortie de vos données.
 
-     Données d'entrée :
+        .. class:: titre1-aide
 
-     Espèce     Date d’observation
-     Mésange charbonnière     2018-04-24
-     Mésange bleue     2018-04-24
-     Pigeon ramier     2019-10-31
-     Pie bavarde     2019-10-31
+        Exemple d’utilisation de l’outil:
+        Créer une nouvelle colonne contenant le mois où l’espèce a été vue.
 
          .. class:: titre2-aide
 
-     Convertir la colonne
+        1. Données d'entrée :
 
-       .. class:: parametre-aide
+        Espèce     Date d’observation
+        Mésange charbonnière     2018-04-24
+        Mésange bleue     2018-04-24
+        Pigeon ramier     2019-10-31
+        Pie bavarde     2019-10-31
 
-     Date d’observation
+        .. class:: titre2-aide
 
-         .. class:: titre2-aide
+        2. Paramètres à choisir dans le formulaire
 
-     dont le format de données est
+        Convertir la colonne
 
-       .. class:: parametre-aide
+        .. class:: parametre-aide
 
-     AnnéeMoisJour
+        Date d’observation
 
-         .. class:: titre2-aide
+        dont le format de données est
 
-     dans une nouvelle colonne nommée
+        .. class:: parametre-aide
 
-       .. class:: parametre-aide
+        AnnéeMoisJour
 
-     Mois
+        dans une nouvelle colonne nommée
 
-         .. class:: titre2-aide
+        .. class:: parametre-aide
 
-     où la date sera convertie en
+        Mois
 
-       .. class:: parametre-aide
+        où la date sera convertie en
 
-     Mois
+        .. class:: parametre-aide
 
-         .. class:: titre2-aide
+        Mois
 
-     Résultat :
+        .. class:: titre2-aide
 
-     Espèce     Date d’observation     Mois
-     Mésange charbonnière     2018-04-24     04
-     Mésange bleue     2018-04-24     04
-     Pigeon ramier     2019-10-31     10
-     Pie bavarde     2019-10-31     10
+        3. Résultat :
 
+        Espèce     Date d’observation     Mois
 
+        Mésange charbonnière     2018-04-24     04
+
+        Mésange bleue     2018-04-24     04
+
+        Pigeon ramier     2019-10-31     10
+
+        Pie bavarde     2019-10-31     10
 
     ]]></help>
 </tool>
