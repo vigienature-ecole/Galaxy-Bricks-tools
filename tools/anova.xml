@@ -7,7 +7,7 @@
         '$output' ]]>
     </command>
     <inputs>
-        <param format="tabular,csv,txt" name="input" type="data" label="Fichier d'entrée" />
+        <param format="tabular,csv,txt" name="input" type="data" label="Fichier de données brutes" help="Le fichier de données brutes est souvent celui qui a servi à calculer les moyennes." />
         <param name="explanatoryVar" label="Vérifier si la variable explicative (X)" type="data_column" data_ref="input" numerical="False" multiple="True" help="Choisissez une ou plusieurs variable(s) qualitative(s)"/>
         <param name="dependantVar" label="a un effet sur la variable à expliquer (Y)" type="data_column" data_ref="input" numerical="True" help="Choisissez une variable quantitative"/>
     </inputs>
@@ -34,15 +34,26 @@
 
         A quoi sert cet outil ?
 
-Cet outil permet de réaliser une analyse de variance (comparer des moyennes).
+        Cet outil statistique permet de comparer des moyennes.
 
-Il faut choisir le jeu de données (données brutes).
-Puis choisir les variables à analyser.
+        .. class:: titre1-aide
 
- 1. La variable à expliquer (Y)
- 2. La variable explicative (X)
+        Utiliser cet outil
 
-Cet outil donne ensuite un résultat. Indiquant si la différence entre les moyennes est significative.
+        .. class:: titre2-aide
+
+        1. Procédure
+
+        Prendre le jeu de données brutes (en général celui que l’on a utilisé pour faire les moyennes), puis choisir les variables à analyser :
+
+        La colonne ou les colonnes explicatives (X)
+        La colonne de la variable à expliquer (Y)
+
+        .. class:: titre2-aide
+
+        2. Résultat
+
+        Le résultat obtenu indique si la différence entre les moyennes est significative. Si une seule colonne a été sélectionnée en X, un graphique est généré.
 
     ]]></help>
 </tool>
