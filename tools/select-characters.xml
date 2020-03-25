@@ -61,68 +61,73 @@
 
     <help><![CDATA[
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
-      A quoi sert cet outil ?
+        A quoi sert cet outil ?
 
-Cet outil permet de sélectionner certains caractères (lettres ou nombres) d'une colonne.
-
- .. class:: titre1-aide
-
-Exemple
-
-.. class:: titre2-aide
-
-Données d'entrée
-
-Espèce Code postal
-Mésange charbonnière 56000
-Mésange bleue 44400
-Pigeon ramier 12300
-Pie bavarde 22600
-
-.. class:: titre2-aide
-
-Nombre de caractères à extraire
-
-.. class:: parametre-aide
-
-2
-
-.. class:: titre2-aide
-
-de la colonne
-
-.. class:: parametre-aide
-
-Code postal
-
-.. class:: titre2-aide
+        Cet outil permet de sélectionner certains caractères (lettres ou nombres) d'une colonne et de les extraire dans une nouvelle colonne.
 
 
-en partant de la
+        .. class:: titre1-aide
 
-.. class:: parametre-aide
+        Exemple d’utilisation de l’outil
+        Créer une nouvelle colonne contenant le numéro de département où l’espèce a été vue.
 
-gauche
 
-.. class:: titre2-aide
+        .. class:: titre2-aide
 
-et stocker le résultat dans une nouvelle colonne nommée
+        1. Données d'entrée
 
-.. class:: parametre-aide
+        Espèce Code postal
+        Mésange charbonnière 56000
+        Mésange bleue 44400
+        Pigeon ramier 12300
+        Pie bavarde 22600
 
-Département
+        .. class:: titre2-aide
 
-.. class:: titre2-aide
+        2. Paramètres à choisir dans le formulaire
 
-Résultat :
+        Nombre de caractères à extraire
 
-Espèce Code postal Département
-Mésange charbonnière 56000 56
-Mésange bleue 44400 44
-Pigeon ramier 12300 12
-Pie bavarde 22600 22
+        .. class:: parametre-aide
+
+        2
+
+        de la colonne
+
+        .. class:: parametre-aide
+
+        Code postal
+
+        en partant de la
+
+        .. class:: parametre-aide
+
+        gauche
+
+
+
+        et stocker le résultat dans une nouvelle colonne nommée
+
+        .. class:: parametre-aide
+
+        Département
+
+        .. class:: titre2-aide
+
+        3. Résultat
+
+        Espèce Code postal Département
+
+        Mésange charbonnière 56000 56
+
+        Mésange bleue 44400 44
+
+        Pigeon ramier 12300 12
+
+        Pie bavarde 22600 22
+
 
     ]]></help>
 </tool>

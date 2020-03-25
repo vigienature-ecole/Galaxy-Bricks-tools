@@ -47,48 +47,48 @@
 
         Cet outil permet de trier un jeu de données en fonction des valeurs d'une colonne.
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
-      Exemple :
+        Exemple d’utilisation de l’outil
+        Trier par ordre croissant les espèces d’oiseaux les plus vues.
 
-      .. class:: titre2-aide
+        .. class:: titre2-aide
 
-      Données d'entrée :
+        1. Données d'entrée
 
-      image à ajouter (issue des gifs de lydia)
+        Espèce      Nombre d’individus      Environnement
+        Mésange charbonnière      5      Rural
+        Mésange bleue     4      Rural
+        Pigeon ramier      1      Urbain
+              Pie bavarde      2      Urbain
+
+        .. class:: titre2-aide
+
+        2. Paramètres à choisir dans le formulaire
+
+        Trier le jeu de données selon la colonne suivante
+
+        .. class:: parametre-aide
+
+        Nombre d’individus
+
+        dans l'ordre
+
+        .. class:: parametre-aide
+
+        croissant
+
+        .. class:: titre2-aide
+
+        3. Résultat
 
 
-      Espèce                 Nombre d’individus       Environnement
-      Mésange charbonnière       5                      Rural
-      Mésange bleue              4                      Rural
-      Pigeon ramier              1                      Urbain
-      Pie bavarde                2                      Urbain
+        Espèce      Nombre d’individus      Environnement
+        Pigeon ramier      1      Urbain
+        Pie bavarde     2      Urbain
+        Mésange bleue      4      Rural
+        Mésange charbonnière      5      Rural
 
-      .. class:: titre2-aide
-
-      Trier le jeu de données selon la colonne suivante
-
-      .. class:: parametre-aide
-
-      Nombre d’individus
-
-      .. class:: titre2-aide
-
-      dans l'ordre
-
-      .. class:: parametre-aide
-
-      croissant
-
-      .. class:: titre2-aide
-
-      Résultat :
-
-      Espèce                 Nombre d’individus       Environnement
-      Pigeon ramier             1                      Urbain
-      Pie bavarde               2                      Urbain
-      Mésange bleue             4                      Rural
-      Mésange charbonnière      5                      Rural
 
     ]]></help>
 </tool>

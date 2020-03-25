@@ -35,59 +35,53 @@
     </tests>
     <help><![CDATA[
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
-      A quoi sert cet outil ?
+        A quoi sert cet outil ?
 
-      Cet outil permet de sélectionner ou de supprimer des colonnes d'un jeu données.
+        Cet outil permet de sélectionner ou de supprimer des colonnes d'un jeu données.
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
-      Exemple :
+        Exemple d’utilisation de l’outil
 
-      .. class:: titre2-aide
+        Supprimer la colonne “Nombre d’individus” du jeu de données.
 
-      Données d'entrée
+        .. class:: titre2-aide
 
-      Espèce
-      Nombre d’individus
-      Environnement
-      Mésange charbonnière
-      5
-      Rural
-      Mésange bleue
-      4
-      Rural
-      Pigeon ramier
-      1
-      Urbain
-      Pie bavarde
-      2
-      Urbain
+        1. Données d'entrée
 
-      .. class:: titre2-aide
+        Espèce      Nombre d’individus      Environnement
+        Mésange charbonnière      5      Rural
+        Mésange bleue      4      Rural
+        Pigeon ramier      1      Urbain
+        Pie bavarde      2      Urbain
 
-      Choisir de
+        .. class:: titre2-aide
 
-      .. class:: parametre-aide
+        2. Paramètres à choisir dans le formulaire
 
-      garder
+        Choisir de
 
-      .. class:: titre2-aide
+        .. class:: parametre-aide
 
-      les colonnes
+        garder
 
-      .. class:: parametre-aide
+        les colonnes
 
-      Espèce Environnement
+        .. class:: parametre-aide
 
-      Résultat
+        Espèce  | Environnement
 
-      Espèce                    Environnement
-      Mésange charbonnière      Rural
-      Mésange bleue             Rural
-      Pigeon ramier             Urbain
-      Pie bavarde               Urbain
+        .. class:: titre2-aide
+
+        3. Résultat
+
+        Espèce      Environnement
+        Mésange charbonnière      Rural
+        Mésange bleue      Rural
+        Pigeon ramier      Urbain
+        Pie bavarde      Urbain
 
     ]]>
     </help>
