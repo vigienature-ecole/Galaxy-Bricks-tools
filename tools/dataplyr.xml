@@ -120,77 +120,75 @@
     </tests>
     <help><![CDATA[
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
+        A quoi sert cet outil ?
 
-     A quoi sert cet outil ?
+        Cet outil permet de regrouper des lignes par catégorie (par type d'environnement par exemple) en faisant un calcul (une moyenne par exemple) sur les données d'une autre colonne.
 
-Cet outil permet de regrouper des lignes par catégorie (par type d'environnement par exemple) en faisant un calcul (une moyenne par exemple) sur les données d'une autre colonne.
+        .. class:: titre1-aide
 
-Choisissez le jeu de données d'entrée, les colonnes sur lesquelles faire une agrégation, la colonne sur laquelle faire l'opération.
+        Procédure
+
+        Choisissez le jeu de données d'entrée, les colonnes sur lesquelles faire un regroupement, la colonne sur laquelle faire l'opération.
 
 
-.. class:: titre1-aide
+        .. class:: titre1-aide
 
-Exemple
+        Exemple d’utilisation de l’outil:
 
-  .. class:: titre2-aide
+        Calculer le nombre moyen d’escargots et de limaces observés.
 
-Données d'entrée :
+        .. class:: titre2-aide
 
-Groupe  Nombre d'individus
-escargot    0
-escargot    5
-limace      6
-limace      2
+        1. Données d'entrée
 
-  .. class:: titre2-aide
+        Taxon Nombre d'individus
+        escargot    0
+        escargot    5
+        limace      6
+        limace      2
 
-Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes
+        .. class:: titre2-aide
 
-.. class:: parametre-aide
+        2. Paramètres à choisir dans le formulaire
 
-Groupe
+        Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes
 
-  .. class:: titre2-aide
+        .. class:: parametre-aide
 
-en faisant l'opération suivante
+        Taxon
 
-.. class:: parametre-aide
+        en faisant l'opération suivante
 
-moyenne
+        .. class:: parametre-aide
 
-  .. class:: titre2-aide
+        moyenne
 
-sur la colonne
+        sur la colonne
 
-.. class:: parametre-aide
+        .. class:: parametre-aide
 
-Nombre d'individus
+        Nombre d'individus
 
-  .. class:: titre2-aide
+        et stocker l'information dans une nouvelle colonne nommée
 
-et stocker l'information dans une nouvelle colonne nommée
+        .. class:: parametre-aide
 
-.. class:: parametre-aide
+        Abondance moyenne
 
-Abondance moyenne
+        Voulez-vous faire une autre opération ?
 
-  .. class:: titre2-aide
+        .. class:: parametre-aide
 
-Voulez-vous faire une autre opération ?
+        non
 
-.. class:: parametre-aide
+        .. class:: titre2-aide
 
-non
+        3. Résultat
 
-  .. class:: titre2-aide
-
-Résultat
-
-Groupe        Abondance moyenne
-escargot            2.5
-limace                  4
-
+        Groupe        Abondance moyenne
+        escargot            2.5
+        limace                  4
 
     ]]></help>
 </tool>
