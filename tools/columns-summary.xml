@@ -126,12 +126,7 @@
 
         1. Données d'entrée
 
-        Espèce Nombre d’individus Environnement
-        Mésange 5 Rural
-        Mésange 4 Rural
-        Pigeon 1 Urbain
-        Pie 2 Urbain
-
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/sort-in.jpg
 
         .. class:: titre2-aide
 
@@ -165,8 +160,7 @@
 
         3. Résultat
 
-        Somme des individus
-        12
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/columns-summary-out.jpg
 
 
     ]]></help>

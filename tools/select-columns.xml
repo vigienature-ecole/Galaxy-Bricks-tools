@@ -51,11 +51,7 @@
 
         1. Données d'entrée
 
-        Espèce      Nombre d’individus      Environnement
-        Mésange charbonnière      5      Rural
-        Mésange bleue      4      Rural
-        Pigeon ramier      1      Urbain
-        Pie bavarde      2      Urbain
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/sort-in.jpg
 
         .. class:: titre2-aide
 
@@ -77,11 +73,7 @@
 
         3. Résultat
 
-        Espèce      Environnement
-        Mésange charbonnière      Rural
-        Mésange bleue      Rural
-        Pigeon ramier      Urbain
-        Pie bavarde      Urbain
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/select-columns-out.jpg
 
     ]]>
     </help>

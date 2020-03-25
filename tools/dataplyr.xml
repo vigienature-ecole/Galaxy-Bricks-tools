@@ -143,11 +143,7 @@
 
         1. Données d'entrée
 
-        Taxon Nombre d'individus
-        escargot    0
-        escargot    5
-        limace      6
-        limace      2
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/dataplyr-in.jpg
 
         .. class:: titre2-aide
 
@@ -187,9 +183,7 @@
 
         3. Résultat
 
-        Groupe        Abondance moyenne
-        escargot            2.5
-        limace                  4
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/dataplyr-out.jpg
 
     ]]></help>
 </tool>

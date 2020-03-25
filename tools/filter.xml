@@ -123,11 +123,7 @@
 
         1. Données d'entrée
 
-        Espèce Date d’observation
-        Mésange charbonnière 2018-04-24
-        Mésange bleue 2018-04-24
-        Pigeon ramier 2019-10-31
-        Pie bavarde 2019-10-31
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/filter-in.jpg
 
         .. class:: titre2-aide
 
@@ -167,9 +163,7 @@
 
         3. Résultat
 
-        Espèce Date d’observation
-        Mésange charbonnière 2018-04-24
-        Mésange bleue 2018-04-24
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/filter-out.jpg
 
     ]]></help>
 </tool>

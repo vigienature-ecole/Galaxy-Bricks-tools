@@ -78,11 +78,7 @@
 
         1. Données d'entrée
 
-        Espèce Code postal
-        Mésange charbonnière 56000
-        Mésange bleue 44400
-        Pigeon ramier 12300
-        Pie bavarde 22600
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/select-characters-in.jpg
 
         .. class:: titre2-aide
 
@@ -118,15 +114,7 @@
 
         3. Résultat
 
-        Espèce Code postal Département
-
-        Mésange charbonnière 56000 56
-
-        Mésange bleue 44400 44
-
-        Pigeon ramier 12300 12
-
-        Pie bavarde 22600 22
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/select-characters-out.jpg
 
 
     ]]></help>

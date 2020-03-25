@@ -85,11 +85,7 @@
 
         1. Données d'entrée :
 
-        Espèce     Date d’observation
-        Mésange charbonnière     2018-04-24
-        Mésange bleue     2018-04-24
-        Pigeon ramier     2019-10-31
-        Pie bavarde     2019-10-31
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/filter-in.jpg
 
         .. class:: titre2-aide
 
@@ -123,15 +119,7 @@
 
         3. Résultat :
 
-        Espèce     Date d’observation     Mois
-
-        Mésange charbonnière     2018-04-24     04
-
-        Mésange bleue     2018-04-24     04
-
-        Pigeon ramier     2019-10-31     10
-
-        Pie bavarde     2019-10-31     10
+        .. image:: https://galaxy4bricks-pre.65mo.fr${static_path}/images/tools/bricks/lubridate_convert-out.jpg
 
     ]]></help>
 </tool>
