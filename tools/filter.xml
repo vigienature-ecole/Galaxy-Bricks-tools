@@ -52,7 +52,7 @@
             <option value="toutLeFichier">tout le fichier</option>
         </param>
         <when value="laColonne">
-            <param name="columnNumber" label="Colonne à sélectionner" type="data_column" data_ref="input" multiple="false" value="1"/>
+            <param name="columnNumber" label="indiquer la colonne dans laquelle faire la recherche" type="data_column" data_ref="input" multiple="false" value="1"/>
         </when>
         </conditional>
     </inputs>
@@ -107,74 +107,78 @@
     </tests>
     <help><![CDATA[
 
-      .. class:: titre1-aide
+        .. class:: titre1-aide
 
         A quoi sert cet outil ?
 
-Cet outil permet de sélectionner ou de supprimer les lignes qui contiennent certains caractères (lettres ou nombres).
-Pour les nombres, il est aussi possible de garder toutes les lignes contenants des valeurs supérieures ou inférieures à un seuil dans une colonne.
+        Cet outil permet de sélectionner ou de supprimer les lignes qui contiennent certains caractères (lettres, nombres ou chaînes de caractères).
+        Pour les nombres, il est aussi possible de conserver toutes les lignes contenants des valeurs supérieures ou inférieures à un seuil dans une colonne.
 
-.. class:: titre1-aide
+        .. class:: titre1-aide
 
-Exemple
+        Exemple
+        Conserver uniquement les lignes d’un jeu de données contenant le mot “Mésange”.
 
-    .. class:: titre2-aide
+        .. class:: titre2-aide
 
-Données d'entrée :
+        1. Données d'entrée
 
-Espèce Date d’observation
-Mésange charbonnière 2018-04-24
-Mésange bleue 2018-04-24
-Pigeon ramier 2019-10-31
-Pie bavarde 2019-10-31
+        Espèce Date d’observation
+        Mésange charbonnière 2018-04-24
+        Mésange bleue 2018-04-24
+        Pigeon ramier 2019-10-31
+        Pie bavarde 2019-10-31
 
-    .. class:: titre2-aide
+        .. class:: titre2-aide
 
-Choisir de
+        2. Paramètres à choisir dans le formulaire
 
-  .. class:: parametre-aide
+        Choisir de
 
-garder
+        .. class:: parametre-aide
 
-    .. class:: titre2-aide
+        garder
 
-les lignes dont les valeurs sont
+        les lignes dont les valeurs sont
 
-  .. class:: parametre-aide
+        .. class:: parametre-aide
 
-égale (caractères)
+        égale (caractères)
 
-    .. class:: titre2-aide
+        au paramètre de filtre suivant
 
-au paramètre de filtre suivant
+        .. class:: parametre-aide
 
-  .. class:: parametre-aide
+        Mésange
 
-Mésange
+        dans
 
-    .. class:: titre2-aide
+        .. class:: parametre-aide
 
-dans
+        la colonne
 
-  .. class:: parametre-aide
+        indiquer la colonne dans laquelle faire la recherche
+
+        .. class:: parametre-aide
+
+        Espèce
+
+        .. class:: titre2-aide
+
+        3. Résultat
+
+        Espèce Date d’observation
+        Mésange charbonnière 2018-04-24
+        Mésange bleue 2018-04-24
 
 
 
-    .. class:: titre2-aide
 
-Colonne à sélectionner
 
-  .. class:: parametre-aide
 
-Espèce
 
-    .. class:: titre2-aide
 
-Résultat :
 
-Espèce Date d’observation
-Mésange charbonnière 2018-04-24
-Mésange bleue 2018-04-24
 
 
     ]]></help>
