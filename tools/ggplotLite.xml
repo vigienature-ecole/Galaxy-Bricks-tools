@@ -40,7 +40,6 @@
                     <add value="ç" />
                     <add value="œ" />
                     <add value="€" />
-                    <add value="&apos;" />
                 </valid>
             </sanitizer>
         </param>
