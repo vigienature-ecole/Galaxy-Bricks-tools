@@ -116,7 +116,8 @@
 
         .. class:: titre1-aide
 
-        Exemple
+        Exemple d’utilisation de l’outil
+
         Conserver uniquement les lignes d’un jeu de données contenant le mot “Mésange”.
 
         .. class:: titre2-aide

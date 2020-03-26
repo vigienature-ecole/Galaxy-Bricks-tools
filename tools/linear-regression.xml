@@ -36,13 +36,26 @@
 
       A quoi sert cet outil ?
 
-Cet outil permet de réaliser une régression linéaire sur vos données.
-1. Choisir le jeu de données à utiliser
-2. Choisir les variables (colonnes)
-    1. La variable à expliquer (Y)
-    2. La variable explicative (X)
+      Cet outil statistique permet de tester la relation entre deux colonnes quantitatives.
 
-Vous obtiendrez alors les sorties du modèle
+      .. class:: titre1-aide
+
+      Utiliser cet outil
+
+      .. class:: titre2-aide
+
+      1. Procédure
+
+      Prendre le jeu de données brutes (en général celui que l’on a utilisé pour faire les moyennes), puis choisir les variables à analyser :
+
+      La colonne ou les colonnes explicatives (X)
+      La colonne de la variable à expliquer (Y)
+
+      .. class:: titre2-aide
+
+      2. Résultat
+
+      Le résultat obtenu indique si la relation entre les variables est significative. Si une seule colonne a été sélectionnée en X, un graphique est généré.
 
     ]]></help>
 </tool>
