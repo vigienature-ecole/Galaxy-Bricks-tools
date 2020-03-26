@@ -97,4 +97,4 @@ plot_out <- plot_out +
                  strip.text.x = element_text(size = 14))
 
 
-suppressMessages(ggplot2::ggsave("output1.png", plot = plot_out, device = "png", width = 6, height = 4))
+suppressMessages(ggplot2::ggsave("output1.png", plot = plot_out, device = "png", width = 7, height = 5))
