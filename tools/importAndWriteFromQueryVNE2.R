@@ -39,9 +39,9 @@ getSQL <- function(filepath){
 drv <- dbDriver("PostgreSQL")
 # creates a connection to the postgres database
 # note that "con" will be used later in each connection to the database
-con <- dbConnect(drv, dbname = "VNE2",
-                 host = "harmonica.semi-k.net", port = 5432,
-                 user = "vne2_ls", password = "_v1g1eN4tuR3_")
+con <- dbConnect(drv, dbname = "VNE4",
+                 host = "vm-dev-php7-00.starcrags.com", port = 5432,
+                 user = "vne4-public", password = "vne4@passwd")
   on.exit(dbDisconnect(con))
 if (args[1] == "Vers_de_terre"){
   query <- getSQL(args[2])
@@ -59,8 +59,8 @@ if ("composition_zone" %in% colnames(df_VNE))
   df_VNE$composition_zone <- str_replace_all(df_VNE$composition_zone, ",", "-")
 
 # close the connection
-#dbDisconnect(con)
-#dbUnloadDriver(drv)
+dbDisconnect(con)
+dbUnloadDriver(drv)
 
 # write file
 write.csv(df_VNE, "output-importVNE.csv", row.names = FALSE)
