@@ -29,7 +29,7 @@ if (multiple) {
     " ~ " ,
     paste(colnames(input)[varExpl], collapse = ' + '))
   )
-
+  
 } else {
   formulaMod <- as.formula(paste(colnames(input)[as.numeric(args[2])]," ~ " , colnames(input)[as.numeric(args[3])]))
 }
@@ -40,6 +40,9 @@ res <- aov(formulaMod, data = input)
 
 # get output from linear model
 results <- summary(res)
+
+#postHocTuckey <- glht(res, linfct=mcp(trt="Tukey"))
+#summary(postHocTuckey)
 
 test <- function (x){
   effet = "false"
@@ -55,13 +58,14 @@ if (nrow(results[[1]]) > 1) {
   explanation <- c()
   for (i in 1:(nrow(results[[1]]) - 1))
     explanation <- c(explanation, paste0("La variable ", rownames(results[[1]])[i], test(results[[1]]$`Pr(>F)`[i]),
-                                         " sur la variable ", colnames(input)[as.numeric(args[2])],
-                                         ". La probabilité critique est égale à ", round(results[[1]]$`Pr(>F)`[i], 5),"."))
-  explanation <- c(explanation, "Attention, ce résultat doit être vérifié.",
-                   "Il peut, par exemple, être la conséquence d'un échantillon trop petit ou biaisé ou d'une confusion d'effet.")
-  fileConn<-file("mod-summary.txt")
-  writeLines(explanation, fileConn)
-  close(fileConn)
+                                         " sur la variable ", colnames(input)[as.numeric(args[2])]
+                                         #                                        , ". La probabilité critique est égale à ", round(results[[1]]$`Pr(>F)`[i], 5),"."
+    ))
+    explanation <- c(explanation, "Attention, ce résultat doit être vérifié.",
+                     "Il peut, par exemple, être la conséquence d'un échantillon trop petit ou biaisé ou d'une confusion d'effet.")
+    fileConn<-file("mod-summary.txt")
+    writeLines(explanation, fileConn)
+    close(fileConn)
 } else {
   # Output 1 and 2
   capture.output(results, file="mod-summary.txt")

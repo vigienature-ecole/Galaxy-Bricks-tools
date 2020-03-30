@@ -22,6 +22,11 @@ input = data.frame(fread(args[1]))
 
 type = args[4]
 
+# rotate label for factors
+optBarPlot = NULL
+if(is.factor(sapply(input[as.numeric(args[2])], class)) | is.character(sapply(input[as.numeric(args[2])], class))){
+  optBarPlot <- theme(axis.text.x=element_text(angle = 25))
+}
 
 
 if (args[8] != "None") colVar = names(input)[as.numeric(args[8])] else colVar = NULL
@@ -30,6 +35,8 @@ mappingCoord = ggplot2::aes_string(x = names(input)[as.numeric(args[2])],
                                    y = names(input)[as.numeric(args[3])])
 
 plot_out <- ggplot2::ggplot(input, mappingCoord)
+
+
 
 if (type == "NuageDePoints"){
   if (args[8] == "None"){
@@ -94,7 +101,8 @@ plot_out <- plot_out +
   ggplot2::theme_minimal() +
   ggplot2::theme(axis.text=element_text(size=12),
                  axis.title=element_text(size=16),
-                 strip.text.x = element_text(size = 14))
+                 strip.text.x = element_text(size = 14))+
+  optBarPlot
 
 
 suppressMessages(ggplot2::ggsave("output1.png", plot = plot_out, device = "png", width = 7, height = 5))
