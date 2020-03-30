@@ -30,5 +30,5 @@ left join dico_academies on dico_academies.academiepk = dico_structures.academie
 
 WHERE
 observations.protocolefk = 5
-and groupes.anneescol = '2019'
+--and groupes.anneescol = '2019'
 --AND dico_etablissements.zipcode LIKE '93%'

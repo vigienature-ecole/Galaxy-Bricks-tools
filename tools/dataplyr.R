@@ -42,22 +42,23 @@ Result <- list()
 
 # separate variables
 columnsGroup <- as.numeric(unlist(strsplit(args[2], ",")))
+if(columnsGroup == "None") stop("Il faut sélectionner une colonne de regroupement")
 
 for (i in 1:totalLoop){
   columnOperation <- as.numeric(unlist(strsplit(args[3 + (i-1) * 3], ",")))
   # separate functions
   functions <- unlist(strsplit(args[4 + (i-1) * 3], ","))
-  
-  if(columnOperation %in% columnsGroup) stop("Il est impossible de sélectionner une variable pour faire une opération si elle est déjà sélectionnée pour le regroupement")
-  
+
+  if(columnOperation %in% columnsGroup) stop("Il est impossible de sélectionner une colonne pour faire une opération si elle est déjà sélectionnée pour le regroupement")
+
   #gets names from arguments
   newNames <- args[5 + (i-1) * 3]
-  
+
   # Agregation function
   Result[[i]] <- input %>%
     group_by_at(colnames(input)[columnsGroup]) %>%
     summarise_at(.vars = colnames(input)[columnOperation], .funs = functions)
-  
+
   # change colnames to make them more comprehensible (operation_variable name)
     toRename <- colnames(Result[[i]]) %in% colnames(input)[columnOperation]
     colnames(Result[[i]])[toRename] <- newNames
