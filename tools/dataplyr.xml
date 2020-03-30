@@ -20,6 +20,7 @@
                 <option value="mediane">Médiane</option>
                 <option value="somme">Somme</option>
                 <option value="compte">Compte</option>
+                    <option value="compteSuperieurAZero">Compter les valeurs supérieures à zéro</option>
                 <option value="ecartType">Ecart-type</option>
                 <option value="minimum">Minimum</option>
                 <option value="maximum">Maximum</option>
@@ -57,10 +58,10 @@
                     <option value="mediane">Médiane</option>
                     <option value="somme">Somme</option>
                     <option value="compte">Compte</option>
+                    <option value="compteSuperieurAZero">Compter les valeurs supérieures à zéro</option>
                     <option value="ecartType">Ecart-type</option>
                     <option value="minimum">Minimum</option>
                     <option value="maximum">Maximum</option>
-                    <option value="compteSuperieurAZero">Compter les valeurs supérieures à zéro</option>
                 </param>
                 <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="false"/>
                 <param name="nameCol" label="et stocker l'information dans une nouvelle colonne nommée" type="text" >
