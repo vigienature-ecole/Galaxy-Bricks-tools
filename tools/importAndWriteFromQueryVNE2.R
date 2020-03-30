@@ -55,6 +55,7 @@ if (args[1] == "Vers_de_terre"){
 
 #get result from query
 df_VNE <- dbGetQuery(con, query)
+if (args[1] == "Operation_escargot") df_VNE <- na.omit(df_VNE)
 if ("composition_zone" %in% colnames(df_VNE))
   df_VNE$composition_zone <- str_replace_all(df_VNE$composition_zone, ",", "-")
 

@@ -29,6 +29,8 @@ minimum <- function (x) min(x, na.rm = TRUE)
 maximum <- function (x) max(x, na.rm = TRUE)
 compte <- function (x) length(x)
 compteSuperieurAZero <- function (x) length(x[x>0 & !is.na(x)])
+erreurStandard <- function (x) sd(x, na.rm = TRUE)/length(x[!is.na(x)])
+
 
 # import package
 library(data.table) # for data import

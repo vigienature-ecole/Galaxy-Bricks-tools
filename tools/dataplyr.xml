@@ -22,6 +22,7 @@
                 <option value="compte">Compte</option>
                     <option value="compteSuperieurAZero">Compter les valeurs supérieures à zéro</option>
                 <option value="ecartType">Ecart-type</option>
+                <option value="erreurStandard">Erreur standard</option>
                 <option value="minimum">Minimum</option>
                 <option value="maximum">Maximum</option>
             </param>
@@ -60,6 +61,7 @@
                     <option value="compte">Compte</option>
                     <option value="compteSuperieurAZero">Compter les valeurs supérieures à zéro</option>
                     <option value="ecartType">Ecart-type</option>
+                    <option value="erreurStandard">Erreur standard</option>
                     <option value="minimum">Minimum</option>
                     <option value="maximum">Maximum</option>
                 </param>
