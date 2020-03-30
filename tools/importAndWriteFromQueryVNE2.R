@@ -51,7 +51,6 @@ if (length(grep("_VNE2", args[1]))>0){
                    user = "vne4-public", password = "vne4@passwd")
 }
 
-  on.exit(dbDisconnect(con))
 if (args[1] == "Vers_de_terre"){
   query <- getSQL(args[2])
 } else if (args[1] == "Oiseaux_des_jardins"){
