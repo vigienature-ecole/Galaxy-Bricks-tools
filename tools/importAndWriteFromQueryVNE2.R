@@ -51,6 +51,14 @@ if (args[1] == "Vers_de_terre"){
   query <- getSQL(args[4])
 } else if(args[1] == "Sauvage_de_ma_rue"){
   query <- getSQL(args[5])
+} else if (args[1] == "Vers_de_terre_VNE2"){
+  query <- getSQL(args[6])
+} else if (args[1] == "Oiseaux_des_jardins_VNE2"){
+  query <- getSQL(args[7])
+} else if(args[1] == "Operation_escargot_VNE2"){
+  query <- getSQL(args[8])
+} else if(args[1] == "Sauvage_de_ma_rue_VNE2"){
+  query <- getSQL(args[9])
 }
 
 #get result from query

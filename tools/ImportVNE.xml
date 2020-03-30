@@ -7,7 +7,7 @@
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/importAndWriteFromQueryVNE2.R' '$observatoire' '$__tool_directory__/query/RequeteVdtVNE4.sql' '$__tool_directory__/query/RequeteOiseauxVNE4.sql' '$__tool_directory__/query/RequeteEscargotsVNE4.sql'
-        '$__tool_directory__/query/RequeteSauvagesVNE4.sql'
+        '$__tool_directory__/query/RequeteSauvagesVNE4.sql' '$__tool_directory__/query/RequeteVdt.sql' '$__tool_directory__/query/RequeteOiseaux.sql' '$__tool_directory__/query/RequeteEscargots.sql' '$__tool_directory__/query/RequeteSauvages.sql
         '$output'
         ]]>
     </command>
@@ -17,6 +17,10 @@
             <option value="Oiseaux_des_jardins">Oiseaux des jardins</option>
             <option value="Operation_escargot">Opération escargots</option>
             <option value="Sauvage_de_ma_rue">Sauvages de ma rue</option>
+            <option value="Vers_de_terre_VNE2">Placettes à vers de terre (VNE2)</option>
+            <option value="Oiseaux_des_jardins_VNE2">Oiseaux des jardins (VNE2)</option>
+            <option value="Operation_escargot_VNE2">Opération escargots (VNE2)</option>
+            <option value="Sauvage_de_ma_rue_VNE2">Sauvages de ma rue (VNE2)</option>
         </param>
     </inputs>
     <outputs>
