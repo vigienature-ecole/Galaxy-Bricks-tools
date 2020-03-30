@@ -25,7 +25,7 @@ type = args[4]
 # rotate label for factors
 optBarPlot = NULL
 if(is.factor(sapply(input[as.numeric(args[2])], class)) | is.character(sapply(input[as.numeric(args[2])], class))){
-  optBarPlot <- theme(axis.text.x=element_text(angle = 25))
+  optBarPlot <- theme(axis.text.x=element_text(angle = 35, hjust = 1))
 }
 
 
