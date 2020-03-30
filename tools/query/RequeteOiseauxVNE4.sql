@@ -4,7 +4,7 @@ SELECT
    dico_structures.zipcode AS Code_postal_etablissement,
    dico_structures.city AS Ville_etablissement,
    dico_academies.name as Academie,
-   zones.latitude AS Latitude, 
+   zones.latitude AS Latitude,
    zones.longitude AS Longitude,
    observations_abondances.nom_espece AS Espece,
    observations_abondances.abondance AS Nombre_individus,
@@ -22,17 +22,17 @@ SELECT
    AND champ='surface') AS Surface_zone,
    (SELECT label
    FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.distance_bois 
+   WHERE dico_labels.valeur=zones_description_oiseaux.distance_bois
    AND t='zones_description_escargots'
    AND champ='distance_bois') AS Distance_bois,
    (SELECT label
    FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.distance_prairie 
+   WHERE dico_labels.valeur=zones_description_oiseaux.distance_prairie
    AND t='zones_description_escargots'
    AND champ='distance_prairie') AS Distance_prairie,
    (SELECT label
    FROM dico_labels
-   WHERE dico_labels.valeur=zones_description_oiseaux.distance_champ_cultive 
+   WHERE dico_labels.valeur=zones_description_oiseaux.distance_champ_cultive
    AND t='zones_description_escargots'
    AND champ='distance_champ_cultive') AS Distance_champ
 
@@ -46,9 +46,9 @@ left join zones_changes on zones_changes.zonechangepk = observations.zonechangef
 left join zones on zones.zonepk = zones_changes.zonefk
 left join zones_description_oiseaux on zones_description_oiseaux.zonechangefk = zones_changes.zonechangepk
 left join dico_structures on dico_structures.structurepk = groupes.structurefk
-left join dico_academies on dico_academies.academiepk = dico_structures.academiefk 
+left join dico_academies on dico_academies.academiepk = dico_structures.academiefk
 
-WHERE 
+WHERE
 observations.protocolefk = 1
 --and groupes.anneescol = '2019'
 --AND dico_etablissements.zipcode LIKE '93%'
