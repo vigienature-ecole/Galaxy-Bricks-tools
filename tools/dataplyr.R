@@ -28,6 +28,7 @@ ecartType <- function (x) sd(x, na.rm = TRUE)
 minimum <- function (x) min(x, na.rm = TRUE)
 maximum <- function (x) max(x, na.rm = TRUE)
 compte <- function (x) length(x)
+compteSuperieurAZero <- function (x) length(x[x>0])
 
 
 # import package
