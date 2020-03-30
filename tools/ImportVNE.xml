@@ -7,7 +7,7 @@
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/importAndWriteFromQueryVNE2.R' '$observatoire' '$__tool_directory__/query/RequeteVdtVNE4.sql' '$__tool_directory__/query/RequeteOiseauxVNE4.sql' '$__tool_directory__/query/RequeteEscargotsVNE4.sql'
-        '$__tool_directory__/query/RequeteSauvagesVNE4.sql' '$__tool_directory__/query/RequeteVdt.sql' '$__tool_directory__/query/RequeteOiseaux.sql' '$__tool_directory__/query/RequeteEscargots.sql' '$__tool_directory__/query/RequeteSauvages.sql
+        '$__tool_directory__/query/RequeteSauvagesVNE4.sql' '$__tool_directory__/query/RequeteVdt.sql' '$__tool_directory__/query/RequeteOiseaux.sql' '$__tool_directory__/query/RequeteEscargots.sql' '$__tool_directory__/query/RequeteSauvages.sql'
         '$output'
         ]]>
     </command>

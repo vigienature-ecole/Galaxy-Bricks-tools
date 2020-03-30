@@ -2,6 +2,8 @@
 
 args = commandArgs(trailingOnly=TRUE)
 
+#args <- c("Vers_de_terre", "tools/query/RequeteVDT.sql")
+
 # import package
 require(RPostgreSQL, quietly = TRUE)
 library(stringr, quietly = TRUE)
@@ -39,9 +41,16 @@ getSQL <- function(filepath){
 drv <- dbDriver("PostgreSQL")
 # creates a connection to the postgres database
 # note that "con" will be used later in each connection to the database
-con <- dbConnect(drv, dbname = "VNE4",
-                 host = "vm-dev-php7-00.starcrags.com", port = 5432,
-                 user = "vne4-public", password = "vne4@passwd")
+if (length(grep("_VNE2", args[1]))>0){
+  con <- dbConnect(drv, dbname = "VNE2",
+                   host = "harmonica.semi-k.net", port = 5432,
+                   user = "vne2_ls", password = "_v1g1eN4tuR3_")
+} else {
+  con <- dbConnect(drv, dbname = "VNE4",
+                   host = "vm-dev-php7-00.starcrags.com", port = 5432,
+                   user = "vne4-public", password = "vne4@passwd")
+}
+
   on.exit(dbDisconnect(con))
 if (args[1] == "Vers_de_terre"){
   query <- getSQL(args[2])
