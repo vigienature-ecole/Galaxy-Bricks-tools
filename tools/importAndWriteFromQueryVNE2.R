@@ -2,7 +2,7 @@
 
 args = commandArgs(trailingOnly=TRUE)
 
-#args <- c("Vers_de_terre", "tools/query/RequeteVDT.sql")
+#args <- c("Vers_de_terre", "tools/query/RequeteVdtVNE4.sql")
 
 # import package
 require(RPostgreSQL, quietly = TRUE)
@@ -74,6 +74,12 @@ df_VNE <- dbGetQuery(con, query)
 if (args[1] == "Operation_escargot") df_VNE <- na.omit(df_VNE)
 if ("composition_zone" %in% colnames(df_VNE))
   df_VNE$composition_zone <- str_replace_all(df_VNE$composition_zone, ",", "-")
+if ("difficulte_enfoncer_crayon" %in% colnames(df_VNE))
+  df_VNE <- mutate(df_VNE, difficulte_enfoncer_crayon = recode(difficulte_enfoncer_crayon,
+                        tres_facile = "01_tres_facile",
+                        facile = "02_facile",
+                        peu_difficile = "03_peu_difficile",
+                        difficile = "04_difficile"))
 
 # close the connection
 dbDisconnect(con)
