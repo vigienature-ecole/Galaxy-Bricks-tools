@@ -52,7 +52,8 @@ if (!Error == "None"){
   input[, "ErreurPlus304094093403940392030231312"] <- input[ , ColY] + input[ , as.numeric(Error)]
   input[, "ErreurMoins304094093403940392030231312"] <- input[ , ColY] - input[ , as.numeric(Error)]
   errorPlot = geom_errorbar(data = input, aes(ymin = ErreurMoins304094093403940392030231312, ymax = ErreurPlus304094093403940392030231312), width = .3)
-  
+} else {
+  errorPlot = NULL
 }
 
 plot_out <- ggplot2::ggplot(input, mappingCoord)
