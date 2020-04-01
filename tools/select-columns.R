@@ -4,6 +4,7 @@
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
+#args = c("tools/test-data/irisPlus.tabular", "1", "garder")
 
 # import package
 library(data.table, quietly = TRUE) # for data import
@@ -20,7 +21,12 @@ negate = args[3]
 if (negate == "supprimer") columns <- (1:ncol(input))[!1:ncol(input) %in% columns]
 
 # select columns
-result <- input[ ,columns]
+if (length(columns) == 1){
+  result <- data.frame(input[ ,columns])
+  colnames(result) <- colnames(input)[columns]
+} else {
+  result <- input[ ,columns]
+}
 
 #write file
 fwrite(result, "output-select.csv", sep =",")
