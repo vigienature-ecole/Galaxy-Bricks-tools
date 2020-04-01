@@ -11,7 +11,7 @@ library(data.table)
 args = commandArgs(trailingOnly=TRUE)
 #args <- c("tools/test-data/irisPlus.tabular", "1,2,3,4", "5,6", "moyenne", "test", "output")
 #args <- c("tools/test-data/irisPlus.tabular", "1,2,3,4", "5,6", "somme", "test", "valeurs-superieures-a-zero", "test2", "output")
-args <- c("../../Downloads/Données_VNE_Operation_escargot.csv.csv", paste(58:88, collapse = ","), "None", "valeurs-superieures-a-zero", "test", "output")
+#args <- c("../../Downloads/Données_VNE_Operation_escargot.csv.csv", paste(58:88, collapse = ","), "None", "valeurs-superieures-a-zero", "test", "output")
 
 #determine the number of loop count
 totalLoop = (length(args) - 4) / 2
@@ -35,7 +35,7 @@ for (i in 1:totalLoop){
   # parameters
   operation = args[4 + (i-1) * 2]
   outputName = args[5 + (i-1) * 2]
-  
+
   if (operation == "moyenne") {
     result <- rowMeans(columnOperation, na.rm = TRUE)
   } else if (operation == "somme"){
@@ -47,10 +47,10 @@ for (i in 1:totalLoop){
     columnOperationZero[columnOperationZero > 0] <- 1
     result <- rowSums(columnOperationZero, na.rm = TRUE)
   }
-  
+
   finalDataset <- data.frame(finalDataset, result)
   colnames(finalDataset)[ncol(finalDataset)] <- outputName
-  
+
 }
 
 
