@@ -86,7 +86,7 @@
 
         1. Données d'entrée :
 
-        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/filter-in.jpg
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/filter-in.jpg
 
         .. class:: titre2-aide
 
@@ -120,7 +120,7 @@
 
         3. Résultat :
 
-        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/lubridate_convert-out.jpg
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/lubridate_convert-out.jpg
 
     ]]></help>
 </tool>
