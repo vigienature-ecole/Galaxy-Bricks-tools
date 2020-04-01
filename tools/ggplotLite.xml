@@ -5,7 +5,7 @@
         <requirement type="package" version="1.27.2">r-hexbin</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/ggplotLite.R' '$input' '$xcol' '$ycol' '$graphType' '$titre' '$xlab' '$ylab' '$colGroup' '$facetGroup' '$error'
+        Rscript '$__tool_directory__/ggplotLite.R' '$input' '$xcol' '$ycol' '$graphType' '$titre' '$xlab' '$ylab' '$colGroup' '$facetGroup' '$error' '$viewNC'
         '$output1' ]]>
     </command>
     <inputs>
@@ -85,6 +85,10 @@
                     <add value="€" />
                 </valid>
             </sanitizer>
+        </param>
+        <param name="viewNC" type="select" label="Afficher les valeurs Non communiquées" multiple="False">
+            <option value="FALSE">Non</option>
+            <option value="TRUE">Oui</option>
         </param>
     </inputs>
     <outputs>

@@ -12,9 +12,8 @@
 args = commandArgs(trailingOnly=TRUE)
 #args <- c("tools/test-data/irisPlus.tabular", "5", "1", "NuageDePoints", "pchou", "", "tesd", "6", "5")
 #args <- c("tools/test-data/irisPlus.tabular",'1', '2', 'LigneEtPoints', 'DiversitX en fonction de l__sq__environnement', 'Environnement', 'DiversitX moyenne', 'None', 'None')
-#args <- c("tools/test-data/irisPlus.tabular",'5', '2', 'DiagrammeEnBarre', 'petitTest', 'espece', 'sepal', 'None', 'None','4')
+#args <- c("tools/test-data/irisPlus.tabular",'5', '2', 'DiagrammeEnBarre', 'petitTest', 'espece', 'sepal', 'None', 'None','4', 'FALSE')
 
-length(args)
 inputFile  = args[1]
 ColX       = as.numeric(args[2])
 ColY       = as.numeric(args[3])
@@ -25,6 +24,7 @@ ylab       = args[7]
 colorGroup = args[8]
 facetGroup = args[9]
 Error      = args[10]
+viewNC     = args[11]
 
 
 # import package
@@ -34,7 +34,9 @@ library(ggplot2)
 # import input file (tabular or csv)
 input = data.frame(fread(inputFile))
 
-
+if (viewNC == "FALSE"){
+  input <- input[!grepl("Non renseign", input[ , ColX]) & !grepl("Non renseign", input[ , ColY]), ]
+}
 
 # rotate label for factors
 optBarPlot = NULL
