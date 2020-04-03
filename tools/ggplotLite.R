@@ -12,7 +12,7 @@
 args = commandArgs(trailingOnly=TRUE)
 #args <- c("tools/test-data/irisPlus.tabular", "5", "1", "NuageDePoints", "pchou", "", "tesd", "6", "5")
 #args <- c("tools/test-data/irisPlus.tabular",'1', '2', 'LigneEtPoints', 'DiversitX en fonction de l__sq__environnement', 'Environnement', 'DiversitX moyenne', 'None', 'None')
-#args <- c("../../Downloads/Résumer des données on data 4.csv",'2', '3', 'DiagrammeEnBarre', 'petitTest', 'Espèces', 'Abondance Moyenne', '1', '2','4', 'FALSE')
+#args <- c("../../Downloads/Résumer des données on data 4.csv",'2', '3', 'DiagrammeEnBarre', 'petitTest', 'Espèces', 'Abondance Moyenne', '2', '1','4', 'FALSE')
 
 # get parameters
 inputFile  = args[1]
@@ -60,6 +60,7 @@ input <- removeBeginingCategories(input, facetGroup)
 # Remove data "non renseignée"
 if (viewNC == "FALSE"){
   input <- input[!grepl("Non renseign", input[ , ColX]) & !grepl("Non renseign", input[ , ColY]), ]
+  input <- input[!("" == input[ , ColX]) & !("" == input[ , ColY]), ]
 }
 
 # rotate label for factors for better visualisation
@@ -143,7 +144,9 @@ if (ylab != ""){
 # add facetting
 if (facetGroup != "None") {
   facetVar = names(input)[as.numeric(facetGroup)]
-  plot_out <- plot_out + facet_wrap(facetVar)
+  plot_out <- plot_out + facet_wrap(facetVar
+#                                    , labeller = labeller(facetVar = label_wrap_gen(10))
+  )
 }
 
 plot_out <- plot_out +
