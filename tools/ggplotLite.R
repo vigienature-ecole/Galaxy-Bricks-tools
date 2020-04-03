@@ -35,11 +35,20 @@ library(ggplot2)
 # import input file (tabular or csv)
 input = data.frame(fread(inputFile))
 
-#remove numbers from factors for interest columns
+# Remove data "non renseignée"
+if (viewNC == "FALSE"){
+  input <- input[!grepl("Non renseign", input[ , ColX]) & !grepl("Non renseign", input[ , ColY]), ]
+  input <- input[!("" == input[ , ColX]) & !("" == input[ , ColY]), ]
+}
+
+#remove numbers from factors for interest columns and keeps order
 removeBeginingCategories <- function (input, Column){
   if (Column != "None"){
     Column <- as.numeric(Column)
-    if(is.factor(sapply(input[Column], class)) | is.character(sapply(input[Column], class))){
+    if(sapply(input[Column], class) == "factor" | sapply(input[Column], class) == "character"){
+      if(is.character(sapply(input[Column], class))){
+        input[ , Column] <- as.factor(input[ , Column])
+      }
       levelsColumn <- levels(input[ , Column])
       if(any(grepl(pattern = "^[0-9][0-9]_", levelsColumn))){
         # lock order
@@ -56,12 +65,6 @@ input <- removeBeginingCategories(input, ColX)
 input <- removeBeginingCategories(input, ColY)
 input <- removeBeginingCategories(input, colorGroup)
 input <- removeBeginingCategories(input, facetGroup)
-
-# Remove data "non renseignée"
-if (viewNC == "FALSE"){
-  input <- input[!grepl("Non renseign", input[ , ColX]) & !grepl("Non renseign", input[ , ColY]), ]
-  input <- input[!("" == input[ , ColX]) & !("" == input[ , ColY]), ]
-}
 
 # rotate label for factors for better visualisation
 optBarPlot = NULL
@@ -145,7 +148,7 @@ if (ylab != ""){
 if (facetGroup != "None") {
   facetVar = names(input)[as.numeric(facetGroup)]
   plot_out <- plot_out + facet_wrap(facetVar
-#                                    , labeller = labeller(facetVar = label_wrap_gen(10))
+                                    #                                    , labeller = labeller(facetVar = label_wrap_gen(10))
   )
 }
 
