@@ -8,7 +8,7 @@ SELECT DISTINCT
    zones.longitude AS Longitude_debut,
    zones_description_sauvages.latitude_fin as Latitude_fin,
    zones_description_sauvages.longitude_fin as Longitude_fin,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_sauvages.cote_rue
    AND t='zones_description_fleurs'

@@ -22,35 +22,35 @@ SELECT DISTINCT
 
 
    /* Conditions d'observations */
-   (SELECT label
+   (SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=observations_specifiques_vdt.pluie
     AND t='observations_specifiques_vdt'
     AND champ='pluie') AS Pluie_durant_obs,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=observations_specifiques_vdt.vent
     AND t='observations_specifiques_vdt'
     AND champ='vent') AS Vent_durant_obs,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=observations_specifiques_vdt.ensoleillement
     AND t='observations_specifiques_vdt'
     AND champ='ensoleillement') AS Ensoleillement_durant_obs,
 observations_specifiques_vdt.temperature AS Temperature_durant_obs,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=observations_specifiques_vdt.humidite_sol
     AND t='observations_specifiques_vdt'
     AND champ='humidite_sol') AS Humidite_sol,
 observations_specifiques_vdt.date_pluie AS Date_derniere_pluie,
 observations_specifiques_vdt.date_gelee AS Date_derniere_gelee,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=observations_specifiques_vdt.taupinieres
     AND t='observations_specifiques_vdt'
     AND champ='taupinieres') AS Presence_taupiniere,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=observations_specifiques_vdt.durete_sol
     AND t='observations_specifiques_vdt'
@@ -59,12 +59,12 @@ observations_specifiques_vdt.distance_changement_parcelle AS Distance_limite_par
 observations_specifiques_vdt.ph_sol AS pH_sol,
 
    /* Description de l'environnement */
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones.environnement
    AND t='zones'
    AND champ='environnement') AS Environnement,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones.type
    AND t='zones'
@@ -72,18 +72,18 @@ observations_specifiques_vdt.ph_sol AS pH_sol,
    CASE WHEN zones_description_vdt.proximite_dechets_organiques= TRUE THEN 'Oui'
         WHEN zones_description_vdt.proximite_dechets_organiques= FALSE THEN 'Non'
         ELSE '' END AS Proximite_dechets_organiques,
-   (SELECT label
+   (SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.type_dechets
     AND t='zones_description_vdt'
     AND champ='type_dechets') AS Types_dechets,
  zones_description_vdt.distance_zone_echantillonage AS Distance_compost,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones.surface
    AND t='zones'
    AND champ='surface') AS Surface,
-   (SELECT label
+   (SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.usage_zone
     AND t='zones_description_vdt'
@@ -92,12 +92,12 @@ observations_specifiques_vdt.ph_sol AS pH_sol,
         WHEN zones_description_vdt.fauche_tonte= FALSE THEN 'Non'
         ELSE '' END AS Tonte,
     zones_description_vdt.frequence_fauche AS Frequence_tonte,
-    (SELECT label
+    (SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.date_derniere_fauche
     AND t='zones_description_vdt'
     AND champ='date_derniere_fauche') AS Date_derniere_tonte,
-    (SELECT label
+    (SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.residus
     AND t='zones_description_vdt'
@@ -106,36 +106,36 @@ observations_specifiques_vdt.ph_sol AS pH_sol,
         WHEN zones_description_vdt.paturage= FALSE THEN 'Non'
         ELSE '' END AS Paturage,
     zones_description_vdt.type_animaux AS Type_animaux,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.travail_sol_avant
     AND t='zones_description_vdt'
     AND champ='travail_sol_avant') AS Travail_sol_avant_usage_actuel,
 zones_description_vdt.frequence_interventions AS Frequence_intervention,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.date_derniere_intervention
     AND t='zones_description_vdt'
     AND champ='date_derniere_intervention') AS Date_derniere_intervention,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.utilisation_engrais
     AND t='zones_description_vdt'
     AND champ='utilisation_engrais') AS Utilisation_engrais,
 zones_description_vdt.frequence_engrais AS Frequence_utilisation_engrais,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.mode_production
     AND t='zones_description_vdt'
     AND champ='mode_production') AS Mode_production,
 zones_description_vdt.mode_production_autre AS Mode_production_autre,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.type_culture
     AND t='zones_description_vdt'
     AND champ='type_culture') AS Type_culture,
 zones_description_vdt.date_mep_prairie AS Date_mise_prairie,
-(SELECT label
+(SELECT label_order
     FROM dico_labels
     WHERE dico_labels.valeur=zones_description_vdt.prelevement_rang
     AND t='zones_description_vdt'

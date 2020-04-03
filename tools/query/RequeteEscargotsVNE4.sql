@@ -8,57 +8,57 @@ SELECT
    zones.longitude AS Longitude,
    observations_abondances.nom_espece AS Espece,
    observations_abondances.abondance AS Nombre_individus,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones.environnement
    AND t='zones'
    AND champ='environnement') AS Environnement,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones.surface
    AND t='zones'
    AND champ='surface') AS Surface_zone,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_escargots.distance_bois
    AND t='zones_description_escargots'
    AND champ='distance_bois') AS Distance_bois,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_escargots.distance_prairie
    AND t='zones_description_escargots'
    AND champ='distance_prairie') AS Distance_prairie,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_escargots.distance_champ_cultive
    AND t='zones_description_escargots'
    AND champ='distance_champ_cultive') AS Distance_champ,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_escargots.engrais
    AND t='zones_description_escargots'
    AND champ='engrais') AS Utilisation_engrais,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_escargots.insecticides
    AND t='zones_description_escargots'
    AND champ='insecticides') AS Utilisation_insecticides,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_escargots.herbicides
    AND t='zones_description_escargots'
    AND champ='herbicides') AS Utilisation_herbicides,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_escargots.fongicides
    AND t='zones_description_escargots'
    AND champ='fongicides') AS Utilisation_fongicides,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_escargots.antilimaces
    AND t='zones_description_escargots'
    AND champ='antilimaces') AS Utilisation_antilimaces,
-  (SELECT label
+  (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_escargots.bouilliebordelaise
    AND t='zones_description_escargots'

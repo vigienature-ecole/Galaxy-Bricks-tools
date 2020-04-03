@@ -10,27 +10,27 @@ SELECT
    observations_abondances.abondance AS Nombre_individus,
    observations_details_oiseaux.heure_debut AS Heure_debut,
    observations_details_oiseaux.heure_fin AS Heure_fin,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones.environnement
    AND t='zones'
    AND champ='environnement') AS Environnement,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones.surface
    AND t='zones'
    AND champ='surface') AS Surface_zone,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_oiseaux.distance_bois
    AND t='zones_description_escargots'
    AND champ='distance_bois') AS Distance_bois,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_oiseaux.distance_prairie
    AND t='zones_description_escargots'
    AND champ='distance_prairie') AS Distance_prairie,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_oiseaux.distance_champ_cultive
    AND t='zones_description_escargots'
