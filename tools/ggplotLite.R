@@ -12,7 +12,7 @@
 args = commandArgs(trailingOnly=TRUE)
 #args <- c("tools/test-data/irisPlus.tabular", "5", "1", "NuageDePoints", "pchou", "", "tesd", "6", "5")
 #args <- c("tools/test-data/irisPlus.tabular",'1', '2', 'LigneEtPoints', 'DiversitX en fonction de l__sq__environnement', 'Environnement', 'DiversitX moyenne', 'None', 'None')
-#args <- c("tools/test-data/irisPlus.tabular",'5', '2', 'DiagrammeEnBarre', 'petitTest', 'espece', 'sepal', '6', 'None','4', 'FALSE')
+#args <- c("../../Downloads/Résumer des données on data 4.csv",'2', '3', 'DiagrammeEnBarre', 'petitTest', 'Espèces', 'Abondance Moyenne', '1', '2','4', 'FALSE')
 
 # get parameters
 inputFile  = args[1]
@@ -35,17 +35,16 @@ library(ggplot2)
 # import input file (tabular or csv)
 input = data.frame(fread(inputFile))
 
-
 #remove numbers from factors for interest columns
-
 removeBegining <- function (input, Column){
   if (Column != "None"){
     Column <- as.numeric(Column)
     if(is.factor(sapply(input[Column], class)) | is.character(sapply(input[Column], class))){
-      # lock order
-      input[ , Column] <- factor(input[ , Column], levels = input[ , Column])
-      if(any(grepl(pattern = "^[0-9][0-9]_", input[1:100, Column])))
+      if(any(grepl(pattern = "^[0-9][0-9]_", input[1:100, Column]))){
+        # lock order
+        input[ , Column] <- factor(input[ , Column], levels = sort(unique(input[ , Column])))
         input[ , Column] <- substr(input[ , Column], 4, nchar(as.character(input[ , Column])))
+      }
     }
   }
   input
