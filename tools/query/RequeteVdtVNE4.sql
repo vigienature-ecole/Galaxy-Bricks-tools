@@ -9,12 +9,12 @@ SELECT DISTINCT
    CONCAT (LEFT (zones_placettes.name, 10), RIGHT (zones_placettes.name, 7)) AS Num_quadrat,
    observations_abondances.nom_espece AS Espece,
    CASE  WHEN observations_abondances.abondance>0 THEN observations_abondances.abondance else 0 end as Nombre_individus,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones.environnement
    AND t='zones'
    AND champ='environnement') AS Environnement,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones.surface
    AND t='zones'
@@ -23,7 +23,7 @@ SELECT DISTINCT
    CASE WHEN zones_description_vdt.proximite_dechets_organiques = FALSE THEN 'Non'
     	WHEN zones_description_vdt.proximite_dechets_organiques = true THEN 'Oui'
        	ELSE NULL END AS Proximite_dechets_organiques,
-  (SELECT label
+  (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_vdt.usage_zone
    AND t='zones_description_vdt'
@@ -34,28 +34,28 @@ SELECT DISTINCT
    CASE WHEN zones_description_vdt.paturage = false THEN 'Non'
     	WHEN zones_description_vdt.paturage = true THEN 'Oui'
        	ELSE NULL END AS Presence_paturage,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=zones_description_vdt.utilisation_engrais
    AND t='zones_description_vdt'
    AND champ='utilisation_engrais') AS Utilisation_engrais,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=observations_details_vdt.pluie
    AND t='observations_details_vdt'
    AND champ='pluie') AS Pluie_lors_observation,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=observations_details_vdt.vent
    AND t='observations_details_vdt'
    AND champ='vent') AS Vent_lors_observation,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=observations_details_vdt.ensoleillement
    AND t='observations_details_vdt'
    AND champ='ensoleillement') AS Ensoleillement_lors_observation,
    observations_details_vdt.temperature as Temperature_lors_observation,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=observations_details_vdt.humidite_sol
    AND t='observations_details_vdt'
@@ -63,12 +63,12 @@ SELECT DISTINCT
    observations_details_vdt.date_gelee as Date_derniere_gelee,
    observations_details_vdt.date_pluie as Date_derniere_pluie,
 
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=observations_details_vdt.durete_sol
    AND t='observations_details_vdt'
    AND champ='durete_sol') AS Difficulte_enfoncer_crayon,
-   (SELECT label
+   (SELECT label_order
    FROM dico_labels
    WHERE dico_labels.valeur=observations_details_vdt.taupinieres
    AND t='observations_details_vdt'
