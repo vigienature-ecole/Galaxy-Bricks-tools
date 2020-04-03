@@ -41,9 +41,9 @@ removeBegining <- function (input, Column){
     Column <- as.numeric(Column)
     if(is.factor(sapply(input[Column], class)) | is.character(sapply(input[Column], class))){
       if(any(grepl(pattern = "^[0-9][0-9]_", input[1:100, Column]))){
-        # lock order
-        input[ , Column] <- factor(input[ , Column], levels = sort(unique(input[ , Column])))
         input[ , Column] <- substr(input[ , Column], 4, nchar(as.character(input[ , Column])))
+        # lock order
+        input[ , Column] <- factor(input[ , Column], levels = unique(input[ , Column]))
       }
     }
   }
