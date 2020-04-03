@@ -52,10 +52,10 @@ removeBeginingCategories <- function (input, Column){
   input
 }
 
-input <- removeBegining(input, ColX)
-input <- removeBegining(input, ColY)
-input <- removeBegining(input, colorGroup)
-input <- removeBegining(input, facetGroup)
+input <- removeBeginingCategories(input, ColX)
+input <- removeBeginingCategories(input, ColY)
+input <- removeBeginingCategories(input, colorGroup)
+input <- removeBeginingCategories(input, facetGroup)
 
 # Remove data "non renseignée"
 if (viewNC == "FALSE"){
