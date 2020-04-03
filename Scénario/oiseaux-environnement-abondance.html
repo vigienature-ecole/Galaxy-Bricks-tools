@@ -1,0 +1,166 @@
+<table border="0" cellpadding="10" cellspacing="1">
+	<tbody>
+		<tr>
+			<td><img alt="" src="/media/edito/2020/03/30/picto-oiseaux.png" style="height:2.5rem" /></td>
+			<td><h2>Quel est l'effet du type d'environnement sur l'abondance des oiseaux ?</h2></td>
+		</tr>
+	</tbody>
+</table>
+
+<h5 style="color:#049a8f; font-weight:bold;  margin-top:40px;">Objectif du sc&eacute;nario</h5>
+<p>R&eacute;pondre &agrave; la question : Le type d&#39;environnement a-t-il un effet sur l&#39;abondance des oiseaux ?</p>
+
+<h5 style="color:#049a8f; font-weight:bold; margin-top:40px;">Comp&eacute;tence d&eacute;velopp&eacute;es :</h5>
+
+<ul>
+	<li>Calcul d&#39;abondance</li>
+	<li>Repr&eacute;sentation graphique</li>
+	<li>Test statistiques</li>
+</ul>
+
+<h5 style="color:#049a8f; font-weight:bold; margin-top:40px;">Déroulement de l'analye étape par étape<h5>
+
+<h6 style="margin-left:40px; margin-top:20px;"><font style="color:#049a8f; font-weight:bold;">1.</font> Poser la question de recherche</h6>
+
+<p style="margin-left:40px;">Ici nous vous donnons d&eacute;j&agrave; la question de recherche. Vous pouvez noter : <em>&quot;Abondance et environnement&quot; </em>comme nom d&#39;analyse par exemple et <em>&quot;Quel est l&#39;effet de l&#39;environnement sur l&#39;abondance des oiseaux ?&quot;</em> dans la partie question de recherche.</p>
+
+<h6 style="margin-left:40px; margin-top:40px;"><font style="color:#049a8f; font-weight:bold;">2.</font> Importer les donn&eacute;es</h6>
+
+<p style="margin-left:40px;">Afin de r&eacute;pondre &agrave; cette question, nous allons avoir besoin des donn&eacute;es de Vigie-Nature Ecole afin d&#39;avoir des observations dans plusieurs types d&#39;environnements. De plus, comme notre question porte sur les oiseaux nous allons choisir l&#39;observatoire Oiseaux des jardins.</p>
+
+<p style="margin-left:40px; font-weight: bolder;"><a aria-controls="collapsescenario1help1" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help1" role="button">&darr; Comment faire concr&egrave;tement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help1">
+<div class="card card-body">
+<p>Choisir l&#39;outil : Importer des donn&eacute;es issues de Vigie-Nature École</p>
+
+<p style="color:#ffc643; font-weight: bold;">Param&egrave;tres &agrave; utiliser :</p>
+
+<p>Choissez l'observatoire <strong>Oiseaux des jardins</strong></p>
+</div>
+</div>
+
+<h6 style="margin-left:40px; margin-top:40px;"><font style="color:#049a8f; font-weight:bold;">3.</font> Manipuler les donn&eacute;es</h6>
+
+<p style="margin-left:40px;">Maintenant que vous avez toutes les donn&eacute;es, il va falloir les r&eacute;sumer car il y a plus de 10 000 lignes. Nous allons commencer par calculer l&#39;abondance totale des oiseaux vus lors de chaque observation. Pour cela, nous allons faire la somme des individus observ&eacute;s en regroupant les donn&eacute;es par num&eacute;ro d&#39;observation (pour ne pas additionner toutes les observations entre elles) et l&#39;environnement (pour garder cette colonne associ&eacute;e avec nos valeurs et pouvoir r&eacute;pondre &agrave; notre question).</p>
+
+<p style="margin-left:40px; font-weight: bolder;"><a aria-controls="collapsescenario1help2" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help2" role="button">&darr; Comment faire concr&egrave;tement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help2">
+<div class="card card-body">
+<p>Dans la cat&eacute;gorie <strong>Regrouper des lignes</strong> choisir l&#39;outil : <strong>R&eacute;sumer des donn&eacute;es</strong></p>
+
+<p style="color:#ffc643; font-weight: bold;">Param&egrave;tres &agrave; utiliser :</p>
+
+<p>Donn&eacute;es d&#39;entr&eacute;e* : <strong>Donn&eacute;es_VNE_Oiseaux_des_jardins.csv</strong><br />
+Regrouper toutes les lignes selon des cat&eacute;gories contenues dans les colonnes suivantes : <strong>numero_observation | environnement</strong><br />
+en faisant l&#39;op&eacute;ration suivante :<strong> Somme</strong><br />
+sur la colonne <strong>nombre_individus</strong><br />
+et stocker l&#39;information dans une nouvelle colonne nomm&eacute;e : <strong>Abondance</strong><br />
+Voulez-vous faire une autre op&eacute;ration ? <strong>non</strong></p>
+
+<p>Enregistrez vos commentaires si vous en avez puis continuez &agrave; manipuler les donn&eacute;es.</p>
+</div>
+</div>
+
+<p style="margin-left:40px;">Nous allons maintenant regrouper les donn&eacute;es par environnement. Cette fois nous allons faire une moyenne pour avoir une valeur qui repr&eacute;sente le nombre d&#39;oiseaux moyen par type d&#39;environnement. Il n&#39;est pas possible d&#39;utiliser une somme car il n&#39;y a pas le m&ecirc;me nombre d&#39;observations dans les diff&eacute;rents environnements.</p>
+
+<p style="margin-left:40px; font-weight: bolder;"><a aria-controls="collapsescenario1help3" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help3" role="button">&darr; Comment faire concr&egrave;tement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help3">
+<div class="card card-body">
+<p>Dans la cat&eacute;gorie <strong>Regrouper des lignes</strong> choisir &agrave; nouveau l&#39;outil : <strong>R&eacute;sumer des donn&eacute;es</strong></p>
+
+<p style="color:#ffc643; font-weight: bold;">Param&egrave;tres &agrave; utiliser :</p>
+
+<p>Donn&eacute;es d&#39;entr&eacute;e : <strong>R&eacute;sumer des donn&eacute;es on data 1</strong><br />
+Regrouper toutes les lignes selon des cat&eacute;gories contenues dans les colonnes suivantes :
+<strong>Environnement</strong><br />
+en faisant l&#39;op&eacute;ration suivante : <strong>Moyenne</strong><br />
+sur la colonne : <strong>Abondance</strong><br />
+et stocker l&#39;information dans une nouvelle colonne nomm&eacute;e : <strong>Abondance Moyenne</strong><br />
+Voulez-vous faire une autre op&eacute;ration ? <strong>Non</strong></p>
+
+<p>Enregistrez vos commentaires si vous en avez puis s&eacute;lectionnez <strong>visualiser les donn&eacute;es</strong>.</p>
+</div>
+</div>
+
+<h6 style="margin-left:40px; margin-top:20px;"><font style="color:#049a8f; font-weight:bold;">4.</font> Visualiser les donn&eacute;es</h6>
+
+<p style="margin-left:40px;">Normalement, en regardant votre tableau, vous pouvez d&eacute;j&agrave; voir qu&#39;il existe des diff&eacute;rences entre le milieu urbain et les autres types de milieux. Toutefois, afin de mieux voir les diff&eacute;rences, on peut r&eacute;aliser un graphique. Ici, la colonne environnement est qualitative (on ne peut pas faire d&#39;op&eacute;ration avec ces valeurs) et la colonne Abondance est quantitative (on peut faire des op&eacute;rations avec ses valeurs). Une repr&eacute;sentation adapt&eacute;e est donc le diagramme en barre avec l&#39;environnement sur l&#39;axe des X et l&#39;Abondance moyenne sur l&#39;axe des Y.</p>
+
+<p style="margin-left:40px; font-weight: bolder;"><a aria-controls="collapsescenario1help4" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help4" role="button">&darr; Comment faire concr&egrave;tement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help4">
+<div class="card card-body">
+<p>Choisir l&#39;outil : <strong>Repr&eacute;senter les donn&eacute;es</strong></p>
+
+<p>Fichier d&#39;entr&eacute;e : <strong>R&eacute;sumer des donn&eacute;es on data 2</strong><br />
+Axe horizontal (X) : <strong>Environnement</strong><br />
+Axe vertical (Y) : <strong>Abondance moyenne</strong><br />
+Type de repr&eacute;sentation graphique : <strong>Diagramme en barre</strong><br />
+Cr&eacute;er des graphiques diff&eacute;rents selon les cat&eacute;gories de la variable : <strong>Laisser vide</strong><br />
+Changer les couleurs du graphique selon les cat&eacute;gories de la variable : <strong>Environnement</strong><br />
+Titre du graphique : <strong>Effet de l&#39;environnement sur l&#39;abondance moyenne des oiseaux</strong><br />
+Titre de l&#39;axe des X : <strong>Laisser vide</strong><br />
+Titre de l&#39;axe des Y : <strong>Laisser vide</strong></p>
+
+<p>Enregistrez vos commentaires si vous en avez puis s&eacute;lectionnez faire une analyse statistique.</p>
+</div>
+</div>
+
+<p style="margin-left:40px; margin-top:20px; font-weight: bolder;"><a aria-controls="collapsescenario1res2" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1res2" role="button">&darr; Voir le r&eacute;sultat &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1res2">
+<div class="card card-body">
+<p style="text-align:center;"><img alt="" src="/media/edito/2020/03/26/representer-les-donnees-on-data-3.png" style="height:429px; width:600px" /></p>
+</div>
+</div>
+
+<p style="margin-left:40px; margin-top: 20px;">La diff&eacute;rence est plus visible encore qu&#39;avec le tableau. Maintenant, il faut savoir si la diff&eacute;rence que l&#39;on observe n&#39;est pas que due au hasard.</p>
+
+<h6 style="margin-left:40px; margin-top:20px;"><font style="color:#049a8f; font-weight:bold;">5.</font> Test statistique</h6>
+
+<p style="margin-left:40px;">Nous allons donc faire un test statistique afin de voir si l&#39;environnement explique la diff&eacute;rence observ&eacute;e entre le milieu urbain et les deux autres environnement. Comme nous l&#39;avons d&eacute;j&agrave; expliqu&eacute; plus haut, la colonne environnement est qualitative et la colonne Abondance est quantitative. Il faut donc faire une comparaison de moyenne.</p>
+
+<p style="margin-left:40px; font-weight: bolder;"><a aria-controls="collapsescenario1help5" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help5" role="button">&darr; Comment faire concr&egrave;tement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help5">
+<div class="card card-body">
+<p>Choisir l&#39;outil : <strong>Faire une comparaison de moyenne</strong></p>
+
+<p>Fichier de donn&eacute;es brutes : <strong>R&eacute;sumer des donn&eacute;es on data 1 (attention !!!)</strong><br />
+V&eacute;rifier si la variable explicative (X) : <strong>environnement</strong><br />
+a un effet sur la variable &agrave; expliquer (Y) : <strong>Abondance</strong></p>
+</div>
+</div>
+
+
+<p style="margin-left:40px; margin-top:20px; font-weight: bolder;"><a aria-controls="collapsescenario1res3" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1res3" role="button">&darr; Voir le r&eacute;sultat &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1res3">
+<div class="card card-body">
+<p>La variable environnement a un effet significatif sur la variable Abondance. La probabilit&eacute; critique est &eacute;gale &agrave; 0.</p>
+<p>S&eacute;lectionnez Enregistrer puis faire une conclusion</p>
+</div>
+</div>
+
+<h6 style="margin-left:40px; margin-top:20px;"><font style="color:#049a8f; font-weight:bold;">6.</font> Conclusion</h6>
+
+<p style="margin-left:40px;">Je conclue que l&#39;environnement a bien un effet sur l&#39;abondance. Les oiseaux semblent &ecirc;tre moins nombreux en milieux urbain.</p>
+
+<h6 style="margin-left:40px; margin-top:20px;"><font style="color:#049a8f; font-weight:bold;">7.</font> Rapport</h6>
+
+<p style="margin-left:40px;">Vous pouvez maintenant t&eacute;l&eacute;charger votre rapport au format pdf</p>
+
+<h5 style="color:#049a8f; font-weight:bold;  margin-top:40px;">Pour aller plus loin</h5>
+
+<p>Ce sc&eacute;nario peut-&ecirc;tre adapt&eacute; pour se poser d&#39;autres questions.</p>
+
+<ul>
+	<li>Par exemple il est possible de se poser la m&ecirc;me question pour d&#39;autres organismes en changeant l&#39;observatoire sur lequel on travaille il faut juste qu&#39;il y a une colonne environnement et un nombre d&#39;individu.</li>
+	<li>Il est aussi possible de se poser la m&ecirc;me question pour une autre colonne comme la distance au bois le plus proche par exemple.</li>
+	<li>Une autre possibilit&eacute; est encore de calculer la diversit&eacute; plut&ocirc;t que l&#39;abondance totale des oiseaux (en comptant le nombre de lignes par observation).</li>
+</ul>
+
+<p>&nbsp;</p>

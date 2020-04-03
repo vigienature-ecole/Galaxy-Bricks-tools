@@ -1,0 +1,98 @@
+mon analyse: En avant les vers de terre !!!!
+
+ma question:
+
+En avant les vers de terre
+
+mes étapes:
+
+    Données Vigie-Nature Ecole - None
+        Choissez votre observatoire : Vers_de_terre
+    Résumer des données - None
+        ajouter l'opération suivante : somme
+        et stocker l'information dans une nouvelle colonne nommée : Abondance
+        sur la colonne : numero_observation, taupinieres
+        Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : numero_observation, difficulte_enfoncer_crayon
+    Résumer des données -
+        ajouter l'opération suivante : moyenne
+        et stocker l'information dans une nouvelle colonne nommée : Abondance moyenne
+        sur la colonne : Abondance
+        Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : difficulte_enfoncer_crayon
+    Représenter les données - None
+        Titre de l'axe des X :
+        Axe horizontal (X) : difficulte_enfoncer_crayon
+        Changer les couleurs du graphique selon les catégories de la variable : (optionnel) : difficulte_enfoncer_crayon
+        Axe vertical (Y) : Abondance moyenne
+        Type de représentation graphique : DiagrammeEnBarre
+        Titre du graphique :
+        Ajouter des barres d'erreur à partir d'une colonne : (optionnel) :
+        Créer des graphiques différents selon les catégories de la variable : (optionnel) :
+        Titre de l'axe des Y :
+    Représenter les données - None
+        Titre de l'axe des X :
+        Axe horizontal (X) : difficulte_enfoncer_crayon
+        Changer les couleurs du graphique selon les catégories de la variable : (optionnel) : difficulte_enfoncer_crayon
+        Axe vertical (Y) : Abondance moyenne
+        Type de représentation graphique : DiagrammeEnBarre
+        Titre du graphique :
+        Ajouter des barres d'erreur à partir d'une colonne : (optionnel) :
+        Créer des graphiques différents selon les catégories de la variable : (optionnel) :
+        Titre de l'axe des Y :
+    Résumer des données - None
+        ajouter l'opération suivante : erreurStandard
+        et stocker l'information dans une nouvelle colonne nommée : Erreur standard Abondance
+        sur la colonne : Abondance
+        Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : difficulte_enfoncer_crayon
+    Représenter les données - None
+        Titre de l'axe des X :
+        Axe horizontal (X) : difficulte_enfoncer_crayon
+        Changer les couleurs du graphique selon les catégories de la variable : (optionnel) : difficulte_enfoncer_crayon
+        Axe vertical (Y) : Abondance.moyenne
+        Type de représentation graphique : DiagrammeEnBarre
+        Titre du graphique :
+        Ajouter des barres d'erreur à partir d'une colonne : (optionnel) : Erreur.standard.Abondance
+        Créer des graphiques différents selon les catégories de la variable : (optionnel) :
+        Titre de l'axe des Y :
+    Résumer des données - None
+        ajouter l'opération suivante : somme
+        et stocker l'information dans une nouvelle colonne nommée : Abondance
+        sur la colonne : numero_observation, taupinieres
+        Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : numero_observation, environnement, difficulte_enfoncer_crayon
+    Résumer des données - None
+        ajouter l'opération suivante : erreurStandard
+        et stocker l'information dans une nouvelle colonne nommée : Erreur standard Abondance
+        sur la colonne : Abondance
+        Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : environnement, difficulte_enfoncer_crayon
+    Représenter les données - None
+        Titre de l'axe des X :
+        Axe horizontal (X) : difficulte_enfoncer_crayon
+        Changer les couleurs du graphique selon les catégories de la variable : (optionnel) : difficulte_enfoncer_crayon
+        Axe vertical (Y) : Abondance.moyenne
+        Type de représentation graphique : DiagrammeEnBarre
+        Titre du graphique :
+        Ajouter des barres d'erreur à partir d'une colonne : (optionnel) : Erreur.standard.Abondance
+        Créer des graphiques différents selon les catégories de la variable : (optionnel) : environnement
+        Titre de l'axe des Y :
+    Résumer des données - None
+        ajouter l'opération suivante : somme
+        et stocker l'information dans une nouvelle colonne nommée : Abondance
+        sur la colonne : numero_observation, taupinieres
+        Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : numero_observation, environnement
+    Résumer des données - None
+        ajouter l'opération suivante : erreurStandard
+        et stocker l'information dans une nouvelle colonne nommée : Erreur standard Abondance
+        sur la colonne : Abondance
+        Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : environnement
+    Représenter les données - None
+        Titre de l'axe des X :
+        Axe horizontal (X) : environnement
+        Changer les couleurs du graphique selon les catégories de la variable : (optionnel) : environnement
+        Axe vertical (Y) : Abondance.moyenne
+        Type de représentation graphique : DiagrammeEnBarre
+        Titre du graphique :
+        Ajouter des barres d'erreur à partir d'une colonne : (optionnel) : Erreur.standard.Abondance
+        Créer des graphiques différents selon les catégories de la variable : (optionnel) :
+        Titre de l'axe des Y :
+    Comparaison de moyennes - None
+        a un effet sur la variable à expliquer (Y) : Abondance
+        Vérifier si la variable explicative (X) : difficulte_enfoncer_crayon
