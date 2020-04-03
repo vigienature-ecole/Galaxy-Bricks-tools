@@ -36,14 +36,16 @@ library(ggplot2)
 input = data.frame(fread(inputFile))
 
 #remove numbers from factors for interest columns
-removeBegining <- function (input, Column){
+removeBeginingCategories <- function (input, Column){
   if (Column != "None"){
     Column <- as.numeric(Column)
     if(is.factor(sapply(input[Column], class)) | is.character(sapply(input[Column], class))){
-      if(any(grepl(pattern = "^[0-9][0-9]_", input[1:100, Column]))){
-        input[ , Column] <- substr(input[ , Column], 4, nchar(as.character(input[ , Column])))
+      levelsColumn <- levels(input[ , Column])
+      if(any(grepl(pattern = "^[0-9][0-9]_", levelsColumn))){
         # lock order
-        input[ , Column] <- factor(input[ , Column], levels = unique(input[ , Column]))
+        LevelToChange = grep(pattern = "^[0-9][0-9]_", levelsColumn)
+        levelsColumn[LevelToChange] = substr(levelsColumn[LevelToChange], 4, nchar(levelsColumn[LevelToChange]))
+        levels(input[ , Column]) <- levelsColumn
       }
     }
   }
