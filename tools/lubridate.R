@@ -43,6 +43,12 @@ if (outputDateFormat == "second") {
   result <- lubridate::tz(result)
 } else if (outputDateFormat == "dst") {
   result <- lubridate::dst(result)
+} else if (outputDateFormat == "saison") {
+  numeric.date <- 100*lubridate::month(result) + lubridate::day(result)
+  ## input Seasons upper limits in the form MMDD in the "break =" option:
+  result <- base::cut(numeric.date, breaks = c(0,319,0620,0921,1220,1231))
+  # rename the resulting groups (could've been done within cut(...levels=) if "Winter" wasn't double
+  levels(result) <- c("Hiver","Printemps","Été","Automne","Hiver")
 }
 
 input1 <- data.frame(input1, res = as.character(result))
