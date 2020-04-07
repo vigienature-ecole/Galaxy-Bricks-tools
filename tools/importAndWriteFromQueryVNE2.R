@@ -8,6 +8,7 @@ args = commandArgs(trailingOnly=TRUE)
 require(RPostgreSQL, quietly = TRUE)
 library(stringr, quietly = TRUE)
 library(dplyr, quietly = TRUE, warn.conflicts = FALSE)
+library(jsonlite)
 
 # fonction for restitution
 
@@ -72,8 +73,56 @@ if (args[1] == "Vers_de_terre"){
 #get result from query
 df_VNE <- dbGetQuery(con, query)
 if (args[1] == "Operation_escargot") df_VNE <- na.omit(df_VNE)
-if ("composition_zone" %in% colnames(df_VNE))
-  df_VNE$composition_zone <- str_replace_all(df_VNE$composition_zone, ",", "-")
+if ("composition_zone" %in% colnames(df_VNE)){
+  # lecture du JSON
+  compositionData <- jsonlite::stream_in(textConnection(df_VNE$composition_zone))
+  
+  # Passer en dataframe
+  compositionData_df <- jsonlite::flatten(compositionData)
+  # donner les bons noms de champs
+  colnames(compositionData_df)[seq(2,40,2)] <- compositionData_df[1,seq(1,39,2)]
+  # selectionner les colonnes
+  compositionData_df <- compositionData_df[ , seq(2,40,2)] 
+  # passer les TRUE FALSE en 0 1
+  compositionData_num <- sapply(compositionData_df, as.numeric)
+  
+  # listes
+  artif <- c(
+    "Haie de laurier",
+    "Plantes aromatiques (thym, romarin, basilic...)",
+    "Pelouse tondue",
+    "Parterre et arbustes fleuris",
+    "Espaces pavés, gravillonnés",
+    "Potager",
+    "Verger, arbres fruitiers|Verger, arbres fruitiers",
+    "Géraniums et pélargoniums",
+    "Lavande",
+    "Haies (sauf thuyas ou laurier cerise)" 
+  )
+  
+  spontane <- c(
+    "Trèfles, lotiers et luzernes",
+    "Orties",
+    "Ronces",
+    "Lierre",
+    "Pelouse tondue",
+    "Espaces non entretenus (friches, espaces naturels)"
+  )
+  
+  naturalite <- c(
+    "Orties",
+    "Ronces",
+    "Lierre",
+    "Espaces non entretenus (friches, espaces naturels)"
+  )
+  
+  df_VNE$elements_artificiels <- rowSums(compositionData_num[ , artif])
+  df_VNE$elements_spontanes <- rowSums(compositionData_num[ , spontane])
+  df_VNE$naturalite <- rowSums(compositionData_num[ , naturalite])
+  
+  df_VNE$composition_zone <- NULL
+}
+
 if ("difficulte_enfoncer_crayon" %in% colnames(df_VNE))
   df_VNE <- mutate(df_VNE, difficulte_enfoncer_crayon = recode(difficulte_enfoncer_crayon,
                         tres_facile = "01_tres_facile",
