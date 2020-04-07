@@ -16,6 +16,18 @@
             <option value="mdy">MoisJourAnnée</option>
             <option value="ymd" selected="true">AnnéeMoisJour</option>
         </param>
+        <param name="outputDateFormat" type="select" label="en">
+            <option value="full" selected="true">Date complète</option>
+            <option value="year">Année</option>
+            <option value="month">Mois</option>
+            <option value="day">Jour</option>
+            <option value="saison">Saison</option>
+            <option value="week">Semaine</option>
+            <option value="yday">Jour de l'année (~1-365)</option>
+            <option value="mday">Jour du mois (~1-30)</option>
+            <option value="wday">Jour de la semaine (1-7)</option>
+            <option value="timeZone">Fuseau horaire</option>
+        </param>
         <param name="inputName" type="text" value="date" label="dans une nouvelle colonne nommée" >
             <sanitizer invalid_char="_">
                 <valid initial="default">
@@ -36,18 +48,6 @@
                     <add value="€" />
                 </valid>
             </sanitizer>
-        </param>
-        <param name="outputDateFormat" type="select" label="où la date sera convertie en">
-            <option value="full" selected="true">Date complète</option>
-            <option value="year">Année</option>
-            <option value="month">Mois</option>
-            <option value="day">Jour</option>
-            <option value="saison">Saison</option>
-            <option value="week">Semaine</option>
-            <option value="yday">Jour de l'année (~1-365)</option>
-            <option value="mday">Jour du mois (~1-30)</option>
-            <option value="wday">Jour de la semaine (1-7)</option>
-            <option value="timeZone">Fuseau horaire</option>
         </param>
     </inputs>
     <outputs>
