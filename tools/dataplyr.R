@@ -12,11 +12,11 @@
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
 #args= c("tools/test-data/irisPlus.tabular", "5,6","1","somme","toto", "output")
-#args= c("tools/test-data/irisPlus.tabular", "5,6","1","moyenne","toto", "1","ecartType","toto2", "output")
+#args= c("tools/test-data/irisPlus.tabular", "5,6","1","moyenne","toto", "ecartType","toto2", "output")
 #args= c("tools/test-data/irisPlus.tabular", "5,6","5","somme","toto", "output")
 
 #determine the number of loop count
-totalLoop = (length(args) - 3) / 3
+totalLoop = (length(args) - 4) / 2
 
 
 # for the functions in french and to deal with NA
@@ -44,17 +44,19 @@ Result <- list()
 
 # separate variables
 columnsGroup <- as.numeric(unlist(strsplit(args[2], ",")))
-if(columnsGroup == "None") stop("Il faut sélectionner une colonne de regroupement")
+if(columnsGroup[1] == "None") stop("Il faut sélectionner une colonne de regroupement")
+columnOperation <- as.numeric(unlist(strsplit(args[3], ",")))
+if(columnOperation %in% columnsGroup) stop(paste("Il est impossible de sélectionner une colonne pour faire une opération si elle est déjà sélectionnée pour le regroupement.",
+                                           "Peut-être devrier vous retirer la variable", colnames(input)[columnOperation],"de la partie regroupement"))
+
 
 for (i in 1:totalLoop){
-  columnOperation <- as.numeric(unlist(strsplit(args[3 + (i-1) * 3], ",")))
+  
   # separate functions
-  functions <- unlist(strsplit(args[4 + (i-1) * 3], ","))
-
-  if(columnOperation %in% columnsGroup) stop("Il est impossible de sélectionner une colonne pour faire une opération si elle est déjà sélectionnée pour le regroupement")
+  functions <- unlist(strsplit(args[4 + (i-1) * 2], ","))
 
   #gets names from arguments
-  newNames <- args[5 + (i-1) * 3]
+  newNames <- args[5 + (i-1) * 2]
 
   # Agregation function
   Result[[i]] <- input %>%

@@ -7,7 +7,7 @@
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/dataplyr.R' '$input' '$groupBy' '$colOperation' '$function' '$nameCol'
         #if $addNewOperation.addOperation == "oui"
-            '$addNewOperation.colOperation' '$addNewOperation.function' '$addNewOperation.nameCol'
+            '$addNewOperation.function' '$addNewOperation.nameCol'
         #end if
         '$output'
         ]]>
@@ -65,7 +65,6 @@
                     <option value="minimum">Minimum</option>
                     <option value="maximum">Maximum</option>
                 </param>
-                <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="false"/>
                 <param name="nameCol" label="et stocker l'information dans une nouvelle colonne nommée" type="text" >
                     <sanitizer invalid_char="_">
                         <valid initial="default">
