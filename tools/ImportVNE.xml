@@ -16,11 +16,11 @@
         <param name="observatoire" type="select" label="Choissez votre observatoire" multiple="false">
             <option value="Vers_de_terre">Placettes à vers de terre</option>
             <option value="Oiseaux_des_jardins">Oiseaux des jardins</option>
-            <option value="Operation_escargot">Opération escargots</option>
+            <option value="Operation_escargots">Opération escargots</option>
             <option value="Sauvage_de_ma_rue">Sauvages de ma rue</option>
             <option value="Vers_de_terre_VNE2">Placettes à vers de terre (VNE2)</option>
             <option value="Oiseaux_des_jardins_VNE2">Oiseaux des jardins (VNE2)</option>
-            <option value="Operation_escargot_VNE2">Opération escargots (VNE2)</option>
+            <option value="Operation_escargots_VNE2">Opération escargots (VNE2)</option>
             <option value="Sauvage_de_ma_rue_VNE2">Sauvages de ma rue (VNE2)</option>
         </param>
     </inputs>

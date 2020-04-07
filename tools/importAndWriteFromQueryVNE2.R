@@ -56,7 +56,7 @@ if (args[1] == "Vers_de_terre"){
   query <- getSQL(args[2])
 } else if (args[1] == "Oiseaux_des_jardins"){
   query <- getSQL(args[3])
-} else if(args[1] == "Operation_escargot"){
+} else if(args[1] == "Operation_escargots"){
   query <- getSQL(args[4])
 } else if(args[1] == "Sauvage_de_ma_rue"){
   query <- getSQL(args[5])
@@ -64,7 +64,7 @@ if (args[1] == "Vers_de_terre"){
   query <- getSQL(args[6])
 } else if (args[1] == "Oiseaux_des_jardins_VNE2"){
   query <- getSQL(args[7])
-} else if(args[1] == "Operation_escargot_VNE2"){
+} else if(args[1] == "Operation_escargots_VNE2"){
   query <- getSQL(args[8])
 } else if(args[1] == "Sauvage_de_ma_rue_VNE2"){
   query <- getSQL(args[9])
@@ -76,16 +76,16 @@ if (args[1] == "Operation_escargot") df_VNE <- na.omit(df_VNE)
 if ("composition_zone" %in% colnames(df_VNE)){
   # lecture du JSON
   compositionData <- jsonlite::stream_in(textConnection(df_VNE$composition_zone))
-  
+
   # Passer en dataframe
   compositionData_df <- jsonlite::flatten(compositionData)
   # donner les bons noms de champs
   colnames(compositionData_df)[seq(2,40,2)] <- compositionData_df[1,seq(1,39,2)]
   # selectionner les colonnes
-  compositionData_df <- compositionData_df[ , seq(2,40,2)] 
+  compositionData_df <- compositionData_df[ , seq(2,40,2)]
   # passer les TRUE FALSE en 0 1
   compositionData_num <- sapply(compositionData_df, as.numeric)
-  
+
   # listes
   artif <- c(
     "Haie de laurier",
@@ -97,9 +97,9 @@ if ("composition_zone" %in% colnames(df_VNE)){
     "Verger, arbres fruitiers|Verger, arbres fruitiers",
     "Géraniums et pélargoniums",
     "Lavande",
-    "Haies (sauf thuyas ou laurier cerise)" 
+    "Haies (sauf thuyas ou laurier cerise)"
   )
-  
+
   spontane <- c(
     "Trèfles, lotiers et luzernes",
     "Orties",
@@ -108,18 +108,18 @@ if ("composition_zone" %in% colnames(df_VNE)){
     "Pelouse tondue",
     "Espaces non entretenus (friches, espaces naturels)"
   )
-  
+
   naturalite <- c(
     "Orties",
     "Ronces",
     "Lierre",
     "Espaces non entretenus (friches, espaces naturels)"
   )
-  
+
   df_VNE$elements_artificiels <- rowSums(compositionData_num[ , artif])
   df_VNE$elements_spontanes <- rowSums(compositionData_num[ , spontane])
   df_VNE$naturalite <- rowSums(compositionData_num[ , naturalite])
-  
+
   df_VNE$composition_zone <- NULL
 }
 
