@@ -48,7 +48,7 @@ if (outputDateFormat == "second") {
   ## input Seasons upper limits in the form MMDD in the "break =" option:
   result <- base::cut(numeric.date, breaks = c(0,319,0619,0921,1220,1231))
   # rename the resulting groups (could've been done within cut(...levels=) if "Winter" wasn't double
-  levels(result) <- c("Hiver","Printemps","Été","Automne","Hiver")
+  levels(result) <- c("04_Hiver","01_Printemps","02_Été","03_Automne","04_Hiver")
 }
 
 input1 <- data.frame(input1, res = as.character(result))
