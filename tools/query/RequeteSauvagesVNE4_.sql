@@ -13,8 +13,7 @@ SELECT DISTINCT
    WHERE dico_labels.valeur=zones_description_sauvages.cote_rue
    AND t='zones_description_fleurs'
    AND champ='cote_rue') AS Cote_rue,
-   observations_abondances.nom_espece AS Espece,
-   observations_abondances.environnement_sauvages as Environnement
+   observations_abondances.nom_espece AS Espece --,
    -- CONCAT_JSON_MULTIPLE( observations_abondances.environnement_sauvages, ('value')::varchar, ('true')::varchar) as Environnement
 
 FROM observations

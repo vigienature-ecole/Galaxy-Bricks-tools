@@ -2,7 +2,7 @@
 
 args = commandArgs(trailingOnly=TRUE)
 
-#args <- c("Vers_de_terre", "tools/query/RequeteVdtVNE4.sql")
+#args <- c("Operation_escargots", "tools/query/RequeteVdtVNE4.sql", "tools/query/RequeteOiseauxVNE4.sql", "tools/query/RequeteEscargotsVNE4.sql", "tools/query/RequeteSauvagesVNE4.sql")
 
 # import package
 require(RPostgreSQL, quietly = TRUE)
@@ -72,19 +72,33 @@ if (args[1] == "Vers_de_terre"){
 
 #get result from query
 df_VNE <- dbGetQuery(con, query)
-if (args[1] == "Operation_escargot") df_VNE <- na.omit(df_VNE)
+
+
+parseJSONLabelValue <- function (df, var) {
+  # parse JSON
+  parsedData <- jsonlite::stream_in(textConnection(df[ , var]))
+  # get data.frame
+  flattenData <- jsonlite::flatten(parsedData)
+  # donner les bons noms de champs
+  colnames(flattenData)[seq(2, ncol(flattenData), 2)] <- flattenData[1, seq(1, ncol(flattenData) - 1, 2)]
+  # selectionner les colonnes
+  flattenData <- flattenData[ , seq(2, ncol(flattenData), 2)]
+  # passer les TRUE FALSE en 0 1
+  flattenData <- sapply(flattenData, as.numeric)
+  as.data.frame(flattenData)
+}
+
+if (args[1] == "Sauvage_de_ma_rue"){
+  cleaned_df <- df_VNE[!is.na(df_VNE$environnement), ]
+  parsedCol <- parseJSONLabelValue(cleaned_df, "environnement")
+  df_VNE <- dplyr::bind_cols(cleaned_df, parsedCol)
+}
+
+if (args[1] == "Operation_escargots") df_VNE <- na.omit(df_VNE)
 if ("composition_zone" %in% colnames(df_VNE)){
   # lecture du JSON
-  compositionData <- jsonlite::stream_in(textConnection(df_VNE$composition_zone))
-
-  # Passer en dataframe
-  compositionData_df <- jsonlite::flatten(compositionData)
-  # donner les bons noms de champs
-  colnames(compositionData_df)[seq(2,40,2)] <- compositionData_df[1,seq(1,39,2)]
-  # selectionner les colonnes
-  compositionData_df <- compositionData_df[ , seq(2,40,2)]
-  # passer les TRUE FALSE en 0 1
-  compositionData_num <- sapply(compositionData_df, as.numeric)
+  
+  compositionData_num <- parseJSONLabelValue(df_VNE, "composition_zone")
 
   # listes
   artif <- c(
@@ -123,12 +137,7 @@ if ("composition_zone" %in% colnames(df_VNE)){
   df_VNE$composition_zone <- NULL
 }
 
-if ("difficulte_enfoncer_crayon" %in% colnames(df_VNE))
-  df_VNE <- mutate(df_VNE, difficulte_enfoncer_crayon = recode(difficulte_enfoncer_crayon,
-                        tres_facile = "01_tres_facile",
-                        facile = "02_facile",
-                        peu_difficile = "03_peu_difficile",
-                        difficile = "04_difficile"))
+
 
 # close the connection
 dbDisconnect(con)
