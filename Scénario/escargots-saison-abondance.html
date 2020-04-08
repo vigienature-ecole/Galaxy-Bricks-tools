@@ -1,0 +1,196 @@
+<table border="0" cellpadding="10" cellspacing="1">
+	<tbody>
+		<tr>
+			<td><img alt="" src="/media/edito/2020/04/01/vdt.png" style="height:2.5rem" /></td>
+			<td>
+			<h2>Quel est l'effet de la période d'observation sur l'abondance des escargots et des limaces ?</h2>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h5 style="color:#049a8f; font-weight:bold; margin-top:40px">Objectif du scénario</h5>
+
+<p>Répondre à la question : Quel est l'effet de la période d'observation sur l'abondance des escargots et des limaces ?</p>
+
+<h5 style="color:#049a8f; font-weight:bold; margin-top:40px">Compétence développées :</h5>
+
+<ul>
+  <li>Extraire des éléments d'une date</li>
+	<li>Calcul d'abondance</li>
+	<li>Représentation graphique</li>
+	<li>Test statistiques</li>
+</ul>
+
+<h5 style="color:#049a8f; font-weight:bold; margin-top:40px">Déroulement de l'analye étape par étape</h5>
+
+<h5>&nbsp;</h5>
+
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">1.</font> Poser la question de recherche</h6>
+
+<p style="margin-left:40px">Ici nous vous donnons déjà la question de recherche. Vous pouvez, par exemple, noter : <em>&quot;Saison et abondance&quot; </em>comme nom d'analyse et <em>&quot;Quel est l'effet de la période d'observation sur l'abondance des escargots et des limaces ?&quot;</em> dans la partie question de recherche.</p>
+
+<h6 style="margin-left:40px; margin-top:40px"><font style="color:#049a8f; font-weight:bold">2.</font> Importer les données</h6>
+
+<p style="margin-left:40px">Afin de répondre à cette question, nous allons avoir besoin des données de Vigie-Nature &Eacute;cole afin d'avoir des observations dans plusieurs conditions de compaction. De plus, comme notre question porte sur les escargots et les limaces, nous allons choisir l'observatoire Opération escargots.</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help1" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help1" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help1">
+<div class="card card-body">
+<p>Choisir l'outil : Importer des données issues de Vigie-Nature &Eacute;cole</p>
+
+<p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
+
+<p>Choissez l'observatoire <strong>Opération escargots</strong></p>
+</div>
+</div>
+
+<h6 style="margin-left:40px; margin-top:40px"><font style="color:#049a8f; font-weight:bold">3.</font> Manipuler les données</h6>
+
+<p style="margin-left:40px">Maintenant que vous avez toutes les données, il va falloir les résumer car il y a un grand nombre de lignes. Nous allons commencer par calculer l'abondance totale des escargots et limaces vus lors de chaque observation. Pour cela, nous allons faire la somme des individus observés en regroupant les données par numéro d'observation (pour ne pas additionner toutes les observations entre elles) et la colonne date_observation (pour garder cette colonne associée avec nos valeurs et pouvoir répondre à notre question).</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help2" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help2" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help2">
+<div class="card card-body">
+<p>Dans la catégorie <strong>Regrouper des lignes</strong> choisir l'outil : <strong>Résumer des données</strong></p>
+
+<p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
+
+<p>Données d'entrée* : <strong>Données_VNE_Operation_escargots.csv</strong><br />
+Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : <strong>num_observation | date_observation</strong><br />
+en faisant l'opération suivante :<strong> Somme</strong><br />
+sur la colonne <strong>nombre_individus</strong><br />
+et stocker l'information dans une nouvelle colonne nommée : <strong>Abondance</strong><br />
+Voulez-vous faire une autre opération ? <strong>non</strong></p>
+
+<p>Enregistrez vos commentaires si vous en avez puis continuez à manipuler les données.</p>
+</div>
+</div>
+
+<p style="margin-left:40px">Maintenant que les données sont résumées à l'échelle d'une observation, nous allons transformer la date pour garder 3 périodes (Les données sont rentrées par saisons mais elles sont stockées à trois dates environ au milieu de chaque saison). Nous allons donc extraire le mois pour chaque valeur.</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help2b" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help2b" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help2b">
+<div class="card card-body">
+<p>Dans la catégorie <strong>Extraire de l'information à partir de colonnes</strong> choisir l'outil : <strong>Convertir des dates</strong></p>
+
+<p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
+
+<p>Données d'entrée* : <strong>Résumer des données on data 1</strong><br />
+Convertir la colonne : <strong>date_observation</strong><br />
+dont le format de données est :<strong>AnnéeMoisJour</strong><br />
+en : <strong>Saison</strong><br />
+dans une nouvelle colonne nommée : <strong>Saison</strong><br />
+Voulez-vous faire une autre opération ? <strong>non</strong></p>
+
+<p>Enregistrez vos commentaires si vous en avez puis continuez à manipuler les données.</p>
+</div>
+</div>
+
+
+
+<p style="margin-left:40px">Une nouvelle colonne contient la saison de l'oservations. Nous allons maintenant regrouper les données selon les valeurs de la colonnes Saison. Cette fois nous allons faire une moyenne pour avoir une valeur qui représente le nombre d'escargots et de limaces moyen pour chaque saison. Il n'est pas possible d'utiliser une somme car il n'y a pas le même nombre d'observations en fonction de le période d'observation.</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help3" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help3" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help3">
+<div class="card card-body">
+<p>Dans la catégorie <strong>Regrouper des lignes</strong> choisir à nouveau l'outil : <strong>Résumer des données</strong></p>
+
+<p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
+
+<p>Données d'entrée : <strong>Convertir des dates on data 3</strong><br />
+Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : <strong>Saison</strong><br />
+en faisant l'opération suivante : <strong>Moyenne</strong><br />
+sur la colonne : <strong>Abondance</strong><br />
+et stocker l'information dans une nouvelle colonne nommée : <strong>Abondance Moyenne</strong><br />
+Voulez-vous faire une autre opération ? <strong>Oui</strong></p>
+et ajouter l'opération suivante : <strong>Erreur standard</strong><br />
+et stocker l'information dans une nouvelle colonne nommée : <strong>Erreur de la moyenne</strong><br />
+
+<p>Enregistrez vos commentaires si vous en avez puis sélectionnez <strong>visualiser les données</strong>.</p>
+</div>
+</div>
+
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">4.</font> Visualiser les données</h6>
+
+<p style="margin-left:40px">Normalement, en regardant votre tableau, vous pouvez déjà voir qu'il existe des différences entre les saisons. Toutefois, afin de mieux voir les différences, on peut réaliser un graphique. Ici, la colonne Saison est qualitative (on ne peut pas faire d'opération avec ces valeurs) et la colonne Abondance moyenne est quantitative (on peut faire des opérations avec ses valeurs). Une représentation adaptée est donc le diagramme en barre avec la colonne Saison sur l'axe des X et l'Abondance moyenne sur l'axe des Y.</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help4" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help4" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help4">
+<div class="card card-body">
+<p>Choisir l'outil : <strong>Représenter les données</strong></p>
+
+<p>Fichier d'entrée : <strong>Résumer des données on data 2</strong><br />
+Axe horizontal (X) : <strong>saison</strong><br />
+Axe vertical (Y) : <strong>Abondance moyenne</strong><br />
+Type de représentation graphique : <strong>Diagramme en barre</strong><br />
+Créer des graphiques différents selon les catégories de la variable : <strong>Laisser vide</strong><br />
+Changer les couleurs du graphique selon les catégories de la variable : <strong>Saison</strong><br />
+Ajouter des barres d'erreur à partir d'une colonne : (optionnel) : <strong>Erreur.de.la.moyenne</strong><br />
+Titre du graphique : <strong>Effet de la saison sur l'abondance moyenne des escargots et limaces</strong><br />
+Titre de l'axe des X : <strong>Laisser vide</strong><br />
+Titre de l'axe des Y : <strong>Laisser vide</strong></p>
+
+<p>Enregistrez vos commentaires si vous en avez puis sélectionnez faire une analyse statistique.</p>
+</div>
+</div>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1res2" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1res2" role="button">&darr; Voir le résultat &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1res2">
+<div class="card card-body">
+<p style="text-align:center"><img alt="" src="/media/edito/2020/03/26/representer-les-donnees-on-data-3.png" style="height:429px; width:600px" /></p>
+</div>
+</div>
+
+<p style="margin-left:40px">La différence est plus visible encore qu'avec le tableau. Maintenant, il faut savoir si la différence que l'on observe n'est pas que due au hasard.</p>
+
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">5.</font> Test statistique</h6>
+
+<p style="margin-left:40px">Nous allons donc faire un test statistique afin de voir si la saison explique la différence observée. Comme nous l'avons déjà expliqué plus haut, la colonne saison est qualitative et la colonne Abondance est quantitative. Il faut donc faire une comparaison de moyenne.</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help5" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help5" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help5">
+<div class="card card-body">
+<p>Choisir l'outil : <strong>Faire une comparaison de moyenne</strong></p>
+
+<p>Fichier de données brutes : <strong>Convertir des dates on data 2 (attention !!!)</strong><br />
+Vérifier si la variable explicative (X) : <strong>Saison</strong><br />
+a un effet sur la variable à expliquer (Y) : <strong>Abondance</strong></p>
+</div>
+</div>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1res3" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1res3" role="button">&darr; Voir le résultat &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1res3">
+<div class="card card-body">
+<p>La variable saison n'a pas d'effet significatif sur la variable Abondance.</p>
+
+<p>Sélectionnez Enregistrer puis faire une conclusion</p>
+</div>
+</div>
+
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">6.</font> Conclusion</h6>
+
+<p style="margin-left:40px">Je conclue que la saison n'a pas d'effet sur l'abondance. Les escargots et limaces semblent plus nombreux en été, mais les données sont très variables et il y en a moins en été, ce qui explique ces grandes barres d'erreur.</p>
+
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">7.</font> Rapport</h6>
+
+<p style="margin-left:40px">Vous pouvez maintenant télécharger votre rapport au format pdf</p>
+
+<h5 style="color:#049a8f; font-weight:bold; margin-top:40px">Pour aller plus loin</h5>
+
+<p>Ce scénario peut-être adapté pour se poser d'autres questions.</p>
+
+<ul>
+	<li>Il est aussi possible de se poser la même question pour une autre colonne comme l'environnement par exemple.</li>
+	<li>Une autre possibilité est encore de calculer la diversité plutôt que l'abondance totale des escargots et limaces (en comptant le nombre de cellules non nulles pour chaque observation).</li>
+</ul>
+
+<p>&nbsp;</p>
