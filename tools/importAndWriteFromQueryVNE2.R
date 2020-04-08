@@ -92,6 +92,7 @@ if (args[1] == "Sauvage_de_ma_rue"){
   cleaned_df <- df_VNE[!is.na(df_VNE$environnement), ]
   parsedCol <- parseJSONLabelValue(cleaned_df, "environnement")
   df_VNE <- dplyr::bind_cols(cleaned_df, parsedCol)
+  df_VNE$environnement <- NULL
 }
 
 if (args[1] == "Operation_escargots") df_VNE <- na.omit(df_VNE)
