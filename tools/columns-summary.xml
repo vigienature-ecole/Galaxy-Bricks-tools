@@ -3,10 +3,7 @@
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/columns-summary.R' '$input' '$columnSelected' '$outputName' '$outputOperation'
-        #if $addNewOperation.addOperation == "oui"
-            '$addNewOperation.columnSelected' '$addNewOperation.outputName' '$addNewOperation.outputOperation'
-        #end if
+        Rscript '$__tool_directory__/columns-summary.R' '$input' '$columnSelected' '$outputOperation'
         '$output'
     ]]></command>
     <inputs>
