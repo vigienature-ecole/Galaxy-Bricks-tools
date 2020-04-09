@@ -2,7 +2,7 @@
 
 args = commandArgs(trailingOnly=TRUE)
 
-#args <- c("Operation_escargots", "tools/query/RequeteVdtVNE4.sql", "tools/query/RequeteOiseauxVNE4.sql", "tools/query/RequeteEscargotsVNE4.sql", "tools/query/RequeteSauvagesVNE4.sql")
+#args <- c("Sauvages_de_ma_rue", "tools/query/RequeteVdtVNE4.sql", "tools/query/RequeteOiseauxVNE4.sql", "tools/query/RequeteEscargotsVNE4.sql", "tools/query/RequeteSauvagesVNE4.sql")
 
 # import package
 require(RPostgreSQL, quietly = TRUE)
@@ -58,7 +58,7 @@ if (args[1] == "Vers_de_terre"){
   query <- getSQL(args[3])
 } else if(args[1] == "Operation_escargots"){
   query <- getSQL(args[4])
-} else if(args[1] == "Sauvage_de_ma_rue"){
+} else if(args[1] == "Sauvages_de_ma_rue"){
   query <- getSQL(args[5])
 } else if (args[1] == "Vers_de_terre_VNE2"){
   query <- getSQL(args[6])
@@ -66,7 +66,7 @@ if (args[1] == "Vers_de_terre"){
   query <- getSQL(args[7])
 } else if(args[1] == "Operation_escargots_VNE2"){
   query <- getSQL(args[8])
-} else if(args[1] == "Sauvage_de_ma_rue_VNE2"){
+} else if(args[1] == "Sauvages_de_ma_rue_VNE2"){
   query <- getSQL(args[9])
 }
 
@@ -88,7 +88,7 @@ parseJSONLabelValue <- function (df, var) {
   as.data.frame(flattenData)
 }
 
-if (args[1] == "Sauvage_de_ma_rue"){
+if (args[1] == "Sauvages_de_ma_rue"){
   cleaned_df <- df_VNE[!is.na(df_VNE$environnement), ]
   parsedCol <- parseJSONLabelValue(cleaned_df, "environnement")
   df_VNE <- dplyr::bind_cols(cleaned_df, parsedCol)
