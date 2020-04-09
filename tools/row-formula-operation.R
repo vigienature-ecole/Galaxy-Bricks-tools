@@ -11,6 +11,7 @@ library(stringr)
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
 #args= c("tools/test-data/irisPlus.tabular", "c1 + c2", "test")
+args= c("../../Downloads/Galaxy13-[R_sumer_des_donn_es_on_data_12].csv", "c2 / c3", "test")
 
 # load data and formula from form
 inputData <- fread(args[1])
@@ -18,7 +19,7 @@ inputFormula = args[2]
 inputName = args[3]
 
 #deal with NA (A bit uncool !)
-inputData[is.na(inputData)] <- 0
+#inputData[is.na(inputData)] <- 0
 
 #check the formula for security reasons
 evalFormula <- inputFormula
