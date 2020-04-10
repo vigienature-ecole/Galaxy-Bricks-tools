@@ -11,7 +11,7 @@ library(stringr)
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
 #args= c("tools/test-data/irisPlus.tabular", "c1 + c2", "test")
-args= c("../../Downloads/Galaxy13-[R_sumer_des_donn_es_on_data_12].csv", "c2 / c3", "test")
+#args= c("../../Downloads/Galaxy13-[R_sumer_des_donn_es_on_data_12].csv", "c2 / c3", "test")
 
 # load data and formula from form
 inputData <- fread(args[1])
