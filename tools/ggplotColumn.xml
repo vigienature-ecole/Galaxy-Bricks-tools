@@ -1,0 +1,85 @@
+<tool id="plotColumn" name="Représenter les données (une ligne)">
+    <requirements>
+        <requirement type="package" version="1.11.4">r-data.table</requirement>
+        <requirement type="package" version="2.2.1">r-ggplot2</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/ggplotColumn.R' '$input' '$xlab' '$ylab'
+        '$output1' ]]>
+    </command>
+    <inputs>
+        <param format="tabular,csv,txt" name="input" type="data" label="Fichier d'entrée" />
+        <param name="xlab" label="Titre de l'axe des X" type="text" help="si laissé vide alors le nom de l'axe sera celui de la variable" >
+            <sanitizer invalid_char="_">
+                <valid initial="default">
+                    <add value="à" />
+                    <add value="â" />
+                    <add value="é" />
+                    <add value="è" />
+                    <add value="ê" />
+                    <add value="ë" />
+                    <add value="î" />
+                    <add value="ï" />
+                    <add value="ô" />
+                    <add value="ù" />
+                    <add value="û" />
+                    <add value="ÿ" />
+                    <add value="ç" />
+                    <add value="œ" />
+                    <add value="€" />
+                </valid>
+            </sanitizer>
+        </param>
+        <param name="ylab" label="Titre de l'axe des Y" type="text" help="si laissé vide alors le nom de l'axe sera celui de la variable" >
+            <sanitizer invalid_char="_">
+                <valid initial="default">
+                    <add value="à" />
+                    <add value="â" />
+                    <add value="é" />
+                    <add value="è" />
+                    <add value="ê" />
+                    <add value="ë" />
+                    <add value="î" />
+                    <add value="ï" />
+                    <add value="ô" />
+                    <add value="ù" />
+                    <add value="û" />
+                    <add value="ÿ" />
+                    <add value="ç" />
+                    <add value="œ" />
+                    <add value="€" />
+                </valid>
+            </sanitizer>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="png" name="output1" from_work_dir="output1.png" />
+    </outputs>
+    <help><![CDATA[
+
+        .. class:: titre1-aide
+
+        A quoi sert cet outil ?
+
+        Cet outil permet de réaliser une représentation graphique des données à partir d'un tableau issu de l'outil opération sur des colonnes.
+
+        .. class:: titre1-aide
+
+        Utiliser cet outil
+
+        .. class:: titre2-aide
+
+        1. Procédure
+
+        Il faut choisir le jeu de données.
+        Puis choisir le nom des axes les noms de colonnes seront sur l'axe des ordonnées (X) et les valeurs de la première lignes sur l'axe des abscisses (Y).
+
+        .. class:: titre2-aide
+
+        2. Résultat
+
+        Vous obtiendrez alors un graphique.
+
+
+    ]]></help>
+</tool>
