@@ -18,6 +18,7 @@
   </section>
   <section id="3vis" name="4. Visualisation">
     <tool file="ggplotLite.xml" />
+    <tool file="ggplotColumn.xml" />
   </section>
   <section id="4Tests" name="5. Tests statistiques">
     <label id="5quali/quali" text="Quali/Quanti" />
