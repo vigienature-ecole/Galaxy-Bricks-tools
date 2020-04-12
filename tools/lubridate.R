@@ -34,7 +34,7 @@ if (outputDateFormat == "second") {
 } else if (outputDateFormat == "wday") {
   result <- lubridate::wday(result)
 } else if (outputDateFormat == "week") {
-  result <- lubridate::week(result)
+  result <- lubridate::isoweek(result)
 } else if (outputDateFormat == "month") {
   result <- lubridate::month(result)
 } else if (outputDateFormat == "year") {
