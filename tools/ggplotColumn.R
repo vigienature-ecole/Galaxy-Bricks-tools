@@ -5,8 +5,9 @@
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
 
-xlab = args[2]
-ylab = args[3]
+graphTitle = args[2]
+xlab =       args[3]
+ylab =       args[4]
 
 ## Import file
 input <- data.frame(data.table::fread(args[1]))
@@ -31,6 +32,7 @@ if (ylab != ""){
 
 plot_out = ggplot2::ggplot(input, ggplot2::aes(x = X, y = Y)) +
   ggplot2::geom_col(ggplot2::aes(fill =  X), show.legend = FALSE) +
+  ggplot2::ggtitle(graphTitle) +
   ggplot2::xlab(xlabContent) +
   ggplot2::ylab(ylabContent) +
   ggplot2::theme_minimal() +
