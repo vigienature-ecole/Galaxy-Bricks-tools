@@ -9,7 +9,7 @@
     </command>
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Fichier d'entrée" />
-        <param name="xlab" label="Titre de l'axe des X" type="text" help="si laissé vide alors le nom de l'axe sera celui de la variable" >
+        <param name="xlab" label="Titre de l'axe des X" type="text">
             <sanitizer invalid_char="_">
                 <valid initial="default">
                     <add value="à" />
@@ -30,7 +30,7 @@
                 </valid>
             </sanitizer>
         </param>
-        <param name="ylab" label="Titre de l'axe des Y" type="text" help="si laissé vide alors le nom de l'axe sera celui de la variable" >
+        <param name="ylab" label="Titre de l'axe des Y" type="text">
             <sanitizer invalid_char="_">
                 <valid initial="default">
                     <add value="à" />
