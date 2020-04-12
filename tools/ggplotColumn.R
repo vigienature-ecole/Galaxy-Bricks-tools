@@ -11,8 +11,6 @@ ylab = args[3]
 ## Import file
 input <- data.frame(data.table::fread(args[1]))
 
-input <- data.frame(somme = 1, somme2 = 2, somme3 = 3)
-
 #rotate data.frame
 input <- data.frame(t(input))
 input$X <- row.names(input)
@@ -31,7 +29,7 @@ if (ylab != ""){
   ylabContent = "Y"
 }
 
-ggplot2::ggplot(input, ggplot2::aes(x = X, y = Y)) +
+plot_out = ggplot2::ggplot(input, ggplot2::aes(x = X, y = Y)) +
   ggplot2::geom_col(ggplot2::aes(fill =  X), show.legend = FALSE) +
   ggplot2::xlab(xlabContent) +
   ggplot2::ylab(ylabContent) +
