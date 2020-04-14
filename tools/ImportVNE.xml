@@ -39,22 +39,13 @@
 
 
         .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logoVNE.png
-        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logoVNE.png
 
-        .. image:: /media/edito/2020/04/01/escargots.png
-        .. image::  https://bricks.vigienature-ecole.fr/media/edito/2020/04/01/escargots.png
+        https://bricks.vigienature-ecole.fr/explorer/explorer-oiseaux/
         https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/
-
-        .. image::  https://bricks.vigienature-ecole.fr/media/edito/2020/04/01/escargots.png https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/
-
-        .. image::  https://bricks.vigienature-ecole.fr/media/edito/2020/04/01/escargots.png
+        https://bricks.vigienature-ecole.fr/explorer/explorer-vdt/
+        https://bricks.vigienature-ecole.fr/explorer/explorer-sauvages/
 
 
-
-        https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/
-        `https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/`
-        /explorer/explorer-escargots/
-        explorer/explorer-escargots/
 
     ]]></help>
 </tool>
