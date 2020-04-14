@@ -39,6 +39,9 @@
 
 
         .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logoVNE.png
+        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logoVNE.png
+        https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/
+        `https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/`
 
     ]]></help>
 </tool>
