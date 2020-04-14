@@ -28,7 +28,7 @@
                     <option value="ecart-type">Ecart-type</option>
                     <option value="valeurs-superieures-a-zero">Compter les valeurs supérieures à zéro</option>
                 </param>
-                <param name="include" label="sur des colonnes suivantes" type="data_column" data_ref="input" numerical="false" multiple = "true" />
+                <param name="include" label="sur les colonnes suivantes" type="data_column" data_ref="input" numerical="false" multiple = "true" />
                 <param name="outputName1" type="text" value="Result" label="et stocker l'information dans une nouvelle colonne nommée" >
                     <sanitizer invalid_char="_">
                         <valid initial="default">
@@ -124,7 +124,78 @@
 
         A quoi sert cet outil ?
 
-        Cet outil permet de faire des opérations sur des colonnes en utilisant la syntaxe de programmation.
+        Cet outil permet de faire des opérations les lignes de plusieurs colonnes soit en utilisant des opérations simples, soit en utilisant la syntaxe de programmation.
+
+
+        .. class:: titre1-aide
+
+        Exemple avec des opérations simples
+
+        .. class:: titre2-aide
+
+        1. Données d'entrée :
+
+        Fissure	Pelouse	Pied d'arbre
+        1        0        0
+        1        1        1
+        0        1        1
+
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/
+
+        .. class:: titre2-aide
+
+        2. Paramètres à choisir dans le formulaire
+
+        Voulez-vous ?
+
+        .. class:: parametre-aide
+
+        utiliser des opérations simples
+
+        Faire l'opération suivante
+
+        .. class:: parametre-aide
+
+        Somme
+
+        sur les colonnes suivantes
+
+        .. class:: parametre-aide
+
+        Fissure Pelouse Pied d'arbre
+
+        et stocker l'information dans une nouvelle colonne nommée
+
+        .. class:: parametre-aide
+
+        Nombre d'aménagements
+
+        Voulez-vous faire une autre opération sur ces mêmes colonnes ?
+
+        .. class:: parametre-aide
+
+        non
+
+        et sélectionner les colonnes à garder dans le jeu de données final (optionnel)
+
+        .. class:: parametre-aide
+
+        laisser vide
+
+        .. class:: titre2-aide
+
+        3. Résultat :
+
+        Fissure	Pelouse	Pied d'arbre  Résultat
+        1        0        0             1
+        1        1        1             3
+        0        1        1             2
+
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/lubridate_convert-out.jpg
+
+        .. class:: titre1-aide
+
+        Écrire votre propre formule
 
         * Il est possible de combiner plusieurs colonnes en utilisant les opérations classiques : «+» addition «-» soustraction «*» multiplication «/» division (par exemple c1 * c2 permet de multiplier les colonnes 1 et 2)
 
@@ -140,19 +211,37 @@
 
         1. Données d’entrée
 
+        Nombre de Mésanges Nombre d'oiseaux
+        2                    4
+        2                    8
+        10                   15
+
         .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation1.jpg
 
         .. class:: titre2-aide
 
-        2. Formule
+        2. Paramètres à choisir dans le formulaire
+
+        Formule
 
         .. class:: parametre-aide
 
-        c1 + c2
+        c1 / c2
+
+        et stocker le résultat dans une nouvelle colonne nommée
+
+        .. class:: parametre-aide
+
+        Proportion de Mésanges
 
         .. class:: titre2-aide
 
         3. Résultat
+
+        Nombre de Mésanges Nombre d'oiseaux    Proportion de Mésanges
+        2                    4                    0.5
+        2                    8                    0.25
+        10                   15                   0.7
 
         .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation2.jpg
 
@@ -162,25 +251,44 @@
 
         Vous pouvez écrire votre propre formule en utilisant par exemple :
 
-        «log(c2)» (logarithme népérien), «exp(c2)» (exponentielle), «log10(c2)» (logarithme décimal), «sqrt(c2)» (racine carrée), «sin(c2)» (sinus), «cos(c2)» (cosinus), «tan(c2)» (tangente), «asin(c2)» (arc sinus), «acos(c2)» (arcsin)
+        «log(c2)» (logarithme népérien), «exp(c2)» (exponentielle), «log10(c2)» (logarithme décimal), «sqrt(c2)» (racine carrée), «sin(c2)» (sinus), «cos(c2)» (cosinus), «tan(c2)» (tangente), «asin(c2)» (arc sinus), «acos(c2)» (arc cosinus)
 
         .. class:: titre2-aide
 
         1. Données d’entrée
 
+        Nombre de Mésanges Nombre d'oiseaux    Proportion de Mésanges
+        2                    4                    0.5
+        2                    8                    0.25
+        10                   15                   0.7
+
         .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation1.jpg
 
         .. class:: titre2-aide
 
-        2. Formule
+        2. Paramètres à choisir dans le formulaire
+
+        Formule
 
         .. class:: parametre-aide
 
-        log(c2)+c1
+        log(c3)
+
+        et stocker le résultat dans une nouvelle colonne nommée
+
+        .. class:: parametre-aide
+
+        Logarithme népérien de la proportion
 
         .. class:: titre2-aide
 
         3. Résultat
+
+        Nombre de Mésanges Nombre d'oiseaux    Proportion de Mésanges  Logarithme népérien
+                                                                          de la proportion
+        2                    4                    0.5                     -0.69
+        2                    8                    0.25                    -1.39
+        10                   15                   0.7                     -0.36
 
         .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation3.jpg
 
