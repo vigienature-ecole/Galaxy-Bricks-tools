@@ -17,7 +17,7 @@
 
 <ul>
 	<li>Filtrer des données</li>
-  <li>Extraire des éléments d'une date</li>
+	<li>Extraire des éléments d'une date</li>
 	<li>Calcul de fréquence de présence</li>
 	<li>Représentation graphique</li>
 </ul>
@@ -28,27 +28,27 @@
 
 <h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">1.</font> Poser la question de recherche</h6>
 
-<p style="margin-left:40px">Ici nous vous donnons déjà la question de recherche. Vous pouvez, par exemple, noter : <em>&quot;Période et fréquence&quot; </em>comme nom d'analyse et <em>&quot;Quel est l'effet de la période d'observation sur la fréquence d'observation des mésanges ?&quot;</em> dans la partie question de recherche. Vous pouvez déjà proposer des hypothèses sur les changements que vous vous attendez à voir. Par exemple : quelles sont les espèces les plus présentes en fonction du mois, quels sont les changements que vous attendez etc...</p>
+<p style="margin-left:40px">Ici nous vous donnons déjà la question de recherche. Vous pouvez, par exemple, noter : <em>&quot;Période et fréquence&quot; </em>comme nom d'analyse et <em>&quot;Quel est l'effet de la période d'observation sur la fréquence d'observation des mésanges ?&quot;</em> dans la partie question de recherche. Vous pouvez déjà proposer des hypothèses sur les changements que vous vous attendez à voir. Par exemple : quelles sont les espèces les plus présentes en fonction du mois d'observation, quels sont les changements que vous attendez etc...</p>
 
 <h6 style="margin-left:40px; margin-top:40px"><font style="color:#049a8f; font-weight:bold">2.</font> Importer les données</h6>
 
-<p style="margin-left:40px">Pour répondre à cette question, nous allons avoir besoin des données de Vigie-Nature &Eacute;cole afin d'avoir des observations de toutes les espèces de mésanges et des observations sur tous les mois de l'année. De plus, comme notre question porte sur les oiseaux, nous allons choisir l'observatoire <strong>Oiseaux des jardins</strong>.</p>
+<p style="margin-left:40px">Pour répondre à notre question de recherche, nous allons avoir besoin des données de Vigie-Nature École afin d'avoir des observations de toutes les espèces de mésanges (en effet il y en a 6 dans le protocole oiseaux des jardins) et des observations sur tous les mois de l'année. De plus, comme notre question porte sur les oiseaux, nous allons choisir l'observatoire <strong>Oiseaux des jardins</strong>.</p>
 
 <p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenarioHelp1" aria-expanded="false" data-toggle="collapse" href="#collapsescenarioHelp1" role="button">&darr; Comment faire concrètement &darr;</a></p>
 
 <div class="collapse" id="collapsescenarioHelp1">
 <div class="card card-body">
-<p>Choisir l'outil : Importer des données issues de Vigie-Nature &Eacute;cole</p>
+<p>Choisir l'outil : <strong>Importer des données issues de Vigie-Nature École</strong></p>
 
 <p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
 
-<p>Choissez l'observatoire <strong>Oiseaux des jardins</strong></p>
+<p>Choisissez l'observatoire <strong>Oiseaux des jardins</strong></p>
 </div>
 </div>
 
 <h6 style="margin-left:40px; margin-top:40px"><font style="color:#049a8f; font-weight:bold">3.</font> Manipuler les données</h6>
 
-<p style="margin-left:40px">Maintenant que vous avez toutes les données, il va falloir sélectionner celles qui nous intéressent. Nous allons commencer par <strong>sélectionner les lignes</strong> qui contiennent "Mésange" afin de garder toutes les espèces de Mésanges.</p>
+<p style="margin-left:40px">Maintenant que vous avez toutes les données, il va falloir sélectionner celles qui nous intéressent. Nous allons commencer par <strong>sélectionner les lignes</strong> qui contiennent &quot;Mésange&quot; afin de garder toutes les espèces de Mésanges. Faites bien attention à ne pas mettre de "s" à mésange en effet l'outil sélectionner des lignes compare de façon exact les lignes et les noms d'espèces sont au singulier.</p>
 
 <p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenarioHelp2" aria-expanded="false" data-toggle="collapse" href="#collapsescenarioHelp2" role="button">&darr; Comment faire concrètement &darr;</a></p>
 
@@ -59,8 +59,8 @@
 <p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
 
 <p>Données d'entrée* : <strong>Données_VNE_Oiseaux_des_jardins.csv</strong><br />
-Choisir de  : <strong>garder</strong><br />
-les lignes dont les valeurs sont  : <strong>égales (caractères)</strong><br />
+Choisir de : <strong>garder</strong><br />
+les lignes dont les valeurs sont : <strong>égales (caractères)</strong><br />
 au paramètre de filtre suivant : <strong>Mésange</strong><br />
 dans : <strong>la colonne</strong><br />
 indiquer la colonne dans laquelle faire la recherche : <strong>espèce</strong></p>
@@ -101,7 +101,7 @@ Voulez-vous faire une autre opération ? <strong>non</strong></p>
 <p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
 
 <p>Données d'entrée : <strong>Convertir des dates on data 3</strong><br />
-Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : <strong>Mois  de l'observation | espèce</strong><br />
+Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : <strong>Mois de l'observation | espèce</strong><br />
 en faisant l'opération suivante : <strong>Compter les valeurs supérieures à zéro</strong><br />
 sur la colonne : <strong>nombre_individus</strong><br />
 et stocker l'information dans une nouvelle colonne nommée : <strong>Nombre d'observations de l'espèce</strong><br />
@@ -115,7 +115,7 @@ et stocker l'information dans une nouvelle colonne nommée : <strong>Nombre tota
 
 <h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">4.</font> Visualiser les données</h6>
 
-<p style="margin-left:40px">Nous connaissons maintenant le nombre de fois où chaque espèce a été vue. Avant de regarder les observations par espèces, nous vous proposons de regarder la répartition des observations dans l'année. A votre avis quel sera le résultat ? Quelle est la partie de l'année où il y a le plus d'observations ?</p>
+<p style="margin-left:40px">Nous connaissons maintenant le nombre de fois o&ugrave; chaque espèce a été vue. Avant de regarder les observations par espèces, nous vous proposons de regarder la répartition des observations dans l'année. A votre avis quel sera le résultat ? Quelle est la partie de l'année o&ugrave; il y a le plus d'observations ?</p>
 
 <p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenarioHelp5" aria-expanded="false" data-toggle="collapse" href="#collapsescenarioHelp5" role="button">&darr; Comment faire concrètement &darr;</a></p>
 
@@ -135,7 +135,6 @@ Titre de l'axe des X : <strong>Laisser vide</strong><br />
 Titre de l'axe des Y : <strong>Laisser vide</strong></p>
 
 <p>Enregistrez vos commentaires si vous en avez puis sélectionnez faire une analyse statistique.</p>
-
 </div>
 </div>
 
@@ -143,18 +142,15 @@ Titre de l'axe des Y : <strong>Laisser vide</strong></p>
 
 <div class="collapse" id="collapsescenarioRes1">
 <div class="card card-body">
-<p style="text-align:center"><img alt="" src="/media/edito/2020/03/26/representer-les-donnees-on-data-3.png" style="height:429px; width:600px" /></p>
+<p style="text-align:center"><img alt="" src="/media/edito/2020/04/15/oiseau-periode-frequence_1.png" style="height:500px; width:600px" /></p>
 </div>
 </div>
 
-<p style="margin-left:40px">Le protocole est d'avantage réalisé en hiver et les observations sont très rares en été (notamment à cause des vacances). Il y a plus d'observations à certaines périodes de l'année, il est donc possible que les variations de nombre d'observations  soient différentes du fait de ces différences de répartition. On remarque également qu'il n'y a qu'une seule ligne sur le graphique. En effet le nombre d'observations est le même pour toutes les espèces. Elle sont donc superposées. Il est cependant possible de savoir à quelle fréquence chaque espèce a été observée. Pour cela nous allons à nouveau manipuler les données.</p>
+<p style="margin-left:40px">Le protocole est d'avantage réalisé en hiver et les observations sont très rares en été (notamment à cause des vacances). Il y a plus d'observations à certaines périodes de l'année, il est donc possible que les variations de nombre d'observations soient différentes du fait de ces différences de répartition. On remarque également qu'il n'y a qu'une seule ligne sur le graphique. En effet le nombre d'observations est le même pour toutes les espèces. Elle sont donc superposées. Il est cependant possible de savoir à quelle fréquence chaque espèce a été observée. Pour cela nous allons à nouveau manipuler les données.</p>
 
 <h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">5.</font> Manipuler les données</h6>
 
-
-
 <p style="margin-left:40px">Pour obtenir un résultat qui ne soit pas biaisé par les différences de nombre de sessions d'observations, nous allons diviser le nombre d'observations de l'espèce par le nombre total d'observations. Pour réaliser ce calcul, vous pouvez utiliser l'outil opération sur des lignes puis entrer votre formule. Afin que la fréquence soit plus simple à interepréter, vous pouvez la multiplier par 100 pour qu'elle soit exprimée en pourcentage.</p>
-
 
 <p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenarioHelp6" aria-expanded="false" data-toggle="collapse" href="#collapsescenarioHelp6" role="button">&darr; Comment faire concrètement &darr;</a></p>
 
@@ -163,9 +159,9 @@ Titre de l'axe des Y : <strong>Laisser vide</strong></p>
 <p>Choisir l'outil : <strong>Opérations sur des lignes</strong></p>
 
 <p>Fichier d'entrée : <strong>Regrouper des lignes on data 3</strong><br />
-Voulez-vous ?  : <strong>écrire votre propre formule</strong><br />
+Voulez-vous ? : <strong>écrire votre propre formule</strong><br />
 Appliquer la formule suivante : <strong>c3 / c4 * 100</strong><br />
-et stocker le résultat dans une nouvelle colonne nommée  : <strong>Fréquence d'observation mensuelle</strong><br /></p>
+et stocker le résultat dans une nouvelle colonne nommée : <strong>Fréquence d'observation mensuelle</strong></p>
 
 <p>Enregistrez vos commentaires si vous en avez puis sélectionnez visualiser les données.</p>
 </div>
@@ -179,7 +175,6 @@ et stocker le résultat dans une nouvelle colonne nommée  : <strong>Fréquence 
 
 <div class="collapse" id="collapsescenarioHelp7">
 <div class="card card-body">
-
 <p>Choisir l'outil : <strong>Représenter les données</strong></p>
 
 <p>Fichier d'entrée : <strong>Opération sur des lignes on data 4</strong><br />
@@ -192,30 +187,26 @@ Ajouter des barres d'erreur à partir d'une colonne : (optionnel) : <strong>Lais
 Titre du graphique : <strong>Fréquence d'observation des mésanges en fonction de la période</strong><br />
 Titre de l'axe des X : <strong>Laisser vide</strong><br />
 Titre de l'axe des Y : <strong>Laisser vide</strong></p>
-
-
 </div>
 </div>
 
-<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1res2" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1res2" role="button">&darr; Voir le résultat &darr;</a></p>
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenarioRes2" aria-expanded="false" data-toggle="collapse" href="#collapsescenarioRes2" role="button">&darr; Voir le résultat &darr;</a></p>
 
-<div class="collapse" id="collapsescenario1res2">
+<div class="collapse" id="collapsescenarioRes2">
 <div class="card card-body">
-<p style="text-align:center"><img alt="" src="/media/edito/2020/03/26/representer-les-donnees-on-data-3.png" style="height:429px; width:600px" /></p>
+<p style="text-align:center"><img alt="" src="/media/edito/2020/04/15/oiseau-periode-frequence_3.png" style="height:500; width:600px" /></p>
 </div>
 </div>
 
 <p style="margin-left:40px">Quelles sont vos premières remarques ? Les espèces ont-elles les mêmes changements de fréquence au cours de l'année ?</p>
 
-<p style="margin-left:40px">On remarque que les mésanges charbonnières sont particulièrement présentes en hiver. Cette présence peut-être expliquée par leur présence sur les mangeoires. Le reste de l'année, les espèces de mésanges se comportent plutôt de la même manière. On remarque un pic de fréquentation de mésanges à longue queue en été. Toutefois, il faut se souvenir du premier graphique. Il y a très peu de données pendant les vacances. Vous pouvez aller voir dans les tableaux le nombre d'observation au mois de Juillet. Il est de 23 contre 463 en janvier. Les données sont donc moins fiables à cette période et le pic est sans doute lié au manque de données.</p>
-
-
+<p style="margin-left:40px">On remarque que les mésanges charbonnières sont particulièrement présentes en hiver. Cette présence peut-être expliquée par leur présence sur les mangeoires. Le reste de l'année, les espèces de mésanges se comportent plut&ocirc;t de la même manière. On remarque un pic de fréquentation de mésanges à longue queue en été. Toutefois, il faut se souvenir du premier graphique. Il y a très peu de données pendant les vacances. Vous pouvez aller voir dans les tableaux le nombre d'observation au mois de Juillet. Il est de 23 contre 463 en janvier. Les données sont donc moins fiables à cette période et le pic est sans doute lié au manque de données.</p>
 
 <h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">7.</font> Conclusion</h6>
 
 <p style="margin-left:40px">On peut donc conclure que les mésanges charbonnières et bleues sont les plus fréquentes en hiver. Sans doute car elles visitent les mangeoires et que les autres espèces sont moins visibles toute l'année.</p>
 
-<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">7.</font> Rapport</h6>
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">8.</font> Rapport</h6>
 
 <p style="margin-left:40px">Vous pouvez maintenant télécharger votre rapport au format pdf</p>
 
