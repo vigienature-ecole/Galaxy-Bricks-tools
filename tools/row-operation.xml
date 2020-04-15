@@ -135,11 +135,6 @@
 
         1. Données d'entrée :
 
-        Fissure	Pelouse	Pied d'arbre
-        1        0        0
-        1        1        1
-        0        1        1
-
         .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-simple-in.jpg
 
         .. class:: titre2-aide
@@ -206,11 +201,6 @@
 
         1. Données d’entrée
 
-        Nombre de Mésanges Nombre d'oiseaux
-        2                    4
-        2                    8
-        10                   15
-
         .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-formula-1-in.jpg
 
         .. class:: titre2-aide
@@ -233,11 +223,6 @@
 
         3. Résultat
 
-        Nombre de Mésanges Nombre d'oiseaux    Proportion de Mésanges
-        2                    4                    0.5
-        2                    8                    0.25
-        10                   15                   0.7
-
         .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-formula-1-out.jpg
 
         .. class:: titre1-aide
@@ -251,11 +236,6 @@
         .. class:: titre2-aide
 
         1. Données d’entrée
-
-        Nombre de Mésanges Nombre d'oiseaux    Proportion de Mésanges
-        2                    4                    0.5
-        2                    8                    0.25
-        10                   15                   0.7
 
         .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-formula-2-in.jpg
 
@@ -278,12 +258,6 @@
         .. class:: titre2-aide
 
         3. Résultat
-
-        Nombre de Mésanges Nombre d'oiseaux    Proportion de Mésanges  Logarithme népérien
-                                                                          de la proportion
-        2                    4                    0.5                     -0.69
-        2                    8                    0.25                    -1.39
-        10                   15                   0.7                     -0.36
 
         .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-formula-2-out.jpg
 
