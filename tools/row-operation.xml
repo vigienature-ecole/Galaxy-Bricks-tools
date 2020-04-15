@@ -140,7 +140,7 @@
         1        1        1
         0        1        1
 
-        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-simple-in.jpg
 
         .. class:: titre2-aide
 
@@ -186,12 +186,7 @@
 
         3. Résultat :
 
-        Fissure	Pelouse	Pied d'arbre  Résultat
-        1        0        0             1
-        1        1        1             3
-        0        1        1             2
-
-        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/lubridate_convert-out.jpg
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-simple-out.jpg
 
         .. class:: titre1-aide
 
@@ -216,7 +211,7 @@
         2                    8
         10                   15
 
-        .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation1.jpg
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-formula-1-in.jpg
 
         .. class:: titre2-aide
 
@@ -243,7 +238,7 @@
         2                    8                    0.25
         10                   15                   0.7
 
-        .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation2.jpg
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-formula-1-out.jpg
 
         .. class:: titre1-aide
 
@@ -262,7 +257,7 @@
         2                    8                    0.25
         10                   15                   0.7
 
-        .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation1.jpg
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-formula-2-in.jpg
 
         .. class:: titre2-aide
 
@@ -290,7 +285,7 @@
         2                    8                    0.25                    -1.39
         10                   15                   0.7                     -0.36
 
-        .. image:: http://formation.vigienature-ecole.fr/bricks/help/rowoperation3.jpg
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/row-operation-formula-2-out.jpg
 
     ]]></help>
 </tool>
