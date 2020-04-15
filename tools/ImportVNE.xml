@@ -31,25 +31,37 @@
 
         Vous pouvez importer des données depuis les bases Vigie-Nature École grâce à cet outil.
 
+        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logoVNE.png
+
         .. class:: titre1-aide
 
         Utiliser cet outil
 
         Il vous suffit de choisir l’observatoire qui vous intéresse. Si vous souhaitez avoir des informations sur les protocoles, cliquez sur les liens ci-dessous.
 
+        .. class:: titre2-aide
 
-        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logoVNE.png
+        Pour les données sur les oiseaux :
 
         https://bricks.vigienature-ecole.fr/explorer/explorer-oiseaux/
 
+        .. class:: titre2-aide
+
+        Pour les données sur les escargots :
+
         https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/
+
+        .. class:: titre2-aide
+
+        Pour les données sur les vers de terre :
 
         https://bricks.vigienature-ecole.fr/explorer/explorer-vdt/
 
+        .. class:: titre2-aide
+
+        Pour les données sur les plantes sauvages :
+
         https://bricks.vigienature-ecole.fr/explorer/explorer-sauvages/
-
-
-
 
     ]]></help>
 </tool>
