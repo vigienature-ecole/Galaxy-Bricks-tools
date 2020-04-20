@@ -29,7 +29,7 @@ if (multiple) {
     " ~ " ,
     paste(colnames(input)[varExpl], collapse = ' + '))
   )
-  
+
 } else {
   formulaMod <- as.formula(paste(colnames(input)[as.numeric(args[2])]," ~ " , colnames(input)[as.numeric(args[3])]))
 }
@@ -54,7 +54,7 @@ test <- function (x){
   effet
 }
 
-if (nrow(results[[1]]) > 1) {
+#if (nrow(results[[1]]) > 1) {
   explanation <- c()
   for (i in 1:(nrow(results[[1]]) - 1))
     explanation <- c(explanation, paste0("La variable ", rownames(results[[1]])[i], test(results[[1]]$`Pr(>F)`[i]),
@@ -66,10 +66,10 @@ if (nrow(results[[1]]) > 1) {
     fileConn<-file("mod-summary.txt")
     writeLines(explanation, fileConn)
     close(fileConn)
-} else {
+#} else {
   # Output 1 and 2
-  capture.output(results, file="mod-summary.txt")
-}
+#  capture.output(results, file="mod-summary.txt")
+#}
 
 # if (multiple == FALSE){
 #   mappingCoord = ggplot2::aes_string(x = names(input)[as.numeric(args[3])],
