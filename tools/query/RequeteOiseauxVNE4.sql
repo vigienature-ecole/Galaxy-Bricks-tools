@@ -53,3 +53,5 @@ observations.protocolefk = 1
 --and groupes.anneescol = '2019'
 --AND dico_etablissements.zipcode LIKE '93%'
 --and observations_abondances.abondance > 0
+
+ORDER BY Num_observation

@@ -2,7 +2,7 @@
 
 args = commandArgs(trailingOnly=TRUE)
 
-#args <- c("Sauvages_de_ma_rue", "tools/query/RequeteVdtVNE4.sql", "tools/query/RequeteOiseauxVNE4.sql", "tools/query/RequeteEscargotsVNE4.sql", "tools/query/RequeteSauvagesVNE4.sql")
+#args <- c("Oiseaux_des_jardins", "tools/query/RequeteVdtVNE4.sql", "tools/query/RequeteOiseauxVNE4.sql", "tools/query/RequeteEscargotsVNE4.sql", "tools/query/RequeteSauvagesVNE4.sql")
 
 # import package
 require(RPostgreSQL, quietly = TRUE)

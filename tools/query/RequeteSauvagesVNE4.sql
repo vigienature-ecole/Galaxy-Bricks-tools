@@ -33,3 +33,5 @@ WHERE
 observations.protocolefk = 5
 --and groupes.anneescol = '2019'
 --AND dico_etablissements.zipcode LIKE '93%'
+
+ORDER BY Num_observation
