@@ -1,6 +1,9 @@
 <tool id="anova" name="Comparaison de moyennes">
     <requirements>
         <requirement type="package" version="1.11.4">r-data.table</requirement>
+        <requirement type="package" version="0.8.0.1">r-dplyr</requirement>
+        <requirement type="package" version="3.0.0">r-ggplot2</requirement>
+        <requirement type="package" version="1.4_8">r-multcomp</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/anova.R' '$input' '$dependantVar' '$explanatoryVar'
@@ -12,7 +15,7 @@
         <param name="dependantVar" label="a un effet sur la variable à expliquer (Y)" type="data_column" data_ref="input" numerical="True" help="Choisissez une variable quantitative"/>
     </inputs>
     <outputs>
-        <data format="txt" name="output" from_work_dir="mod-summary.txt" />
+        <data format="png" name="output" from_work_dir="output.png" />
     </outputs>
     <tests>
         <test>
