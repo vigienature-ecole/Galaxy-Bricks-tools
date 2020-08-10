@@ -5,6 +5,7 @@
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
 #args = c("tools/test-data/irisPlus.tabular", "garder", "6", "superieuresOuEgalesA", "laColonne", "1")
+#args = c("~/Downloads/VigieNature-Ecole_Especes_Occ.csv", "garder", "166", "superieuresOuEgalesA", "laColonne", "2")
 
 # import package
 library(data.table, quietly = TRUE) # for data import
@@ -37,9 +38,9 @@ if (wholeLine == "laColonne"){
     } else if (filterType == "exactementEgaleA"){
       result <- dplyr::filter(input, input[ ,columnsNumber] == filterParameter)
     } else if (filterType == "superieuresOuEgalesA"){
-      result <- dplyr::filter(input, input[ ,columnsNumber] >= filterParameter)
+      result <- dplyr::filter(input, input[ ,columnsNumber] >= as.numeric(filterParameter))
     } else if (filterType == "inferieuresOuEgalesA"){
-      result <- dplyr::filter(input, input[ ,columnsNumber] <= filterParameter)
+      result <- dplyr::filter(input, input[ ,columnsNumber] <= as.numeric(filterParameter))
     }
   } else {
     if(filterType == "egaleA"){
