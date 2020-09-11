@@ -3,6 +3,8 @@
 args = commandArgs(trailingOnly=TRUE)
 
 #args <- c("Oiseaux_des_jardins", "tools/query/RequeteVdtVNE4.sql", "tools/query/RequeteOiseauxVNE4.sql", "tools/query/RequeteEscargotsVNE4.sql", "tools/query/RequeteSauvagesVNE4.sql")
+args <- c("Sauvages_de_ma_rue", "tools/query/RequeteVdtVNE4.sql", "tools/query/RequeteOiseauxVNE4.sql", "tools/query/RequeteEscargotsVNE4.sql", "tools/query/RequeteSauvagesVNE4.sql")
+
 
 # import package
 require(RPostgreSQL, quietly = TRUE)
@@ -88,12 +90,12 @@ parseJSONLabelValue <- function (df, var) {
   as.data.frame(flattenData)
 }
 
-if (args[1] == "Sauvages_de_ma_rue"){
-  cleaned_df <- df_VNE[!is.na(df_VNE$environnement), ]
-  parsedCol <- parseJSONLabelValue(cleaned_df, "environnement")
-  df_VNE <- dplyr::bind_cols(cleaned_df, parsedCol)
-  df_VNE$environnement <- NULL
-}
+# if (args[1] == "Sauvages_de_ma_rue"){
+#   cleaned_df <- df_VNE[!is.na(df_VNE$environnement), ]
+#   parsedCol <- parseJSONLabelValue(cleaned_df, "environnement")
+#   df_VNE <- dplyr::bind_cols(cleaned_df, parsedCol)
+#   df_VNE$environnement <- NULL
+# }
 
 if (args[1] == "Operation_escargots") df_VNE <- na.omit(df_VNE)
 if ("composition_zone" %in% colnames(df_VNE)){
