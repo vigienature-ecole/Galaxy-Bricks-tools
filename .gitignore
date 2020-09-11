@@ -5,3 +5,4 @@ tools/.venv/
 .Rproj.user
 *.Rproj
 .Rhistory
+planemo/
