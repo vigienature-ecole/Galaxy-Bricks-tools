@@ -1,5 +1,5 @@
 SELECT DISTINCT
-   observations.observationpk AS Numero_observation,
+   observations.observationpk AS Num_observation,
    observations.date AS Date_observation,
    dico_structures.zipcode AS Code_postal_etablissement,
    dico_structures.city AS Ville_etablissement,
