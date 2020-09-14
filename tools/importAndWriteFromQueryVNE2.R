@@ -18,23 +18,23 @@ library(jsonlite)
 getSQL <- function(filepath){
   con = file(filepath, "r")
   sql.string <- ""
-
+  
   while (TRUE){
     line <- readLines(con, n = 1)
-
+    
     if ( length(line) == 0 ){
       break
     }
-
+    
     line <- gsub("\\t", " ", line)
-
+    
     if(grepl("--",line) == TRUE){
       line <- paste(sub("--","/*",line),"*/")
     }
-
+    
     sql.string <- paste(sql.string, line)
   }
-
+  
   close(con)
   return(sql.string)
 }
@@ -90,19 +90,21 @@ parseJSONLabelValue <- function (df, var) {
   as.data.frame(flattenData)
 }
 
-# if (args[1] == "Sauvages_de_ma_rue"){
-#   cleaned_df <- df_VNE[!is.na(df_VNE$environnement), ]
-#   parsedCol <- parseJSONLabelValue(cleaned_df, "environnement")
-#   df_VNE <- dplyr::bind_cols(cleaned_df, parsedCol)
-#   df_VNE$environnement <- NULL
-# }
+if (args[1] == "Sauvages_de_ma_rue"){
+  #   cleaned_df <- df_VNE[!is.na(df_VNE$environnement), ]
+  #   parsedCol <- parseJSONLabelValue(cleaned_df, "environnement")
+  #   df_VNE <- dplyr::bind_cols(cleaned_df, parsedCol)
+  df_VNE$environnement <- NULL
+}
+
+
 
 if (args[1] == "Operation_escargots") df_VNE <- na.omit(df_VNE)
 if ("composition_zone" %in% colnames(df_VNE)){
   # lecture du JSON
   
   compositionData_num <- parseJSONLabelValue(df_VNE, "composition_zone")
-
+  
   # listes
   artif <- c(
     "Haie de laurier",
@@ -116,7 +118,7 @@ if ("composition_zone" %in% colnames(df_VNE)){
     "Lavande",
     "Haies (sauf thuyas ou laurier cerise)"
   )
-
+  
   spontane <- c(
     "Trèfles, lotiers et luzernes",
     "Orties",
@@ -125,18 +127,18 @@ if ("composition_zone" %in% colnames(df_VNE)){
     "Pelouse tondue",
     "Espaces non entretenus (friches, espaces naturels)"
   )
-
+  
   naturalite <- c(
     "Orties",
     "Ronces",
     "Lierre",
     "Espaces non entretenus (friches, espaces naturels)"
   )
-
+  
   df_VNE$elements_artificiels <- rowSums(compositionData_num[ , artif])
   df_VNE$elements_spontanes <- rowSums(compositionData_num[ , spontane])
   df_VNE$naturalite <- rowSums(compositionData_num[ , naturalite])
-
+  
   df_VNE$composition_zone <- NULL
 }
 
