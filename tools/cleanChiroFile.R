@@ -12,11 +12,28 @@ input = data.frame(data.table::fread(args[1]))
 
 # Import species data
 correspChiro <- fread(args[2], encoding = "Latin-1")
+
 # Remove unnecessary columns from corresp Chiro
 correspChiro <- correspChiro %>%
   rename(tadarida_taxon = Esp, Nom_Scientifique = `Scientific name`,
          Nom_Espece = NomFR, Nom_Groupe = GroupFR) %>%
   select(tadarida_taxon, Nom_Scientifique, Nom_Espece, Nom_Groupe)
+
+correspChiro <- as.data.frame(correspChiro)
+
+colnames <- colnames(correspChiro)
+colnames <- gsub("è","e",colnames)
+colnames <- gsub("é","e",colnames)
+colnames(correspChiro) <- colnames
+
+for (i in 1:ncol(correspChiro)){
+  correspChiro[ ,i] <- gsub("è","e",correspChiro[ ,i])
+  correspChiro[ ,i] <- gsub("é","e",correspChiro[ ,i])
+  correspChiro[ ,i] <- gsub("à","a",correspChiro[ ,i])
+  correspChiro[ ,i] <- gsub("|","",correspChiro[ ,i], fixed = TRUE)
+  correspChiro[ ,i] <- gsub("<","",correspChiro[ ,i])
+  correspChiro[ ,i] <- gsub(">","",correspChiro[ ,i])
+}
 
 # Import data
 dataChiro <- fread(args[1])
