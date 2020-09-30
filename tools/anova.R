@@ -18,7 +18,8 @@ library(multcomp)
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
-#args = c("tools/test-data/irisPlus.tabular", "4", "5")
+# args = c("tools/test-data/irisPlus.tabular", "4", "5")
+# args = c("../../Downloads/Résumer des données on data 1.csv", "3", "2")
 
 # import input file (tabular or csv)
 input = data.frame(data.table::fread(args[1]))
@@ -27,6 +28,10 @@ varDepName <- colnames(input)[as.numeric(args[2])]
 
 varExpl <- as.numeric(unlist(strsplit(args[3], ",")))
 varExplNames <- colnames(input)[varExpl]
+
+
+# clean dataset
+input = input[!input[ ,varExplNames] == "", ]
 
 # transform value to factors
 input[varExplNames] <- lapply(input[varExplNames], factor)
