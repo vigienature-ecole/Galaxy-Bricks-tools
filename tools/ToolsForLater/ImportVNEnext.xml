@@ -1,0 +1,63 @@
+<tool id="ImportVNE" name="Données Vigie-Nature Ecole">
+    <description>Importer des données depuis la base de données VNE</description>
+    <requirements>
+        <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/importFromServer.R' '$observatoire'
+        '$output'
+        ]]>
+    </command>
+    <inputs>
+        <param name="observatoire" type="select" label="Choisissez votre observatoire" multiple="false">
+            <option value="Vers_de_terre">Placettes à vers de terre</option>
+            <option value="Oiseaux_des_jardins">Oiseaux des jardins</option>
+            <option value="Operation_escargots">Opération escargots</option>
+            <option value="Sauvages_de_ma_rue">Sauvages de ma rue</option>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="csv" name="output" from_work_dir="output-importVNE.csv" label="Données_VNE_${observatoire}.csv"/>
+    </outputs>
+    <help><![CDATA[
+
+        .. class:: titre1-aide
+
+        A quoi sert cet outil ?
+
+        Vous pouvez importer des données depuis les bases Vigie-Nature École grâce à cet outil.
+
+        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logoVNE.png
+
+        .. class:: titre1-aide
+
+        Utiliser cet outil
+
+        Il vous suffit de choisir l’observatoire qui vous intéresse. Si vous souhaitez avoir des informations sur les protocoles, cliquez sur les liens ci-dessous.
+
+        .. class:: titre2-aide
+
+        Pour les données sur les oiseaux :
+
+        https://bricks.vigienature-ecole.fr/explorer/explorer-oiseaux/
+
+        .. class:: titre2-aide
+
+        Pour les données sur les escargots :
+
+        https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/
+
+        .. class:: titre2-aide
+
+        Pour les données sur les vers de terre :
+
+        https://bricks.vigienature-ecole.fr/explorer/explorer-vdt/
+
+        .. class:: titre2-aide
+
+        Pour les données sur les plantes sauvages :
+
+        https://bricks.vigienature-ecole.fr/explorer/explorer-sauvages/
+
+    ]]></help>
+</tool>
