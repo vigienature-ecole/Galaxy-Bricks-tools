@@ -15,6 +15,8 @@
 args = commandArgs(trailingOnly=TRUE)
 #args = c("tools/test-data/irisPlus.tabular", "1","2")
 #args = c("tools/test-data/irisPlus.tabular", "1,3","2")
+#args = c("~/Downloads/Galaxy8-[R_sumer_des_donn_es_on_data_1].csv", "2","1")
+
 
 # import input file (tabular or csv)
 input = data.frame(data.table::fread(args[1]))
@@ -43,6 +45,9 @@ results <- summary(res)
 
 # predict to add values to plot
 trend <- predict(res, interval = "confidence")
+
+#remove NA to predic
+input <- input[!is.na(input[ , as.numeric(args[3])]), ]
 datlm = cbind(input, trend)
 
 test <- function (x){
