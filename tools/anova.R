@@ -130,7 +130,7 @@ graphRes <- function(input, varExplNames, varDepName){
   
   plot + labs(caption = resTuckey) + 
           theme(
-            plot.caption = element_text(hjust = 0, size = 12)
+            plot.caption = element_text(hjust = 1, size = 12)
           )
 }
 
