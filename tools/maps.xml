@@ -1,0 +1,63 @@
+<tool id="maps" name="Représenter les données cartographiques">
+    <requirements>
+        <requirement type="package" version="0.9_6">r-sf</requirement>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
+        <requirement type="package" version="3.3.2">r-ggplot2</requirement>
+        <requirement type="package" version="1.0.2">r-dplyr</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/maps.R' 
+        '$input'
+        '$geom'
+        '$variable'
+        '$__tool_directory__/data/maps/departements-version-simplifiee.geojson'
+        '$__tool_directory__/data/maps/regions-version-simplifiee.geojson'
+        '$__tool_directory__/data/maps/metropole-version-simplifiee.geojson'
+        
+        '$output1' ]]>
+    </command>
+    <inputs>
+        <param format="csv" name="input" type="data" label="Fichier d'entrée" />
+        <param name="geom" type="select" label="Type de données géographique" multiple="False">
+            <option value="departements">departements</option>
+            <option value="regions">regions</option>
+            <option value="point">point</option>
+        </param>
+        <param name="variable" label="Variable à représenter" type="data_column" data_ref="input" numerical="False"/>
+    </inputs>
+    <outputs>
+        <data format="png" name="output1" from_work_dir="carte.png" />
+    </outputs>
+    <help><![CDATA[
+
+        .. class:: titre1-aide
+
+        A quoi sert cet outil ?
+
+        Cet outil permet de réaliser une représentation graphique des données .
+
+        .. class:: titre1-aide
+
+        Utiliser cet outil
+
+        .. class:: titre2-aide
+
+        1. Procédure
+
+        Il faut choisir le jeu de données (données brutes).
+        Puis choisir les variables à représenter
+
+        1. La variable en ordonnée (X)
+        2. La variable en abscisse (Y)
+
+        Puis choisir le type de représentation entre un diagramme en barres, un nuage de points, des lignes, des boîtes de dispersion...
+
+        .. class:: titre2-aide
+
+        2. Résultat
+
+        Vous obtiendrez alors un graphique.
+
+
+    ]]></help>
+</tool>
