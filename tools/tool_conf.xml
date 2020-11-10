@@ -16,6 +16,7 @@
     <tool file="select-columns.xml" />
     <tool file="sort.xml" />
     <tool file="cleanChiroFile.xml" />
+    <tool file="maps.xml" />
   </section>
   <section id="3vis" name="4. Visualisation">
     <tool file="ggplotLite.xml" />
