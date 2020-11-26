@@ -53,7 +53,7 @@ png("carte.png")
 par(mar = c(0,0,0,0))
 # plot data
 if (geom != "points"){
-  ggplot(geo, aes_string(fill = colnames(data_file_geo)[2])) +
+  ggplot(geo, aes_string(fill = colnames(data_file_geo)[variable])) +
     geom_sf(data = geo)+
     theme_bw()
 } else {
