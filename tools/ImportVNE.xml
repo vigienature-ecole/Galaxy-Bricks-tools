@@ -1,14 +1,10 @@
 <tool id="ImportVNE" name="Données Vigie-Nature Ecole">
     <description>Importer des données depuis la base de données VNE</description>
     <requirements>
-        <requirement type="package" version="0.6_2">r-rpostgresql</requirement>
-        <requirement type="package" version="1.3.1">r-stringr</requirement>
-        <requirement type="package" version="0.8.0.1">r-dplyr</requirement>
-        <requirement type="package" version="1.6">r-jsonlite</requirement>
+        <requirement type="package" version="1.95_4.12">r-rcurl</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/importAndWriteFromQueryVNE2.R' '$observatoire' '$__tool_directory__/query/RequeteVdtVNE4.sql' '$__tool_directory__/query/RequeteOiseauxVNE4.sql' '$__tool_directory__/query/RequeteEscargotsVNE4.sql'
-        '$__tool_directory__/query/RequeteSauvagesVNE4.sql' '$__tool_directory__/query/RequeteVdt.sql' '$__tool_directory__/query/RequeteOiseaux.sql' '$__tool_directory__/query/RequeteEscargots.sql' '$__tool_directory__/query/RequeteSauvages.sql'
+        Rscript '$__tool_directory__/import_from_depot.R' '$observatoire' 
         '$output'
         ]]>
     </command>
@@ -18,6 +14,7 @@
             <option value="Oiseaux_des_jardins">Oiseaux des jardins</option>
             <option value="Operation_escargots">Opération escargots</option>
             <option value="Sauvages_de_ma_rue">Sauvages de ma rue</option>
+	    <option value="INPN"> INPN</option>    
         </param>
     </inputs>
     <outputs>
