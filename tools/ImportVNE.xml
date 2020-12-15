@@ -1,11 +1,11 @@
 <tool id="ImportVNE" name="Données Vigie-Nature Ecole">
     <description>Importer des données depuis la base de données VNE</description>
     <requirements>
-        <requirement type="package" version="1.1.5">pandas</requirement>
-        <requirement type="package" version="1.4.0">argparse</requirement>
+        <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-python3 '$__tool_directory__/import_from_depot.py' --observatory '$observatoire'
+        Rscript '$__tool_directory__/importFromServer.R' '$observatoire'
+        '$output'
         ]]>
     </command>
     <inputs>
@@ -14,9 +14,6 @@ python3 '$__tool_directory__/import_from_depot.py' --observatory '$observatoire'
             <option value="Oiseaux_des_jardins">Oiseaux des jardins</option>
             <option value="Operation_escargots">Opération escargots</option>
             <option value="Sauvages_de_ma_rue">Sauvages de ma rue</option>
-	    <option value="INPN"> INPN</option>
-	    <option value="INPN_Gasteropodes"> INPN Gasteropodes</option>
-            <option value="INPN_Ropaloceres"> INPN Ropaloceres</option>
         </param>
     </inputs>
     <outputs>

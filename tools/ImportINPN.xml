@@ -1,0 +1,57 @@
+<tool id="ImportINPN" name="Données de l'Inventaire National du Patrimoine Naturel">
+    <description>Importer des données depuis l'Inventaire National du Patrimoine Naturel</description>
+    <requirements>
+        <requirement type="package" version="1.1.5">pandas</requirement>
+        <requirement type="package" version="1.4.0">argparse</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+python3 '$__tool_directory__/import_from_depot.py' --observatory '$observatoire'
+        ]]>
+    </command>
+    <inputs>
+        <param name="observatoire" type="select" label="Choisissez les données de l'Inventaire National du Patrimoine Naturel que vous souhaitez importer" multiple="false">
+            <option value="INPN"> Les données agrégées pour tout type d'organismes</option>
+	          <option value="INPN_Gasteropodes"> Les données complètes escargots et limaces (Gasteropodes)</option>
+            <option value="INPN_Ropaloceres"> Les données complètes pappillons (Ropaloceres)</option>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="csv" name="output" from_work_dir="output-importVNE.csv" label="Données_${observatoire}.csv"/>
+    </outputs>
+    <help><![CDATA[
+
+        .. class:: titre1-aide
+
+        A quoi sert cet outil ?
+
+        Vous pouvez importer des données de l'Inventaire National du Patrimoine Naturel grâce à cet outil.
+
+        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logo_inpn.png
+
+        .. class:: titre1-aide
+
+        Utiliser cet outil
+
+        Il vous suffit de choisir les données qui vous intéresse. Si vous souhaitez avoir des informations sur les protocoles, cliquez sur les liens ci-dessous.
+
+        .. class:: titre2-aide
+
+        Les données agrégées pour tout type d'organismes :
+
+        https://bricks.vigienature-ecole.fr/explorer/explorer-oiseaux/
+
+        .. class:: titre2-aide
+
+        Les données complètes escargots et limaces (Gasteropodes) :
+
+        https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/
+
+        .. class:: titre2-aide
+
+        Les données complètes pappillons (Ropaloceres) :
+
+        https://bricks.vigienature-ecole.fr/explorer/explorer-vdt/
+
+
+    ]]></help>
+</tool>

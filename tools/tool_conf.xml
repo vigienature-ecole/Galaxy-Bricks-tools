@@ -3,6 +3,7 @@
   <section id="1getext" name="2. Importer des donnees">
     <tool file="data_source/upload.xml" />
     <tool file="ImportVNE.xml" />
+    <tool file="ImportINPN.xml" />
   </section>
   <section id="2manip" name="3. Manipuler les donnees">
     <tool file="row-operation.xml" />
