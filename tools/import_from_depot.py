@@ -7,7 +7,7 @@ import pandas as pd
 parser = argparse.ArgumentParser(description = 'get data from VNE database')
 
 parser.add_argument('-o','--observatory', required=True, dest='observatory',
-metavar = "observatory.txt", type = str, 
+type = str, 
 help = 'observatory name')
 
 args = parser.parse_args()
