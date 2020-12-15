@@ -1,4 +1,4 @@
-<tool id="ImportVNE" name="Données Vigie-Nature Ecole">
+<tool id="ImportVNE_" name="Données Vigie-Nature Ecole">
     <description>Importer des données depuis la base de données VNE</description>
     <requirements>
         <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
