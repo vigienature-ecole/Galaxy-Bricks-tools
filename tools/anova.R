@@ -20,6 +20,8 @@ library(multcomp)
 args = commandArgs(trailingOnly=TRUE)
 # args = c("tools/test-data/irisPlus.tabular", "4", "5")
 # args = c("../../Downloads/Résumer des données on data 1.csv", "3", "2")
+ args = c("../../Downloads/Données_INPN.csv.csv", "24", "17")
+
 
 # import input file (tabular or csv)
 input = data.frame(data.table::fread(args[1]))
@@ -77,7 +79,9 @@ graphRes <- function(input, varExplNames, varDepName){
   # Prepare Graph
   indicateurMeanMax <- input %>%
     group_by_at(varExplNames) %>%
-    summarise_at(vars(varDepName), list(mean = mean, max = max, IC = function (x) {1.96 * sd(x)/sqrt(length(x))})) %>%
+    summarise_at(vars(varDepName), list(mean = function(x) mean(x, na.rm = TRUE), 
+                                        max = function(x) max(x, na.rm = TRUE), 
+                                        IC = function (x) {1.96 * sd(x, na.rm = TRUE)/sqrt(length(na.omit(x)))})) %>%
     mutate(ICmin = mean - IC,
            ICmax = mean + IC)
   
