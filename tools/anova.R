@@ -20,7 +20,7 @@ library(multcomp)
 args = commandArgs(trailingOnly=TRUE)
 # args = c("tools/test-data/irisPlus.tabular", "4", "5")
 # args = c("../../Downloads/Résumer des données on data 1.csv", "3", "2")
- args = c("../../Downloads/Données_INPN.csv.csv", "24", "17")
+# args = c("../../Downloads/Données_INPN.csv.csv", "24", "17")
 
 
 # import input file (tabular or csv)
@@ -141,5 +141,5 @@ graphRes <- function(input, varExplNames, varDepName){
 
 plot_out <- graphRes(input, varExplNames = varExplNames, varDepName = varDepName)
 
-suppressMessages(ggplot2::ggsave(filename = "output.png", plot = plot_out, device = "png", width = 7, height = 6))
+suppressMessages(ggplot2::ggsave(filename = "output.png", plot = plot_out, device = "png", width = 10, height = 6))
 
