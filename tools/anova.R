@@ -117,7 +117,7 @@ graphRes <- function(input, varExplNames, varDepName){
     for (i in 1:length(letterGroup)){
       positionLetters = grep(pattern = letterGroup[i], vectorLetter)
       if (length(positionLetters) > 1){
-        resTuckey <- paste(resTuckey, "Les moyennes ne sont significativement pas differente pour les catégories :", paste(names(vectorLetter[positionLetters]),"\n", collapse = ", "))
+        resTuckey <- paste(resTuckey, "Les moyennes ne sont significativement pas différente pour les catégories :", paste(names(vectorLetter[positionLetters]),"\n", collapse = ", "))
       } else {
         resTuckey <- paste(resTuckey, "La catégorie", names(vectorLetter[positionLetters]), "est significativement différente de toutes les autres \n")
       }
