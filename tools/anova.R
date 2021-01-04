@@ -141,5 +141,5 @@ graphRes <- function(input, varExplNames, varDepName){
 
 plot_out <- graphRes(input, varExplNames = varExplNames, varDepName = varDepName)
 
-suppressMessages(ggplot2::ggsave(filename = "output.png", plot = plot_out, device = "png", width = 10, height = 6))
+suppressMessages(ggplot2::ggsave(filename = "output.png", plot = plot_out, device = "png", width = 9, height = 6))
 
