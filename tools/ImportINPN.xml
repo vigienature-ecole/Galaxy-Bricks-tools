@@ -1,11 +1,10 @@
 <tool id="ImportINPN" name="Données de l'Inventaire National du Patrimoine Naturel">
     <description>Importer des données depuis l'Inventaire National du Patrimoine Naturel</description>
     <requirements>
-        <requirement type="package" version="1.1.5">pandas</requirement>
-        <requirement type="package" version="1.4.0">argparse</requirement>
+        <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-      Rscript '$__tool_directory__/import_from_depot.R' '$observatoire'
+      Rscript '$__tool_directory__/import_from_depot.R' '$observatoire' '$precision'
       '$output'
         ]]>
     </command>
