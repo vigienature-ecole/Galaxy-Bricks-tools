@@ -15,8 +15,8 @@ library(ggplot2)
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
-#args = c("tools/test-data/irisPlus.tabular", "1","2")
-#args = c("tools/test-data/irisPlus.tabular", "1,3","2")
+# args = c("tools/test-data/irisPlus.tabular", "1","2")
+# args = c("tools/test-data/irisPlus.tabular", "1,3","2")
 # args = c("~/Downloads/Données_INPN.csv.csv", "24","9")
 
 
@@ -35,7 +35,7 @@ if (multiple) {
     " ~ " ,
     paste(colnames(input)[varExpl], collapse = ' + '))
   )
-  
+
 } else {
   formulaMod <- as.formula(paste(colnames(input)[as.numeric(args[2])]," ~ " , colnames(input)[as.numeric(args[3])]))
 }
@@ -95,8 +95,8 @@ if (multiple == FALSE){
     ggplot2::theme(axis.text = ggplot2::element_text(size=12),
                    axis.title = ggplot2::element_text(size=16),
                    strip.text.x = ggplot2::element_text(size = 14))
-  
-  plot_out <- plot_out + labs(caption = paste(explanation, collapse = "\n")) + 
+
+  plot_out <- plot_out + labs(caption = paste(explanation, collapse = "\n")) +
     theme(
       plot.caption = element_text(hjust = 1, size = 12)
     )
@@ -108,4 +108,3 @@ if (multiple == FALSE){
   text(.5,.5,"Représentation graphique impossible car\n il y a trop de variables explicatives,\n l'ensemble des résultats\n est dans le deuxième fichier")
   suppressMessages(dev.off())
 }
-
