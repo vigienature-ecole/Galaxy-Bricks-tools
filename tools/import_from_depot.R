@@ -10,7 +10,11 @@ if (args[1] == "Vers_de_terre"){
 } else if(args[1] == "Sauvages_de_ma_rue"){
   file <- "sauvages.csv"
 } else if (args[1] == "INPN"){
-  file <- "INPN.csv"
+  file <- "DataINPN.csv"
+} else if (args[1] == "INPN_Gasteropodes"){
+  file <- "Gasteropodes.csv"
+} else if (args[1] == "INPN_Rhopaloceres"){
+  file <- "Rhopaloceres.csv"
 }
 
 # get data set
@@ -19,7 +23,9 @@ data_VNE <- read.csv(text = URL_data_VNE, encoding = 'UTF-8')
 # write file
 write.csv(data_VNE, "output-importVNE.csv", row.names = FALSE)
 
+if (args[2] == "saisons"){
 
+}
 
 
 # parseJSONLabelValue <- function (df, var) {
@@ -48,9 +54,9 @@ write.csv(data_VNE, "output-importVNE.csv", row.names = FALSE)
 # if (args[1] == "Operation_escargots") data_VNE <- na.omit(data_VNE)
 # if ("composition_zone" %in% colnames(data_VNE)){
 #   # lecture du JSON
-#   
+#
 #   compositionData_num <- parseJSONLabelValue(data_VNE, "composition_zone")
-#   
+#
 #   # listes
 #   artif <- c(
 #     "Haie de laurier",
@@ -64,7 +70,7 @@ write.csv(data_VNE, "output-importVNE.csv", row.names = FALSE)
 #     "Lavande",
 #     "Haies (sauf thuyas ou laurier cerise)"
 #   )
-#   
+#
 #   spontane <- c(
 #     "Trèfles, lotiers et luzernes",
 #     "Orties",
@@ -73,20 +79,17 @@ write.csv(data_VNE, "output-importVNE.csv", row.names = FALSE)
 #     "Pelouse tondue",
 #     "Espaces non entretenus (friches, espaces naturels)"
 #   )
-#   
+#
 #   naturalite <- c(
 #     "Orties",
 #     "Ronces",
 #     "Lierre",
 #     "Espaces non entretenus (friches, espaces naturels)"
 #   )
-#   
+#
 #   data_VNE$elements_artificiels <- rowSums(compositionData_num[ , artif])
 #   data_VNE$elements_spontanes <- rowSums(compositionData_num[ , spontane])
 #   data_VNE$naturalite <- rowSums(compositionData_num[ , naturalite])
-#   
+#
 #   data_VNE$composition_zone <- NULL
 # }
-
-
-

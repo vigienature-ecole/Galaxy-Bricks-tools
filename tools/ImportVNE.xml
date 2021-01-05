@@ -4,7 +4,7 @@
         <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/import_from_depot.R' '$observatoire'
+        Rscript '$__tool_directory__/import_from_depot.R' '$observatoire' 'base'
         '$output'
         ]]>
     </command>

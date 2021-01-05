@@ -5,7 +5,8 @@
         <requirement type="package" version="1.4.0">argparse</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-python3 '$__tool_directory__/import_from_depot.py' --observatory '$observatoire'
+      Rscript '$__tool_directory__/import_from_depot.R' '$observatoire'
+      '$output'
         ]]>
     </command>
     <inputs>
@@ -13,6 +14,10 @@ python3 '$__tool_directory__/import_from_depot.py' --observatory '$observatoire'
             <option value="INPN"> Les données agrégées pour tout type d'organismes</option>
 	          <option value="INPN_Gasteropodes"> Les données complètes escargots et limaces (Gasteropodes)</option>
             <option value="INPN_Ropaloceres"> Les données complètes pappillons (Ropaloceres)</option>
+        </param>
+        <param name="precision" type="select" label="Choisissez les données complémentaires à importer" multiple="false">
+            <option value="base"> Les données de base</option>
+            <option value="saisons"> Les données de base et les données par saisons</option>
         </param>
     </inputs>
     <outputs>
