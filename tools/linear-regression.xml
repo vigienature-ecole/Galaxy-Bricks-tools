@@ -13,7 +13,6 @@
         <param name="dependantVar" label="Variable à expliquer (Y)" type="data_column" data_ref="input" numerical="True"/>
     </inputs>
     <outputs>
-        <data format="txt" name="output" from_work_dir="mod-summary.txt" />
         <data format="png" name="output2" from_work_dir="output-plot.png" />
     </outputs>
     <tests>

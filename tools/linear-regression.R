@@ -11,11 +11,14 @@
 #     2. coeficients
 #     3. graph
 
+library(ggplot2)
+
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
 #args = c("tools/test-data/irisPlus.tabular", "1","2")
 #args = c("tools/test-data/irisPlus.tabular", "1,3","2")
-#args = c("~/Downloads/Galaxy8-[R_sumer_des_donn_es_on_data_1].csv", "2","1")
+# args = c("~/Downloads/Données_INPN.csv.csv", "24","9")
+
 
 
 # import input file (tabular or csv)
@@ -47,7 +50,7 @@ results <- summary(res)
 trend <- predict(res, interval = "confidence")
 
 #remove NA to predic
-input <- input[!is.na(input[ , as.numeric(args[3])]), ]
+input <- input[!is.na(input[ , as.numeric(args[3])]) & !is.na(input[ , as.numeric(args[2])]) , ]
 datlm = cbind(input, trend)
 
 test <- function (x){
@@ -64,15 +67,16 @@ if (nrow(results[[4]]) > 1) {
   explanation <- c()
   for (i in 2:(nrow(results[[4]])))
     explanation <- c(explanation, paste0("La variable ", rownames(results[[4]])[i], test(results[[4]][i, "Pr(>|t|)"]),
-                                         " sur la variable ", colnames(input)[as.numeric(args[2])],
-                                         ". La probabilité critique est égale à ", round(results[[4]][i, "Pr(>|t|)"], 3), "."))
+                                         " sur la variable ", colnames(input)[as.numeric(args[2])]
+                                         #, ". La probabilité critique est égale à ", round(results[[4]][i, "Pr(>|t|)"], 3), "."
+                                         ))
   explanation <- c(explanation,
-                   paste0("Le coefficient de détermination (R2) est égal à : ", results[[9]]),
+                   paste0("Le coefficient de détermination (R²) est égal à : ", round(results[[9]], 3)),
                    "Attention, ce résultat doit être vérifié.",
                    "Il peut, par exemple, être la conséquence d'un trop petit échantillon ou d'une confusion d'effet.")
-  fileConn<-file("mod-summary.txt")
-  writeLines(explanation, fileConn)
-  close(fileConn)
+  #fileConn<-file("mod-summary.txt")
+  #writeLines(explanation, fileConn)
+  #close(fileConn)
 } else {
   # Output 1 and 2
   capture.output(results, file="mod-summary.txt")
@@ -91,7 +95,12 @@ if (multiple == FALSE){
     ggplot2::theme(axis.text = ggplot2::element_text(size=12),
                    axis.title = ggplot2::element_text(size=16),
                    strip.text.x = ggplot2::element_text(size = 14))
-  suppressMessages(ggplot2::ggsave("output-plot.png", plot = plot_out, device = "png"))
+  
+  plot_out <- plot_out + labs(caption = paste(explanation, collapse = "\n")) + 
+    theme(
+      plot.caption = element_text(hjust = 1, size = 12)
+    )
+  suppressMessages(ggplot2::ggsave("output-plot.png", plot = plot_out, device = "png", width = 9, height = 6))
 } else {
   png(filename = "output-plot.png", width = 300, height = 100)
   par(mar = c(0,0,0,0))
@@ -99,3 +108,4 @@ if (multiple == FALSE){
   text(.5,.5,"Représentation graphique impossible car\n il y a trop de variables explicatives,\n l'ensemble des résultats\n est dans le deuxième fichier")
   suppressMessages(dev.off())
 }
+
