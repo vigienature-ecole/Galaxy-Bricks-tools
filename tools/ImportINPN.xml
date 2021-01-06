@@ -9,13 +9,13 @@
         ]]>
     </command>
     <inputs>
-        <param name="observatoire" type="select" label="Choisissez les données de l'Inventaire National du Patrimoine Naturel que vous souhaitez importer" multiple="false">
+        <param name="observatoire" type="select" label="Choisissez les données de l'Inventaire National du Patrimoine Naturel <br />  que vous souhaitez importer" multiple="false" help="Les données sont organisées <br /> en fonction" >
             <option value="INPN"> Les données agrégées pour tout type d'organismes</option>
 	          <option value="INPN_Gasteropodes"> Les données complètes escargots et limaces (Gasteropodes)</option>
             <option value="INPN_Ropaloceres"> Les données complètes pappillons (Ropaloceres)</option>
         </param>
         <param name="precision" type="select" display="radio" label="Type de données à importer" multiple="false">
-            <option value="base">Données de base</option>
+            <option value="base">Données Géographiques, de </option>
             <option value="saisons"> Les données de base et les données par saisons</option>
         </param>
     </inputs>
@@ -30,7 +30,7 @@
 
         Vous pouvez importer des données de l'Inventaire National du Patrimoine Naturel grâce à cet outil.
 
-        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logo_inpn.png
+        .. image:: https://galaxy.vigienature-ecole.fr/static/tools/bricks/images/logo_inpn.png
 
         .. class:: titre1-aide
 
