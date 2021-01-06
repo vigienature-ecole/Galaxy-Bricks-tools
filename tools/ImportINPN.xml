@@ -9,7 +9,7 @@
         ]]>
     </command>
     <inputs>
-        <param name="observatoire" type="select" label="Choisissez les données de l'Inventaire National du Patrimoine Naturel <br />  que vous souhaitez importer" multiple="false" help="Les données sont organisées <br /> en fonction" >
+        <param name="observatoire" type="select" label="Choisissez les données de l'Inventaire National du Patrimoine Naturel que vous souhaitez importer" multiple="false" help="Les données sont organisées par mailles de 10km par 10km la première colonne donne le nom unique de chaque maille" >
             <option value="INPN"> Les données agrégées pour tout type d'organismes</option>
 	          <option value="INPN_Gasteropodes"> Les données complètes escargots et limaces (Gasteropodes)</option>
             <option value="INPN_Ropaloceres"> Les données complètes pappillons (Ropaloceres)</option>
@@ -42,19 +42,16 @@
 
         Les données agrégées pour tout type d'organismes :
 
-        https://bricks.vigienature-ecole.fr/explorer/explorer-oiseaux/
 
         .. class:: titre2-aide
 
         Les données complètes escargots et limaces (Gastéropodes) :
 
-        https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/
 
         .. class:: titre2-aide
 
         Les données complètes papillons (Ropalocères) :
 
-        https://bricks.vigienature-ecole.fr/explorer/explorer-vdt/
 
 
     ]]></help>
