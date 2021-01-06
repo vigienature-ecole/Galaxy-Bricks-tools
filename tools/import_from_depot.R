@@ -23,9 +23,37 @@ data_VNE <- read.csv(text = URL_data_VNE, encoding = 'UTF-8')
 # write file
 write.csv(data_VNE, "output-importVNE.csv", row.names = FALSE)
 
-if (args[2] == "saisons"){
-
-}
+if (args[1] == "INPN" & args[2] != "saisons"){
+  data_VNE <- data_VNE %>%
+    select(
+      Identifiant_de_la_zone_geographique,
+      Departement,
+      Region,
+      Temperature_moyenne_annuelle,
+      Precipitations_maximales,
+      Milieu_majoritaire,
+      Pourcentage_milieux_urbanises,
+      Pourcentage_milieux_agricoles,
+      Pourcentage_milieux_ouverts_type_prairie,
+      Pourcentage_milieux_forestiers,
+      #Types_arbres_majoritaires,
+      Population_de_la_zone,
+      Pourcentage_aires_protegees,
+      Indice_utilisation_pesticides,
+      Nombre_especes,
+      Nombre_especes_menacees,
+      Nombre_especes_presentes_quasi_exclusivement_en_France,
+      Nombre_especes_insectes,
+      Nombre_especes_reptiles,
+      Nombre_especes_escargots,
+      #Nombre_especes_escargots_ete,
+      #Nombre_especes_escargots_hiver,
+      Nombre_especes_plantes_a_fleurs,
+      Nombre_especes_papillons,
+      #Nombre_especes_papillons_ete,
+      #Nombre_especes_papillons_hiver
+    )
+} 
 
 
 # parseJSONLabelValue <- function (df, var) {

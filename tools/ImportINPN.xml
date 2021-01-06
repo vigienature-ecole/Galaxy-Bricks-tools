@@ -14,8 +14,8 @@
 	          <option value="INPN_Gasteropodes"> Les données complètes escargots et limaces (Gasteropodes)</option>
             <option value="INPN_Ropaloceres"> Les données complètes pappillons (Ropaloceres)</option>
         </param>
-        <param name="precision" type="select" label="Choisissez les données complémentaires à importer" multiple="false">
-            <option value="base"> Les données de base</option>
+        <param name="precision" type="select" display="radio" label="Type de données à importer" multiple="false">
+            <option value="base">Données de base</option>
             <option value="saisons"> Les données de base et les données par saisons</option>
         </param>
     </inputs>
