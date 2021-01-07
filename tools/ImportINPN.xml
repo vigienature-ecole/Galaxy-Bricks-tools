@@ -10,21 +10,25 @@
     </command>
     <inputs>
         <conditional name="Complement_data">
-            <param name="observatoire" type="select" label="Choisissez les données de l'Inventaire National du Patrimoine Naturel que vous souhaitez importer" multiple="false" help="Les données sont organisées par mailles de 10km par 10km la première colonne donne le nom unique de chaque maille" >
+            <param name="observatoire" type="select" label="Choisissez les données de l'Inventaire National du Patrimoine Naturel que vous souhaitez importer" multiple="false" help="Les données sont organisées par zones géographiques de 10km par 10km. La première colonne donne le nom unique de chaque zone géographique. Les données des autres colonnes représentent soit la valeur totale de la variable dans cette zone (la population ou les espèces observées par exemple), la valeur moyenne (température par exemple) ou la valeur majoritaire (milieu par exemple)" >
                 <option value="INPN"> Les données agrégées pour tout type d'organismes</option>
     	          <option value="INPN_Gasteropodes"> Les données complètes escargots et limaces (Gasteropodes)</option>
                 <option value="INPN_Ropaloceres"> Les données complètes pappillons (Ropaloceres)</option>
             </param>
             <when value="INPN">
-            <param name="precision" type="select" display="radio" label="Type de données à importer" multiple="false">
-                <option value="base">Données Géographiques, climatiques, principaux groupe d'espèces</option>
-                <option value="saisons"> Les données de base et les données par saisons</option>
-            </param>
+                <param name="precision" type="select" display="radio" label="Selectionnez les données que vous voulez importer :" multiple="false">
+                    <option value="base">Données Géographiques, climatiques, écologique et principaux groupe d'espèces</option>
+                    <option value="saisons"> Les données précédentes avec en plus des données séparées par saisons pour les papillons et les escargots</option>
+                </param>
+            </when>
+            <when value="INPN_Gasteropodes">
+            </when>
+            <when value="INPN_Ropaloceres">
             </when>
         </conditional>
     </inputs>
     <outputs>
-        <data format="csv" name="output" from_work_dir="output-importVNE.csv" label="Données_${observatoire}.csv"/>
+        <data format="csv" name="output" from_work_dir="output-importVNE.csv" label="Données_${Complement_data.observatoire}.csv"/>
     </outputs>
     <help><![CDATA[
 
