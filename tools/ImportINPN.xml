@@ -17,7 +17,7 @@
             </param>
             <when value="INPN">
                 <param name="precision" type="select" display="radio" label="Sélectionnez les données que vous voulez importer :" multiple="false">
-                    <option value="base">Données Géographiques, climatiques, écologique et principaux groupe d'espèces</option>
+                    <option value="base">Données géographiques, climatiques, de l'environnement et nombres d'espèces pour les principaux groupes</option>
                     <option value="saisons"> Les données précédentes avec en plus des données séparées par saisons pour les papillons et les escargots</option>
                 </param>
             </when>
