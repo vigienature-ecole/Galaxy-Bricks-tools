@@ -16,7 +16,7 @@
             <param name="observatoire" type="select" label="Choisissez les données de l'Inventaire National du Patrimoine Naturel que vous souhaitez importer" multiple="false" help="Les données sont organisées par zones géographiques de 10km par 10km. La première colonne donne le nom unique de chaque zone géographique. Les données des autres colonnes représentent soit la valeur totale de la variable dans cette zone (la population ou les espèces observées par exemple), la valeur moyenne (température par exemple) ou la valeur majoritaire (milieu par exemple)" >
                 <option value="INPN"> Les données agrégées pour tout type d'organismes</option>
     	          <option value="INPN_Gasteropodes"> Les données complètes escargots et limaces (Gastéropodes)</option>
-                <option value="INPN_Ropaloceres"> Les données complètes papillons (Ropalocères)</option>
+                <option value="INPN_Rhopaloceres"> Les données complètes papillons (Rhopalocères)</option>
             </param>
             <when value="INPN">
                 <param name="precision" type="select" display="radio" label="Sélectionnez les données que vous voulez importer :" multiple="false">
@@ -61,7 +61,7 @@
 
         .. class:: titre2-aide
 
-        Les données complètes papillons (Ropalocères) :
+        Les données complètes papillons (Rhopalocères) :
 
 
 
