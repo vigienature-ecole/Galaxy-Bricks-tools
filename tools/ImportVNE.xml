@@ -2,6 +2,7 @@
     <description>Importer des données depuis la base de données VNE</description>
     <requirements>
         <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/import_from_depot.R' '$observatoire' 'base'
@@ -14,6 +15,7 @@
             <option value="Oiseaux_des_jardins">Oiseaux des jardins</option>
             <option value="Operation_escargots">Opération escargots</option>
             <option value="Sauvages_de_ma_rue">Sauvages de ma rue</option>
+            <option value="Spipoll">Spipoll</option>
         </param>
     </inputs>
     <outputs>
