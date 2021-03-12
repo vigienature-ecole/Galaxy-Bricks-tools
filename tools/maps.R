@@ -3,9 +3,9 @@
 args = commandArgs(trailingOnly=TRUE)
 
 # args = c("../../../Downloads/compte sur la colonne 2 en fonction de la colonne 9.csv.csv",
-#          "1", 
-#          "departements", 
-#          "2", 
+#          "1",
+#          "departements",
+#          "2",
 #          "data/maps/departements-version-simplifiee.geojson",
 #          "data/maps/regions-version-simplifiee.geojson",
 #          "data/maps/metropole-version-simplifiee.geojson",
@@ -20,16 +20,14 @@ input <- args[1]
 geographic_data <- as.numeric(args[2])
 geographic_scale <- args[3]
 variable <- as.numeric(args[4])
-correspondance_departement_region <- args[8]
+#correspondance_departement_region <- args[8]
 
 #load data
 data_file <- data.table::fread(input)
 # remove spaces
 colnames(data_file)[variable] <- gsub(" ", "_", colnames(data_file)[variable])
 
-
-correspondance_departement_region_df <- data.table::fread(correspondance_departement_region)
-
+#correspondance_departement_region_df <- data.table::fread(correspondance_departement_region)
 
 data_file_geo <- data_file
 data_file_geo[[geographic_data]] <- substring(as.vector(data_file_geo[[geographic_data]]), 0, 2)
@@ -51,7 +49,7 @@ if (geographic_scale == "departements") {
   geographic_scale_to_load =  args[6]
 } else if (geographic_scale == "points"){
   geographic_scale_to_load =  args[7]
-  data_file_geo <- st_as_sf(data_file_geo,coords=c("longitude", "latitude")) %>% 
+  data_file_geo <- st_as_sf(data_file_geo,coords=c("longitude", "latitude")) %>%
     st_set_crs(4326)%>%
     st_transform(2154)
 }
@@ -77,7 +75,7 @@ par(mar = c(0,0,0,0))
 if (geographic_scale != "points"){
   ggplot(geo, aes_string(fill = colnames(data_file_geo)[variable])) +
     geom_sf(data = geo)+
-    theme_bw()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+    theme_bw()
 } else {
   ggplot(geo)+
     geom_sf(data = geo)+
