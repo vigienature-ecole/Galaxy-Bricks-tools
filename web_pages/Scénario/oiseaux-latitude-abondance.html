@@ -1,0 +1,199 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><table border="0" cellpadding="10" cellspacing="1">
+	<tbody>
+		<tr>
+			<td><img alt="" style="height:2.5rem" pnsrc="/media/edito/2020/04/01/oiseau.png"></td>
+			<td>
+			<h2>La latitude a-t-elle un effet sur l'abondance des oiseaux en hiver ?</h2>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h5 style="color:#049a8f; font-weight:bold; margin-top:40px">Objectif du scénario</h5>
+
+<p>Répondre à la question : La latitude a-t-elle un effet sur l'abondance des oiseaux en hiver ?</p>
+
+<h5 style="color:#049a8f; font-weight:bold; margin-top:40px">Compétence développées :</h5>
+
+<ul>
+  <li>Extraire des élements d'une date</li>
+	<li>Calcul d'abondance</li>
+	<li>Représentation graphique</li>
+	<li>Test statistiques</li>
+</ul>
+
+<h5 style="color:#049a8f; font-weight:bold; margin-top:40px">Déroulement de l'analye étape par étape</h5>
+
+<h5>&nbsp;</h5>
+
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">1.</font> Poser la question de recherche</h6>
+
+<p style="margin-left:40px">Ici nous vous donnons déjà la question de recherche. Vous pouvez, par exemple, noter : <em>"Latitude et abondance d'oiseaux" </em>comme nom d'analyse et <em>"La latitude a-t-elle un effet sur l'abondance des oiseaux en hiver ?"</em> dans la partie question de recherche.</p>
+
+<h6 style="margin-left:40px; margin-top:40px"><font style="color:#049a8f; font-weight:bold">2.</font> Importer les données</h6>
+
+<p style="margin-left:40px">Afin de répondre à cette question, nous allons avoir besoin des données de Vigie-Nature École afin d'avoir des observations dans plusieurs conditions de compaction. De plus, comme notre question porte sur les oiseaux, nous allons choisir l'observatoire Oiseaux des Jardins.</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help1" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help1" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help1">
+<div class="card card-body">
+<p>Choisir l'outil : Importer des données issues de Vigie-Nature École</p>
+
+<p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
+
+<p>Choissez l'observatoire <strong>Oiseaux des jardins</strong></p>
+</div>
+</div>
+
+<h6 style="margin-left:40px; margin-top:40px"><font style="color:#049a8f; font-weight:bold">3.</font> Manipuler les données</h6>
+
+
+<p style="margin-left:40px">Maintenant que vous avez toutes les données, il va falloir les résumer car il y a un grand nombre de lignes. Comme nous nous intéressons à l'abondance d'oiseaux en hiver seulement, nous allons commencer par sélectionner les observations qui se sont déroulées en hiver. Pour cela, il faut d'abord attribuer une saison à chaque observation, donc créer une colonne "Saison".</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help2a" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help2a" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help2a">
+<div class="card card-body">
+<p>Dans la catégorie <strong>Extraire de l'information à partir de colonnes</strong> choisir l'outil : <strong>Convertir des dates</strong></p>
+
+<p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
+
+<p>Données d'entrée* : <strong>Données_VNE_Oiseaux_des_jardins.csv</strong><br>
+Convertir la colonne : <strong>date_observation</strong><br>
+dont le format de données est :<strong>AnnéeMoisJour</strong><br>
+en : <strong>Saison</strong><br>
+dans une nouvelle colonne nommée : <strong>Saison</strong><br>
+Voulez-vous faire une autre opération ? <strong>non</strong></p>
+
+<p>Enregistrez vos commentaires si vous en avez puis continuez à manipuler les données.</p>
+</div>
+</div>
+
+<p>Nous pouvons alors sélectionner uniquement les observations faites en hiver.</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help2b" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help2b" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help2b">
+<div class="card card-body">
+
+<p>Dans la catégorie <strong>Trier, filtrer et masquer des colonnes</strong> choisir l'outil : <strong>Sélectionner des lignes</strong></p>
+
+<p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
+
+<p>Données d'entrée* : <strong>Convertir des dates on data 1</strong><br>
+Choisir de : <strong>garder</strong><br>
+les lignes dont les valeurs sont : <strong>égale (caractères)</strong><br>
+au paramètre de filtre suivant : <strong>04_Hiver</strong><br>
+dans : <strong>la colonne</strong><br>
+indiquer la colonne dans laquelle faire la recherche : <strong>Saison</strong><br>
+Voulez-vous faire une autre opération ? <strong>non</strong></p>
+
+<p>Enregistrez vos commentaires si vous en avez puis continuez à manipuler les données.</p>
+</div>
+</div>
+
+<p style="margin-left:40px">Maintenant que nous avons extrait les observations réalisées en hiver, nous allons calculer l'abondance des oiseaux vus lors de chaque observation. Pour cela, nous allons faire la somme des individus observés en regroupant les données par numéro d'observation (pour ne pas additionner toutes les observations entre elles) et la colonne Saison (pour garder cette colonne associée avec nos valeurs et pouvoir répondre à notre question).</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help2c" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help2c" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help2c">
+<div class="card card-body">
+<p>Dans la catégorie <strong>Regrouper des lignes</strong> choisir l'outil : <strong>Résumer les données</strong></p>
+
+<p style="color:#ffc643; font-weight:bold">Paramètres à utiliser :</p>
+
+<p>Données d'entrée : <strong>Sélectionner des lignes on data 2</strong><br>
+Regrouper toutes les lignes selon des catégories contenues dans les colonnes suivantes : <strong>num_observation | latitude</strong><br>
+en faisant l'opération suivante :<strong> Somme</strong><br>
+sur la colonne <strong>nombre_individus</strong><br>
+et stocker l'information dans une nouvelle colonne nommée : <strong>Abondance</strong><br>
+Voulez-vous faire une autre opération ? <strong>non</strong></p>
+
+<p>Enregistrez vos commentaires si vous en avez puis sélectionnez <strong>visualiser les données</strong>.</p>
+</div>
+</div>
+
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">4.</font> Visualiser les données</h6>
+
+<p style="margin-left:40px">Normalement, en regardant votre tableau, vous pouvez déjà voir qu'il existe des différences entre les latitudes. Toutefois, afin de mieux voir les différences, on peut réaliser un graphique. Ici, la colonne latitude et la colonne Abondance sont quantitatives (on peut faire des opérations avec leurs valeurs). Une représentation adaptée est donc le nuage de points avec la variable latitude sur l'axe des X et l'Abondance sur l'axe des Y.</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help3" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help3" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help3">
+<div class="card card-body">
+<p>Choisir l'outil : <strong>Représenter les données</strong></p>
+
+<p>Fichier d'entrée : <strong>Résumer des données on data 3</strong><br>
+Axe horizontal (X) : <strong>latitude</strong><br>
+Axe vertical (Y) : <strong>Abondance</strong><br>
+Type de représentation graphique : <strong>Nuage de points</strong><br>
+Créer des graphiques différents selon les catégories de la variable : <strong>Laisser vide</strong><br>
+Changer les couleurs du graphique selon les catégories de la variable : <strong>Laisser vide</strong><br>
+Ajouter des barres d'erreur à partir d'une colonne : (optionnel) : <strong>Laisser vide</strong><br>
+Titre du graphique : <strong>Effet de la latitude sur l'abondance des oiseaux en hiver</strong><br>
+Titre de l'axe des X : <strong>Latitude</strong><br>
+Titre de l'axe des Y : <strong>Abondance</strong></p>
+
+<p>Enregistrez vos commentaires si vous en avez puis sélectionnez "faire une analyse statistique".</p>
+</div>
+</div>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help4" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help4" role="button">&darr; Voir le résultat &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help4">
+<div class="card card-body">
+<p style="text-align:center"><img alt="" style="height:514px; width:600px" pnsrc="media/edito/2020/10/06/abondance_oiseaux_selon_latitude_hiver_LrNCU5P.png"></p>
+</div>
+</div>
+
+<p style="margin-left:40px">Les plus fortes abondances d'oiseaux sont observées aux plus faibles latitudes. Maintenant, il faut savoir si la différence que l'on observe n'est pas simplement due au hasard : l'abondance des oiseaux est-elle significativement plus importante aux faibles latitudes ?</p>
+
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">5.</font> Test statistique</h6>
+
+<p style="margin-left:40px">Nous allons donc faire un test statistique afin de voir si la latitude explique la différence observée. Comme nous l'avons déjà expliqué plus haut, la colonne latitude est quantitative et la colonne Abondance est quantitative. Il faut donc faire une régression linéaire.</p>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1help5" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1help5" role="button">&darr; Comment faire concrètement &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1help5">
+<div class="card card-body">
+<p>Choisir l'outil : <strong>Faire une régression linéaire</strong></p>
+
+<p>Fichier de données brutes : <strong>Résumer des données on data 3</strong><br>
+Vérifier si la variable explicative (X) : <strong>latitude</strong><br>
+a un effet sur la variable à expliquer (Y) : <strong>Abondance</strong></p>
+</div>
+</div>
+
+<p style="font-weight:bolder; margin-left:40px"><a aria-controls="collapsescenario1res3" aria-expanded="false" data-toggle="collapse" href="#collapsescenario1res3" role="button">&darr; Voir le résultat &darr;</a></p>
+
+<div class="collapse" id="collapsescenario1res3">
+<div class="card card-body">
+<p style="text-align:center"><img alt="" style="height:514px; width:600px" pnsrc="/media/edito/2020/10/06/reg_lin_latitude_abondance-oiseaux.png"></p>
+
+<p>La variable latitude a bien un effet significatif sur la variable Abondance.</p>
+
+<p>Sélectionnez Enregistrer puis faire une conclusion</p>
+</div>
+</div>
+
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">6.</font> Conclusion</h6>
+
+<p style="margin-left:40px">Je conclue que la latitude a bien un effet sur l'abondance. En hiver, on observe un plus grand nombre d'oiseaux aux faibles latitudes qu'aux fortes latitudes.</p>
+
+<h6 style="margin-left:40px; margin-top:20px"><font style="color:#049a8f; font-weight:bold">7.</font> Rapport</h6>
+
+<p style="margin-left:40px">Vous pouvez maintenant télécharger votre rapport au format pdf.</p>
+
+<h5 style="color:#049a8f; font-weight:bold; margin-top:40px">Pour aller plus loin</h5>
+
+<p>Ce scénario peut être adapté pour se poser d'autres questions.</p>
+
+<ul>
+	<li>Il est aussi possible de se poser la même question pour une autre colonne, comme l'environnement par exemple.</li>
+	<li>Une autre possibilité est encore de calculer la diversité plutôt que l'abondance totale des oiseaux (en comptant le nombre de cellules non nulles pour chaque observation).</li>
+</ul>
+
+<p>&nbsp;</p>
+</body></html>
