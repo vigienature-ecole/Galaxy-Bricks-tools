@@ -25,7 +25,7 @@ correspondance_departement_region <- args[8]
 #load data
 data_file <- data.table::fread(input)
 # remove spaces
-colnames(data_file)[variable] <- stringr::str_replace_all(colnames(data_file)[variable], " ", "_")
+colnames(data_file)[variable] <- gsub(" ", "_", colnames(data_file)[variable])
 
 
 correspondance_departement_region_df <- data.table::fread(correspondance_departement_region)
