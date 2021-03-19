@@ -8,7 +8,7 @@
     ]]></command>
     <inputs>
         <param format="tabular,csv,txt" name="input" type="data" label="Données d'entrée" />
-        <param name="columnSelected" label="Colonne à utiliser pour le calcul" type="data_column" data_ref="input" numerical="false" multiple = "true" />
+        <param name="columnSelected" label="Colonne(s) à utiliser pour le calcul" type="data_column" data_ref="input" numerical="false" multiple = "true" />
         <param name="outputOperation" type="select" label="Opération à réaliser">
             <option value="somme" selected="true">Somme</option>
             <option value="moyenne">Moyenne</option>
