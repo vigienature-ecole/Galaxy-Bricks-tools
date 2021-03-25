@@ -8,6 +8,7 @@
     <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/maps.R' 
         '$input'
+        '$geom_select'
         '$geom'
         '$variable'
         '$__tool_directory__/data/maps/departements-version-simplifiee.geojson'
@@ -18,11 +19,12 @@
     </command>
     <inputs>
         <param format="csv" name="input" type="data" label="Fichier d'entrée" />
-        <param name="geom" type="select" label="Type de données géographique" multiple="False">
-            <option value="departements">departements</option>
-            <option value="regions">regions</option>
-            <option value="point">point</option>
+        <param name="geom_select" type="select" label="Type de données géographique" multiple="False">
+            <option value="academies">Académies</option>
+            <option value="departements">Départements</option>
+            <option value="regions">Régions</option>
         </param>
+        <param name="geom" label="Colonne contenant le nom ou le code de la zone géographique" type="data_column" data_ref="input" numerical="False"/>
         <param name="variable" label="Variable à représenter" type="data_column" data_ref="input" numerical="False"/>
     </inputs>
     <outputs>
