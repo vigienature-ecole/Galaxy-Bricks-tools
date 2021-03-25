@@ -6,49 +6,70 @@ library(ggplot2)
 
 args = commandArgs(trailingOnly=TRUE)
 
+# args = c("test-data/input_academie_code.csv", 
+#          "academies", 
+#          "1",
+#          "2",
+#          "data/maps/departements-version-simplifiee.geojson",
+#          "data/maps/regions-version-simplifiee.geojson",
+#          "data/maps/academies-version-simplifiee.geojson"
+# )
+
+print(args)
 
 # get parameters
 input <- args[1]
-geographic_data <- as.numeric(args[2])
-geographic_scale <- args[3]
+geographic_scale <- args[2]
+geographic_data <- as.numeric(args[3])
 variable <- as.numeric(args[4])
 
 #load data
-data_file <- data.table::fread(input)
+data_file <- data.frame(data.table::fread(input))
+
 # remove spaces
 colnames(data_file)[variable] <- gsub(" ", "_", colnames(data_file)[variable])
+# convert to characters
+data_file [ , geographic_data] <- as.character(data_file [ , geographic_data])
 
 data_file_geo <- data_file
 
+
 # add 0 to departement where they are missing
 short_values <- nchar(as.vector(data_file_geo[[geographic_data]])) < 2
+any(short_values)
+if (any(short_values) & geographic_scale != "academies"){
+  data_file_geo[[geographic_data]][short_values] <- paste0("0", as.vector(data_file_geo[[geographic_data]])[short_values])
+}
 
-data_file_geo[[geographic_data]][short_values] <- paste0("0", as.vector(data_file_geo[[geographic_data]])[short_values])
-
+print("name test")
 if (any(data_file_geo[[geographic_data]] > 5)){
   name = TRUE
 } else {
   name = FALSE
 }
 
+print("select type of code")
 if (geographic_scale != "points"){
   if (name) {
     colnames(data_file_geo)[geographic_data] <- "nom"
-    data_file_geo$code <- as.character(data_file_geo$code)
+    data_file_geo$nom <- as.character(data_file_geo$nom)
   } else {
     colnames(data_file_geo)[geographic_data] <- "code"
     data_file_geo$code <- as.character(data_file_geo$code)
   }
 }
 
+print("select geographic scale")
+
 #TODO : verifier qu'il n'y a qu'une valeur par données sinon afficher une erreur
 #charger les données de position
 if (geographic_scale == "departements") {
-  geographic_scale_to_load =  args[5]
+  geographic_scale_to_load = args[5]
+  print("test")
 } else if (geographic_scale == "regions") {
   geographic_scale_to_load =  args[6]
 } else if (geographic_scale == "academies") {
-  geographic_scale_to_load =  args[7]
+  geographic_scale_to_load =  args[8]
 } else if (geographic_scale == "points"){
   geographic_scale_to_load =  args[7]
   data_file_geo <- st_as_sf(data_file_geo,coords=c("longitude", "latitude")) %>%
@@ -56,6 +77,7 @@ if (geographic_scale == "departements") {
     st_transform(2154)
 }
 
+print("import file")
 # import geographic data
 geo = sf::read_sf(geographic_scale_to_load)
 
@@ -73,8 +95,6 @@ geo <- st_transform(geo, 2154)
 # add grid
 g = st_graticule(geo)
 
-print("ok")
-
 png("carte.png", width = 800, height = 800)
 par(mar = c(0,0,0,0))
 # plot data
@@ -89,3 +109,4 @@ if (geographic_scale != "points"){
     theme_bw()
 }
 dev.off()
+

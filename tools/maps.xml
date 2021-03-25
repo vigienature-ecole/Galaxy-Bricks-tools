@@ -14,7 +14,7 @@
         '$__tool_directory__/data/maps/departements-version-simplifiee.geojson'
         '$__tool_directory__/data/maps/regions-version-simplifiee.geojson'
         '$__tool_directory__/data/maps/metropole-version-simplifiee.geojson'
-        
+        '$__tool_directory__/data/maps/academies-version-simplifiee.geojson'
         '$output1' ]]>
     </command>
     <inputs>
