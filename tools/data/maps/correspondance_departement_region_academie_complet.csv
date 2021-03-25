@@ -1,0 +1,101 @@
+code_departement	nom_departement	nom_region	code_region	nom_academie	code_academie
+01	Ain	Auvergne-Rhône-Alpes	84	Académie de Lyon	17
+02	Aisne	Hauts-de-France	32	Académie d'Amiens	2
+03	Allier	Auvergne-Rhône-Alpes	84	Académie de Clermont-Ferrand	6
+04	Alpes-de-Haute-Provence	Provence-Alpes-Côte d'Azur	93	Académie d'Aix-Marseille	1
+06	Alpes-Maritimes	Provence-Alpes-Côte d'Azur	93	Académie de Nice	21
+08	Ardennes	Grand Est	44	Académie de Reims	24
+07	Ardèche	Auvergne-Rhône-Alpes	84	Académie de Grenoble	10
+09	Ariège	Occitanie	76	Académie de Toulouse	28
+10	Aube	Grand Est	44	Académie de Reims	24
+11	Aude	Occitanie	76	Académie de Montpellier	18
+12	Aveyron	Occitanie	76	Académie de Toulouse	28
+67	Bas-Rhin	Grand Est	44	Académie de Strasbourg	27
+13	Bouches-du-Rhône	Provence-Alpes-Côte d'Azur	93	Académie d'Aix-Marseille	1
+21	Côte-d'Or	Bourgogne-Franche-Comté	27	Académie de Dijon	9
+22	Côtes-d'Armor	Bretagne	53	Académie de Rennes	25
+14	Calvados	Normandie	28	Académie de Caen	5
+15	Cantal	Auvergne-Rhône-Alpes	84	Académie de Clermont-Ferrand	6
+16	Charente	Nouvelle-Aquitaine	75	Académie de Poitiers	23
+17	Charente-Maritime	Nouvelle-Aquitaine	75	Académie de Poitiers	23
+18	Cher	Centre-Val de Loire	24	Académie d'Orléans-Tours	30
+19	Corrèze	Nouvelle-Aquitaine	75	Académie de Limoges	16
+2A	Corse-du-Sud	Corse	94	Académie de Corse	7
+23	Creuse	Nouvelle-Aquitaine	75	Académie de Limoges	16
+79	Deux-Sèvres	Nouvelle-Aquitaine	75	Académie de Poitiers	23
+24	Dordogne	Nouvelle-Aquitaine	75	Académie de Bordeaux	4
+25	Doubs	Bourgogne-Franche-Comté	27	Académie de Besançon	3
+26	Drôme	Auvergne-Rhône-Alpes	84	Académie de Grenoble	10
+91	Essonne	Île-de-France	11	Académie de Versailles	29
+27	Eure	Normandie	28	Académie de Rouen	26
+28	Eure-et-Loir	Centre-Val de Loire	24	Académie d'Orléans-Tours	30
+29	Finistère	Bretagne	53	Académie de Rennes	25
+30	Gard	Occitanie	76	Académie de Montpellier	18
+32	Gers	Occitanie	76	Académie de Toulouse	28
+33	Gironde	Nouvelle-Aquitaine	75	Académie de Bordeaux	4
+971	Guadeloupe			Académie de la Guadeloupe	12
+973	Guyane			Académie de Guyane	11
+34	Hérault	Occitanie	76	Académie de Montpellier	18
+68	Haut-Rhin	Grand Est	44	Académie de Strasbourg	27
+2B	Haute-Corse	Corse	94	Académie de Corse	7
+31	Haute-Garonne	Occitanie	76	Académie de Toulouse	28
+43	Haute-Loire	Auvergne-Rhône-Alpes	84	Académie de Clermont-Ferrand	6
+52	Haute-Marne	Grand Est	44	Académie de Reims	24
+70	Haute-Saône	Bourgogne-Franche-Comté	27	Académie de Besançon	3
+74	Haute-Savoie	Auvergne-Rhône-Alpes	84	Académie de Grenoble	10
+87	Haute-Vienne	Nouvelle-Aquitaine	75	Académie de Limoges	16
+05	Hautes-Alpes	Provence-Alpes-Côte d'Azur	93	Académie d'Aix-Marseille	1
+65	Hautes-Pyrénées	Occitanie	76	Académie de Toulouse	28
+92	Hauts-de-Seine	Île-de-France	11	Académie de Versailles	29
+35	Ille-et-Vilaine	Bretagne	53	Académie de Rennes	25
+36	Indre	Centre-Val de Loire	24	Académie d'Orléans-Tours	30
+37	Indre-et-Loire	Centre-Val de Loire	24	Académie d'Orléans-Tours	30
+38	Isère	Auvergne-Rhône-Alpes	84	Académie de Grenoble	10
+39	Jura	Bourgogne-Franche-Comté	27	Académie de Besançon	3
+974	La Réunion			Académie de la Réunion	14
+40	Landes	Nouvelle-Aquitaine	75	Académie de Bordeaux	4
+41	Loir-et-Cher	Centre-Val de Loire	24	Académie d'Orléans-Tours	30
+42	Loire	Auvergne-Rhône-Alpes	84	Académie de Lyon	17
+44	Loire-Atlantique	Pays de la Loire	52	Académie de Nantes	20
+45	Loiret	Centre-Val de Loire	24	Académie d'Orléans-Tours	30
+46	Lot	Occitanie	76	Académie de Toulouse	28
+47	Lot-et-Garonne	Nouvelle-Aquitaine	75	Académie de Bordeaux	4
+48	Lozère	Occitanie	76	Académie de Montpellier	18
+49	Maine-et-Loire	Pays de la Loire	52	Académie de Nantes	20
+50	Manche	Normandie	28	Académie de Caen	5
+51	Marne	Grand Est	44	Académie de Reims	24
+972	Martinique			Académie de la Martinique	13
+53	Mayenne	Pays de la Loire	52	Académie de Nantes	20
+54	Meurthe-et-Moselle	Grand Est	44	Académie de Nancy-Metz	19
+55	Meuse	Grand Est	44	Académie de Nancy-Metz	19
+56	Morbihan	Bretagne	53	Académie de Rennes	25
+57	Moselle	Grand Est	44	Académie de Nancy-Metz	19
+58	Nièvre	Bourgogne-Franche-Comté	27	Académie de Dijon	9
+59	Nord	Hauts-de-France	32	Académie de Lille	15
+60	Oise	Hauts-de-France	32	Académie d'Amiens	2
+61	Orne	Normandie	28	Académie de Caen	5
+75	Paris	Île-de-France	11	Académie de Paris	22
+62	Pas-de-Calais	Hauts-de-France	32	Académie de Lille	15
+63	Puy-de-Dôme	Auvergne-Rhône-Alpes	84	Académie de Clermont-Ferrand	6
+64	Pyrénées-Atlantiques	Nouvelle-Aquitaine	75	Académie de Bordeaux	4
+66	Pyrénées-Orientales	Occitanie	76	Académie de Montpellier	18
+69	Rhône	Auvergne-Rhône-Alpes	84	Académie de Lyon	17
+71	Saône-et-Loire	Bourgogne-Franche-Comté	27	Académie de Dijon	9
+72	Sarthe	Pays de la Loire	52	Académie de Nantes	20
+73	Savoie	Auvergne-Rhône-Alpes	84	Académie de Grenoble	10
+77	Seine-et-Marne	Île-de-France	11	Académie de Créteil	8
+76	Seine-Maritime	Normandie	28	Académie de Rouen	26
+93	Seine-Saint-Denis	Île-de-France	11	Académie de Créteil	8
+80	Somme	Hauts-de-France	32	Académie d'Amiens	2
+81	Tarn	Occitanie	76	Académie de Toulouse	28
+82	Tarn-et-Garonne	Occitanie	76	Académie de Toulouse	28
+90	Territoire de Belfort	Bourgogne-Franche-Comté	27	Académie de Besançon	3
+95	Val-d'Oise	Île-de-France	11	Académie de Versailles	29
+94	Val-de-Marne	Île-de-France	11	Académie de Créteil	8
+83	Var	Provence-Alpes-Côte d'Azur	93	Académie de Nice	21
+84	Vaucluse	Provence-Alpes-Côte d'Azur	93	Académie d'Aix-Marseille	1
+85	Vendée	Pays de la Loire	52	Académie de Nantes	20
+86	Vienne	Nouvelle-Aquitaine	75	Académie de Poitiers	23
+88	Vosges	Grand Est	44	Académie de Nancy-Metz	19
+89	Yonne	Bourgogne-Franche-Comté	27	Académie de Dijon	9
+78	Yvelines	Île-de-France	11	Académie de Versailles	29
