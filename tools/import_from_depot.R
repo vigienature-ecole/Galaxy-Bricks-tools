@@ -1,5 +1,5 @@
 args = commandArgs(trailingOnly=TRUE)
-encoding = "UTF-8"
+
 # choose between observatories
 if (args[1] == "Vers_de_terre"){
   file <- "vdt.csv"
@@ -9,9 +9,8 @@ if (args[1] == "Vers_de_terre"){
   file <- "escargots.csv"
 } else if(args[1] == "Sauvages_de_ma_rue"){
   file <- "sauvages.csv"
-} else if(args[1] == "Spipoll"){
+} else if(args[1] == "SPIPoll"){
   file <- "spipoll.csv"
-  encoding = "Latin-1"
 } else if (args[1] == "INPN"){
   file <- "DataINPN.csv"
 } else if (args[1] == "INPN_Gasteropodes"){
@@ -21,9 +20,9 @@ if (args[1] == "Vers_de_terre"){
 }
 
 # get data set
-URL_data_VNE <- RCurl::getURL(paste0("https://depot.vigienature-ecole.fr/datasets/bricks/", file), .encoding = "UTF-8")
-
-data_VNE <- data.table::fread(text = URL_data_VNE, fill = TRUE, encoding = encoding)
+URL_data_VNE <- RCurl::getURL(paste0("https://depot.vigienature-ecole.fr/datasets/bricks/", file), 
+                              .encoding = "Latin-1")
+data_VNE <- data.table::fread(text = URL_data_VNE, fill = TRUE, encoding = "Latin-1")
 
 if (args[1] == "INPN" & args[2] != "saisons"){
   data_VNE <- data_VNE[ , c(
