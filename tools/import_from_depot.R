@@ -10,7 +10,7 @@ if (args[1] == "Vers_de_terre"){
   file <- "escargots.csv"
 } else if(args[1] == "Sauvages_de_ma_rue"){
   file <- "sauvages.csv"
-} else if(args[1] == "SPIPoll"){
+} else if(args[1] == "Spipoll"){
   file <- "spipoll.csv"
   encoding = "Latin-1"
 } else if (args[1] == "INPN"){

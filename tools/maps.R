@@ -6,16 +6,14 @@ library(ggplot2)
 
 args = commandArgs(trailingOnly=TRUE)
 
-# args = c("test-data/input_academie_code.csv", 
-#          "academies", 
+# args = c("test-data/input_depart_pas_complet.csv",
+#          "departements",
 #          "1",
 #          "2",
 #          "data/maps/departements-version-simplifiee.geojson",
 #          "data/maps/regions-version-simplifiee.geojson",
 #          "data/maps/academies-version-simplifiee.geojson"
 # )
-
-print(args)
 
 # get parameters
 input <- args[1]
@@ -41,14 +39,12 @@ if (any(short_values) & geographic_scale != "academies"){
   data_file_geo[[geographic_data]][short_values] <- paste0("0", as.vector(data_file_geo[[geographic_data]])[short_values])
 }
 
-print("name test")
 if (any(data_file_geo[[geographic_data]] > 5)){
   name = TRUE
 } else {
   name = FALSE
 }
 
-print("select type of code")
 if (geographic_scale != "points"){
   if (name) {
     colnames(data_file_geo)[geographic_data] <- "nom"
@@ -59,13 +55,10 @@ if (geographic_scale != "points"){
   }
 }
 
-print("select geographic scale")
-
 #TODO : verifier qu'il n'y a qu'une valeur par données sinon afficher une erreur
 #charger les données de position
 if (geographic_scale == "departements") {
   geographic_scale_to_load = args[5]
-  print("test")
 } else if (geographic_scale == "regions") {
   geographic_scale_to_load =  args[6]
 } else if (geographic_scale == "academies") {
@@ -77,7 +70,6 @@ if (geographic_scale == "departements") {
     st_transform(2154)
 }
 
-print("import file")
 # import geographic data
 geo = sf::read_sf(geographic_scale_to_load)
 
@@ -91,7 +83,6 @@ if (geographic_scale != "points") {
 }
 # transform to lamber 93 projection
 geo <- st_transform(geo, 2154)
-
 # add grid
 g = st_graticule(geo)
 
