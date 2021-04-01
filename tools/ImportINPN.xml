@@ -2,6 +2,7 @@
     <description>Importer des données depuis l'Inventaire National du Patrimoine Naturel</description>
     <requirements>
         <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
       Rscript '$__tool_directory__/import_from_depot.R' '$Complement_data.observatoire'
