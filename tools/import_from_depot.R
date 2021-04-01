@@ -56,9 +56,8 @@ if (args[1] == "INPN" & args[2] != "saisons"){
     #Nombre_especes_papillons_ete,
     #Nombre_especes_papillons_hiver
   )]
-} else if (args[1] == "Spipol") {
-  data_VNE <- data_VNE %>%
-    filter(temperature != "")
+} else if (args[1] == "Spipoll") {
+  data_VNE <- subset(data_VNE, data_VNE$temperature != "")
 }
 
 # write file
