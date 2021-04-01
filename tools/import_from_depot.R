@@ -56,7 +56,10 @@ if (args[1] == "INPN" & args[2] != "saisons"){
     #Nombre_especes_papillons_ete,
     #Nombre_especes_papillons_hiver
   )]
-} 
+} else if (args[1] == "Spipol") {
+  data_VNE <- data_VNE %>%
+    filter(temperature != "")
+}
 
 # write file
 write.csv(data_VNE, "output-importVNE.csv", row.names = FALSE)
