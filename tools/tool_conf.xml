@@ -4,7 +4,7 @@
     <tool file="data_source/upload.xml" />
     <tool file="ImportVNE.xml" />
     <tool file="ImportINPN.xml" />
-    <tool file="Import_oiseaux_VNE" />
+    <tool file="Import_oiseaux_VNE.xml" />
   </section>
   <section id="2manip" name="3. Manipuler les donnees">
     <tool file="row-operation.xml" />
