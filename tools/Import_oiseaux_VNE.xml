@@ -1,4 +1,4 @@
-<tool id="Import_oiseaux_VNE" name="Données oiseaux Vigie-Nature Ecole">
+<tool id="Import_oiseaux_VNE" name="Importer les données oiseaux Vigie-Nature Ecole">
     <description>Importer des données oiseaux depuis la base de données VNE</description>
     <requirements>
         <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
@@ -10,8 +10,9 @@
         ]]>
     </command>
     <inputs>
-        <param name="observatoire" type="select" label="Vous avez choisi l'observatoire :" multiple="false">
-            <option value="Oiseaux_des_jardins">Oiseaux des jardins</option>
+        <param name="observatoire" type="select" label="Choisissez le type de données" multiple="false" display="radio">
+            <option value="Oiseaux_des_jardins">Données espèces et zones d'observation</option>
+            <option value="Oiseaux_des_jardins_clc">Données espèces, zones d'observation et occupation du sol</option>
         </param>
     </inputs>
     <outputs>
@@ -38,24 +39,6 @@
         Pour les données sur les oiseaux :
 
         https://bricks.vigienature-ecole.fr/explorer/explorer-oiseaux/
-
-        .. class:: titre2-aide
-
-        Pour les données sur les escargots :
-
-        https://bricks.vigienature-ecole.fr/explorer/explorer-escargots/
-
-        .. class:: titre2-aide
-
-        Pour les données sur les vers de terre :
-
-        https://bricks.vigienature-ecole.fr/explorer/explorer-vdt/
-
-        .. class:: titre2-aide
-
-        Pour les données sur les plantes sauvages :
-
-        https://bricks.vigienature-ecole.fr/explorer/explorer-sauvages/
 
     ]]></help>
 </tool>

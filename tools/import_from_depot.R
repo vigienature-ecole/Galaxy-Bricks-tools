@@ -10,6 +10,16 @@ if (args[1] == "Vers_de_terre"){
   file <- "escargots.csv"
 } else if(args[1] == "Sauvages_de_ma_rue"){
   file <- "sauvages.csv"
+} else if (args[1] == "Vers_de_terre_clc"){
+  file <- "vdt_clc.csv"
+} else if (args[1] == "Oiseaux_des_jardins_clc"){
+  file <- "oiseaux_clc.csv"
+} else if (args[1] == "Oiseaux_des_jardins_odj"){
+  file <- "oiseaux_odj.csv"
+} else if(args[1] == "Operation_escargots_clc"){
+  file <- "escargots_clc.csv"
+} else if(args[1] == "Sauvages_de_ma_rue_clc"){
+  file <- "sauvages_clc.csv"
 } else if(args[1] == "Spipoll"){
   file <- "spipoll.csv"
   encoding = "Latin-1"

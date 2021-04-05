@@ -10,7 +10,7 @@
         ]]>
     </command>
     <inputs>
-        <param name="observatoire" type="select" label="Choisissez votre observatoire" multiple="false">
+        <param name="observatoire" type="select" label="Choisissez votre observatoire" multiple="false" display="radio">
             <option value="Vers_de_terre">Placettes à vers de terre</option>
             <option value="Oiseaux_des_jardins">Oiseaux des jardins</option>
             <option value="Operation_escargots">Opération escargots</option>
