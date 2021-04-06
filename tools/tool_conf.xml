@@ -5,6 +5,8 @@
     <tool file="ImportVNE.xml" />
     <tool file="ImportINPN.xml" />
     <tool file="Import_oiseaux_VNE.xml" />
+    <tool file="Import_oiseaux_VN.xml" />
+    <tool file="Import_vdt_VNE.xml" />
   </section>
   <section id="2manip" name="3. Manipuler les donnees">
     <tool file="row-operation.xml" />

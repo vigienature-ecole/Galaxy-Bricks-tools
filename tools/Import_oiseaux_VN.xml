@@ -1,0 +1,61 @@
+<tool id="Import_oiseaux_VN" name="Importer les données oiseaux des jardins Vigie-Nature Ecole et Vigie-Nature">
+    <description>Importer des données oiseaux depuis la base de données VN</description>
+    <requirements>
+        <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
+        <requirement type="package" version="1.12.2">r-data.table</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/import_from_depot.R' '$observatoire' 'base'
+        '$output'
+        ]]>
+    </command>
+    <inputs>
+        <param name="observatoire" type="select" label="Choisissez les variables à importer" multiple="false" display="radio">
+            <option value="Oiseaux_des_jardins_odj">Données espèces</option>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="csv" name="output" from_work_dir="output-importVNE.csv" label="Données_VNE_${observatoire}.csv"/>
+    </outputs>
+    <help><![CDATA[
+
+        .. class:: titre1-aide
+
+        A quoi sert cet outil ?
+
+        Vous pouvez importer des données depuis les bases Vigie-Nature École grâce à cet outil.
+
+        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logoVNE.png
+
+        .. class:: titre1-aide
+
+        Utiliser cet outil
+
+        Il vous suffit de choisir les variables qui vous intéressent. Si vous souhaitez avoir des informations sur les protocoles, cliquez sur les liens ci-dessous.
+
+        .. class:: titre2-aide
+
+        Pour les données sur les oiseaux :
+
+        https://bricks.vigienature-ecole.fr/explorer/explorer-oiseaux/
+
+        .. class:: titre2-aide
+
+        Pour les autres observatoires :
+
+        https://bricks.vigienature-ecole.fr/explorer/
+
+        .. class:: titre1-aide
+
+        Organisation des données :
+
+        .. class:: titre2-aide
+
+        Données regroupées par départements et par années
+
+        .. image:: https://bricks.vigienature-ecole.fr/media/edito/2021/04/01/donneevn_NGWYIuF.png
+
+        Les données issues de ce jeu de données sont issues de Vigie-Nature et Vigie-Nature Ecole. Elles ont été pré-traitées : pour chaque espèce d'oiseaux vous trouverez, notamment, le nombre d'individus comptés pour chaque département aux différents mois de l'année et pour plusieurs années.
+
+    ]]></help>
+</tool>
