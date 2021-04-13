@@ -2,48 +2,25 @@ args = commandArgs(trailingOnly=TRUE)
 
 # choose between observatories
 encoding = "UTF-8"
-if (grepl("Vers_de_terre",args[1])){
+if (args[1] == "Vers_de_terre"){
   file <- "vdt.csv"
-  column_sp <- c("numero_observation", "date_observation", "espece",                          
-                 "age", "nombre_individus", "placette")
-  column_zo <- c("type_de_milieu", "surface_zone",
-                 "proximite_dechets_organiques", "usage_zone",
-                 "fauche_tonte", "presence_paturage",
-                 "utilisation_engrais", "pluie_lors_observation",
-                 "vent_lors_observation", "ensoleillement_lors_observation",
-                 "temperature_lors_observation", "humidite_sol_lors_observation",
-                 "date_derniere_gelee", "date_derniere_pluie",
-                 "difficulte_enfoncer_crayon", "taupinieres")
-} else if (grepl("Oiseaux_des_jardins",args[1])){
+} else if (args[1] == "Oiseaux_des_jardins"){
   file <- "oiseaux.csv"
-  column_sp <- c("numero_observation", "date_observation", 
-                 "espece", "nombre_individus", "heure_debut")
-  column_zo <- c("type_de_milieu",
-                 "surface_zone", "distance_bois",
-                 "distance_prairie", "distance_champ")
-} else if(grepl("Operation_escargots", args[1])){
+} else if(args[1] == "Operation_escargots"){
   file <- "escargots.csv"
-  column_sp <- c("numero_observation", "date_observation", 
-                 "espece", "nombre_individus")
-  column_zo <- c("type_de_milieu",
-                 "surface_zone", "distance_bois",
-                 "distance_prairie", "distance_champ",
-                 "utilisation_engrais", "utilisation_insecticides",
-                 "utilisation_herbicides", "utilisation_fongicides",
-                 "utilisation_antilimaces", "utilisation_boulliebordelaise",
-                 "numero_planche", "surface_planche")
-} else if(grepl("Sauvages_de_ma_rue", args[1])){
+} else if(args[1] == "Sauvages_de_ma_rue"){
   file <- "sauvages.csv"
-  column_sp <- c("numero_observation", "date_observation", 
-                 "espece", "longueurRue")
-  column_zo <- c("type_de_milieu",
-                 "surface_zone", "distance_bois",
-                 "distance_prairie", "distance_champ",
-                 "utilisation_engrais", "utilisation_insecticides",
-                 "utilisation_herbicides", "utilisation_fongicides",
-                 "utilisation_antilimaces", "utilisation_boulliebordelaise",
-                 "numero_planche", "surface_planche")
-} else if(grepl("Spipoll", args[1])){
+} else if (args[1] == "Vers_de_terre_clc"){
+  file <- "vdt_clc.csv"
+} else if (args[1] == "Oiseaux_des_jardins_clc"){
+  file <- "oiseaux_clc.csv"
+} else if (args[1] == "Oiseaux_des_jardins_odj"){
+  file <- "oiseaux_odj.csv"
+} else if(args[1] == "Operation_escargots_clc"){
+  file <- "escargots_clc.csv"
+} else if(args[1] == "Sauvages_de_ma_rue_clc"){
+  file <- "sauvages_clc.csv"
+} else if(args[1] == "Spipoll"){
   file <- "spipoll.csv"
   encoding = "Latin-1"
 } else if (args[1] == "INPN"){
@@ -55,37 +32,13 @@ if (grepl("Vers_de_terre",args[1])){
 }
 
 # get data set
-URL_data_VNE <- RCurl::getURL(paste0("https://depot.vigienature-ecole.fr/datasets/test/bricks/", file), 
+
+URL_data_VNE <- RCurl::getURL(paste0("https://depot.vigienature-ecole.fr/datasets/bricks/", file), 
                               .encoding = "UTF-8")
 data_VNE <- data.table::fread(text = URL_data_VNE, fill = TRUE, encoding = encoding)
 
-column_geo <- c("code_postal_etablissement", "ville_etablissement",
-                "latitude", "longitude",
-                "departement", "region", "academie")
-
-column_clc <- c("pourcentage_milieux_urbanisés_200m", "pourcentage_milieux_agricoles_200m",
-                "pourcentage_milieux_naturels_200m", "pourcentage_milieux_urbanisés_5km", 
-                "pourcentage_milieux_agricoles_5km", "pourcentage_milieux_naturels_5km")
-
-column_bioclim <- c("Temperature_moyenne", "Temperature_max",
-                    "Temperature_min", "Precipitation_moyenne",
-                    "Precipitation_max", "Precipitation_min")
-
-if (grepl("_clc",args[1])){
-  select_column <- c(column_sp, column_clc, column_geo)
-  data_VNE_selected <- data_VNE[, ..select_column]
-} else if  (grepl("_zo",args[1])){
-  select_column <- c(column_sp, column_zo, column_geo)
-  data_VNE_selected <- data_VNE[, ..select_column]
-} else if  (grepl("_bioclim",args[1])){
-  select_column <- c(column_sp, column_bioclim, column_geo)
-  data_VNE_selected <- data_VNE[, ..select_column]
-}
-
-
-
 if (args[1] == "INPN" & args[2] != "saisons"){
-  data_VNE_selected <- data_VNE[ , c(
+  data_VNE <- data_VNE[ , c(
     "Identifiant_de_la_zone_geographique",
     "Departement",
     "Region",
@@ -114,11 +67,11 @@ if (args[1] == "INPN" & args[2] != "saisons"){
     #Nombre_especes_papillons_hiver
   )]
 } else if (args[1] == "Spipoll") {
-  data_VNE_selected <- subset(data_VNE, data_VNE$temperature != "")
+  data_VNE <- subset(data_VNE, data_VNE$temperature != "")
 }
 
 # write file
-write.csv(data_VNE_selected, "output-importVNE.csv", row.names = FALSE)
+write.csv(data_VNE, "output-importVNE.csv", row.names = FALSE)
 
 
 

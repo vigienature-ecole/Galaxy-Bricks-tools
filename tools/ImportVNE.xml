@@ -11,10 +11,10 @@
     </command>
     <inputs>
         <param name="observatoire" type="select" label="Choisissez votre observatoire" multiple="false" display="radio">
-            <option value="Vers_de_terre_zo">Placettes à vers de terre</option>
-            <option value="Oiseaux_des_jardins_zo">Oiseaux des jardins</option>
-            <option value="Operation_escargots_zo">Opération escargots</option>
-            <option value="Sauvages_de_ma_rue_zo">Sauvages de ma rue</option>
+            <option value="Vers_de_terre">Placettes à vers de terre</option>
+            <option value="Oiseaux_des_jardins">Oiseaux des jardins</option>
+            <option value="Operation_escargots">Opération escargots</option>
+            <option value="Sauvages_de_ma_rue">Sauvages de ma rue</option>
             <option value="Spipoll">Spipoll</option>
         </param>
     </inputs>
