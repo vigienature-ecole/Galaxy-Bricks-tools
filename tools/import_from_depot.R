@@ -36,13 +36,7 @@ if (grepl("Vers_de_terre",args[1])){
   file <- "sauvages.csv"
   column_sp <- c("numero_observation", "date_observation", 
                  "espece", "longueurRue")
-  column_zo <- c("type_de_milieu",
-                 "surface_zone", "distance_bois",
-                 "distance_prairie", "distance_champ",
-                 "utilisation_engrais", "utilisation_insecticides",
-                 "utilisation_herbicides", "utilisation_fongicides",
-                 "utilisation_antilimaces", "utilisation_boulliebordelaise",
-                 "numero_planche", "surface_planche")
+  column_zo <- c("longueur_rue")
 } else if(grepl("Spipoll", args[1])){
   file <- "spipoll.csv"
   encoding = "Latin-1"
