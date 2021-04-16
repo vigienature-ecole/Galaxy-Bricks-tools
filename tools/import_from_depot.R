@@ -1,5 +1,17 @@
 args = commandArgs(trailingOnly=TRUE)
 
+# common sets
+column_geo <- c("code_postal_etablissement", "ville_etablissement",
+                "latitude", "longitude",
+                "departement", "region", "academie")
+column_clc <- c("pourcentage_milieux_urbains_200m", "pourcentage_milieux_agricoles_200m",
+                "pourcentage_milieux_naturels_200m", "pourcentage_milieux_urbains_5km", 
+                "pourcentage_milieux_agricoles_5km", "pourcentage_milieux_naturels_5km")
+
+column_bioclim <- c("Temperature_moyenne", "Temperature_max",
+                    "Temperature_min", "Precipitation_moyenne",
+                    "Precipitation_max", "Precipitation_min")
+
 # choose between observatories
 encoding = "UTF-8"
 if (grepl("Vers_de_terre",args[1])){
@@ -35,8 +47,12 @@ if (grepl("Vers_de_terre",args[1])){
 } else if(grepl("Sauvages_de_ma_rue", args[1])){
   file <- "sauvages.csv"
   column_sp <- c("numero_observation", "date_observation", 
-                 "espece", "longueurRue")
-  column_zo <- c("longueur_rue")
+                 "espece")
+  column_zo <- c("longueur_rue", "latitude_debut",
+                 "longitude_debut","latitude_fin",
+                 "longitude_fin","cote_rue")
+  column_geo <- c("code_postal_etablissement", "ville_etablissement",
+                  "departement", "region", "academie")
 } else if(grepl("Spipoll", args[1])){
   file <- "spipoll.csv"
   encoding = "Latin-1"
@@ -53,17 +69,9 @@ URL_data_VNE <- RCurl::getURL(paste0("https://depot.vigienature-ecole.fr/dataset
                               .encoding = "UTF-8")
 data_VNE <- data.table::fread(text = URL_data_VNE, fill = TRUE, encoding = encoding)
 
-column_geo <- c("code_postal_etablissement", "ville_etablissement",
-                "latitude", "longitude",
-                "departement", "region", "academie")
 
-column_clc <- c("pourcentage_milieux_urbains_200m", "pourcentage_milieux_agricoles_200m",
-                "pourcentage_milieux_naturels_200m", "pourcentage_milieux_urbains_5km", 
-                "pourcentage_milieux_agricoles_5km", "pourcentage_milieux_naturels_5km")
 
-column_bioclim <- c("Temperature_moyenne", "Temperature_max",
-                    "Temperature_min", "Precipitation_moyenne",
-                    "Precipitation_max", "Precipitation_min")
+
 
 if (grepl("_clc",args[1])){
   select_column <- c(column_sp, column_clc, column_geo)
