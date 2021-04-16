@@ -63,8 +63,8 @@ column_geo <- c("code_postal_etablissement", "ville_etablissement",
                 "latitude", "longitude",
                 "departement", "region", "academie")
 
-column_clc <- c("pourcentage_milieux_urbanisés_200m", "pourcentage_milieux_agricoles_200m",
-                "pourcentage_milieux_naturels_200m", "pourcentage_milieux_urbanisés_5km", 
+column_clc <- c("pourcentage_milieux_urbains_200m", "pourcentage_milieux_agricoles_200m",
+                "pourcentage_milieux_naturels_200m", "pourcentage_milieux_urbains_5km", 
                 "pourcentage_milieux_agricoles_5km", "pourcentage_milieux_naturels_5km")
 
 column_bioclim <- c("Temperature_moyenne", "Temperature_max",
