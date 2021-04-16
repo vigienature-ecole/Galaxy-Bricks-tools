@@ -116,7 +116,7 @@ if (args[1] == "INPN" & args[2] != "saisons"){
     #Nombre_especes_papillons_hiver
   )]
 } else if (args[1] == "Spipoll") {
-  data_VNE_selected <- subset(data_VNE, data_VNE$temperature != "")
+  data_VNE_selected <- subset(data_VNE, data_VNE$Temperature != "")
 }
 
 # write file
