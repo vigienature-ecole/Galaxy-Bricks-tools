@@ -69,7 +69,7 @@ URL_data_VNE <- RCurl::getURL(paste0("https://depot.vigienature-ecole.fr/dataset
                               .encoding = "UTF-8")
 data_VNE <- data.table::fread(text = URL_data_VNE, fill = TRUE, encoding = encoding)
 
-
+print(nrow(data_VNE))
 
 
 
