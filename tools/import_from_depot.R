@@ -86,7 +86,7 @@ if (grepl("_clc",args[1])){
 
 
 
-if (args[1] == "INPN" & args[2] != "saisons"){
+if (args[1] == "INPN"){
   data_VNE_selected <- data_VNE[ , c(
     "Identifiant_de_la_zone_geographique",
     "Departement",

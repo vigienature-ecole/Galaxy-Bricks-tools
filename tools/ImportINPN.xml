@@ -5,31 +5,16 @@
         <requirement type="package" version="1.12.2">r-data.table</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-      Rscript '$__tool_directory__/import_from_depot.R' '$Complement_data.observatoire'
-      #if $Complement_data.observatoire == "INPN"
-          '$Complement_data.precision'
-      #end if
+      Rscript '$__tool_directory__/import_from_depot.R' '$observatoire'
       '$output'
         ]]>
     </command>
     <inputs>
-        <conditional name="Complement_data">
-            <param name="observatoire" type="select" label="Choisissez les données de l'Inventaire National du Patrimoine Naturel que vous souhaitez importer" multiple="false" help="Les données sont organisées par zones géographiques de 10km par 10km. La première colonne donne le nom unique de chaque zone géographique. Les données des autres colonnes représentent soit la valeur totale de la variable dans cette zone (la population ou les espèces observées par exemple), la valeur moyenne (température par exemple) ou la valeur majoritaire (milieu par exemple)" >
-                <option value="INPN"> Les données agrégées pour tous types d'organismes</option>
-    	          <option value="INPN_Gasteropodes"> Les données complètes escargots et limaces (Gastéropodes)</option>
-                <option value="INPN_Rhopaloceres"> Les données complètes papillons (Rhopalocères)</option>
-            </param>
-            <when value="INPN">
-                <param name="precision" type="select" display="radio" label="Sélectionnez les données que vous voulez importer :" multiple="false">
-                    <option value="base">Données géographiques, climatiques, de l'environnement et nombres d'espèces pour les principaux groupes</option>
-                    <option value="saisons"> Les données précédentes avec en plus des données séparées par saisons pour les papillons et les escargots</option>
-                </param>
-            </when>
-            <when value="INPN_Gasteropodes">
-            </when>
-            <when value="INPN_Ropaloceres">
-            </when>
-        </conditional>
+        <param name="observatoire" type="select" label="Choisissez les données de l'Inventaire National du Patrimoine Naturel que vous souhaitez importer" multiple="false" help="Les données sont organisées par zones géographiques de 10km par 10km. La première colonne donne le nom unique de chaque zone géographique. Les données des autres colonnes représentent soit la valeur totale de la variable dans cette zone (la population ou les espèces observées par exemple), la valeur moyenne (température par exemple) ou la valeur majoritaire (milieu par exemple)" >
+            <option value="INPN"> Les données agrégées pour tous types d'organismes</option>
+            <option value="INPN_Gasteropodes"> Les données complètes escargots et limaces (Gastéropodes)</option>
+            <option value="INPN_Rhopaloceres"> Les données complètes papillons (Rhopalocères)</option>
+        </param>
     </inputs>
     <outputs>
         <data format="csv" name="output" from_work_dir="output-importVNE.csv" label="Données_${Complement_data.observatoire}.csv"/>
