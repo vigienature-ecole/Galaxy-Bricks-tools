@@ -65,13 +65,9 @@ if (grepl("Vers_de_terre",args[1])){
 }
 
 # get data set
-URL_data_VNE <- RCurl::getURL(paste0("https://depot.vigienature-ecole.fr/datasets/test/bricks/", file), 
+URL_data_VNE <- RCurl::getURL(paste0("https://depot.vigienature-ecole.fr/datasets/bricks/", file), 
                               .encoding = "UTF-8")
 data_VNE <- data.table::fread(text = URL_data_VNE, fill = TRUE, encoding = encoding)
-
-print(nrow(data_VNE))
-
-
 
 if (grepl("_clc",args[1])){
   select_column <- c(column_sp, column_clc, column_geo)
@@ -117,6 +113,8 @@ if (args[1] == "INPN"){
   )]
 } else if (args[1] == "Spipoll") {
   data_VNE_selected <- subset(data_VNE, data_VNE$Temperature != "")
+} else {
+  data_VNE_selected = data_VNE
 }
 
 # write file
