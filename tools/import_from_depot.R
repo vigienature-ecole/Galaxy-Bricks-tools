@@ -78,11 +78,7 @@ if (grepl("_clc",args[1])){
 } else if  (grepl("_bioclim",args[1])){
   select_column <- c(column_sp, column_bioclim, column_geo)
   data_VNE_selected <- data_VNE[, ..select_column]
-}
-
-
-
-if (args[1] == "INPN"){
+} else if (args[1] == "INPN"){
   data_VNE_selected <- data_VNE[ , c(
     "Identifiant_de_la_zone_geographique",
     "Departement",
