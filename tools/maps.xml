@@ -15,6 +15,7 @@
         '$__tool_directory__/data/maps/regions-version-simplifiee.geojson'
         '$__tool_directory__/data/maps/metropole-version-simplifiee.geojson'
         '$__tool_directory__/data/maps/academies-version-simplifiee.geojson'
+        '$__tool_directory__/data/maps/mailles10km.geojson'
         '$output1' ]]>
     </command>
     <inputs>
@@ -23,6 +24,7 @@
             <option value="academies">Académies</option>
             <option value="departements">Départements</option>
             <option value="regions">Régions</option>
+            <option value="maillesINPN">Mailles INPN</option>
         </param>
         <param name="geom" label="Colonne contenant le nom ou le code de la zone géographique" type="data_column" data_ref="input" numerical="False"/>
         <param name="variable" label="Variable à représenter" type="data_column" data_ref="input" numerical="False"/>

@@ -5,9 +5,9 @@
         <requirement type="package" version="0.8.0.1">r-dplyr</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/dataplyr.R' '$input' '$groupBy' '$colOperation' '$function' '$nameCol'
+        Rscript '$__tool_directory__/dataplyr.R' '$input' '$groupBy' '$colOperation' '$function'
         #if $addNewOperation.addOperation == "oui"
-            '$addNewOperation.function' '$addNewOperation.nameCol'
+            '$addNewOperation.function'
         #end if
         '$output'
         ]]>
@@ -26,28 +26,7 @@
                 <option value="minimum">Minimum</option>
                 <option value="maximum">Maximum</option>
             </param>
-            <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="false"/>
-            <param name="nameCol" label="et stocker l'information dans une nouvelle colonne nommée" type="text" >
-                <sanitizer invalid_char="_">
-                    <valid initial="default">
-                        <add value="à" />
-                        <add value="â" />
-                        <add value="é" />
-                        <add value="è" />
-                        <add value="ê" />
-                        <add value="ë" />
-                        <add value="î" />
-                        <add value="ô" />
-                        <add value="ï" />
-                        <add value="ù" />
-                        <add value="û" />
-                        <add value="ÿ" />
-                        <add value="ç" />
-                        <add value="œ" />
-                        <add value="€" />
-                    </valid>
-                </sanitizer>
-            </param>
+            <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="true"/>
             <conditional name="addNewOperation">
                 <param name="addOperation" type="select" label="Voulez-vous faire une autre opération ?">
                     <option value="non" selected="true">non</option>
@@ -64,27 +43,6 @@
                     <option value="erreurStandard">Erreur standard</option>
                     <option value="minimum">Minimum</option>
                     <option value="maximum">Maximum</option>
-                </param>
-                <param name="nameCol" label="et stocker l'information dans une nouvelle colonne nommée" type="text" >
-                    <sanitizer invalid_char="_">
-                        <valid initial="default">
-                            <add value="à" />
-                            <add value="â" />
-                            <add value="é" />
-                            <add value="è" />
-                            <add value="ê" />
-                            <add value="ë" />
-                            <add value="î" />
-                            <add value="ô" />
-                            <add value="ï" />
-                            <add value="ù" />
-                            <add value="û" />
-                            <add value="ÿ" />
-                            <add value="ç" />
-                            <add value="œ" />
-                            <add value="€" />
-                        </valid>
-                    </sanitizer>
                 </param>
             </when>
             <when value="non">
