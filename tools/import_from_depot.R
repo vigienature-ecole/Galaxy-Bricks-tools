@@ -1,9 +1,10 @@
 args = commandArgs(trailingOnly=TRUE)
 
-# common sets
+# common columns VNE
 column_geo <- c("code_postal_etablissement", "ville_etablissement",
                 "latitude", "longitude",
                 "departement", "region", "academie")
+
 column_clc <- c("pourcentage_milieux_urbains_200m", "pourcentage_milieux_agricoles_200m",
                 "pourcentage_milieux_naturels_200m", "pourcentage_milieux_urbains_5km", 
                 "pourcentage_milieux_agricoles_5km", "pourcentage_milieux_naturels_5km")
@@ -14,7 +15,7 @@ column_bioclim <- c("Temperature_moyenne", "Temperature_max",
 
 # choose between observatories
 encoding = "UTF-8"
-if (grepl("Vers_de_terre",args[1])){
+if (grepl("Vers_de_terre_VNE",args[1])){
   file <- "vdt.csv"
   column_sp <- c("numero_observation", "date_observation", "espece",                          
                  "age", "nombre_individus", "placette")
@@ -26,14 +27,14 @@ if (grepl("Vers_de_terre",args[1])){
                  "temperature_lors_observation", "humidite_sol_lors_observation",
                  "date_derniere_gelee", "date_derniere_pluie",
                  "difficulte_enfoncer_crayon", "taupinieres")
-} else if (grepl("Oiseaux_des_jardins",args[1])){
+} else if (grepl("Oiseaux_des_jardins_VNE",args[1])){
   file <- "oiseaux.csv"
   column_sp <- c("numero_observation", "date_observation", 
                  "espece", "nombre_individus", "heure_debut")
   column_zo <- c("type_de_milieu",
                  "surface_zone", "distance_bois",
                  "distance_prairie", "distance_champ")
-} else if(grepl("Operation_escargots", args[1])){
+} else if(grepl("Operation_escargots_VNE", args[1])){
   file <- "escargots.csv"
   column_sp <- c("numero_observation", "date_observation", 
                  "espece", "nombre_individus")
@@ -44,7 +45,7 @@ if (grepl("Vers_de_terre",args[1])){
                  "utilisation_herbicides", "utilisation_fongicides",
                  "utilisation_antilimaces", "utilisation_boulliebordelaise",
                  "numero_planche", "surface_planche")
-} else if(grepl("Sauvages_de_ma_rue", args[1])){
+} else if(grepl("Sauvages_de_ma_rue_VNE", args[1])){
   file <- "sauvages.csv"
   column_sp <- c("numero_observation", "date_observation", 
                  "espece")
