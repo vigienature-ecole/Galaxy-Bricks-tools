@@ -1,19 +1,19 @@
-<tool id="Import_vdt_VNE" name="Importer les données vers de terre Vigie-Nature Ecole">
-    <description>Importer des données vers de terre depuis la base de données VNE</description>
-    <requirements>
-        <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
-        <requirement type="package" version="1.12.2">r-data.table</requirement>
-    </requirements>
-    <command detect_errors="exit_code"><![CDATA[
+<tool id="Import_sauvages_VNE" name="Importer les données Sauvages de ma Rue Vigie-Nature Ecole">
+  <description>Importer des données Sauvages de ma Rue depuis la base de données VNE</description>
+  <requirements>
+  <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
+    <requirement type="package" version="1.12.2">r-data.table</requirement>
+      </requirements>
+      <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/import_from_depot.R' '$observatoire' 'base'
         '$output'
-        ]]>
-    </command>
-    <inputs>
+      ]]>
+        </command>
+        <inputs>
         <param name="observatoire" type="select" label="Choisissez les variables à importer" multiple="false" display="radio">
-            <option value="Vers_de_terre_VNE_zo">Données espèces et données zones d'observation</option>
-            <option value="Vers_de_terre_VNE_clc">Données espèces et données occupation du sol</option>
-            <option value="Vers_de_terre_VNE_bioclim">Données espèces et données climatiques</option>
+          <option value="Sauvages_de_ma_rue_VNE_zo">Données espèces et données zones d'observation</option>
+            <option value="Sauvages_de_ma_rue_VNE_clc">Données espèces et données occupation du sol</option>
+            <option value="Sauvages_de_ma_rue_VNE_bioclim">Données espèces et données climatiques</option>
         </param>
     </inputs>
     <outputs>
@@ -37,27 +37,28 @@
 
         .. class:: titre2-aide
 
-        Pour les données sur les vers de terre :
+        Pour les données sur les plantes sauvages :
 
-        https://bricks.vigienature-ecole.fr/explorer/explorer-vdt/
-
+        https://bricks.vigienature-ecole.fr/explorer/explorer-sauvages/
+        
         .. class:: titre2-aide
-
+        
         Pour les autres observatoires :
-
+        
         https://bricks.vigienature-ecole.fr/explorer/
-
+        
         .. class:: titre1-aide
-
+        
         Organisation des données :
-
+        
         .. class:: titre2-aide
-
+        
         Données protocolées (type Vigie-Nature École)
 
         .. image:: https://bricks.vigienature-ecole.fr/media/edito/2021/04/01/donneevne_JrAsU7r.png
-
+        
         Les données issues de Vigie-Nature Ecole sont organisées d'une manière particulière : chaque ligne représente une espèce. Pour une session d'observation, on aura donc plusieurs lignes (ayant toutes le même numéro d'observation).
 
-    ]]></help>
-</tool>
+]]></help>
+  </tool>
+  
