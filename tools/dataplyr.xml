@@ -26,7 +26,7 @@
                 <option value="minimum">Minimum</option>
                 <option value="maximum">Maximum</option>
             </param>
-            <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="true"/>
+            <param name="colOperation" label="sur la ou les colonnes" type="data_column" data_ref="input" multiple="true"/>
             <conditional name="addNewOperation">
                 <param name="addOperation" type="select" label="Voulez-vous faire une autre opération ?">
                     <option value="non" selected="true">non</option>
