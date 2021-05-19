@@ -42,7 +42,7 @@ if (grepl("Vers_de_terre_VNE",args[1])){
                  "surface_zone", "distance_bois",
                  "distance_prairie", "distance_champ",
                  "utilisation_pesticide",
-                 "numero_planche", "surface_planche")
+                 "surface_planche")
 } else if(grepl("Sauvages_de_ma_rue_VNE", args[1])){
   file <- "sauvages.csv"
   column_sp <- c("numero_observation", "date_observation", 
