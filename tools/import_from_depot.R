@@ -41,9 +41,7 @@ if (grepl("Vers_de_terre_VNE",args[1])){
   column_zo <- c("type_de_milieu",
                  "surface_zone", "distance_bois",
                  "distance_prairie", "distance_champ",
-                 "utilisation_engrais", "utilisation_insecticides",
-                 "utilisation_herbicides", "utilisation_fongicides",
-                 "utilisation_antilimaces", "utilisation_boulliebordelaise",
+                 "utilisation_pesticide",
                  "numero_planche", "surface_planche")
 } else if(grepl("Sauvages_de_ma_rue_VNE", args[1])){
   file <- "sauvages.csv"
