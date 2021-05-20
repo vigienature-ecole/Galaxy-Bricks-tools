@@ -17,7 +17,7 @@
         </param>
     </inputs>
     <outputs>
-        <data format="csv" name="output" from_work_dir="output-importVNE.csv" label="Données_${Complement_data.observatoire}.csv"/>
+        <data format="csv" name="output" from_work_dir="output-importVNE.csv" label="Données_${observatoire}.csv"/>
     </outputs>
     <help><![CDATA[
 
