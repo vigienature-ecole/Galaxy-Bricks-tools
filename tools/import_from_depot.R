@@ -53,7 +53,7 @@ if (grepl("Vers_de_terre_VNE",args[1])){
   column_geo <- c("code_postal_etablissement", "ville_etablissement",
                   "departement", "region", "academie")
   
-} else if(grepl("Sauvages_de_ma_rue_VNE", args[1])){
+} else if(grepl("Oiseaux_des_jardins_odj", args[1])){
   file <- "oiseaux_odj.csv"
 } else if(grepl("Spipoll", args[1])){
   file <- "spipoll.csv"
