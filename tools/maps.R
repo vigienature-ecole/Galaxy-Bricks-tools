@@ -6,6 +6,15 @@ library(ggplot2)
 
 args = commandArgs(trailingOnly=TRUE)
 
+# args = c("../../Downloads/Galaxy6-[S_lectionner_des_lignes_on_data_5].csv",
+#          "departements",
+#          "2",
+#          "3",
+#          "data/maps/departements-version-simplifiee.geojson",
+#          "data/maps/regions-version-simplifiee.geojson",
+#          "data/maps/academies-version-simplifiee.geojson"
+# )
+
 # args = c("test-data/input_depart_pas_complet.csv",
 #          "departements",
 #          "1",
@@ -63,7 +72,7 @@ if (any(short_values) & geographic_scale != "academies") {
   data_file_geo[[geographic_data]][short_values] <- paste0("0", as.vector(data_file_geo[[geographic_data]])[short_values])
 }
 
-if (any(data_file_geo[[geographic_data]] > 5)) {
+if (any(nchar(data_file_geo[[geographic_data]]) > 5)) {
   name = TRUE
 } else {
   name = FALSE
