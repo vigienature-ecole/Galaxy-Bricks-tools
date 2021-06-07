@@ -11,6 +11,7 @@
         '$geom_select'
         '$geom'
         '$variable'
+        '$titre'
         '$__tool_directory__/data/maps/departements-version-simplifiee.geojson'
         '$__tool_directory__/data/maps/regions-version-simplifiee.geojson'
         '$__tool_directory__/data/maps/metropole-version-simplifiee.geojson'
@@ -28,6 +29,27 @@
         </param>
         <param name="geom" label="Colonne contenant le nom ou le code de la zone géographique" type="data_column" data_ref="input" numerical="False"/>
         <param name="variable" label="Variable à représenter" type="data_column" data_ref="input" numerical="False"/>
+        <param name="titre" type="text" value="date" label="ajouter un titre au graphique" >
+            <sanitizer invalid_char="_">
+                <valid initial="default">
+                    <add value="à" />
+                    <add value="â" />
+                    <add value="é" />
+                    <add value="è" />
+                    <add value="ê" />
+                    <add value="ë" />
+                    <add value="î" />
+                    <add value="ï" />
+                    <add value="ô" />
+                    <add value="ù" />
+                    <add value="û" />
+                    <add value="ÿ" />
+                    <add value="ç" />
+                    <add value="œ" />
+                    <add value="€" />
+                </valid>
+            </sanitizer>
+        </param>
     </inputs>
     <outputs>
         <data format="png" name="output1" from_work_dir="carte.png" />

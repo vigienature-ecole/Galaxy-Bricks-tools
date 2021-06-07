@@ -6,7 +6,7 @@ library(ggplot2)
 
 args = commandArgs(trailingOnly=TRUE)
 
-# args = c("../../Downloads/Galaxy6-[S_lectionner_des_lignes_on_data_5].csv",
+# args = c("../../../Downloads/Galaxy6-[S_lectionner_des_lignes_on_data_5].csv",
 #          "departements",
 #          "2",
 #          "3",
@@ -53,6 +53,7 @@ input <- args[1]
 geographic_scale <- args[2]
 geographic_data <- as.numeric(args[3])
 variable <- as.numeric(args[4])
+titre <- args[5]
 
 #load data
 data_file <- data.frame(data.table::fread(input))
@@ -67,7 +68,6 @@ data_file_geo <- data_file
 
 # add 0 to departement where they are missing
 short_values <- nchar(as.vector(data_file_geo[[geographic_data]])) < 2
-any(short_values)
 if (any(short_values) & geographic_scale != "academies") {
   data_file_geo[[geographic_data]][short_values] <- paste0("0", as.vector(data_file_geo[[geographic_data]])[short_values])
 }
@@ -91,15 +91,15 @@ if (geographic_scale != "points") {
 #TODO : verifier qu'il n'y a qu'une valeur par données sinon afficher une erreur
 #charger les données de position
 if (geographic_scale == "departements") {
-  geographic_scale_to_load = args[5]
+  geographic_scale_to_load = args[6]
 } else if (geographic_scale == "regions") {
-  geographic_scale_to_load =  args[6]
-} else if (geographic_scale == "academies") {
-  geographic_scale_to_load =  args[8]
-} else if (geographic_scale == "maillesINPN") {
-  geographic_scale_to_load =  args[9]
-} else if (geographic_scale == "points") {
   geographic_scale_to_load =  args[7]
+} else if (geographic_scale == "academies") {
+  geographic_scale_to_load =  args[9]
+} else if (geographic_scale == "maillesINPN") {
+  geographic_scale_to_load =  args[10]
+} else if (geographic_scale == "points") {
+  geographic_scale_to_load =  args[8]
   data_file_geo <- st_as_sf(data_file_geo,coords=c("longitude", "latitude")) %>%
     st_set_crs(4326)%>%
     st_transform(2154)
@@ -109,14 +109,6 @@ if (geographic_scale == "departements") {
 geo = sf::read_sf(geographic_scale_to_load)
 
 # join data with geographic data
-print(geographic_scale)
-
-print("geo")
-print(colnames(geo))
-print("geo_file")
-print(colnames(data_file_geo))
-
-
 
 if (geographic_scale == "maillesINPN") {
   print(c(colnames(geo), colnames(data_file_geo)))
@@ -142,16 +134,19 @@ par(mar = c(0,0,0,0))
 if (geographic_scale == "maillesINPN") {
   ggplot(geo, aes_string(fill = colnames(data_file_geo)[variable])) +
     geom_sf(data = geo, lwd = 0) +
-    theme_bw()
+    theme_bw() +
+    ggtitle(titre)
 } else if (geographic_scale != "points") {
   ggplot(geo, aes_string(fill = colnames(data_file_geo)[variable])) +
     geom_sf(data = geo) +
-    theme_bw()
+    theme_bw() +
+    ggtitle(titre)
 } else {
   ggplot(geo) +
     geom_sf(data = geo) +
     geom_sf(data = data_file_geo) +
-    theme_bw()
+    theme_bw() +
+    ggtitle(titre)
 }
 dev.off()
 
