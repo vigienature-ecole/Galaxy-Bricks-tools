@@ -36,7 +36,7 @@ input = data.frame(fread(args[1], encoding = "UTF-8"))
 if (wholeLine == "laColonne"){
   if (negateMatching == "garder"){
     if(filterType == "egaleA"){
-      result <- dplyr::filter(input, str_detect(input[ ,columnsNumber], filterParameter))
+      result <- dplyr::filter(input, str_detect(ignore.case(input[ ,columnsNumber]), filterParameter))
     } else if (filterType == "exactementEgaleA"){
       result <- dplyr::filter(input, input[ ,columnsNumber] == filterParameter)
     } else if (filterType == "superieuresOuEgalesA"){
@@ -46,7 +46,7 @@ if (wholeLine == "laColonne"){
     }
   } else {
     if(filterType == "egaleA"){
-      result <- dplyr::filter(input, !str_detect(input[ ,columnsNumber], filterParameter))
+      result <- dplyr::filter(input, !str_detect(ignore.case(input[ ,columnsNumber]), filterParameter))
     } else if (filterType == "exactementEgaleA"){
       result <- dplyr::filter(input, !input[ ,columnsNumber] == filterParameter)
     } else if (filterType == "superieuresOuEgalesA"){
