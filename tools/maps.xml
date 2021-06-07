@@ -29,7 +29,7 @@
         </param>
         <param name="geom" label="Colonne contenant le nom ou le code de la zone géographique" type="data_column" data_ref="input" numerical="False"/>
         <param name="variable" label="Variable à représenter" type="data_column" data_ref="input" numerical="False"/>
-        <param name="titre" type="text" value="date" label="ajouter un titre au graphique" >
+        <param name="titre" type="text" value="" label="ajouter un titre au graphique" >
             <sanitizer invalid_char="_">
                 <valid initial="default">
                     <add value="à" />
