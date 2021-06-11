@@ -5,9 +5,9 @@
         <requirement type="package" version="0.8.0.1">r-dplyr</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/dataplyr.R' '$input' '$groupBy' '$colOperation' '$function'
+        Rscript '$__tool_directory__/dataplyr.R' '$input' '$groupBy' '$colOperation' '$function' '$inputName'
         #if $addNewOperation.addOperation == "oui"
-            '$addNewOperation.function'
+            '$addNewOperation.colOperation' '$addNewOperation.function' '$addNewOperation.inputName'
         #end if
         '$output'
         ]]>
@@ -20,13 +20,34 @@
                 <option value="mediane">Médiane</option>
                 <option value="somme">Somme</option>
                 <option value="compte">Compte</option>
-                    <option value="compteSuperieurAZero">Compter les valeurs supérieures à zéro</option>
+                <option value="compteSuperieurAZero">Compter les valeurs supérieures à zéro</option>
                 <option value="ecartType">Ecart-type</option>
                 <option value="erreurStandard">Erreur standard</option>
                 <option value="minimum">Minimum</option>
                 <option value="maximum">Maximum</option>
             </param>
             <param name="colOperation" label="sur la ou les colonnes" type="data_column" data_ref="input" multiple="true"/>
+            <param name="inputName" type="text" value="" label="et stocker la valeur dans un nouvelle colonne nommée" >
+                <sanitizer invalid_char="_">
+                    <valid initial="default">
+                        <add value="à" />
+                        <add value="â" />
+                        <add value="é" />
+                        <add value="è" />
+                        <add value="ê" />
+                        <add value="ë" />
+                        <add value="î" />
+                        <add value="ï" />
+                        <add value="ô" />
+                        <add value="ù" />
+                        <add value="û" />
+                        <add value="ÿ" />
+                        <add value="ç" />
+                        <add value="œ" />
+                        <add value="€" />
+                    </valid>
+                </sanitizer>
+            </param>
             <conditional name="addNewOperation">
                 <param name="addOperation" type="select" label="Voulez-vous faire une autre opération ?">
                     <option value="non" selected="true">non</option>
@@ -44,6 +65,28 @@
                     <option value="minimum">Minimum</option>
                     <option value="maximum">Maximum</option>
                 </param>
+                <param name="colOperation" label="sur la ou les colonnes" type="data_column" data_ref="input" multiple="true"/>
+                <param name="inputName" type="text" value="" label="et stocker la valeur dans un nouvelle colonne nommée" >
+                    <sanitizer invalid_char="_">
+                        <valid initial="default">
+                        <add value="à" />
+                        <add value="â" />
+                        <add value="é" />
+                        <add value="è" />
+                        <add value="ê" />
+                        <add value="ë" />
+                        <add value="î" />
+                        <add value="ï" />
+                        <add value="ô" />
+                        <add value="ù" />
+                        <add value="û" />
+                        <add value="ÿ" />
+                        <add value="ç" />
+                        <add value="œ" />
+                        <add value="€" />
+                    </valid>
+                </sanitizer>
+            </param>
             </when>
             <when value="non">
             </when>

@@ -11,31 +11,26 @@
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
-# args= c("tools/test-data/irisPlus.tabular", "5,6","1","somme","toto", "output")
-# 
-# 
-# args= c("tools/test-data/irisPlus.tabular", "5,6","1,2,3","moyenne", "ecartType", "output")
 
+# args = c("tools/test-data/irisPlus.tabular", "5,6", "1", "somme", "toto", "output")
+# args = c("tools/test-data/irisPlus.tabular", "5,6", "1", "somme", "toto", "2", "moyenne", "tata", "output")
 
-
-
-#args= c("tools/test-data/irisPlus.tabular", "5,6","5","somme","toto", "output")
 
 #determine the number of loop count
-totalLoop = (length(args) - 4)
+totalLoop = (length(args) - 3) / 3
 
 
 # for the functions in french and to deal with NA
 
-somme <- function (x) sum(x, na.rm = TRUE)
-moyenne <- function (x) mean(x, na.rm = TRUE)
-mediane <- function (x) median(x, na.rm = TRUE)
-ecartType <- function (x) sd(x, na.rm = TRUE)
-minimum <- function (x) min(x, na.rm = TRUE)
-maximum <- function (x) max(x, na.rm = TRUE)
+somme <- function (x) round(sum(x, na.rm = TRUE), 4)
+moyenne <- function (x) round(mean(x, na.rm = TRUE), 4)
+mediane <- function (x) round(median(x, na.rm = TRUE), 4)
+ecartType <- function (x) round(sd(x, na.rm = TRUE), 4)
+minimum <- function (x) round(min(x, na.rm = TRUE), 4)
+maximum <- function (x) round(max(x, na.rm = TRUE), 4)
 compte <- function (x) length(x)
 compteSuperieurAZero <- function (x) length(x[x>0 & !is.na(x)])
-erreurStandard <- function (x) sd(x, na.rm = TRUE)/length(x[!is.na(x)])
+erreurStandard <- function (x) round(sd(x, na.rm = TRUE)/length(x[!is.na(x)]), 4)
 
 
 # import package
@@ -59,19 +54,19 @@ if(any(columnsOperation %in% columnsGroup)) stop(paste("Il est impossible de sé
 for (i in 1:totalLoop){
   
   # separate functions
-  functions <- unlist(strsplit(args[4 + (i-1)], ","))
+  functions <- unlist(strsplit(args[4 + (i-1)*3], ","))
 
   #gets names from arguments TO CHANGE
-  newNames <- args[5 + (i-1) * 2]
+  newNames <- args[5 + (i-1) * 3]
 
-  # Agregation function
+  # Agregation function 
   Result[[i]] <- input %>%
     group_by_at(colnames(input)[columnsGroup]) %>%
     summarise_at(.vars = colnames(input)[columnsOperation], .funs = functions)
 
   # change colnames to make them more comprehensible (operation_variable name)
     toRename <- colnames(Result[[i]]) %in% colnames(input)[columnsOperation]
-    colnames(Result[[i]])[toRename] <- paste(functions, colnames(input)[columnsOperation], sep = "_")
+    colnames(Result[[i]])[toRename] <- newNames
 }
 
 finalResult <- Result[[1]]
