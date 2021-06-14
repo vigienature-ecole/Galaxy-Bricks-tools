@@ -45,11 +45,11 @@ if (grepl("Vers_de_terre_VNE",args[1])){
                  "surface_planche")
 } else if(grepl("Sauvages_de_ma_rue_VNE", args[1])){
   file <- "sauvages.csv"
-  column_sp <- c("numero_observation", "date_observation", 
+  column_sp <- c("numero_zone_observation", "mois_observation", "annee_observation", 
                  "espece")
   column_zo <- c("longueur_rue", "latitude_debut",
                  "longitude_debut","latitude_fin",
-                 "longitude_fin","cote_rue")
+                 "longitude_fin")
   column_geo <- c("code_postal_etablissement", "ville_etablissement",
                   "departement", "region", "academie")
   
