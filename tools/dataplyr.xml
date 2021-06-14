@@ -26,7 +26,7 @@
                 <option value="minimum">Minimum</option>
                 <option value="maximum">Maximum</option>
             </param>
-            <param name="colOperation" label="sur la ou les colonnes" type="data_column" data_ref="input" multiple="true"/>
+            <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="false"/>
             <param name="inputName" type="text" value="" label="et stocker l'information dans une nouvelle colonne nommée" >
                 <sanitizer invalid_char="_">
                     <valid initial="default">
@@ -65,7 +65,7 @@
                     <option value="minimum">Minimum</option>
                     <option value="maximum">Maximum</option>
                 </param>
-                <param name="colOperation" label="sur la ou les colonnes" type="data_column" data_ref="input" multiple="true"/>
+                <param name="colOperation" label="sur la colonne" type="data_column" data_ref="input" multiple="false"/>
                 <param name="inputName" type="text" value="" label="et stocker l'information dans une nouvelle colonne nommée" >
                     <sanitizer invalid_char="_">
                         <valid initial="default">
