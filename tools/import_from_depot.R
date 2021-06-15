@@ -49,7 +49,7 @@ if (grepl("Vers_de_terre_VNE",args[1])){
                  "espece")
   column_zo <- c("longueur_rue", "latitude_debut",
                  "longitude_debut","latitude_fin",
-                 "longitude_fin")
+                 "longitude_fin", "Chemin",	"Fissure",	"Haie",	"Mur",	"Pelouse",	"Pied_d_arbre",	"Platebande")
   column_geo <- c("code_postal_etablissement", "ville_etablissement",
                   "departement", "region", "academie")
   
