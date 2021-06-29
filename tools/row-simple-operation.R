@@ -5,7 +5,7 @@
 #    Author : Simon Benateau
 ###########################################
 
-library(data.table)
+suppressPackageStartupMessages(library(data.table))
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)

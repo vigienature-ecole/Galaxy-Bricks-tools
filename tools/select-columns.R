@@ -7,8 +7,8 @@ args = commandArgs(trailingOnly=TRUE)
 #args = c("tools/test-data/irisPlus.tabular", "1", "garder")
 
 # import package
-library(data.table, quietly = TRUE) # for data import
-library(dplyr)
+suppressPackageStartupMessages(library(data.table, quietly = TRUE)) # for data import
+suppressPackageStartupMessages(library(dplyr))
 
 # import input file (tabular or csv)
 input = data.frame(fread(args[1], encoding = "UTF-8"))

@@ -11,7 +11,7 @@
 #     2. coeficients
 #     3. graph
 
-library(ggplot2)
+suppressPackageStartupMessages(library(ggplot2))
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)

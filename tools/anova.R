@@ -12,9 +12,9 @@
 #     3. graph
 
 #import package
-library(dplyr)
-library(ggplot2)
-library(multcomp)
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(multcomp))
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
@@ -26,11 +26,19 @@ args = commandArgs(trailingOnly=TRUE)
 # import input file (tabular or csv)
 input = data.frame(data.table::fread(args[1]))
 
+
+
+
 varDepName <- colnames(input)[as.numeric(args[2])]
 
 varExpl <- as.numeric(unlist(strsplit(args[3], ",")))
 varExplNames <- colnames(input)[varExpl]
 
+verif_input <- input %>%
+  group_by_at(varExplNames) %>%
+  summarize(nombre = n())
+
+if(all(verif_input$nombre <= 1)) stop("Le fichier ne contient qu'une seule valeur pour chaque catégorie. Il faut choisir le fichier de données brutes.")
 
 # clean dataset
 for (i in seq_along(varExplNames)){
@@ -43,6 +51,8 @@ input[varExplNames] <- lapply(input[varExplNames], factor)
 
 # find if there is more than one explanatory variable (separator = , )
 multiple = grepl(",", args[3])
+
+
 
 myglht <- function (res = NULL, fact = NULL) {
   glht(res,
@@ -169,7 +179,7 @@ graphRes <- function(input, varExplNames, varDepName){
   } else {
     stop("Il ne peut pas y avoir plus de 2 varibles explicatives pour le moment")
   }
-
+  
 }
 
 

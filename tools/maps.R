@@ -1,8 +1,8 @@
 # carto dans galaxy
 
-library(sf)
-library(dplyr)
-library(ggplot2)
+suppressPackageStartupMessages(library(sf))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(ggplot2))
 
 args = commandArgs(trailingOnly=TRUE)
 

@@ -7,10 +7,10 @@ args = commandArgs(trailingOnly=TRUE)
 
 
 # import package
-require(RPostgreSQL, quietly = TRUE)
-library(stringr, quietly = TRUE)
-library(dplyr, quietly = TRUE, warn.conflicts = FALSE)
-library(jsonlite)
+suppressPackageStartupMessages(require(RPostgreSQL, quietly = TRUE))
+suppressPackageStartupMessages(library(stringr, quietly = TRUE))
+suppressPackageStartupMessages(library(dplyr, quietly = TRUE, warn.conflicts = FALSE))
+suppressPackageStartupMessages(library(jsonlite))
 
 # fonction for restitution
 

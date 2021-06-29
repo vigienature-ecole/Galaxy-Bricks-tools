@@ -29,8 +29,8 @@ viewNC     = args[11]
 
 
 # import package
-library(data.table) # for data import
-library(ggplot2)
+suppressPackageStartupMessages(library(data.table)) # for data import
+suppressPackageStartupMessages(library(ggplot2))
 
 # import input file (tabular or csv)
 input = data.frame(fread(inputFile))

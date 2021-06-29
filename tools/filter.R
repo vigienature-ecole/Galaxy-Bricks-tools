@@ -10,9 +10,9 @@ args = commandArgs(trailingOnly=TRUE)
 
 
 # import package
-library(data.table, quietly = TRUE) # for data import
-library(stringr, quietly = TRUE) # to work with string
-library(dplyr, quietly = TRUE, warn.conflicts = FALSE)
+suppressPackageStartupMessages(library(data.table)) # for data import
+suppressPackageStartupMessages(library(stringr)) # to work with string
+suppressPackageStartupMessages(library(dplyr))
 
 
 # parameters translated

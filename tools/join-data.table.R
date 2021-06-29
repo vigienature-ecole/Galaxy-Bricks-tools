@@ -12,7 +12,7 @@
 args = commandArgs(trailingOnly=TRUE)
 
 # load library
-library(data.table)
+suppressPackageStartupMessages(library(data.table))
 
 # input data
 # args = c("input1-join.tabular", "input2-join.tabular", "INNER", "1", "1", "2,3", "1,3", "TRUE")

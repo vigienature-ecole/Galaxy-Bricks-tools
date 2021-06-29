@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
-library(data.table)
-library(dplyr)
-library(lubridate)
+suppressPackageStartupMessages(library(data.table))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(lubridate))
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)

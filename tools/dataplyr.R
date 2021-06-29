@@ -34,8 +34,8 @@ erreurStandard <- function (x) round(sd(x, na.rm = TRUE)/length(x[!is.na(x)]), 4
 
 
 # import package
-library(data.table) # for data import
-library(dplyr, warn.conflicts = FALSE)
+suppressPackageStartupMessages(library(data.table)) # for data import
+suppressPackageStartupMessages(library(dplyr))
 
 
 # import input file (tabular or csv)
