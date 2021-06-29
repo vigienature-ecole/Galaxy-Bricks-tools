@@ -39,6 +39,8 @@ verif_input <- input %>%
   summarize(nombre = n())
 
 if(all(verif_input$nombre <= 1)) stop("Le fichier ne contient qu'une seule valeur pour chaque catégorie. Il faut choisir le fichier de données brutes.")
+if(nrow(verif_input) > 100) stop("Le fichier contient trop de catégories différentes. Ne vouliez vous pas faire une régression linéaire")
+
 
 # clean dataset
 for (i in seq_along(varExplNames)){
