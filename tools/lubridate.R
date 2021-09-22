@@ -4,7 +4,7 @@
 
 #get arguments from galaxy xlm command
 args = commandArgs(trailingOnly=TRUE)
-args <- c("../../github/Requetes-et-restitutions/R-pour-restitutions/import_add_data/bricks/oiseaux.csv", "2", "ymd", "month", "tada")
+#args <- c("../../github/Requetes-et-restitutions/R-pour-restitutions/import_add_data/bricks/oiseaux.csv", "2", "ymd", "month", "tada")
 
 input = args[1]
 column = as.numeric(args[2])
