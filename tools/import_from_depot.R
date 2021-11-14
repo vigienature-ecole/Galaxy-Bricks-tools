@@ -35,7 +35,7 @@ if (grepl("Vers_de_terre_VNE",args[1])){
                  "surface_zone", "distance_bois",
                  "distance_prairie", "distance_champ")
 } else if(grepl("Operation_escargots_VNE", args[1])){
-  if ( arg[2] == "simple"){
+  if ( args[2] == "simple"){
     file <- "escargots_simple.csv"
     column_sp <- c("numero_observation", "date_observation")
   } else {
