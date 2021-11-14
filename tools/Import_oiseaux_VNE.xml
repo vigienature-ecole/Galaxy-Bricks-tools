@@ -10,10 +10,14 @@
         ]]>
     </command>
     <inputs>
-        <param name="observatoire" type="select" label="Choisissez les variables à importer" multiple="false" display="radio">
-            <option value="Oiseaux_des_jardins_VNE_zo">Données espèces et données zones d'observation</option>
-            <option value="Oiseaux_des_jardins_VNE_clc">Données espèces et données occupation du sol</option>
-            <option value="Oiseaux_des_jardins_VNE_bioclim">Données espèces et données climatiques</option>
+        <param name="type" type="select" label="Choisissez le type de données à importer" multiple="false" display="radio">
+            <option value="simple">Données simples (diversité et abondances des espèces)</option>
+            <option value="espece">Données complètes (pour travailler sur une ou des espèces en particulier)</option>
+        </param>
+        <param name="observatoire" type="select" label="Choisissez les variables complémentaires à importer" multiple="false" display="radio">
+            <option value="Oiseaux_des_jardins_VNE_zo">Données zones d'observation</option>
+            <option value="Oiseaux_des_jardins_VNE_clc">Données données occupation du sol</option>
+            <option value="Oiseaux_des_jardins_VNE_bioclim">Données données climatiques</option>
         </param>
     </inputs>
     <outputs>

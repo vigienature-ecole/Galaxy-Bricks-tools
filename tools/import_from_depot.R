@@ -28,16 +28,22 @@ if (grepl("Vers_de_terre_VNE",args[1])){
                  "date_derniere_gelee", "date_derniere_pluie",
                  "difficulte_enfoncer_crayon", "taupinieres")
 } else if (grepl("Oiseaux_des_jardins_VNE",args[1])){
+  if ( args[2] == "simple"){
+    file <- "oiseaux_simple.csv"
+    column_sp <- c("numero_observation", "date_observation", 
+                   "abondance", "diversite", "heure_debut")
+  } else {
   file <- "oiseaux.csv"
   column_sp <- c("numero_observation", "date_observation", 
                  "espece", "nombre_individus", "heure_debut")
+  }
   column_zo <- c("type_de_milieu",
                  "surface_zone", "distance_bois",
                  "distance_prairie", "distance_champ")
 } else if(grepl("Operation_escargots_VNE", args[1])){
   if ( args[2] == "simple"){
     file <- "escargots_simple.csv"
-    column_sp <- c("numero_observation", "date_observation")
+    column_sp <- c("numero_observation", "date_observation", "abondance", "diversite")
   } else {
     file <- "escargots.csv"
     column_sp <- c("numero_observation", "date_observation", 
