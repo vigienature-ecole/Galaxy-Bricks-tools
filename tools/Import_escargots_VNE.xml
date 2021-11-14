@@ -11,13 +11,13 @@
       </command>
         <inputs>
         <param name="type" type="select" label="Choisissez le type de données à importer" multiple="false" display="radio">
-            <option value="simple">Données simples (diversité et abondances des espèces)</option>
+            <option value="simple">Données simples (diversité et abondance des espèces)</option>
             <option value="espece">Données complètes (pour travailler sur une ou des espèces en particulier)</option>
         </param>
         <param name="observatoire" type="select" label="Choisissez les variables complémentaires à importer" multiple="false" display="radio">
             <option value="Operation_escargots_VNE_zo">Données zones d'observation</option>
-            <option value="Operation_escargots_VNE_clc">Données données occupation du sol</option>
-            <option value="Operation_escargots_VNE_bioclim">Données données climatiques</option>
+            <option value="Operation_escargots_VNE_clc">Données occupation du sol</option>
+            <option value="Operation_escargots_VNE_bioclim">Données climatiques</option>
         </param>
     </inputs>
     <outputs>
