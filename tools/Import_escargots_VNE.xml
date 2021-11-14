@@ -5,11 +5,15 @@
     <requirement type="package" version="1.12.2">r-data.table</requirement>
       </requirements>
       <command detect_errors="exit_code"><![CDATA[
-        Rscript '$__tool_directory__/import_from_depot.R' '$observatoire' 'base'
+        Rscript '$__tool_directory__/import_from_depot.R' '$observatoire' '$type' 'base'
         '$output'
       ]]>
-        </command>
+      </command>
         <inputs>
+        <param name="type" type="select" label="Choisissez les variables à importer" multiple="false" display="radio">
+            <option value="simple">Données simples (diversité et abondances des espèces)</option>
+            <option value="espece">Données complètes (pour travailler sur une ou des espèces en particulier)</option>
+        </param>
         <param name="observatoire" type="select" label="Choisissez les variables à importer" multiple="false" display="radio">
             <option value="Operation_escargots_VNE_zo">Données espèces et données zones d'observation</option>
             <option value="Operation_escargots_VNE_clc">Données espèces et données occupation du sol</option>

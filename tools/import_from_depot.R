@@ -35,9 +35,14 @@ if (grepl("Vers_de_terre_VNE",args[1])){
                  "surface_zone", "distance_bois",
                  "distance_prairie", "distance_champ")
 } else if(grepl("Operation_escargots_VNE", args[1])){
-  file <- "escargots.csv"
-  column_sp <- c("numero_observation", "date_observation", 
-                 "espece", "nombre_individus")
+  if ( arg[2] == "simple"){
+    file <- "escargots_simple.csv"
+    column_sp <- c("numero_observation", "date_observation")
+  } else {
+    file <- "escargots.csv"
+    column_sp <- c("numero_observation", "date_observation", 
+                   "espece", "nombre_individus")
+  }
   column_zo <- c("type_de_milieu",
                  "surface_zone", "distance_bois",
                  "distance_prairie", "distance_champ",
