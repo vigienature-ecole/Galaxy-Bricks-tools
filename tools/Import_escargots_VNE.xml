@@ -1,4 +1,4 @@
-<tool id="Import_escargots_VNE" name="Importer les données Opération escargot Vigie-Nature École">
+<tool id="Import_escargots_VNE" name="Importer les données Opération escargots Vigie-Nature École">
   <description>Importer des données escargots depuis la base de données VNE</description>
   <requirements>
   <requirement type="package" version="1.98_1.2">r-rcurl</requirement>
