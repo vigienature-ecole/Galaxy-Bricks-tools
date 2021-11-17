@@ -11,8 +11,8 @@
     </command>
     <inputs>
         <param name="type" type="select" label="Choisissez le type de données à importer" multiple="false" display="radio">
-            <option value="simple">Données simples (diversité et abondance des espèces)</option>
-            <option value="espece">Données complètes (pour travailler sur une ou des espèces en particulier)</option>
+            <option value="simple">Données simples, uniquement la diversité et abondance totale (sans le nom des espèces - plus simple pour faire des calculs))</option>
+            <option value="espece">Données complètes avec le nom des espèces et l'abondance de chaque espèces (pour travailler sur une ou des espèces en particulier)</option>
         </param>
         <param name="observatoire" type="select" label="Choisissez les variables complémentaires à importer" multiple="false" display="radio">
             <option value="Oiseaux_des_jardins_VNE_zo">Données zones d'observation</option>
