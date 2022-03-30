@@ -1,11 +1,9 @@
 <tool id="Import_sauvages_VNE" name="Importer les données Sauvages de ma Rue Vigie-Nature Ecole">
   <description>Importer des données Sauvages de ma Rue depuis la base de données VNE</description>
   <requirements>
-  <requirement type="package" version="1.95_4.12">r-rcurl</requirement>
-    <requirement type="package" version="1.14.2">r-data.table</requirement>
-    <requirement type="package" version="4.0.5">r-bit64</requirement>
-    
-      </requirements>
+      <requirement type="package" version="1.95_4.12">r-rcurl</requirement>
+      <requirement type="package" version="1.14.2">r-data.table</requirement>
+  </requirements>
       <command detect_errors="exit_code"><![CDATA[
         Rscript '$__tool_directory__/import_from_depot.R' '$observatoire' 'base'
         '$output'
