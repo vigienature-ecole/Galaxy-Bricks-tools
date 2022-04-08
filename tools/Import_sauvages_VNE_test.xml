@@ -1,0 +1,63 @@
+<tool id="Import_sauvages_VNE" name="Importer les données Sauvages de ma Rue Vigie-Nature Ecole">
+  <description>Importer des données Sauvages de ma Rue depuis la base de données VNE</description>
+  <requirements>
+      <requirement type="package" version="1.95_4.12">r-rcurl</requirement>
+      <requirement type="package" version="1.14.2">r-data.table</requirement>
+  </requirements>
+      <command detect_errors="exit_code"><![CDATA[
+        Rscript '$__tool_directory__/import_from_depot_test.R' '$observatoire' 'base'
+        '$output'
+      ]]>
+        </command>
+        <inputs>
+        <param name="observatoire" type="select" label="Choisissez les variables à importer" multiple="false" display="radio">
+          <option value="Sauvages_de_ma_rue_VNE_zo">Données espèces et données zones d'observation</option>
+            <option value="Sauvages_de_ma_rue_VNE_clc">Données espèces et données occupation du sol</option>
+            <option value="Sauvages_de_ma_rue_VNE_bioclim">Données espèces et données climatiques</option>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="csv" name="output" from_work_dir="output-importVNE.csv" label="Données_VNE_${observatoire}.csv"/>
+    </outputs>
+    <help><![CDATA[
+
+        .. class:: titre1-aide
+
+        A quoi sert cet outil ?
+
+        Vous pouvez importer des données depuis les bases Vigie-Nature École grâce à cet outil.
+
+        .. image:: https://galaxy.vigienature-ecole.fr${static_path}/images/tools/bricks/logoVNE.png
+
+        .. class:: titre1-aide
+
+        Utiliser cet outil
+
+        Il vous suffit de choisir les variables qui vous intéressent. Si vous souhaitez avoir des informations sur les protocoles, cliquez sur les liens ci-dessous.
+
+        .. class:: titre2-aide
+
+        Pour les données sur les plantes sauvages :
+
+        https://bricks.vigienature-ecole.fr/explorer/explorer-sauvages/
+
+        .. class:: titre2-aide
+
+        Pour les autres observatoires :
+
+        https://bricks.vigienature-ecole.fr/explorer/
+
+        .. class:: titre1-aide
+
+        Organisation des données :
+
+        .. class:: titre2-aide
+
+        Données protocolées (type Vigie-Nature École)
+
+        .. image:: https://bricks.vigienature-ecole.fr/media/edito/2021/04/01/donneevne_JrAsU7r.png
+
+        Les données issues de Vigie-Nature Ecole sont organisées d'une manière particulière : chaque ligne représente une espèce. Pour une session d'observation, on aura donc plusieurs lignes (ayant toutes le même numéro d'observation).
+
+]]></help>
+  </tool>
