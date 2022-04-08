@@ -1,4 +1,4 @@
-<tool id="Import_sauvages_VNE" name="Importer les données Sauvages de ma Rue Vigie-Nature Ecole">
+<tool id="Import_sauvages_VNE_test" name="Test importer les données Sauvages de ma Rue Vigie-Nature Ecole">
   <description>Importer des données Sauvages de ma Rue depuis la base de données VNE</description>
   <requirements>
       <requirement type="package" version="1.95_4.12">r-rcurl</requirement>
